@@ -1,0 +1,44 @@
+{
+  "title": "LumaDeck",
+  "subtitle": "Live Slidev authoring with Codex",
+  "author": "LumaDeck",
+  "theme": "apple-basic",
+  "slides": [
+    {
+      "layout": "intro",
+      "title": "LumaDeck",
+      "subtitle": "AI와 수동 편집을 모두 지원하는 Slidev deck"
+    },
+    {
+      "layout": "section",
+      "title": "Live Authoring",
+      "subtitle": "Codex가 편집하고 사용자가 바로 확인"
+    },
+    {
+      "layout": "bullets",
+      "title": "Workflow",
+      "body": [
+        "lumadeck dev slides.md",
+        "slides.md, components/, styles/ 직접 편집",
+        "Slidev hot reload로 즉시 확인",
+        "lumadeck build slides.md로 HTML 생성"
+      ],
+      "notes": "이 슬라이드는 AI와 수동 편집 fallback을 모두 설명"
+    },
+    {
+      "layout": "quote",
+      "quote": "Deck JSON은 시작점, Slidev Markdown은 제작 소스",
+      "attribution": "LumaDeck MVP"
+    },
+    {
+      "layout": "fact",
+      "title": "UnoCSS",
+      "subtitle": "Slidev native utility styling"
+    },
+    {
+      "layout": "end",
+      "title": "Build the deck",
+      "subtitle": "Describe edits, refine live, export HTML"
+    }
+  ]
+}

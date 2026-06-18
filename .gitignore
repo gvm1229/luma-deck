@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Embedded local engine/reference checkout
+slidev/
+
+# Build outputs
+dist/
+build/
+.output/
+
+# Caches
+.vite/
+.cache/
+coverage/
+
+# Environment and local runtime
+.env
+.env.*
+!.env.example
+*.log
+
+# Agent/session local state
+.omx/
+.agents/work/
+.agents/prompt-assets/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

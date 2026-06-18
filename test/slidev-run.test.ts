@@ -17,4 +17,14 @@ describe('Slidev runner', () => {
       '3042',
     ])
   })
+
+  it('drops pnpm argument separator before forwarding Slidev arguments', () => {
+    expect(getSlidevArgs('dev', 'slides.md', ['--', '--host', '127.0.0.1', '--port', '3040'])).toEqual([
+      'slides.md',
+      '--host',
+      '127.0.0.1',
+      '--port',
+      '3040',
+    ])
+  })
 })

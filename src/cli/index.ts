@@ -155,6 +155,9 @@ function parseArgs(argv: string[]): ParsedArgs {
     if (value === undefined)
       continue
 
+    if (value === '--')
+      continue
+
     if (value.startsWith('--')) {
       const [name, inlineValue] = value.slice(2).split('=', 2)
 

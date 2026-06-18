@@ -19,7 +19,9 @@ export async function runSlidev(command: 'dev' | 'build', entry: string, extraAr
 }
 
 export function getSlidevArgs(command: 'dev' | 'build', entry: string, extraArgs: string[] = []): string[] {
+  const slidevExtraArgs = extraArgs.filter(arg => arg !== '--')
+
   return command === 'dev'
-    ? [entry, ...extraArgs]
-    : [command, entry, ...extraArgs]
+    ? [entry, ...slidevExtraArgs]
+    : [command, entry, ...slidevExtraArgs]
 }

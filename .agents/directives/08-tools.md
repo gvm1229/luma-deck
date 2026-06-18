@@ -35,8 +35,15 @@ Use the relevant configured tools for:
 - `pnpm lumadeck validate <name>` validates `projects/<name>/deck.json`.
 - `pnpm lumadeck render <name> --force` regenerates `projects/<name>/slides.md`.
 - `pnpm lumadeck dev <name>` starts Slidev for `projects/<name>/slides.md`.
+- Pass Slidev dev flags directly after the project name, for example `pnpm lumadeck dev <name> --host 127.0.0.1 --port 3040`. Be careful with an extra standalone `--`: if it reaches Slidev, options such as `--port` may be ignored and the server can fall back to port `3030`.
 - `pnpm lumadeck build <name>` builds static HTML for the project.
 - Explicit file paths still work for examples and focused tests.
+
+## Slidev Port Recovery
+
+- Slidev restarts the dev server when config files such as `uno.config.ts` change.
+- During config-triggered restart, Slidev/Vite uses strict port binding. If another process already owns the target port, the restart can fail with `Port 3030 is already in use`.
+- Before restarting or changing ports, check active listeners with `Get-NetTCPConnection -LocalPort 3030,3031,<chosen-port> -State Listen` and inspect the owning process. Terminate only the matching stale Slidev/Node process for the current deck unless the user explicitly asks for broader cleanup.
 
 ## First Checks
 

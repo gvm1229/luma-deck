@@ -33,6 +33,7 @@ describe('Slidev Markdown generator', () => {
     const markdown = renderDeckToSlidevMarkdown(deck)
 
     expect(markdown).toContain('theme: apple-basic')
+    expect(markdown).toContain('sans: "Pretendard Variable"')
     expect(markdown).toContain('layout: intro')
     expect(markdown).toContain('layout: bullets')
     expect(markdown).toContain('- One')
@@ -50,10 +51,15 @@ describe('Slidev Markdown generator', () => {
       const readme = await readFile(join(dir, 'README.md'), 'utf8')
 
       expect(slides).toContain('theme: apple-basic')
+      expect(slides).toContain('sans: "Pretendard Variable"')
       expect(slides).toContain('v-click')
+      expect(styles).toContain('pretendard/dist/web/variable/pretendardvariable.css')
+      expect(styles).toContain('--lumadeck-font-sans')
       expect(styles).toContain('.motion-card')
       expect(readme).toContain('gitignored LumaDeck authoring project')
       expect(readme).toContain('slides.md')
+      expect(readme).toContain('Docs/slidev-context.md')
+      expect(readme).toContain('https://sli.dev')
     }
     finally {
       await rm(dir, { recursive: true, force: true })

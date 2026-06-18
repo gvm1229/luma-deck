@@ -1,6 +1,10 @@
 ---
 theme: apple-basic
 title: "LumaDeck"
+fonts:
+  sans: "Pretendard Variable"
+  local: "Pretendard Variable"
+  provider: none
 layout: intro
 subtitle: "Live Slidev authoring with Codex"
 author: "LumaDeck"

@@ -19,6 +19,10 @@ function renderFirstSlide(deck: Deck, slide: DeckSlide, options: RenderOptions):
     '---',
     'theme: apple-basic',
     `title: ${yamlString(deck.title)}`,
+    'fonts:',
+    '  sans: "Pretendard Variable"',
+    '  local: "Pretendard Variable"',
+    '  provider: none',
     `layout: ${slide.layout ?? 'default'}`,
   ]
 

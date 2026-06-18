@@ -44,6 +44,7 @@ Key remembered decision:
 - Keep all individual deck authoring projects under gitignored `projects/<name>/`.
 - When the user names a deck project, resolve it through `projects/<name>/` unless they provide an explicit file path.
 - For deck work, edit `projects/<name>/slides.md`, `projects/<name>/components/`, and `projects/<name>/styles/` first. Do not edit generated/source repo examples unless the user asks.
+- Before deck work, read `Docs/slidev-context.md` and run a Slidev capability pass: map the request to built-in Slidev syntax, layouts, components, click/animation tools, UnoCSS config, diagrams, code features, or export tools before adding custom Vue/CSS.
 
 ## User Directives
 
@@ -60,6 +61,7 @@ AI agents must read and follow the relevant directive documents before acting:
 - [`.agents/directives/09-session-coordination.md`](.agents/directives/09-session-coordination.md) - multi-session edit coordination using ignored active-session manifests
 - [`.agents/directives/10-documentation-style.md`](.agents/directives/10-documentation-style.md) - concise human-readable Korean documentation style
 - [`.agents/directives/11-large-assets.md`](.agents/directives/11-large-assets.md) - handling large, generated, binary, or externally stored assets
+- [`Docs/slidev-context.md`](Docs/slidev-context.md) - Slidev capability map for deck editing and feature routing
 
 User-authored directives under `.agents/directives/` take precedence over tool-local config on conflict.
 
@@ -72,6 +74,7 @@ Common documents:
 - `README.md` - project overview, setup, and usage notes
 - `Docs/architecture.md` - durable architecture notes and implementation reasoning
 - `Docs/decisions.md` - important decisions and tradeoffs
+- `Docs/slidev-context.md` - Slidev feature routing map for agents
 - `Docs/large-assets.md` - assets kept out of normal source control, if applicable
 
 ## File Locations

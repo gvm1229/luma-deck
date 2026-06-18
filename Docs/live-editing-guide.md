@@ -50,15 +50,19 @@ pnpm lumadeck dev my-deck
 
 1. 대상 프로젝트 확인: `projects/<name>/`
 2. dev server 실행 또는 기존 실행 상태 확인: `pnpm lumadeck dev <name>`
-3. 사용자 요청을 slide 번호, title, 또는 인접 content 기준으로 매핑
-4. `slides.md`와 필요한 component/style만 수정
-5. 필요에 따라 `pnpm lumadeck build <name>` 또는 focused check 실행
-6. source repo 파일을 바꾼 경우에만 `pnpm build`, `pnpm test`
+3. `Docs/slidev-context.md`로 Slidev capability pass 수행
+4. 사용자 요청을 slide 번호, title, 또는 인접 content 기준으로 매핑
+5. `slides.md`와 필요한 component/style만 수정
+6. 필요에 따라 `pnpm lumadeck build <name>` 또는 focused check 실행
+7. source repo 파일을 바꾼 경우에만 `pnpm build`, `pnpm test`
 
 ## Styling 기준
 
 - MVP styling engine은 Slidev 기본 UnoCSS
 - Tailwind CSS는 사용하지 않음
+- 기본 typography는 Pretendard
+- `slides.md` frontmatter의 `fonts.sans`는 `Pretendard Variable` 유지
+- project global style은 `pretendard/dist/web/variable/pretendardvariable.css`를 import
 - Tailwind와 유사한 utility class 감각으로 작성 가능
 - 반복 스타일은 `uno.config.ts` shortcuts 또는 `styles/index.css`에 정리
 - rich animation 우선순위:
@@ -66,6 +70,22 @@ pnpm lumadeck dev my-deck
   - UnoCSS utility/shortcuts
   - CSS keyframes/transitions
   - reusable Vue components
+
+## Slidev 기능 활용 요청 예시
+
+Codex에게 deck 편집을 요청할 때는 Slidev 기능 검토를 함께 요구하면 좋음.
+
+- "Slidev 기능을 먼저 확인하고 4번 슬라이드에 단계별 click animation 추가"
+- "Monaco 또는 Shiki 기능이 맞는지 판단해서 코드 데모 슬라이드 개선"
+- "Mermaid/PlantUML 중 적절한 방식으로 아키텍처 다이어그램 추가"
+- "built-in layout과 Apple Basic theme를 유지하면서 비교 슬라이드 구성"
+- "global layer나 slide-scope style이 맞는지 확인하고 footer 추가"
+
+수동 편집 fallback:
+
+- Slidev capability map: `Docs/slidev-context.md`
+- 공식 Slidev docs: https://sli.dev
+- Apple Basic theme: https://github.com/slidevjs/themes/tree/main/packages/theme-apple-basic
 
 ## 주의
 

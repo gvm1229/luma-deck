@@ -36,6 +36,7 @@ For user deck production, treat generated `slides.md`, `components/`, and `style
 - Use Slidev frontmatter for layout/theme decisions where possible.
 - Preserve compatibility with Slidev Markdown, Vue components, Vite, and UnoCSS-style utility classes.
 - Use Slidev's built-in UnoCSS as the MVP styling engine. Do not add Tailwind CSS unless explicitly requested.
+- Use Pretendard as the default deck typography. Keep `fonts.sans` on `Pretendard Variable` and load `pretendard/dist/web/variable/pretendardvariable.css` from project global styles.
 - Remember that Slidev PPTX export is image-based; do not promise fully editable PowerPoint output without a separate implementation.
 
 ## Deck Project Editing

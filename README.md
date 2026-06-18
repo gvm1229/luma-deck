@@ -21,6 +21,7 @@ MVP scaffold 구현 단계.
 - `@slidev/theme-apple-basic` 기반 예제
 - UnoCSS 기반 Slidev styling 방향
 - Codex live-editing guide
+- Slidev capability context map
 - Vitest 테스트
 
 아직 미구현:
@@ -77,7 +78,7 @@ Codex subscription이 있으면 실행 중인 dev server를 보면서 현재 Cod
 
 ## 새 세션 작업 절차
 
-새 AI 세션은 먼저 `AGENTS.md`, `.agents/directives/`, `README.md`, `Docs/live-editing-guide.md`를 읽고 작업 종류를 구분.
+새 AI 세션은 먼저 `AGENTS.md`, `.agents/directives/`, `README.md`, `Docs/live-editing-guide.md`, `Docs/slidev-context.md`를 읽고 작업 종류를 구분.
 
 - LumaDeck source 변경: `src/`, `test/`, `Docs/`, config 수정 후 `pnpm build`, `pnpm test`
 - Deck project 변경: `projects/<name>/` 아래 파일만 수정하고 source repo 예제/코드는 건드리지 않음
@@ -85,6 +86,7 @@ Codex subscription이 있으면 실행 중인 dev server를 보면서 현재 Cod
 - Deck project 빌드: `pnpm lumadeck build <name>`
 
 Deck project에서 실제로 바꿀 파일과 검증 절차는 `Docs/live-editing-guide.md` 참고.
+Slidev 기능 라우팅과 공식 문서 참조는 `Docs/slidev-context.md` 참고.
 
 ## 핵심 방향
 
@@ -126,6 +128,7 @@ release v52.16.0
 - `Docs/architecture.md`: 구조와 설계 방향
 - `Docs/decisions.md`: 결정 기록
 - `Docs/live-editing-guide.md`: 새 세션용 deck 편집 절차
+- `Docs/slidev-context.md`: Slidev 기능 라우팅과 문서 참조 맵
 
 ## 개발 메모
 

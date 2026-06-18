@@ -39,6 +39,10 @@ function starterSlides(): string {
   return `---
 theme: apple-basic
 title: "LumaDeck"
+fonts:
+  sans: "Pretendard Variable"
+  local: "Pretendard Variable"
+  provider: none
 info: |
   LumaDeck live authoring workspace.
 ---
@@ -107,6 +111,16 @@ pnpm lumadeck build ${projectName}
 
 \`slides.md\`, Vue components, styles가 실제 제작 source of truth.
 \`deck.json\`에서 다시 render할 때는 기존 \`slides.md\`가 백업된 뒤 덮어쓰기됨.
+
+## Slidev 컨텍스트
+
+새 AI 세션에는 source repo의 \`AGENTS.md\`, \`Docs/live-editing-guide.md\`, \`Docs/slidev-context.md\`를 먼저 읽도록 요청.
+편집 전에는 Slidev-native 기능을 먼저 확인:
+
+- Slidev docs: https://sli.dev
+- Apple Basic theme: https://github.com/slidevjs/themes/tree/main/packages/theme-apple-basic
+- 이 프로젝트는 custom Vue/CSS보다 Slidev syntax, layouts, components, click animation, UnoCSS를 우선 사용
+- Typography는 Pretendard를 기본값으로 유지
 `
 }
 
@@ -136,7 +150,18 @@ function starterDeckJson(): string {
 }
 
 function starterStyles(): string {
-  return `.slide-title {
+  return `@import 'pretendard/dist/web/variable/pretendardvariable.css';
+
+:root {
+  --lumadeck-font-sans: "Pretendard Variable", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.slidev-layout,
+.slidev-page {
+  font-family: var(--lumadeck-font-sans);
+}
+
+.slide-title {
   letter-spacing: -0.02em;
 }
 

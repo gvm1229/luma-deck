@@ -1,0 +1,16 @@
+node_modules
+dist
+build
+.output
+.vite
+.cache
+coverage
+slidev
+projects
+.omx
+.agents/work
+.agents/prompt-assets
+examples/dist
+examples/node_modules
+*.min.js
+pnpm-lock.yaml

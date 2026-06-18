@@ -4,6 +4,9 @@ node_modules/
 # Embedded local engine/reference checkout
 /slidev/
 
+# Local LumaDeck authoring projects
+/projects/
+
 # Build outputs
 dist/
 build/

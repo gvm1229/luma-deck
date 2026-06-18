@@ -5,6 +5,7 @@ import { renderDeckToSlidevMarkdown } from '../generator/markdown.js'
 import { readDeckFile } from '../schema/io.js'
 import { runSlidev } from '../slidev/run.js'
 import { initWorkspace } from '../workspace/init.js'
+import { resolveProjectTarget } from '../workspace/projects.js'
 
 interface ParsedArgs {
   readonly command?: string
@@ -41,10 +42,12 @@ async function handleInit(args: ParsedArgs): Promise<number> {
   const target = args.positionals[0]
 
   if (!target)
-    return fail('사용법: lumadeck init <dir> [--force]')
+    return fail('사용법: lumadeck init <name> [--force]')
 
-  await initWorkspace(resolve(target), { force: args.flags.has('force') })
-  console.log(`LumaDeck 작업 폴더 생성: ${target}`)
+  const project = resolveProjectTarget(target)
+
+  await initWorkspace(project.dir, { force: args.flags.has('force') })
+  console.log(`LumaDeck 작업 폴더 생성: ${project.displayPath}`)
   return 0
 }
 
@@ -178,12 +181,15 @@ function printHelp(): void {
   console.log(`LumaDeck
 
 사용법:
-  lumadeck init <dir> [--force]
+  lumadeck init <name> [--force]
   lumadeck validate <deck.json>
   lumadeck render <deck.json> -o <slides.md> [--force]
   lumadeck generate <deck.json> -o <slides.md> [--force]
   lumadeck dev <slides.md>
   lumadeck build <slides.md>
+
+프로젝트는 항상 gitignored projects/ 아래에 생성됨.
+예: lumadeck init my-deck -> projects/my-deck
 `)
 }
 

@@ -7,6 +7,7 @@
 - AI 전략: API key 없음. LumaDeck은 LLM API를 호출하지 않고, Codex subscription/active session을 제작 파트너로 사용
 - GitHub: local scaffold 완료 후 `origin`을 `https://github.com/gvm1229/luma-deck.git`로 연결해 initial commit/push
 - 문서 산출물: 구현 시작 시 `Docs/plans/PLAN_INIT.md` 생성 후 이 계획과 동일한 내용 기록
+- 개별 LumaDeck 작업 프로젝트는 source repo에 추적하지 않고 gitignored `/projects/` 아래 단일 폴더에 보관
 
 ## 핵심 구현
 
@@ -21,7 +22,7 @@
 - Tailwind CSS는 MVP에서 사용하지 않음
 - UnoCSS는 Slidev 기본 styling engine으로 유지하고, LumaDeck 전체 MVP의 utility styling 기준으로 사용
 - `lumadeck` CLI:
-  - `lumadeck init <dir>`: Slidev 작업 폴더 생성
+  - `lumadeck init <name>`: gitignored `projects/<name>/` 아래 Slidev 작업 폴더 생성
   - `lumadeck validate <deck.json>`: Deck JSON 검증
   - `lumadeck render <deck.json> -o slides.md`: 사람이 편집 가능한 초기 Slidev Markdown 생성
   - `lumadeck dev <slides.md>`: Slidev dev server 실행
@@ -65,14 +66,14 @@
 
 - 초기 생성:
   - `lumadeck init my-deck`
-  - `lumadeck render examples/apple-basic.deck.json -o my-deck/slides.md`
+  - `lumadeck render examples/apple-basic.deck.json -o projects/my-deck/slides.md`
 - 라이브 편집:
-  - `lumadeck dev my-deck/slides.md`
+  - `lumadeck dev projects/my-deck/slides.md`
   - 브라우저에서 Slidev 확인
   - Codex 또는 사용자가 `slides.md`, `components/`, `styles/` 수정
   - Slidev hot reload로 즉시 확인
 - 최종 빌드:
-  - `lumadeck build my-deck/slides.md`
+  - `lumadeck build projects/my-deck/slides.md`
   - HTML 정적 산출물 생성
 
 ## 테스트 계획

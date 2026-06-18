@@ -41,10 +41,12 @@ pnpm test
 ```bash
 pnpm lumadeck init my-deck
 pnpm lumadeck validate examples/apple-basic.deck.json
-pnpm lumadeck render examples/apple-basic.deck.json -o my-deck/slides.md
-pnpm lumadeck dev my-deck/slides.md
-pnpm lumadeck build my-deck/slides.md
+pnpm lumadeck render examples/apple-basic.deck.json -o projects/my-deck/slides.md
+pnpm lumadeck dev projects/my-deck/slides.md
+pnpm lumadeck build projects/my-deck/slides.md
 ```
+
+`init`은 항상 gitignored `/projects/` 아래에 작업 폴더 생성. 예: `pnpm lumadeck init my-deck` -> `projects/my-deck/`.
 
 `render`는 기존 `slides.md`를 기본으로 덮어쓰지 않음. 덮어쓰려면 `--force` 사용.
 
@@ -54,6 +56,8 @@ LumaDeck의 source of truth는 하이브리드.
 
 - `deck.json`: 초기 생성, 검증, 재생성용
 - `slides.md`, `components/`, `styles/`: 실제 제작 소스
+
+개별 deck 프로젝트는 source repo에 추적하지 않음. 모든 개인/고객/실험 deck은 `/projects/` 아래의 단일 폴더에 보관.
 
 Codex subscription이 있으면 실행 중인 dev server를 보면서 현재 Codex 세션에 편집을 요청. AI를 사용할 수 없을 때는 같은 파일을 사람이 직접 수정.
 

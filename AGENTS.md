@@ -11,20 +11,28 @@ Detailed directives live under `.agents/directives/`. Tool-specific config direc
 - CLI command name: `lumadeck`
 - Primary stack: TypeScript, Node.js, Slidev, Vue, Vite, Markdown, YAML frontmatter, UnoCSS-compatible utility styling
 - Product type: AI-assisted HTML/JavaScript presentation generation tool
-- Purpose: Convert user prompts into structured deck data, generate Slidev Markdown, and render interactive HTML/Vue presentations through Slidev
+- Purpose: Support live authoring of Slidev HTML/Vue presentations through a Codex session, with Deck JSON as an optional starter representation
 - Default response language: Korean
 - Default human documentation language: Korean
 - Default new code comment language: Korean, unless surrounding code clearly uses another language
 
 ## Core Product Direction
 
-LumaDeck should be a clean wrapper and generator around Slidev, not a casual fork of Slidev core.
+LumaDeck should be a clean wrapper and live authoring workflow around Slidev, not a casual fork of Slidev core.
 
-Preferred pipeline:
+Preferred source-repo pipeline:
 
 ```text
-User prompt -> LLM analysis -> Deck JSON -> validation -> Slidev Markdown -> Slidev dev/build/export
+Deck JSON -> validation -> Slidev Markdown -> Slidev dev/build/export
 ```
+
+Preferred live deck workflow:
+
+```text
+User edit request -> active Codex session edits projects/<name>/slides.md/components/styles -> Slidev dev server hot reload -> final HTML build
+```
+
+LumaDeck does not call external LLM APIs and should not require API keys. The active Codex subscription/session is the AI layer. If AI is unavailable, users can directly edit the generated Slidev Markdown, Vue components, and styles.
 
 Key remembered decision:
 
@@ -32,6 +40,10 @@ Key remembered decision:
 - Use the embedded Slidev checkout as an internal runtime/reference engine.
 - Build LumaDeck-owned code outside `slidev/`.
 - Avoid modifying embedded Slidev unless explicitly asked; prefer adapters, generators, layouts, components, styles, and wrapper scripts.
+- Treat this repository as the LumaDeck source repo, not a personal deck tracker.
+- Keep all individual deck authoring projects under gitignored `projects/<name>/`.
+- When the user names a deck project, resolve it through `projects/<name>/` unless they provide an explicit file path.
+- For deck work, edit `projects/<name>/slides.md`, `projects/<name>/components/`, and `projects/<name>/styles/` first. Do not edit generated/source repo examples unless the user asks.
 
 ## User Directives
 
@@ -73,6 +85,7 @@ Common documents:
 | Prompt reference assets | `.agents/prompt-assets/` | No by default | Images or other large prompt references |
 | Agent working notes | `.agents/work/` | No | Scratch notes for complex tasks |
 | Session manifests | `.agents/work/active-sessions/*.md` | No | Per-session edit intent |
+| Local deck projects | `projects/<name>/` | No | Gitignored live authoring workspaces |
 | Human project docs | `Docs/` | Yes | Human-facing documentation |
 | Embedded Slidev checkout | `slidev/` | No | Local-only engine/reference clone |
 | OMX session state | `.omx/` | No | Local assistant/session state |
@@ -87,6 +100,7 @@ Do not intentionally commit generated, dependency, cache, build output, IDE stat
 
 - `node_modules/`
 - `slidev/`
+- `projects/`
 - `dist/`, `build/`, `.output/`
 - `.vite/`, `.nuxt/`, `.cache/`, coverage output
 - `.env`, `.env.*` except safe templates such as `.env.example`

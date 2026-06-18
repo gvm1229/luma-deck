@@ -23,10 +23,10 @@
 - UnoCSS는 Slidev 기본 styling engine으로 유지하고, LumaDeck 전체 MVP의 utility styling 기준으로 사용
 - `lumadeck` CLI:
   - `lumadeck init <name>`: gitignored `projects/<name>/` 아래 Slidev 작업 폴더 생성
-  - `lumadeck validate <deck.json>`: Deck JSON 검증
-  - `lumadeck render <deck.json> -o slides.md`: 사람이 편집 가능한 초기 Slidev Markdown 생성
-  - `lumadeck dev <slides.md>`: Slidev dev server 실행
-  - `lumadeck build <slides.md>`: HTML 정적 빌드 생성
+  - `lumadeck validate <project|deck.json>`: Deck JSON 검증
+  - `lumadeck render <project|deck.json> [-o slides.md]`: 사람이 편집 가능한 초기 Slidev Markdown 생성
+  - `lumadeck dev <project|slides.md>`: Slidev dev server 실행
+  - `lumadeck build <project|slides.md>`: HTML 정적 빌드 생성
 - `render`는 기존 파일을 기본으로 덮어쓰지 않음. 덮어쓰기는 명시적 `--force` 필요
 
 ## 생성 결과와 편집 모델
@@ -66,14 +66,14 @@
 
 - 초기 생성:
   - `lumadeck init my-deck`
-  - `lumadeck render examples/apple-basic.deck.json -o projects/my-deck/slides.md`
+  - `lumadeck render my-deck --force`
 - 라이브 편집:
-  - `lumadeck dev projects/my-deck/slides.md`
+  - `lumadeck dev my-deck`
   - 브라우저에서 Slidev 확인
   - Codex 또는 사용자가 `slides.md`, `components/`, `styles/` 수정
   - Slidev hot reload로 즉시 확인
 - 최종 빌드:
-  - `lumadeck build projects/my-deck/slides.md`
+  - `lumadeck build my-deck`
   - HTML 정적 산출물 생성
 
 ## 테스트 계획
@@ -103,6 +103,7 @@
   - 슬라이드 번호/제목 기준 edit targeting
   - 변경 요청 예시
   - 수동 편집 fallback 문서
+- 새 세션은 `Docs/live-editing-guide.md`를 우선 참고해 deck project와 source repo 작업을 구분
 - rich animation layer 확장:
   - Slidev click syntax 패턴
   - UnoCSS shortcuts

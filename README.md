@@ -1,9 +1,10 @@
 ﻿# LumaDeck
 
-LumaDeck는 프롬프트를 구조화된 발표 자료로 바꾸고, Slidev를 통해 HTML/Vue 기반 프레젠테이션으로 렌더링하는 도구.
+LumaDeck는 Codex 세션과 사용자가 Slidev 발표 자료를 라이브로 편집하고, HTML/Vue 기반 프레젠테이션으로 렌더링하는 도구.
 
 ```text
-User prompt -> LLM analysis -> Deck JSON -> Slidev Markdown -> HTML/Vue presentation
+Deck JSON -> validation -> Slidev Markdown -> Slidev dev/build -> HTML/Vue presentation
+User request -> Codex edits projects/<name>/slides.md/components/styles -> hot reload
 ```
 
 ## 현재 상태
@@ -71,6 +72,17 @@ LumaDeck의 source of truth는 하이브리드.
 
 Codex subscription이 있으면 실행 중인 dev server를 보면서 현재 Codex 세션에 편집을 요청. AI를 사용할 수 없을 때는 같은 파일을 사람이 직접 수정.
 
+## 새 세션 작업 절차
+
+새 AI 세션은 먼저 `AGENTS.md`, `.agents/directives/`, `README.md`, `Docs/live-editing-guide.md`를 읽고 작업 종류를 구분.
+
+- LumaDeck source 변경: `src/`, `test/`, `Docs/`, config 수정 후 `pnpm build`, `pnpm test`
+- Deck project 변경: `projects/<name>/` 아래 파일만 수정하고 source repo 예제/코드는 건드리지 않음
+- Deck project 실행: `pnpm lumadeck dev <name>`
+- Deck project 빌드: `pnpm lumadeck build <name>`
+
+Deck project에서 실제로 바꿀 파일과 검증 절차는 `Docs/live-editing-guide.md` 참고.
+
 ## 핵심 방향
 
 Slidev를 직접 수정하는 프로젝트가 아니라, Slidev 위에 얹는 생성기/래퍼로 개발.
@@ -110,6 +122,7 @@ release v52.16.0
 - `.agents/directives/`: 세부 agent 규칙
 - `Docs/architecture.md`: 구조와 설계 방향
 - `Docs/decisions.md`: 결정 기록
+- `Docs/live-editing-guide.md`: 새 세션용 deck 편집 절차
 
 ## 개발 메모
 

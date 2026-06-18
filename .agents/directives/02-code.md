@@ -2,6 +2,8 @@
 
 This directive applies to implementation work in LumaDeck.
 
+For live deck editing work under `projects/<name>/`, prefer `Docs/live-editing-guide.md` first. Source-code rules below apply when changing LumaDeck itself.
+
 ## Project Coding Direction
 
 - Build LumaDeck-owned code outside the gitignored `slidev/` checkout.
@@ -12,8 +14,10 @@ This directive applies to implementation work in LumaDeck.
 - Keep the pipeline easy to inspect:
 
 ```text
-prompt -> Deck JSON -> validate -> Slidev Markdown -> render/export
+Deck JSON -> validate -> Slidev Markdown -> render/export
 ```
+
+For user deck production, treat generated `slides.md`, `components/`, and `styles/` as the editable source of truth. `deck.json` is an initial scaffold/validation input, not the only durable representation.
 
 ## Coding Rules
 
@@ -31,7 +35,16 @@ prompt -> Deck JSON -> validate -> Slidev Markdown -> render/export
 - Generate Slidev Markdown and project-local layouts/components/styles before editing Slidev internals.
 - Use Slidev frontmatter for layout/theme decisions where possible.
 - Preserve compatibility with Slidev Markdown, Vue components, Vite, and UnoCSS-style utility classes.
+- Use Slidev's built-in UnoCSS as the MVP styling engine. Do not add Tailwind CSS unless explicitly requested.
 - Remember that Slidev PPTX export is image-based; do not promise fully editable PowerPoint output without a separate implementation.
+
+## Deck Project Editing
+
+- All individual deck projects must live under gitignored `projects/<name>/`.
+- If the user names a project, resolve it as `projects/<name>/`.
+- For deck edits, change `projects/<name>/slides.md`, `components/`, `styles/`, or `uno.config.ts`.
+- Do not edit `examples/` for a user deck request unless the user explicitly asks.
+- Do not commit files under `projects/`; they are local authoring artifacts.
 
 ## Dependencies
 

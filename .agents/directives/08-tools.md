@@ -11,12 +11,13 @@ This directive governs local tools, package commands, browser/editor automation,
 
 ## Expected Local Tooling
 
-The project is not scaffolded yet. Once scaffolded, prefer:
+The project is scaffolded. Prefer:
 
 - Node.js for runtime and CLI work.
 - TypeScript for source code.
-- `pnpm` first if the project aligns with Slidev's ecosystem; otherwise follow the package manager actually present in the repository.
-- Slidev CLI through the embedded/local Slidev checkout or installed package scripts.
+- `pnpm` package scripts.
+- `pnpm lumadeck <command>` for project operations.
+- Slidev CLI through the LumaDeck wrapper unless inspecting Slidev behavior directly.
 
 ## Common Tool Categories
 
@@ -27,6 +28,15 @@ Use the relevant configured tools for:
 - Browser inspection and screenshots for web UI verification.
 - Slidev preview/build/export verification.
 - Official docs or local source inspection for version-sensitive APIs.
+
+## LumaDeck Commands
+
+- `pnpm lumadeck init <name>` creates `projects/<name>/`.
+- `pnpm lumadeck validate <name>` validates `projects/<name>/deck.json`.
+- `pnpm lumadeck render <name> --force` regenerates `projects/<name>/slides.md`.
+- `pnpm lumadeck dev <name>` starts Slidev for `projects/<name>/slides.md`.
+- `pnpm lumadeck build <name>` builds static HTML for the project.
+- Explicit file paths still work for examples and focused tests.
 
 ## First Checks
 

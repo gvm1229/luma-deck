@@ -40,15 +40,25 @@ pnpm test
 
 ```bash
 pnpm lumadeck init my-deck
-pnpm lumadeck validate examples/apple-basic.deck.json
-pnpm lumadeck render examples/apple-basic.deck.json -o projects/my-deck/slides.md
-pnpm lumadeck dev projects/my-deck/slides.md
-pnpm lumadeck build projects/my-deck/slides.md
+pnpm lumadeck validate my-deck
+pnpm lumadeck render my-deck --force
+pnpm lumadeck dev my-deck
+pnpm lumadeck build my-deck
 ```
 
 `init`은 항상 gitignored `/projects/` 아래에 작업 폴더 생성. 예: `pnpm lumadeck init my-deck` -> `projects/my-deck/`.
 
-`render`는 기존 `slides.md`를 기본으로 덮어쓰지 않음. 덮어쓰려면 `--force` 사용.
+`validate`, `render`, `dev`, `build`는 프로젝트 이름을 받으면 자동으로 `projects/<name>/deck.json` 또는 `projects/<name>/slides.md`를 찾음.
+
+명시적 파일 경로도 계속 지원:
+
+```bash
+pnpm lumadeck validate examples/apple-basic.deck.json
+pnpm lumadeck render examples/apple-basic.deck.json -o projects/my-deck/slides.md
+pnpm lumadeck dev projects/my-deck/slides.md
+```
+
+`render`는 기존 `slides.md`를 기본으로 덮어쓰지 않음. 프로젝트 이름을 입력하면 기본 출력은 `projects/<name>/slides.md`. 덮어쓰려면 `--force` 사용.
 
 ## 편집 방식
 

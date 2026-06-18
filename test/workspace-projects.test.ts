@@ -1,6 +1,13 @@
-import { resolve } from 'node:path'
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join, resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { resolveProjectTarget } from '../src/workspace/projects.js'
+import {
+  isProjectNameLike,
+  resolveExistingProjectInput,
+  resolveProjectFileTarget,
+  resolveProjectTarget,
+} from '../src/workspace/projects.js'
 
 describe('project target resolution', () => {
   const cwd = resolve('/repo')
@@ -26,4 +33,69 @@ describe('project target resolution', () => {
   it('rejects absolute paths', () => {
     expect(() => resolveProjectTarget(resolve('/tmp/deck'), cwd)).toThrow('projects/')
   })
+
+  it('resolves project files under projects/', () => {
+    const target = resolveProjectFileTarget('my-deck', 'slides.md', cwd)
+
+    expect(target.file).toBe(resolve('/repo/projects/my-deck/slides.md'))
+    expect(target.fileDisplayPath).toBe('projects/my-deck/slides.md')
+  })
+
+  it('detects project-name-like inputs', () => {
+    expect(isProjectNameLike('my-deck')).toBe(true)
+    expect(isProjectNameLike('projects/my-deck')).toBe(true)
+    expect(isProjectNameLike('examples/apple-basic.deck.json')).toBe(false)
+    expect(isProjectNameLike('examples/apple-basic.slides.md')).toBe(false)
+  })
+
+  it('prefers explicit files when they exist', async () => {
+    const dir = await mkWorkspace()
+
+    try {
+      await writeFile(join(dir, 'custom.deck.json'), '{}', 'utf8')
+
+      await expect(resolveExistingProjectInput('custom.deck.json', 'deck.json', dir))
+        .resolves
+        .toBe(resolve(dir, 'custom.deck.json'))
+    }
+    finally {
+      await rm(dir, { recursive: true, force: true })
+    }
+  })
+
+  it('falls back to project files under projects/', async () => {
+    const dir = await mkWorkspace()
+
+    try {
+      await mkdir(join(dir, 'projects', 'demo'), { recursive: true })
+      await writeFile(join(dir, 'projects', 'demo', 'slides.md'), 'slides', 'utf8')
+
+      await expect(resolveExistingProjectInput('demo', 'slides.md', dir))
+        .resolves
+        .toBe(resolve(dir, 'projects', 'demo', 'slides.md'))
+    }
+    finally {
+      await rm(dir, { recursive: true, force: true })
+    }
+  })
+
+  it('treats projects/name as a project directory, not an input file', async () => {
+    const dir = await mkWorkspace()
+
+    try {
+      await mkdir(join(dir, 'projects', 'demo'), { recursive: true })
+      await writeFile(join(dir, 'projects', 'demo', 'deck.json'), '{}', 'utf8')
+
+      await expect(resolveExistingProjectInput('projects/demo', 'deck.json', dir))
+        .resolves
+        .toBe(resolve(dir, 'projects', 'demo', 'deck.json'))
+    }
+    finally {
+      await rm(dir, { recursive: true, force: true })
+    }
+  })
 })
+
+async function mkWorkspace(): Promise<string> {
+  return await mkdtemp(join(tmpdir(), 'lumadeck-workspace-'))
+}

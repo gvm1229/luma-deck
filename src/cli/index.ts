@@ -5,7 +5,12 @@ import { renderDeckToSlidevMarkdown } from '../generator/markdown.js'
 import { readDeckFile } from '../schema/io.js'
 import { runSlidev } from '../slidev/run.js'
 import { initWorkspace } from '../workspace/init.js'
-import { resolveProjectTarget } from '../workspace/projects.js'
+import {
+  isProjectNameLike,
+  resolveExistingProjectInput,
+  resolveProjectFileTarget,
+  resolveProjectTarget,
+} from '../workspace/projects.js'
 
 interface ParsedArgs {
   readonly command?: string
@@ -55,25 +60,28 @@ async function handleValidate(args: ParsedArgs): Promise<number> {
   const input = args.positionals[0]
 
   if (!input)
-    return fail('사용법: lumadeck validate <deck.json>')
+    return fail('사용법: lumadeck validate <project|deck.json>')
 
-  await readDeckFile(input)
-  console.log(`deck 검증 완료: ${input}`)
+  const deckPath = await resolveExistingProjectInput(input, 'deck.json')
+
+  await readDeckFile(deckPath)
+  console.log(`deck 검증 완료: ${deckPath}`)
   return 0
 }
 
 async function handleRender(args: ParsedArgs): Promise<number> {
   const input = args.positionals[0]
-  const output = getStringFlag(args, 'output') ?? getStringFlag(args, 'o')
+  const output = getStringFlag(args, 'output') ?? getStringFlag(args, 'o') ?? getDefaultRenderOutput(input)
 
   if (!input || !output)
-    return fail('사용법: lumadeck render <deck.json> -o <slides.md> [--force]')
+    return fail('사용법: lumadeck render <project|deck.json> [-o <slides.md>] [--force]')
 
   if (!args.flags.has('force') && await exists(output))
     return fail(`출력 파일이 이미 존재함: ${output}\n덮어쓰려면 --force 사용`)
 
-  const deck = await readDeckFile(input)
-  const markdown = renderDeckToSlidevMarkdown(deck, { sourcePath: input })
+  const deckPath = await resolveExistingProjectInput(input, 'deck.json')
+  const deck = await readDeckFile(deckPath)
+  const markdown = renderDeckToSlidevMarkdown(deck, { sourcePath: deckPath })
 
   await mkdir(dirname(resolve(output)), { recursive: true })
   await writeFile(output, markdown, 'utf8')
@@ -85,9 +93,11 @@ async function handleSlidev(command: 'dev' | 'build', args: ParsedArgs): Promise
   const entry = args.positionals[0]
 
   if (!entry)
-    return fail(`사용법: lumadeck ${command} <slides.md>`)
+    return fail(`사용법: lumadeck ${command} <project|slides.md>`)
 
-  return await runSlidev(command, entry, [
+  const entryPath = await resolveExistingProjectInput(entry, 'slides.md')
+
+  return await runSlidev(command, entryPath, [
     ...args.positionals.slice(1),
     ...formatFlags(args.flags),
   ])
@@ -148,6 +158,13 @@ function getStringFlag(args: ParsedArgs, name: string): string | undefined {
   return typeof value === 'string' ? value : undefined
 }
 
+function getDefaultRenderOutput(input?: string): string | undefined {
+  if (!input || !isProjectNameLike(input))
+    return undefined
+
+  return resolveProjectFileTarget(input, 'slides.md').file
+}
+
 function formatFlags(flags: Map<string, string | boolean>): string[] {
   const formatted: string[] = []
 
@@ -182,14 +199,15 @@ function printHelp(): void {
 
 사용법:
   lumadeck init <name> [--force]
-  lumadeck validate <deck.json>
-  lumadeck render <deck.json> -o <slides.md> [--force]
-  lumadeck generate <deck.json> -o <slides.md> [--force]
-  lumadeck dev <slides.md>
-  lumadeck build <slides.md>
+  lumadeck validate <project|deck.json>
+  lumadeck render <project|deck.json> [-o <slides.md>] [--force]
+  lumadeck generate <project|deck.json> [-o <slides.md>] [--force]
+  lumadeck dev <project|slides.md>
+  lumadeck build <project|slides.md>
 
 프로젝트는 항상 gitignored projects/ 아래에 생성됨.
 예: lumadeck init my-deck -> projects/my-deck
+예: lumadeck dev my-deck -> projects/my-deck/slides.md
 `)
 }
 

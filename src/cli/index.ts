@@ -84,7 +84,10 @@ async function handleSlidev(command: 'dev' | 'build', args: ParsedArgs): Promise
   if (!entry)
     return fail(`사용법: lumadeck ${command} <slides.md>`)
 
-  return await runSlidev(command, entry, args.positionals.slice(1))
+  return await runSlidev(command, entry, [
+    ...args.positionals.slice(1),
+    ...formatFlags(args.flags),
+  ])
 }
 
 function parseArgs(argv: string[]): ParsedArgs {
@@ -140,6 +143,20 @@ function parseArgs(argv: string[]): ParsedArgs {
 function getStringFlag(args: ParsedArgs, name: string): string | undefined {
   const value = args.flags.get(name)
   return typeof value === 'string' ? value : undefined
+}
+
+function formatFlags(flags: Map<string, string | boolean>): string[] {
+  const formatted: string[] = []
+
+  for (const [name, value] of flags) {
+    const prefix = name.length === 1 ? '-' : '--'
+    formatted.push(`${prefix}${name}`)
+
+    if (typeof value === 'string')
+      formatted.push(value)
+  }
+
+  return formatted
 }
 
 async function exists(path: string): Promise<boolean> {

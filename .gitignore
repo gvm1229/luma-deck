@@ -2,7 +2,7 @@
 node_modules/
 
 # Embedded local engine/reference checkout
-slidev/
+/slidev/
 
 # Build outputs
 dist/

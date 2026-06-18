@@ -31,6 +31,7 @@
 - Prefer local repository evidence over assumptions.
 - Treat user-provided names, paths, URLs, component names, environment names, database fields, API names, and expected behavior as unverified until checked.
 - When verifying slide decks or presentation pages, if a slide has excessive information, overflow, cramped layout, or reduced readability, prefer splitting it into multiple slides before shrinking content or claiming completion.
+- After any visual or layout edit to a slide deck or presentation page, including a single-slide edit, run a visual review test for the affected slide before claiming completion.
 - If tool output is truncated, run a narrower follow-up query instead of relying on incomplete output.
 - If a tool, script, or command fails with a clear error, inspect the cause and adjust the next attempt.
 - If validation fails, inspect the error and attempt a focused fix before asking for help.

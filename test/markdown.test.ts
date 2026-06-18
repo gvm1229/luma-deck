@@ -47,9 +47,13 @@ describe('Slidev Markdown generator', () => {
       await initWorkspace(dir)
       const slides = await readFile(join(dir, 'slides.md'), 'utf8')
       const styles = await readFile(join(dir, 'styles', 'index.css'), 'utf8')
+      const readme = await readFile(join(dir, 'README.md'), 'utf8')
 
       expect(slides).toContain('theme: apple-basic')
+      expect(slides).toContain('v-click')
       expect(styles).toContain('.motion-card')
+      expect(readme).toContain('gitignored LumaDeck authoring project')
+      expect(readme).toContain('slides.md')
     }
     finally {
       await rm(dir, { recursive: true, force: true })

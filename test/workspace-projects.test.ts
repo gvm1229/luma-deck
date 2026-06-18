@@ -3,7 +3,9 @@ import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import {
+  getProjectInfo,
   isProjectNameLike,
+  listProjects,
   resolveExistingProjectInput,
   resolveProjectFileTarget,
   resolveProjectTarget,
@@ -89,6 +91,55 @@ describe('project target resolution', () => {
       await expect(resolveExistingProjectInput('projects/demo', 'deck.json', dir))
         .resolves
         .toBe(resolve(dir, 'projects', 'demo', 'deck.json'))
+    }
+    finally {
+      await rm(dir, { recursive: true, force: true })
+    }
+  })
+
+  it('lists only project directories', async () => {
+    const dir = await mkWorkspace()
+
+    try {
+      await mkdir(join(dir, 'projects', 'beta'), { recursive: true })
+      await mkdir(join(dir, 'projects', 'alpha'), { recursive: true })
+      await writeFile(join(dir, 'projects', 'not-a-project.txt'), 'ignore', 'utf8')
+
+      await expect(listProjects(dir)).resolves.toEqual(['alpha', 'beta'])
+    }
+    finally {
+      await rm(dir, { recursive: true, force: true })
+    }
+  })
+
+  it('returns an empty list when projects directory is missing', async () => {
+    const dir = await mkWorkspace()
+
+    try {
+      await expect(listProjects(dir)).resolves.toEqual([])
+    }
+    finally {
+      await rm(dir, { recursive: true, force: true })
+    }
+  })
+
+  it('reports project info and file existence', async () => {
+    const dir = await mkWorkspace()
+
+    try {
+      await mkdir(join(dir, 'projects', 'demo', 'components'), { recursive: true })
+      await mkdir(join(dir, 'projects', 'demo', 'styles'), { recursive: true })
+      await writeFile(join(dir, 'projects', 'demo', 'deck.json'), '{}', 'utf8')
+
+      const info = await getProjectInfo('demo', dir)
+
+      expect(info.exists).toBe(true)
+      expect(info.displayPath).toBe('projects/demo')
+      expect(info.files.deck.exists).toBe(true)
+      expect(info.files.slides.exists).toBe(false)
+      expect(info.files.components.exists).toBe(true)
+      expect(info.files.styles.exists).toBe(true)
+      expect(info.files.dist.displayPath).toBe('projects/demo/dist')
     }
     finally {
       await rm(dir, { recursive: true, force: true })

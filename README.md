@@ -15,15 +15,16 @@ MVP scaffold 구현 단계.
 
 - TypeScript/Node ESM 프로젝트 scaffold
 - `lumadeck` CLI 기본 명령
+- `lumadeck list`, `lumadeck info <project>` 프로젝트 탐색
 - Deck JSON schema와 validation
 - Deck JSON -> Slidev Markdown 생성
 - `@slidev/theme-apple-basic` 기반 예제
 - UnoCSS 기반 Slidev styling 방향
+- Codex live-editing guide
 - Vitest 테스트
 
 아직 미구현:
 
-- Codex live-editing guide
 - 고급 animation component library
 - visual QA 자동화
 - HTML 배포 가이드
@@ -41,6 +42,8 @@ pnpm test
 
 ```bash
 pnpm lumadeck init my-deck
+pnpm lumadeck list
+pnpm lumadeck info my-deck
 pnpm lumadeck validate my-deck
 pnpm lumadeck render my-deck --force
 pnpm lumadeck dev my-deck
@@ -59,7 +62,7 @@ pnpm lumadeck render examples/apple-basic.deck.json -o projects/my-deck/slides.m
 pnpm lumadeck dev projects/my-deck/slides.md
 ```
 
-`render`는 기존 `slides.md`를 기본으로 덮어쓰지 않음. 프로젝트 이름을 입력하면 기본 출력은 `projects/<name>/slides.md`. 덮어쓰려면 `--force` 사용.
+`render`는 기존 `slides.md`를 기본으로 덮어쓰지 않음. 프로젝트 이름을 입력하면 기본 출력은 `projects/<name>/slides.md`. 덮어쓰려면 `--force` 사용. `--force`가 기존 파일을 덮어쓸 때는 `slides.backup.<timestamp>.md`를 먼저 생성.
 
 ## 편집 방식
 
@@ -126,4 +129,4 @@ release v52.16.0
 
 ## 개발 메모
 
-아직 package manager와 scaffold는 확정 전. TypeScript/Node 기반으로 시작하고, Slidev 생태계와 맞추기 위해 `pnpm` 우선 검토.
+Package manager는 `pnpm`. Source repo 변경 후 `pnpm build`, `pnpm test`로 검증.

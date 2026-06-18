@@ -1,12 +1,14 @@
 #!/usr/bin/env node
-import { access, mkdir, writeFile } from 'node:fs/promises'
-import { dirname, resolve } from 'node:path'
+import { access } from 'node:fs/promises'
+import { writeRenderOutput } from '../generator/render-file.js'
 import { renderDeckToSlidevMarkdown } from '../generator/markdown.js'
 import { readDeckFile } from '../schema/io.js'
 import { runSlidev } from '../slidev/run.js'
 import { initWorkspace } from '../workspace/init.js'
 import {
+  getProjectInfo,
   isProjectNameLike,
+  listProjects,
   resolveExistingProjectInput,
   resolveProjectFileTarget,
   resolveProjectTarget,
@@ -24,6 +26,10 @@ async function main(argv: string[]): Promise<number> {
   switch (args.command) {
     case 'init':
       return await handleInit(args)
+    case 'list':
+      return await handleList()
+    case 'info':
+      return await handleInfo(args)
     case 'validate':
       return await handleValidate(args)
     case 'render':
@@ -51,9 +57,42 @@ async function handleInit(args: ParsedArgs): Promise<number> {
 
   const project = resolveProjectTarget(target)
 
-  await initWorkspace(project.dir, { force: args.flags.has('force') })
+  await initWorkspace(project.dir, { force: args.flags.has('force'), projectName: project.displayPath.replace(/^projects\//, '') })
   console.log(`LumaDeck 작업 폴더 생성: ${project.displayPath}`)
   return 0
+}
+
+async function handleList(): Promise<number> {
+  const projects = await listProjects()
+
+  if (projects.length === 0) {
+    console.log('LumaDeck 프로젝트가 없음')
+    return 0
+  }
+
+  for (const project of projects)
+    console.log(project)
+
+  return 0
+}
+
+async function handleInfo(args: ParsedArgs): Promise<number> {
+  const target = args.positionals[0]
+
+  if (!target)
+    return fail('사용법: lumadeck info <project>')
+
+  const info = await getProjectInfo(target)
+
+  console.log(`Project: ${info.displayPath}`)
+  console.log(`Exists: ${formatBoolean(info.exists)}`)
+  console.log(`deck.json: ${formatInfoPath(info.files.deck)}`)
+  console.log(`slides.md: ${formatInfoPath(info.files.slides)}`)
+  console.log(`components/: ${formatInfoPath(info.files.components)}`)
+  console.log(`styles/: ${formatInfoPath(info.files.styles)}`)
+  console.log(`dist/: ${formatInfoPath(info.files.dist)}`)
+
+  return info.exists ? 0 : 1
 }
 
 async function handleValidate(args: ParsedArgs): Promise<number> {
@@ -82,10 +121,12 @@ async function handleRender(args: ParsedArgs): Promise<number> {
   const deckPath = await resolveExistingProjectInput(input, 'deck.json')
   const deck = await readDeckFile(deckPath)
   const markdown = renderDeckToSlidevMarkdown(deck, { sourcePath: deckPath })
+  const result = await writeRenderOutput(output, markdown, { force: args.flags.has('force') })
 
-  await mkdir(dirname(resolve(output)), { recursive: true })
-  await writeFile(output, markdown, 'utf8')
-  console.log(`Slidev Markdown 생성: ${output}`)
+  if (result.backupPath)
+    console.log(`기존 slides 백업 생성: ${result.backupPath}`)
+
+  console.log(`Slidev Markdown 생성: ${result.outputPath}`)
   return 0
 }
 
@@ -165,6 +206,14 @@ function getDefaultRenderOutput(input?: string): string | undefined {
   return resolveProjectFileTarget(input, 'slides.md').file
 }
 
+function formatInfoPath(path: { readonly displayPath: string, readonly exists: boolean }): string {
+  return `${path.displayPath} (${formatBoolean(path.exists)})`
+}
+
+function formatBoolean(value: boolean): string {
+  return value ? 'yes' : 'no'
+}
+
 function formatFlags(flags: Map<string, string | boolean>): string[] {
   const formatted: string[] = []
 
@@ -199,6 +248,8 @@ function printHelp(): void {
 
 사용법:
   lumadeck init <name> [--force]
+  lumadeck list
+  lumadeck info <project>
   lumadeck validate <project|deck.json>
   lumadeck render <project|deck.json> [-o <slides.md>] [--force]
   lumadeck generate <project|deck.json> [-o <slides.md>] [--force]

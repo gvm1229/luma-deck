@@ -1,4 +1,4 @@
-import { stat } from 'node:fs/promises'
+import { readdir, stat } from 'node:fs/promises'
 import { isAbsolute, relative, resolve } from 'node:path'
 
 export const projectsRootName = 'projects'
@@ -12,6 +12,23 @@ export interface ProjectTarget {
 export interface ProjectFileTarget extends ProjectTarget {
   readonly file: string
   readonly fileDisplayPath: string
+}
+
+export interface ProjectInfo extends ProjectTarget {
+  readonly exists: boolean
+  readonly files: {
+    readonly deck: ProjectInfoPath
+    readonly slides: ProjectInfoPath
+    readonly components: ProjectInfoPath
+    readonly styles: ProjectInfoPath
+    readonly dist: ProjectInfoPath
+  }
+}
+
+export interface ProjectInfoPath {
+  readonly path: string
+  readonly displayPath: string
+  readonly exists: boolean
 }
 
 export function resolveProjectTarget(rawTarget: string, cwd = process.cwd()): ProjectTarget {
@@ -52,6 +69,40 @@ export function resolveProjectFileTarget(rawTarget: string, filename: string, cw
   }
 }
 
+export async function listProjects(cwd = process.cwd()): Promise<string[]> {
+  const root = resolve(cwd, projectsRootName)
+
+  try {
+    const entries = await readdir(root, { withFileTypes: true })
+    return entries
+      .filter(entry => entry.isDirectory())
+      .map(entry => entry.name)
+      .sort((left, right) => left.localeCompare(right))
+  }
+  catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT')
+      return []
+
+    throw error
+  }
+}
+
+export async function getProjectInfo(rawTarget: string, cwd = process.cwd()): Promise<ProjectInfo> {
+  const project = resolveProjectTarget(rawTarget, cwd)
+
+  return {
+    ...project,
+    exists: await isDirectory(project.dir),
+    files: {
+      deck: await getProjectInfoPath(project, 'deck.json'),
+      slides: await getProjectInfoPath(project, 'slides.md'),
+      components: await getProjectInfoPath(project, 'components'),
+      styles: await getProjectInfoPath(project, 'styles'),
+      dist: await getProjectInfoPath(project, 'dist'),
+    },
+  }
+}
+
 export async function resolveExistingProjectInput(rawInput: string, filename: string, cwd = process.cwd()): Promise<string> {
   const explicitPath = resolve(cwd, rawInput)
 
@@ -83,9 +134,38 @@ function normalizeSlashes(value: string): string {
   return value.replace(/\\/g, '/').replace(/^\.?\//, '')
 }
 
+async function getProjectInfoPath(project: ProjectTarget, name: string): Promise<ProjectInfoPath> {
+  const path = resolve(project.dir, name)
+
+  return {
+    path,
+    displayPath: `${project.displayPath}/${name}`,
+    exists: await exists(path),
+  }
+}
+
 async function isFile(path: string): Promise<boolean> {
   try {
     return (await stat(path)).isFile()
+  }
+  catch {
+    return false
+  }
+}
+
+async function isDirectory(path: string): Promise<boolean> {
+  try {
+    return (await stat(path)).isDirectory()
+  }
+  catch {
+    return false
+  }
+}
+
+async function exists(path: string): Promise<boolean> {
+  try {
+    await stat(path)
+    return true
   }
   catch {
     return false

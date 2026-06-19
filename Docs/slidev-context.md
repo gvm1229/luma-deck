@@ -28,7 +28,8 @@ Deck 작업 전 다음을 짧게 수행:
 2. 아래 라우팅 맵에서 관련 문서 확인
 3. 내장 syntax/layout/component/config로 가능한지 판단
 4. 필요한 경우에만 `projects/<name>/components/`, `styles/`, `uno.config.ts` 확장
-5. `pnpm lumadeck dev <name>` 또는 `pnpm lumadeck build <name>` 기준으로 검증
+5. `slides.md`가 UTF-8 without BOM인지 확인. Slide 1에 frontmatter가 보이거나 theme가 fallback되면 BOM/frontmatter 파싱 문제부터 확인
+6. `pnpm lumadeck dev <name>` 또는 `pnpm lumadeck build <name>` 기준으로 검증
 
 ## 라우팅 맵
 
@@ -71,6 +72,7 @@ Deck 작업 전 다음을 짧게 수행:
 - 기본 font: `Pretendard Variable`
 - utility shortcuts/presets: `uno.config.ts`
 - source repo 예제나 `src/`는 사용자가 source 변경을 요청한 경우만 수정
+- `slides.md`는 UTF-8 without BOM 유지. BOM이 붙으면 deck-level frontmatter가 Slide 1 본문처럼 렌더링될 수 있음
 
 ## 자주 놓치는 기능
 

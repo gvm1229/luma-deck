@@ -35,6 +35,19 @@ Write human-readable documents in concise Korean:
 - Keep variable names, function names, class names, file paths, Unreal terms, and tool names in English when that is clearer.
 - Do not translate technical identifiers into awkward Korean transliterations.
 - Use Korean for explanatory text, but keep exact UI labels, asset names, paths, and code identifiers unchanged.
+- For Korean presentation decks, avoid leaving broad English explanatory copy in slide text or speaker notes. Translate or rewrite explanatory content into natural Korean unless the English term is an exact asset name, Unreal/Slidev/API term, code identifier, UI label, or quoted source.
+
+## Presentation Style Rules
+
+For presentation decks and speaker notes:
+
+- Use a friendly, informative Korean tone.
+- Keep slide text readable and summary-oriented; avoid turning slides into scripts.
+- Write speaker notes as presenter guidance, not as text to read verbatim.
+- Prefer natural spoken Korean over stiff report prose.
+- Preserve enough context in notes for the presenter to explain the slide without guessing.
+- For image-centric slides, let the visual carry the main point and keep the notes focused on what to emphasize verbally.
+- When a deck presents team member work, distinguish the presenter's own work from other members' work in the notes.
 
 ## Document Shape
 

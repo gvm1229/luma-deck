@@ -99,5 +99,12 @@ Keep these out of Git:
 - Treating LLM output as trusted without schema validation.
 - Treating `projects/` deck files as source repo files to commit.
 - Editing `examples/` when the user intended a local deck project.
+- Saving `slides.md` with a UTF-8 BOM. Slidev can fail to parse deck-level frontmatter, causing metadata such as `theme` to render as Slide 1 content or the deck to fall back to the default theme.
 - Promising editable PowerPoint output from Slidev's image-based PPTX export.
 - Committing local `.omx/` session state or `.agents/work/` scratch files.
+
+## Slide Deck File Rules
+
+- Keep `slides.md` encoded as UTF-8 without BOM.
+- If Slide 1 shows YAML/frontmatter text, an unexpected blank/metadata slide appears, or the theme falls back unexpectedly, check the first bytes of `slides.md` before editing layout or content.
+- When using LumaDeck commands, rely on `lumadeck dev/build` to strip a UTF-8 BOM from the entry `slides.md`; if editing with another tool, verify the file still starts directly with `---`.

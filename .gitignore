@@ -7,6 +7,9 @@ node_modules/
 # Local LumaDeck authoring projects
 /projects/
 
+# Local deck backups
+/backup/
+
 # Build outputs
 dist/
 build/

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { access } from 'node:fs/promises'
+import { access, readFile, writeFile } from 'node:fs/promises'
 import { writeRenderOutput } from '../generator/render-file.js'
 import { renderDeckToSlidevMarkdown } from '../generator/markdown.js'
 import { readDeckFile } from '../schema/io.js'
@@ -137,11 +137,22 @@ async function handleSlidev(command: 'dev' | 'build', args: ParsedArgs): Promise
     return fail(`사용법: lumadeck ${command} <project|slides.md>`)
 
   const entryPath = await resolveExistingProjectInput(entry, 'slides.md')
+  await stripUtf8Bom(entryPath)
 
   return await runSlidev(command, entryPath, [
     ...args.positionals.slice(1),
     ...formatFlags(args.flags),
   ])
+}
+
+async function stripUtf8Bom(path: string): Promise<void> {
+  const content = await readFile(path)
+
+  if (content[0] !== 0xEF || content[1] !== 0xBB || content[2] !== 0xBF)
+    return
+
+  await writeFile(path, content.subarray(3))
+  console.warn(`slides.md UTF-8 BOM 제거: ${path}`)
 }
 
 function parseArgs(argv: string[]): ParsedArgs {

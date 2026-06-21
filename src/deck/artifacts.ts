@@ -19,3 +19,7 @@ export function getMacDesktopArtifactDir(projectName: string): string {
 export function getPptxMediaDiagnosticDir(projectName: string): string {
   return resolve(getProjectArtifactRoot(projectName), 'diagnostics', 'pptx-media', 'current')
 }
+
+export function getRuntimeCacheArtifactDir(projectName: string): string {
+  return resolve(getProjectArtifactRoot(projectName), 'runtime-cache', 'current')
+}

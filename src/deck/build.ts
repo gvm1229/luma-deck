@@ -1,7 +1,9 @@
-import { rm } from 'node:fs/promises'
+import { mkdir, rename, rm } from 'node:fs/promises'
+import { join } from 'node:path'
 import { runSlidev } from '../slidev/run.js'
-import { getHtmlArtifactDir } from './artifacts.js'
+import { getHtmlArtifactDir, getRuntimeCacheArtifactDir } from './artifacts.js'
 import {
+  exists,
   getStringFlag,
   isMainModule,
   parseFlags,
@@ -38,11 +40,27 @@ export async function buildDeck(options: DeckBuildOptions): Promise<DeckBuildRes
   if (code !== 0)
     throw new Error(`Slidev build 실패: exit ${code}`)
 
+  await moveSlidevRuntimeCache(project.dir, project.name)
+
   return {
     projectDir: project.dir,
     slidesPath: project.slidesPath,
     outDir,
   }
+}
+
+async function moveSlidevRuntimeCache(projectDir: string, projectName: string): Promise<void> {
+  const source = join(projectDir, 'node_modules')
+
+  if (!await exists(source))
+    return
+
+  const cacheRoot = getRuntimeCacheArtifactDir(projectName)
+  const target = join(cacheRoot, 'node_modules')
+
+  await rm(cacheRoot, { recursive: true, force: true })
+  await mkdir(cacheRoot, { recursive: true })
+  await rename(source, target)
 }
 
 async function main(): Promise<void> {

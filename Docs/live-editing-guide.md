@@ -62,6 +62,7 @@ Deck source와 generated artifact를 섞지 않는다.
 | logs | `artifacts/<name>/logs/` | 제외 |
 | backups | `artifacts/<name>/backups/` | 제외 |
 | PPTX media diagnostic | `artifacts/<name>/diagnostics/pptx-media/current/` | 제외 |
+| Slidev runtime cache | `artifacts/<name>/runtime-cache/current/` | 제외 |
 
 새 산출물은 `current/` 아래에 재생성한다. 이전 산출물을 보존해야 하면 `archive/<timestamp>/` 아래로 이동한다.
 

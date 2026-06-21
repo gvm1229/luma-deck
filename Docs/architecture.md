@@ -51,6 +51,7 @@ Slidev Markdown
 - `projects/<name>/slides.md`, `components/`, `styles/`, `images/`, `references/`, `uno.config.ts`가 실제 편집 대상
 - HTML build, visual review, desktop package, PPTX 진단 결과, log, backup은 `artifacts/<name>/` 아래에 둠
 - 재생성되는 산출물은 각 category의 `current/` 아래에 쓰고, 보존용 이전 산출물은 `archive/` 아래에 둠
+- Slidev가 deck 폴더 안에 임시 `node_modules/.slidev` cache를 만들면 build wrapper가 `artifacts/<name>/runtime-cache/current/`로 이동
 - `artifacts/`는 local-only이며 Git에 포함하지 않음
 - root `backup/`, `dist/`, `node_modules/`, embedded `slidev/`도 Git에 포함하지 않음
 

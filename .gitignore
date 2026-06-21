@@ -7,6 +7,9 @@ node_modules/
 # Local LumaDeck authoring projects
 /projects/
 
+# Local generated deck artifacts
+/artifacts/
+
 # Local deck backups
 /backup/
 

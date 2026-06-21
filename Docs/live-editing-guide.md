@@ -8,6 +8,8 @@
 
 - 이 repo는 LumaDeck source repo
 - 개별 deck 프로젝트는 gitignored `projects/<name>/` 아래에만 보관
+- `projects/<name>/`는 source-only 작업 공간
+- build, visual review, desktop package, PPTX 진단 결과, log, backup은 `artifacts/<name>/` 아래에만 보관
 - 사용자가 프로젝트 이름만 말하면 `projects/<name>/`로 해석
 - 일반 deck 작업에서는 `examples/`, `src/`, `Docs/`를 수정하지 않음
 - API key 또는 외부 LLM provider 설정을 만들지 않음
@@ -45,6 +47,41 @@ pnpm lumadeck dev my-deck
 5. `projects/<name>/deck.json`, 초기 구조를 다시 생성해야 할 때만
 
 `deck.json`은 시작점과 검증용. 실제 제작 source of truth는 `slides.md`, Vue components, styles.
+
+## 산출물 위치
+
+Deck source와 generated artifact를 섞지 않는다.
+
+| 종류 | 위치 | Git |
+| --- | --- | --- |
+| deck source | `projects/<name>/` | 제외 |
+| HTML build | `artifacts/<name>/html/` | 제외 |
+| Windows desktop package | `artifacts/<name>/desktop-win/` | 제외 |
+| macOS desktop package | `artifacts/<name>/desktop-mac/` | 제외 |
+| visual review | `artifacts/<name>/visual-reviews/` | 제외 |
+| logs | `artifacts/<name>/logs/` | 제외 |
+| backups | `artifacts/<name>/backups/` | 제외 |
+| PPTX media diagnostic | `artifacts/<name>/diagnostics/pptx-media/` | 제외 |
+
+AI agent는 `projects/<name>/` 안에 `dist*`, `.visual-review*`, `.log`, `.exe`, `.dmg`, `.zip`, `.pptx` 산출물을 남기지 않는다. 이미 존재하는 산출물은 삭제하지 말고 `artifacts/<name>/`로 이동한다.
+
+## 배포 명령
+
+```bash
+pnpm deck:build -- --project my-deck
+pnpm deck:package:win -- --project my-deck --name "Deck Name"
+pnpm deck:package:mac -- --project my-deck --name "Deck Name"
+```
+
+macOS에서 공유할 단일 파일은 `.dmg`다. 실제 실행 파일은 `.dmg` 안의 `.app` bundle이며, 신뢰 가능한 공개 배포에는 Apple Developer ID signing과 notarization이 필요하다.
+
+## 내부 진단 명령
+
+```bash
+pnpm deck:diagnose:pptx-media -- --project my-deck --name "Deck Name"
+```
+
+이 명령은 PPTX export가 아니다. 원본 GIF가 PPTX 내부 media로 보존되는지만 확인한다. 결과는 AI agent와 개발자가 export 가능성을 판단하기 위한 진단 자료이며, 사용자에게 전달할 발표 자료로 취급하지 않는다.
 
 ## 라이브 편집 절차
 

@@ -50,6 +50,7 @@ Slidev Markdown
 - `projects/<name>/`는 deck source 전용
 - `projects/<name>/slides.md`, `components/`, `styles/`, `images/`, `references/`, `uno.config.ts`가 실제 편집 대상
 - HTML build, visual review, desktop package, PPTX 진단 결과, log, backup은 `artifacts/<name>/` 아래에 둠
+- 재생성되는 산출물은 각 category의 `current/` 아래에 쓰고, 보존용 이전 산출물은 `archive/` 아래에 둠
 - `artifacts/`는 local-only이며 Git에 포함하지 않음
 - root `backup/`, `dist/`, `node_modules/`, embedded `slidev/`도 Git에 포함하지 않음
 

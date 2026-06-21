@@ -5,17 +5,17 @@ export function getProjectArtifactRoot(projectName: string): string {
 }
 
 export function getHtmlArtifactDir(projectName: string): string {
-  return resolve(getProjectArtifactRoot(projectName), 'html')
+  return resolve(getProjectArtifactRoot(projectName), 'html', 'current')
 }
 
 export function getWindowsDesktopArtifactDir(projectName: string): string {
-  return resolve(getProjectArtifactRoot(projectName), 'desktop-win')
+  return resolve(getProjectArtifactRoot(projectName), 'desktop-win', 'current')
 }
 
 export function getMacDesktopArtifactDir(projectName: string): string {
-  return resolve(getProjectArtifactRoot(projectName), 'desktop-mac')
+  return resolve(getProjectArtifactRoot(projectName), 'desktop-mac', 'current')
 }
 
 export function getPptxMediaDiagnosticDir(projectName: string): string {
-  return resolve(getProjectArtifactRoot(projectName), 'diagnostics', 'pptx-media')
+  return resolve(getProjectArtifactRoot(projectName), 'diagnostics', 'pptx-media', 'current')
 }

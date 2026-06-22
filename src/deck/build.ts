@@ -9,7 +9,7 @@ import {
   resolveDeckProject,
   stripUtf8Bom,
 } from './cli-utils.js'
-import { moveSlidevRuntimeCache } from './runtime-cache.js'
+import { moveSlidevRuntimeCache, restoreSlidevRuntimeCache } from './runtime-cache.js'
 
 export interface DeckBuildOptions {
   readonly project: string
@@ -28,18 +28,23 @@ export async function buildDeck(options: DeckBuildOptions): Promise<DeckBuildRes
 
   await stripUtf8Bom(project.slidesPath)
   await rm(outDir, { recursive: true, force: true })
+  await restoreSlidevRuntimeCache(project.dir, project.name)
 
-  const code = await runSlidev('build', project.slidesPath, [
-    '--base',
-    './',
-    '--out',
-    outDir,
-  ])
+  let code = 1
+  try {
+    code = await runSlidev('build', project.slidesPath, [
+      '--base',
+      './',
+      '--out',
+      outDir,
+    ])
+  }
+  finally {
+    await moveSlidevRuntimeCache(project.dir, project.name)
+  }
 
   if (code !== 0)
     throw new Error(`Slidev build 실패: exit ${code}`)
-
-  await moveSlidevRuntimeCache(project.dir, project.name)
 
   return {
     projectDir: project.dir,

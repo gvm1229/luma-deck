@@ -11,13 +11,15 @@ import {
   slugify,
   stripUtf8Bom,
 } from './cli-utils.js'
-import { moveSlidevRuntimeCache } from './runtime-cache.js'
+import { moveSlidevRuntimeCache, restoreSlidevRuntimeCache } from './runtime-cache.js'
 
 export interface DeckPdfExportOptions {
   readonly project: string
   readonly name?: string
   readonly out?: string
   readonly range?: string
+  readonly wait?: string
+  readonly waitUntil?: string
   readonly withClicks?: boolean
 }
 
@@ -38,6 +40,7 @@ export async function exportDeckPdf(options: DeckPdfExportOptions): Promise<Deck
     await rm(outDir, { recursive: true, force: true })
 
   await mkdir(outDir, { recursive: true })
+  await restoreSlidevRuntimeCache(project.dir, project.name)
 
   const exportArgs = [
     '--format',
@@ -47,9 +50,9 @@ export async function exportDeckPdf(options: DeckPdfExportOptions): Promise<Deck
     '--timeout',
     '120000',
     '--wait',
-    '1000',
+    options.wait ?? '3000',
     '--wait-until',
-    'none',
+    options.waitUntil ?? 'load',
   ]
 
   if (options.range)
@@ -58,12 +61,16 @@ export async function exportDeckPdf(options: DeckPdfExportOptions): Promise<Deck
   if (options.withClicks)
     exportArgs.push('--with-clicks')
 
-  const code = await runSlidev('export', project.slidesPath, exportArgs)
+  let code = 1
+  try {
+    code = await runSlidev('export', project.slidesPath, exportArgs)
+  }
+  finally {
+    await moveSlidevRuntimeCache(project.dir, project.name)
+  }
 
   if (code !== 0)
     throw new Error(`Slidev PDF export 실패: exit ${code}`)
-
-  await moveSlidevRuntimeCache(project.dir, project.name)
 
   return {
     projectDir: project.dir,
@@ -74,12 +81,14 @@ export async function exportDeckPdf(options: DeckPdfExportOptions): Promise<Deck
 
 async function main(): Promise<void> {
   const args = parseFlags(process.argv.slice(2))
-  const project = requireStringFlag(args, 'project', '사용법: pnpm deck:export:pdf -- --project <name> [--name <display name>] [--out <file>] [--range <range>] [--with-clicks]')
+  const project = requireStringFlag(args, 'project', '사용법: pnpm deck:export:pdf -- --project <name> [--name <display name>] [--out <file>] [--range <range>] [--wait <ms>] [--wait-until <state>] [--with-clicks]')
   const name = getStringFlag(args, 'name')
   const out = getStringFlag(args, 'out')
   const range = getStringFlag(args, 'range')
+  const wait = getStringFlag(args, 'wait')
+  const waitUntil = getStringFlag(args, 'wait-until')
   const withClicks = args.flags.get('with-clicks') === true
-  const result = await exportDeckPdf({ project, name, out, range, withClicks })
+  const result = await exportDeckPdf({ project, name, out, range, wait, waitUntil, withClicks })
 
   console.log(`Deck PDF export complete: ${result.outFile}`)
 }

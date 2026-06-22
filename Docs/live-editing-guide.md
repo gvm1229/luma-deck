@@ -56,6 +56,7 @@ Deck source와 generated artifact를 섞지 않는다.
 | --- | --- | --- |
 | deck source | `projects/<name>/` | 제외 |
 | HTML build | `artifacts/<name>/html/current/` | 제외 |
+| PDF export | `artifacts/<name>/pdf/current/` | 제외 |
 | Windows desktop package | `artifacts/<name>/desktop-win/current/` | 제외 |
 | macOS desktop package | `artifacts/<name>/desktop-mac/current/` | 제외 |
 | visual review | `artifacts/<name>/visual-reviews/` | 제외 |
@@ -72,9 +73,12 @@ AI agent는 `projects/<name>/` 안에 `dist*`, `.visual-review*`, `.log`, `.exe`
 
 ```bash
 pnpm deck:build -- --project my-deck
+pnpm deck:export:pdf -- --project my-deck --name "Deck Name"
 pnpm deck:package:win -- --project my-deck --name "Deck Name"
 pnpm deck:package:mac -- --project my-deck --name "Deck Name"
 ```
+
+PDF export는 정적 인쇄용 산출물이다. GIF, video, iframe, Slidev interactive state는 움직이지 않으며, 필요한 경우 `--with-clicks`로 click state를 여러 PDF page로 펼칠 수 있다.
 
 macOS에서 공유할 단일 파일은 `.dmg`다. 실제 실행 파일은 `.dmg` 안의 `.app` bundle이며, 신뢰 가능한 공개 배포에는 Apple Developer ID signing과 notarization이 필요하다.
 

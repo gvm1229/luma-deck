@@ -10,6 +10,15 @@ describe('Slidev runner', () => {
     expect(getSlidevArgs('build', 'slides.md')).toEqual(['build', 'slides.md'])
   })
 
+  it('passes export as a Slidev subcommand', () => {
+    expect(getSlidevArgs('export', 'slides.md', ['--format', 'pdf'])).toEqual([
+      'export',
+      'slides.md',
+      '--format',
+      'pdf',
+    ])
+  })
+
   it('forwards extra Slidev arguments', () => {
     expect(getSlidevArgs('dev', 'slides.md', ['--port', '3042'])).toEqual([
       'slides.md',

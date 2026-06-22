@@ -16,6 +16,10 @@ export function getMacDesktopArtifactDir(projectName: string): string {
   return resolve(getProjectArtifactRoot(projectName), 'desktop-mac', 'current')
 }
 
+export function getPdfArtifactDir(projectName: string): string {
+  return resolve(getProjectArtifactRoot(projectName), 'pdf', 'current')
+}
+
 export function getPptxMediaDiagnosticDir(projectName: string): string {
   return resolve(getProjectArtifactRoot(projectName), 'diagnostics', 'pptx-media', 'current')
 }

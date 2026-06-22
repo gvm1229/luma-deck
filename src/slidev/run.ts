@@ -3,7 +3,9 @@ import { createRequire } from 'node:module'
 
 const require = createRequire(import.meta.url)
 
-export async function runSlidev(command: 'dev' | 'build', entry: string, extraArgs: string[] = []): Promise<number> {
+export type SlidevCommand = 'dev' | 'build' | 'export'
+
+export async function runSlidev(command: SlidevCommand, entry: string, extraArgs: string[] = []): Promise<number> {
   const slidevBin = require.resolve('@slidev/cli/bin/slidev.mjs')
   const slidevArgs = getSlidevArgs(command, entry, extraArgs)
 
@@ -18,7 +20,7 @@ export async function runSlidev(command: 'dev' | 'build', entry: string, extraAr
   })
 }
 
-export function getSlidevArgs(command: 'dev' | 'build', entry: string, extraArgs: string[] = []): string[] {
+export function getSlidevArgs(command: SlidevCommand, entry: string, extraArgs: string[] = []): string[] {
   const slidevExtraArgs = extraArgs.filter(arg => arg !== '--')
 
   return command === 'dev'

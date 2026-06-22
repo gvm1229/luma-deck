@@ -50,6 +50,7 @@ Slidev Markdown
 - `projects/<name>/`는 deck source 전용
 - `projects/<name>/slides.md`, `components/`, `styles/`, `images/`, `references/`, `uno.config.ts`가 실제 편집 대상
 - HTML build, visual review, desktop package, PPTX 진단 결과, log, backup은 `artifacts/<name>/` 아래에 둠
+- PDF export는 `artifacts/<name>/pdf/current/` 아래에 둠
 - 재생성되는 산출물은 각 category의 `current/` 아래에 쓰고, 보존용 이전 산출물은 `archive/` 아래에 둠
 - Slidev가 deck 폴더 안에 임시 `node_modules/.slidev` cache를 만들면 build wrapper가 `artifacts/<name>/runtime-cache/current/`로 이동
 - `artifacts/`는 local-only이며 Git에 포함하지 않음
@@ -72,6 +73,12 @@ Windows 배포:
 - primary artifact는 portable `.exe`
 - 설치 없이 실행 가능
 - 코드 서명 인증서가 없으면 Windows trust prompt는 완전히 제거할 수 없음
+
+## PDF export
+
+`deck:export:pdf`는 Slidev CLI의 `export --format pdf`를 감싼다. 출력은 `artifacts/<name>/pdf/current/` 아래에 쓰며, `projects/<name>/`에는 PDF나 임시 산출물을 남기지 않는다.
+
+PDF는 인쇄/공유용 정적 snapshot이다. GIF, video, iframe, browser interaction은 재생되지 않는다. Click state를 별도 page로 펼쳐야 하면 `--with-clicks`를 사용한다.
 
 macOS 배포:
 

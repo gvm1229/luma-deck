@@ -11,6 +11,7 @@
     "build": "tsc -p tsconfig.json",
     "deck:build": "tsx src/deck/build.ts",
     "deck:diagnose:pptx-media": "tsx src/deck/pptx-spike.ts",
+    "deck:export:pdf": "tsx src/deck/export-pdf.ts",
     "deck:package:mac": "tsx src/deck/package-mac.ts",
     "deck:package:win": "tsx src/deck/package-win.ts",
     "deck:pptx-spike": "tsx src/deck/pptx-spike.ts",

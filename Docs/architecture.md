@@ -76,9 +76,17 @@ Windows 배포:
 
 ## PDF export
 
-`deck:export:pdf`는 Slidev CLI의 `export --format pdf`를 감싼다. 출력은 `artifacts/<name>/pdf/current/` 아래에 쓰며, `projects/<name>/`에는 PDF나 임시 산출물을 남기지 않는다.
+`deck:export:pdf`의 기본 경로는 screenshot-based export다.
 
-PDF는 인쇄/공유용 정적 snapshot이다. GIF, video, iframe, browser interaction은 재생되지 않는다. Click state를 별도 page로 펼쳐야 하면 `--with-clicks`를 사용한다.
+- `deck:build`로 static HTML을 만든다
+- local static server를 임시로 띄운다
+- Playwright/Chromium으로 각 slide route를 1280x720 screenshot으로 캡처한다
+- screenshot들을 16:9 PDF page로 조립한다
+- 출력은 `artifacts/<name>/pdf/current/` 아래에 쓰며, `projects/<name>/`에는 PDF나 임시 산출물을 남기지 않는다
+
+이 방식은 Chromium print가 특정 `object-fit`, GIF, RGBA PNG 조합을 PDF에서 누락하거나 잘못 crop하는 문제를 피하기 위한 기본값이다. PDF는 인쇄/공유용 정적 snapshot이므로 GIF, video, iframe, browser interaction은 재생되지 않는다.
+
+Slidev CLI의 native `export --format pdf`가 필요하면 `deck:export:pdf -- --native`를 사용한다. Click state를 별도 page로 펼쳐야 하는 경우도 `--native --with-clicks`를 사용한다. native 경로는 Slidev 자체 동작 확인용이며, 배포용 visual parity는 screenshot-based 기본 경로를 우선한다.
 
 macOS 배포:
 

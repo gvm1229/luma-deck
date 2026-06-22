@@ -78,7 +78,7 @@ pnpm deck:package:win -- --project my-deck --name "Deck Name"
 pnpm deck:package:mac -- --project my-deck --name "Deck Name"
 ```
 
-PDF export는 정적 인쇄용 산출물이다. GIF, video, iframe, Slidev interactive state는 움직이지 않으며, 필요한 경우 `--with-clicks`로 click state를 여러 PDF page로 펼칠 수 있다.
+PDF export는 정적 인쇄용 산출물이다. 기본 명령은 HTML build를 route별 screenshot으로 캡처한 뒤 PDF로 조립하므로 presentation 화면과 PDF가 같은 픽셀을 사용한다. GIF, video, iframe, Slidev interactive state는 움직이지 않는다. Slidev native PDF export가 꼭 필요하면 `--native`를 붙이고, click state를 여러 PDF page로 펼쳐야 하면 `--native --with-clicks`를 사용한다.
 
 macOS에서 공유할 단일 파일은 `.dmg`다. 실제 실행 파일은 `.dmg` 안의 `.app` bundle이며, 신뢰 가능한 공개 배포에는 Apple Developer ID signing과 notarization이 필요하다.
 

@@ -1,6 +1,6 @@
 import { createServer, type Server } from 'node:http'
 import { readFile, mkdir, rm } from 'node:fs/promises'
-import { dirname, extname, join, resolve } from 'node:path'
+import { dirname, extname, join, relative, resolve } from 'node:path'
 import { chromium, type Page } from 'playwright-chromium'
 import { runSlidev } from '../slidev/run.js'
 import { getPdfArtifactDir } from './artifacts.js'
@@ -46,7 +46,7 @@ async function exportDeckPdfWithScreenshots(options: DeckPdfExportOptions): Prom
   const project = await resolveDeckProject(options.project)
   const outDir = getPdfArtifactDir(project.name)
   const outFile = options.out ?? join(outDir, `${slugify(options.name ?? project.name)}.pdf`)
-  const waitMs = Number.parseInt(options.wait ?? '3000', 10)
+  const waitMs = parseWaitMs(options.wait)
   const slideNumbers = await getSlideNumbers(project.slidesPath, options.range)
 
   if (!options.out)
@@ -73,7 +73,7 @@ async function exportDeckPdfWithScreenshots(options: DeckPdfExportOptions): Prom
     const images: string[] = []
 
     for (const slide of slideNumbers) {
-      await capturePage.goto(`${baseUrl}/${slide}`, {
+      await capturePage.goto(`${baseUrl}/${slide}?lumadeckPoster=1`, {
         waitUntil: options.waitUntil === 'networkidle' ? 'networkidle' : 'load',
         timeout: 120000,
       })
@@ -182,10 +182,10 @@ async function getSlideNumbers(slidesPath: string, range?: string): Promise<numb
     if (!Number.isFinite(start) || !Number.isFinite(end))
       throw new Error(`지원하지 않는 PDF range: ${range}`)
 
-    for (let slide = start; slide <= end; slide += 1) {
-      if (slide >= 1 && slide <= total)
-        selected.add(slide)
-    }
+    const boundedStart = Math.max(start, 1)
+    const boundedEnd = Math.min(end, total)
+    for (let slide = boundedStart; slide <= boundedEnd; slide += 1)
+      selected.add(slide)
   }
 
   return [...selected].sort((a, b) => a - b)
@@ -238,6 +238,13 @@ img { display: block; width: ${slideWidth}px; height: ${slideHeight}px; margin: 
 </html>`
 }
 
+function parseWaitMs(value: string | undefined): number {
+  const waitMs = Number.parseInt(value ?? '3000', 10)
+  if (!Number.isFinite(waitMs) || waitMs < 0 || waitMs > 120000)
+    throw new Error('PDF export wait은 0~120000ms 범위 필요')
+  return waitMs
+}
+
 async function createStaticServer(rootDir: string): Promise<Server> {
   const root = resolve(rootDir)
   const types = new Map([
@@ -252,11 +259,20 @@ async function createStaticServer(rootDir: string): Promise<Server> {
     ['.woff2', 'font/woff2'],
   ])
   const server = createServer((request, response) => {
-    const url = decodeURIComponent(request.url?.split('?')[0] || '/')
+  let url: string
+  try {
+    url = decodeURIComponent(request.url?.split('?')[0] || '/')
+  }
+  catch {
+    response.writeHead(400)
+    response.end('bad request')
+    return
+  }
     const requestedPath = url === '/' ? '/index.html' : url
     let filePath = resolve(root, `.${requestedPath}`)
 
-    if (!filePath.startsWith(root)) {
+    const fromRoot = relative(root, filePath)
+    if (fromRoot.startsWith('..') || fromRoot === '') {
       response.writeHead(403)
       response.end('forbidden')
       return

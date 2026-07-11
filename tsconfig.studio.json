@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "rootDir": ".",
+    "outDir": "studio/dist",
+    "declaration": false,
+    "sourceMap": true
+  },
+  "include": ["src/studio/**/*.ts", "studio/**/*.ts"],
+  "exclude": ["studio/dist", "node_modules"]
+}

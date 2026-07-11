@@ -82,18 +82,19 @@ describe('Visual Studio editor', () => {
     expect(await page.locator('.studio-header').evaluate(node => getComputedStyle(node).display)).toBe('none')
     await page.waitForTimeout(600)
     expect(await page.locator('[data-element-id="hit"]').evaluate(node => getComputedStyle(node).opacity)).toBe('0')
-    expect(await page.locator('.scene-connector-arrow').evaluateAll(nodes => nodes.every(node => getComputedStyle(node).display === 'none'))).toBe(true)
+    expect(await page.locator('.scene-connector-head').evaluateAll(nodes => nodes.every(node => getComputedStyle(node).display === 'none'))).toBe(true)
     await page.waitForTimeout(1700)
     await page.locator('[data-role="canvas"]').click()
     await page.waitForTimeout(2700)
-    expect(await page.locator('.scene-connector-arrow').first().evaluate(node => getComputedStyle(node).display)).not.toBe('none')
-    expect(await page.locator('.scene-path-line').evaluateAll(nodes => nodes.every(node => Number.parseFloat(getComputedStyle(node).borderRadius) >= 999))).toBe(true)
+    expect(await page.locator('.scene-connector-head').first().evaluate(node => getComputedStyle(node).display)).not.toBe('none')
+    expect(await page.locator('.scene-connector-stick').evaluateAll(nodes => nodes.every(node => node.getAttribute('stroke-linecap') === 'round'))).toBe(true)
     const connectorJoin = await page.locator('.scene-element-connector').first().evaluate((node) => {
-      const line = node.querySelector<HTMLElement>('.scene-path-line')!
-      const arrow = node.querySelector<HTMLElement>('.scene-connector-arrow')!
-      return { gap: Math.abs(line.getBoundingClientRect().right - arrow.getBoundingClientRect().left) }
+      const stick = node.querySelector<SVGLineElement>('.scene-connector-stick')!
+      const head = node.querySelector<SVGPolygonElement>('.scene-connector-head')!
+      const [headBase] = head.getAttribute('points')!.split(' ')[0].split(',').map(Number)
+      return { gap: Math.abs(Number(stick.getAttribute('x2')) + Number(stick.getAttribute('stroke-width')) / 2 - headBase) }
     })
-    expect(connectorJoin.gap).toBeLessThanOrEqual(2)
+    expect(connectorJoin.gap).toBeLessThanOrEqual(.01)
     await page.keyboard.press('Escape')
     expect(await page.locator('.studio-header').evaluate(node => getComputedStyle(node).display)).not.toBe('none')
     expect(errors).toEqual([])

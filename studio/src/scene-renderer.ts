@@ -173,25 +173,16 @@ function updateElement(node: HTMLElement, element: SceneElement, assets: readonl
       image.alt = asset.alt; image.src = state.options.assetUrls?.get(asset.id) ?? asset.src; image.style.objectFit = asset.fit
     }
   }
-  else if (element.type === 'path' || element.type === 'connector') {
+  else if (element.type === 'path') {
     let line = node.querySelector<HTMLElement>('.scene-path-line')
     if (!line) { line = document.createElement('div'); line.className = 'scene-path-line'; node.replaceChildren(line) }
     const progress = Math.min(Math.max(Number(element.style.pathProgress ?? 1), 0), 1)
-    const arrowVisible = progress >= .99
-    line.style.width = arrowVisible ? 'calc(100% - 26px)' : `${progress * 100}%`
+    line.style.width = `${progress * 100}%`
     line.style.background = String(element.style.background ?? '#2563eb')
     line.style.borderRadius = '999px'
-    if (element.type === 'connector' && !node.querySelector('.scene-connector-arrow')) {
-      const arrow = document.createElement('span')
-      arrow.className = 'scene-connector-arrow'
-      arrow.textContent = ''
-      node.append(arrow)
-    }
-    const arrow = node.querySelector<HTMLElement>('.scene-connector-arrow')
-    if (arrow) {
-      arrow.style.display = arrowVisible ? 'block' : 'none'
-      arrow.style.color = String(element.style.background ?? '#2563eb')
-    }
+  }
+  else if (element.type === 'connector') {
+    updateConnector(node, element)
   }
   else if (element.type === 'group') {
     node.replaceChildren()
@@ -205,6 +196,47 @@ function updateElement(node: HTMLElement, element: SceneElement, assets: readonl
     handle.className = 'scene-resize-handle'; handle.type = 'button'; handle.dataset.resize = element.id; handle.ariaLabel = '크기 조절'
     node.append(handle)
   }
+}
+
+function updateConnector(node: HTMLElement, element: SceneElement): void {
+  let svg = node.querySelector<SVGSVGElement>('.scene-connector-svg')
+  if (!svg) {
+    svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    svg.classList.add('scene-connector-svg')
+    const stick = document.createElementNS('http://www.w3.org/2000/svg', 'line')
+    stick.classList.add('scene-connector-stick')
+    const head = document.createElementNS('http://www.w3.org/2000/svg', 'polygon')
+    head.classList.add('scene-connector-head')
+    svg.append(stick, head)
+    node.replaceChildren(svg)
+  }
+  const stick = svg.querySelector<SVGLineElement>('.scene-connector-stick')!
+  const head = svg.querySelector<SVGPolygonElement>('.scene-connector-head')!
+  const drawing = getConnectorDrawing(element.transform.width, element.transform.height, element.style.pathProgress)
+  const color = String(element.style.background ?? '#2563eb')
+  svg.setAttribute('viewBox', `0 0 ${drawing.width} ${drawing.height}`)
+  svg.setAttribute('preserveAspectRatio', 'none')
+  stick.setAttribute('x1', '0')
+  stick.setAttribute('y1', String(drawing.height / 2))
+  stick.setAttribute('x2', String(drawing.stickX2))
+  stick.setAttribute('y2', String(drawing.height / 2))
+  stick.setAttribute('stroke', color)
+  stick.setAttribute('stroke-width', String(drawing.strokeWidth))
+  stick.setAttribute('stroke-linecap', 'round')
+  head.setAttribute('points', `${drawing.headBase},0 ${drawing.width},${drawing.height / 2} ${drawing.headBase},${drawing.height}`)
+  head.setAttribute('fill', color)
+  head.style.display = drawing.headVisible ? 'block' : 'none'
+}
+
+export function getConnectorDrawing(rawWidth: number, rawHeight: number, rawProgress: unknown) {
+  const width = Math.max(1, rawWidth)
+  const height = Math.max(26, rawHeight)
+  const arrowWidth = Math.min(26, width)
+  const strokeWidth = Math.min(14, height * .56)
+  const headBase = width - arrowWidth
+  const stickEnd = Math.max(0, headBase - strokeWidth / 2)
+  const progress = Math.min(Math.max(Number(rawProgress ?? 1), 0), 1)
+  return { width, height, strokeWidth, headBase, stickX2: stickEnd * progress, headVisible: progress === 1 }
 }
 
 function toCssProperty(key: string): string { return key.replace(/[A-Z]/g, character => `-${character.toLowerCase()}`) }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { resolveSlideElements } from '../../studio/src/scene-renderer.js'
+import { getConnectorDrawing, resolveSlideElements } from '../../studio/src/scene-renderer.js'
 import type { SceneSlide } from '../../src/studio/schema.js'
 
 const transform = (x: number, y: number, width: number, height: number, zIndex = 1) => ({ x, y, width, height, rotation: 0, opacity: 1, zIndex })
@@ -23,5 +23,15 @@ describe('scene renderer geometry', () => {
     const { renderMatrix, transform: flowTransform } = flow
     expect({ x: renderMatrix.c * flowTransform.height / 2 + renderMatrix.tx, y: renderMatrix.d * flowTransform.height / 2 + renderMatrix.ty }).toEqual({ x: 40, y: 180 })
     expect(flowTransform.width).toBeGreaterThan(80)
+  })
+})
+
+describe('connector drawing', () => {
+  it('keeps the head hidden until the stick reaches its final endpoint', () => {
+    const nearlyComplete = getConnectorDrawing(640, 26, .99)
+    const complete = getConnectorDrawing(640, 26, 1)
+    expect(nearlyComplete.headVisible).toBe(false)
+    expect(complete.headVisible).toBe(true)
+    expect(complete.stickX2 + complete.strokeWidth / 2).toBe(complete.headBase)
   })
 })

@@ -95,4 +95,14 @@ describe('deck v2 migration', () => {
       }
     }
   })
+
+  it('aligns the VFX reliability badge with its box and reveals it at the poster cue', () => {
+    const damage = createGripGunPresentationDeck().slides.find(slide => slide.id === 'gripgun-5')!
+    const atBadgeCue = new Map(evaluateSlideAt(damage, 6.8).elements.map(element => [element.id, element]))
+    const badge = atBadgeCue.get('badge')!
+    const vfx = atBadgeCue.get('vfx')!
+    expect(badge.transform.opacity).toBe(1)
+    expect(badge.transform.x).toBe(vfx.transform.x)
+    expect(badge.transform.width).toBe(vfx.transform.width)
+  })
 })

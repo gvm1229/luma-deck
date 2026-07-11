@@ -2,7 +2,7 @@
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { lockShortcuts, onSlideEnter, onSlideLeave, useNav, useSlideContext } from '@slidev/client'
 import { parseDeckDocument } from '../../../src/studio/deck'
-import { getPosterSceneTime } from '../../../src/studio/slidev-adapter'
+import { getPosterSceneTime, getSlidevInitialSceneTime } from '../../../src/studio/slidev-adapter'
 import { presenterStateForSlide, transitionPresenter, type PresenterState } from '../../../src/studio/presenter-state'
 import { renderScene } from '../../../studio/src/scene-renderer'
 import betaEnemyHit from '../../pragmata-2p-beta/images/slide-15-enemy-hit.png'
@@ -59,9 +59,16 @@ function syncClick(clicks: number) {
 }
 function guard(event: Event) { if (playing) { event.preventDefault(); event.stopPropagation() } }
 watch($clicks, clicks => syncClick(clicks))
-onSlideEnter(() => { previousClicks = 0; state = presenterStateForSlide(deck, props.slideId); apply('enter') })
+function initializeScene() {
+  previousClicks = 0
+  state = presenterStateForSlide(deck, props.slideId)
+  const initial = getSlidevInitialSceneTime(slide, nav.isPrintMode.value, new URLSearchParams(location.search).has('lumadeckPoster'))
+  if (initial !== undefined) seek(initial)
+  else apply('enter')
+}
+onSlideEnter(initializeScene)
 onSlideLeave(() => { state = transitionPresenter(deck, state, 'leave').state; seek(0) })
-onMounted(redraw)
+onMounted(initializeScene)
 onBeforeUnmount(stop)
 </script>
 

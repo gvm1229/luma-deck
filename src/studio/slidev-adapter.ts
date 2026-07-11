@@ -13,3 +13,7 @@ export function getSlidevClickCount(slide: SceneSlide): number {
 export function getPosterSceneTime(slide: SceneSlide, isPrintMode: boolean, hasPosterQuery: boolean): number | undefined {
   return isPrintMode || hasPosterQuery ? getPosterTime(slide) : undefined
 }
+
+export function getSlidevInitialSceneTime(slide: SceneSlide, isPrintMode: boolean, hasPosterQuery: boolean): number | undefined {
+  return getPosterSceneTime(slide, isPrintMode, hasPosterQuery)
+}

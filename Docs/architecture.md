@@ -129,6 +129,27 @@ slidev/                 # local-only
 - 예제 deck와 smoke test
 - 프로젝트 이름 기반 `projects/<name>` 해석
 
+## Visual Studio v1
+
+GripGun Line Trace 설명용 visual-first vertical slice 추가.
+
+```text
+SceneDocument
+├─ src/studio/ schema · operation · history · timeline
+├─ studio/ browser editor · standalone player
+├─ projects/pragmata-2p-gripgun-prototype/ Slidev adapter
+└─ HTML/PDF poster capture
+```
+
+- scene document가 editor/player/Slidev adapter 공통 모델
+- 브라우저 editor는 TypeScript DOM 구현. transitive Vue/Vite dependency 직접 사용 금지
+- Chromium `showDirectoryPicker` 선택 경로에서만 `scene.luma.json`, `assets/` 저장
+- 미지원 browser는 JSON download fallback 제공
+- asset은 MIME·확장자·15MB 제한 검사 후 content hash 파일명 사용
+- Slidev adapter는 public `useSlideContext`, `useNav`, `onSlideEnter`, `onSlideLeave`, `lockShortcuts`만 사용
+- click은 intro 자동 재생 뒤 다음 cue hold state까지 재생. PDF capture는 `lumadeckPoster=1` query로 posterCueId state 강제
+- `projects/` prototype은 local-only. source repo commit 대상 아님
+
 ## 주의점
 
 - LLM 출력은 신뢰하지 말고 schema 검증 필요

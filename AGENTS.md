@@ -37,6 +37,7 @@ LumaDeck does not call external LLM APIs and should not require API keys. The ac
 Key remembered decision:
 
 - Visual-first authoring v1의 현재 실행 계획은 `Docs/plans/PLAN_VISUAL_STUDIO_V1_GRIPGUN.md`를 기준으로 삼는다.
+- Visual Studio v1은 `src/studio/` scene model과 `studio/` Chromium editor를 공유한다. local prototype scene seed는 `pnpm studio:seed`, editor 실행은 `pnpm studio:dev` 사용.
 - Pragmata 2P GripGun은 projectile actor가 아니라 server-authoritative single Line Trace 구현이다. 관련 발표 자료에서 물리 projectile 비행을 실제 동작처럼 표현하지 않고, Blueprint CDO/runtime 미검증 수치를 단정하지 않는다.
 - Keep a full Slidev checkout inside this project as `slidev/`, but treat it as local-only and gitignored.
 - Use the embedded Slidev checkout as an internal runtime/reference engine.

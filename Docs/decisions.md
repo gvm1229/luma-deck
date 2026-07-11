@@ -56,4 +56,27 @@
 
 - 개인/고객/실험 deck이 source repo history에 섞이는 문제 방지
 - 새 AI 세션이 source 코드 변경과 deck 편집을 명확히 구분 가능
+
+## 2026-07-11: Visual Studio v1 구현 방식
+
+결정:
+
+- GripGun vertical slice를 visual-first editor의 첫 검증 대상으로 사용
+- Vue/Vite direct dependency 추가 대신 TypeScript DOM standalone editor 사용
+- `src/studio/` 순수 scene model과 `studio/` browser surface 분리
+- external LLM API 없이 deterministic operation만으로 편집
+- `projects/pragmata-2p-gripgun-prototype/`에서 Slidev presenter/export adapter 검증
+
+이유:
+
+- 현재 root package가 Node CLI 중심이며 browser build toolchain 부재
+- transitive Slidev dependency에 의존하지 않고 최소 구현으로 direct edit 가설 검증 가능
+- Slidev core 수정 없이 public API adapter로 presenter/print state 연결 가능
+
+제약:
+
+- GripGun은 physical projectile가 아닌 server-authoritative single Line Trace
+- native File System Access API는 Chromium secure context와 user activation 필요
+- Slidev public API만으로 remote/nav control까지 모든 busy input의 원자적 차단 보장 불가
+- runtime Unreal PIE와 사람 reviewer 검증은 external evidence lane
 - 프로젝트 이름만으로 반복 작업 가능

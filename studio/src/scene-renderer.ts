@@ -162,7 +162,7 @@ function updateElement(node: HTMLElement, element: SceneElement, assets: readonl
     left: `${(matrix.tx / viewport.width) * 100}%`, top: `${(matrix.ty / viewport.height) * 100}%`, width: `${(transform.width / viewport.width) * 100}%`, height: `${(transform.height / viewport.height) * 100}%`, opacity: String(transform.opacity), zIndex: String(transform.zIndex), transformOrigin: '0 0', transform: `matrix(${matrix.a}, ${matrix.b}, ${matrix.c}, ${matrix.d}, 0, 0)`,
   })
   for (const [key, value] of Object.entries(element.style)) {
-    if (key !== 'scale' && key !== 'pathProgress') node.style.setProperty(toCssProperty(key), String(value))
+    if (key !== 'scale' && key !== 'pathProgress' && !(element.type === 'connector' && key === 'background')) node.style.setProperty(toCssProperty(key), String(value))
   }
   if (element.type === 'image') {
     const asset = assets.find(candidate => candidate.id === element.assetId)
@@ -182,6 +182,7 @@ function updateElement(node: HTMLElement, element: SceneElement, assets: readonl
     line.style.borderRadius = '999px'
   }
   else if (element.type === 'connector') {
+    node.style.background = 'transparent'
     updateConnector(node, element)
   }
   else if (element.type === 'group') {

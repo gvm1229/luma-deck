@@ -225,18 +225,23 @@ function updateConnector(node: HTMLElement, element: SceneElement): void {
   stick.setAttribute('stroke-linecap', 'round')
   head.setAttribute('points', `${drawing.headBase},0 ${drawing.width},${drawing.height / 2} ${drawing.headBase},${drawing.height}`)
   head.setAttribute('fill', color)
+  head.setAttribute('stroke', '#f8fafc')
+  head.setAttribute('stroke-width', '2')
+  head.setAttribute('stroke-linejoin', 'miter')
+  head.setAttribute('paint-order', 'stroke')
   head.style.display = drawing.headVisible ? 'block' : 'none'
 }
 
 export function getConnectorDrawing(rawWidth: number, rawHeight: number, rawProgress: unknown) {
   const width = Math.max(1, rawWidth)
-  const height = Math.max(26, rawHeight)
-  const arrowWidth = Math.min(26, width)
-  const strokeWidth = Math.min(14, height * .56)
+  const height = Math.max(32, rawHeight)
+  const arrowWidth = Math.min(36, width)
+  const strokeWidth = Math.min(13, height * .4)
   const headBase = width - arrowWidth
   const stickEnd = Math.max(0, headBase - strokeWidth / 2)
   const progress = Math.min(Math.max(Number(rawProgress ?? 1), 0), 1)
-  return { width, height, strokeWidth, headBase, stickX2: stickEnd * progress, headVisible: progress === 1 }
+  const headVisible = progress === 1
+  return { width, height, strokeWidth, headBase, stickX2: stickEnd * progress, headVisible }
 }
 
 function toCssProperty(key: string): string { return key.replace(/[A-Z]/g, character => `-${character.toLowerCase()}`) }

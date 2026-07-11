@@ -28,9 +28,11 @@ describe('scene renderer geometry', () => {
 
 describe('connector drawing', () => {
   it('keeps the head hidden until the stick reaches its final endpoint', () => {
-    const nearlyComplete = getConnectorDrawing(640, 26, .99)
-    const complete = getConnectorDrawing(640, 26, 1)
+    const nearlyComplete = getConnectorDrawing(640, 32, .99)
+    const beforeComplete = getConnectorDrawing(640, 32, .9999)
+    const complete = getConnectorDrawing(640, 32, 1)
     expect(nearlyComplete.headVisible).toBe(false)
+    expect(beforeComplete.headVisible).toBe(false)
     expect(complete.headVisible).toBe(true)
     expect(complete.stickX2 + complete.strokeWidth / 2).toBe(complete.headBase)
   })

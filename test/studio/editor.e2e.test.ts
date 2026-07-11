@@ -88,6 +88,7 @@ describe('Visual Studio editor', () => {
     await page.waitForTimeout(2700)
     expect(await page.locator('.scene-connector-head').first().evaluate(node => getComputedStyle(node).display)).not.toBe('none')
     expect(await page.locator('.scene-connector-stick').evaluateAll(nodes => nodes.every(node => node.getAttribute('stroke-linecap') === 'round'))).toBe(true)
+    expect(await page.locator('.scene-connector-head').evaluateAll(nodes => nodes.every(node => node.getAttribute('stroke-linejoin') === 'miter'))).toBe(true)
     const connectorJoin = await page.locator('.scene-element-connector').first().evaluate((node) => {
       const stick = node.querySelector<SVGLineElement>('.scene-connector-stick')!
       const head = node.querySelector<SVGPolygonElement>('.scene-connector-head')!

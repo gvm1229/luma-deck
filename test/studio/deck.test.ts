@@ -79,4 +79,20 @@ describe('deck v2 migration', () => {
       }
     }
   })
+
+  it('keeps every connector and its target hidden until the draw reaches the target', () => {
+    const deck = createGripGunPresentationDeck()
+    for (const slide of deck.slides) {
+      const initial = new Map(evaluateSlideAt(slide, 0).elements.map(element => [element.id, element]))
+      for (const connector of slide.elements.filter(element => element.type === 'connector')) {
+        expect(initial.get(connector.id)?.transform.opacity).toBe(0)
+        expect(initial.get(connector.id)?.style.pathProgress).toBe(0)
+        const drawTrack = slide.timeline.tracks.find(track => track.elementId === connector.id && track.property === 'pathProgress')!
+        const end = drawTrack.keyframes.at(-1)!.at
+        const targetId = connector.connector!.to.elementId
+        expect(evaluateSlideAt(slide, end - .01).elements.find(element => element.id === targetId)?.transform.opacity).toBe(0)
+        expect(evaluateSlideAt(slide, end).elements.find(element => element.id === targetId)?.transform.opacity).toBe(1)
+      }
+    }
+  })
 })

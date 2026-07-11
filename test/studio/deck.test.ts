@@ -48,6 +48,35 @@ describe('deck v2 migration', () => {
 
     const damage = deck.slides.find(slide => slide.id === 'gripgun-5')!
     const geometry = new Map(resolveSlideElements(evaluateSlideAt(damage, 5.5)).map(element => [element.id, element]))
-    expect(geometry.get('damage-route')?.renderMatrix).toMatchObject({ tx: geometry.get('vfx-route')?.renderMatrix.tx, ty: geometry.get('vfx-route')?.renderMatrix.ty })
+    const start = (id: string) => {
+      const connector = geometry.get(id)!
+      const matrix = connector.renderMatrix
+      return { x: matrix.c * connector.transform.height / 2 + matrix.tx, y: matrix.d * connector.transform.height / 2 + matrix.ty }
+    }
+    expect(start('damage-route')).toEqual(start('vfx-route'))
+  })
+
+  it('anchors every connector stick center to its declared source edge', () => {
+    const deck = createGripGunPresentationDeck()
+    const point = (element: ReturnType<typeof resolveSlideElements>[number], x: number, y: number) => ({
+      x: element.renderMatrix.a * x + element.renderMatrix.c * y + element.renderMatrix.tx,
+      y: element.renderMatrix.b * x + element.renderMatrix.d * y + element.renderMatrix.ty,
+    })
+    const anchorPoint = (element: ReturnType<typeof resolveSlideElements>[number], anchor: 'left' | 'right' | 'top' | 'bottom' | 'center') => {
+      const { width, height } = element.transform
+      const local = anchor === 'left' ? [0, height / 2] : anchor === 'right' ? [width, height / 2] : anchor === 'top' ? [width / 2, 0] : anchor === 'bottom' ? [width / 2, height] : [width / 2, height / 2]
+      return point(element, local[0], local[1])
+    }
+    for (const slide of deck.slides) {
+      const geometry = new Map(resolveSlideElements(evaluateSlideAt(slide, slide.timeline.duration)).map(element => [element.id, element]))
+      for (const connector of geometry.values()) {
+        if (!connector.connector) continue
+        const source = geometry.get(connector.connector.from.elementId)!
+        const expected = anchorPoint(source, connector.connector.from.anchor)
+        const actual = point(connector, 0, connector.transform.height / 2)
+        expect(actual.x).toBeCloseTo(expected.x, 8)
+        expect(actual.y).toBeCloseTo(expected.y, 8)
+      }
+    }
   })
 })

@@ -19,7 +19,9 @@ describe('scene renderer geometry', () => {
     }
     const elements = new Map(resolveSlideElements(slide).map(element => [element.id, element]))
     expect(elements.get('source')?.renderMatrix).toMatchObject({ a: -1, d: -1, tx: 90, ty: 200 })
-    expect(elements.get('flow')?.renderMatrix).toMatchObject({ tx: 40, ty: 175 })
-    expect(elements.get('flow')?.transform.width).toBeGreaterThan(80)
+    const flow = elements.get('flow')!
+    const { renderMatrix, transform: flowTransform } = flow
+    expect({ x: renderMatrix.c * flowTransform.height / 2 + renderMatrix.tx, y: renderMatrix.d * flowTransform.height / 2 + renderMatrix.ty }).toEqual({ x: 40, y: 180 })
+    expect(flowTransform.width).toBeGreaterThan(80)
   })
 })

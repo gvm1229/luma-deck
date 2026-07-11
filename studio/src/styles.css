@@ -27,7 +27,7 @@ button.primary { color: #fff; background: #2563eb; border-color: #2563eb; }
 .scene-element-path { justify-content: flex-start; }
 .scene-element-connector { justify-content: flex-start; overflow: visible; }
 .scene-element-group { background: transparent !important; border: 0 !important; box-shadow: none !important; color: transparent !important; pointer-events: none; }
-.scene-path-line { height: 100%; min-width: 0; background: #2563eb; border-radius: 999px; box-shadow: 0 0 16px rgba(37, 99, 235, .55); }
+.scene-path-line { height: 100%; min-width: 0; overflow: hidden; background: #2563eb; border-radius: 9999px; clip-path: inset(0 round 9999px); box-shadow: 0 0 16px rgba(37, 99, 235, .55); }
 .scene-connector-arrow { position: absolute; right: -1px; top: 50%; width: 26px; height: 26px; background: currentColor; clip-path: polygon(0 0, 100% 50%, 0 100%); transform: translateY(-50%); }
 .scene-element.is-selected { outline: 3px solid #60a5fa; outline-offset: 4px; }
 .scene-resize-handle { position: absolute; width: 17px; height: 17px; right: -11px; bottom: -11px; padding: 0; border: 3px solid #fff; border-radius: 50%; background: #2563eb; cursor: nwse-resize; }

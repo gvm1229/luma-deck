@@ -73,6 +73,14 @@ export function resolveSlideElements(slide: SceneSlide): readonly ResolvedElemen
     const deltaX = end.x - start.x
     const deltaY = end.y - start.y
     const thickness = Math.max(8, connector.transform.height)
+    const rotation = Math.atan2(deltaY, deltaX) * 180 / Math.PI
+    const radians = rotation * Math.PI / 180
+    const connectorMatrix = localMatrix({
+      ...connector.transform,
+      x: start.x + Math.sin(radians) * thickness / 2,
+      y: start.y - Math.cos(radians) * thickness / 2,
+      rotation,
+    }, 1)
     resolved.set(connector.id, {
       ...connector,
       transform: {
@@ -83,8 +91,8 @@ export function resolveSlideElements(slide: SceneSlide): readonly ResolvedElemen
         height: thickness,
         rotation: 0,
       },
-      renderMatrix: localMatrix({ ...connector.transform, x: start.x, y: start.y - thickness / 2, rotation: Math.atan2(deltaY, deltaX) * 180 / Math.PI }, 1),
-      childrenMatrix: localMatrix({ ...connector.transform, x: start.x, y: start.y - thickness / 2, rotation: Math.atan2(deltaY, deltaX) * 180 / Math.PI }, 1),
+      renderMatrix: connectorMatrix,
+      childrenMatrix: connectorMatrix,
     })
   }
   return slide.elements.map(element => resolved.get(element.id)!)

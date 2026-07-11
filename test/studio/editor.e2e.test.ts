@@ -87,6 +87,7 @@ describe('Visual Studio editor', () => {
     await page.locator('[data-role="canvas"]').click()
     await page.waitForTimeout(2700)
     expect(await page.locator('.scene-connector-arrow').first().evaluate(node => getComputedStyle(node).display)).not.toBe('none')
+    expect(await page.locator('.scene-path-line').evaluateAll(nodes => nodes.every(node => Number.parseFloat(getComputedStyle(node).borderRadius) >= 999))).toBe(true)
     const connectorJoin = await page.locator('.scene-element-connector').first().evaluate((node) => {
       const line = node.querySelector<HTMLElement>('.scene-path-line')!
       const arrow = node.querySelector<HTMLElement>('.scene-connector-arrow')!

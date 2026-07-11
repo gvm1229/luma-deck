@@ -76,6 +76,6 @@ onBeforeUnmount(stop)
 .luma-scene .scene-element-image img { width: 100%; height: 100%; display: block; }
 .luma-scene .scene-element-path, .luma-scene .scene-element-connector { justify-content: flex-start; overflow: visible; }
 .luma-scene .scene-element-group { background: transparent !important; border: 0 !important; box-shadow: none !important; color: transparent !important; pointer-events: none; }
-.luma-scene .scene-path-line { height: 100%; min-width: 0; background: #2563eb; border-radius: 999px; box-shadow: 0 0 16px rgba(37, 99, 235, .55); }
+.luma-scene .scene-path-line { height: 100%; min-width: 0; overflow: hidden; background: #2563eb; border-radius: 9999px; clip-path: inset(0 round 9999px); box-shadow: 0 0 16px rgba(37, 99, 235, .55); }
 .luma-scene .scene-connector-arrow { position: absolute; right: -1px; top: 50%; width: 26px; height: 26px; background: currentColor; clip-path: polygon(0 0, 100% 50%, 0 100%); transform: translateY(-50%); }
 </style>

@@ -94,4 +94,30 @@ describe('Slidev one-way importer', () => {
       expect.objectContaining({ reason: 'unsupported-html-or-css', raw: expect.stringContaining('<script>') }),
     ]))
   })
+
+  it('upgrades final slide 15 into a cue-driven GripGun authority explainer', () => {
+    const finalLikeSource = `---\ntheme: apple-basic\n---\n\n${Array.from({ length: 15 }, (_, index) => `# ${index === 14 ? 'Hugh의 사격 결과가 두 화면에 일관되게 보임' : `Slide ${index + 1}`}\n\n${index === 14 ? '<img src="./images/unrelated.png" alt="다른 이미지" />\n<img src="./images/slide-15-enemy-hit.png" alt="피격 근거" />' : ''}`).join('\n\n---\n\n')}`
+    const result = importSlidevMarkdown(finalLikeSource)
+    const slide = result.deck.slides[14]!
+    expect(slide.layoutId).toBe('gripgun-result-explainer')
+    expect(slide.timeline.cues.map(cue => cue.id)).toEqual(['intro', 'server', 'trace', 'evidence'])
+    expect(slide.elements.find(element => element.id === 'server')?.transform.opacity).toBe(0)
+    expect(slide.elements.find(element => element.id === 'evidence')?.transform.opacity).toBe(0)
+    expect(slide.elements.find(element => element.id === 'evidence')?.assetId).toBe(result.deck.assets.find(asset => asset.src === 'images/slide-15-enemy-hit.png')?.id)
+    expect(slide.timeline.tracks.some(track => track.elementId === 'trace' && track.property === 'pathProgress')).toBe(true)
+  })
+
+  it('does not inject GripGun claims into an unrelated slide 15', () => {
+    const unrelatedSource = `---\ntheme: apple-basic\n---\n\n${Array.from({ length: 15 }, (_, index) => `# ${index === 14 ? 'Unrelated technical result' : `Slide ${index + 1}`}\n\n`).join('\n---\n\n')}`
+    const slide = importSlidevMarkdown(unrelatedSource).deck.slides[14]!
+    expect(slide.layoutId).toBe('slidev-import-review')
+    expect(slide.elements.some(element => element.content?.includes('Line Trace'))).toBe(false)
+  })
+
+  it('reports missing verified evidence instead of applying GripGun rewrite', () => {
+    const missingEvidenceSource = `---\ntheme: apple-basic\n---\n\n${Array.from({ length: 15 }, (_, index) => `# ${index === 14 ? 'Hugh의 사격 결과가 두 화면에 일관되게 보임' : `Slide ${index + 1}`}\n\n`).join('\n---\n\n')}`
+    const result = importSlidevMarkdown(missingEvidenceSource)
+    expect(result.deck.slides[14]?.layoutId).toBe('slidev-import-review')
+    expect(result.report.issues).toEqual(expect.arrayContaining([expect.objectContaining({ slideId: 'slide-15', reason: 'missing-priority-evidence' })]))
+  })
 })

@@ -1,11 +1,11 @@
 import { createHash } from 'node:crypto'
 import type { DeckDocumentV2, DeckSlide } from './deck.js'
-import type { SceneAsset, SceneElement } from './schema.js'
+import type { SceneAsset, SceneElement, SceneTrack } from './schema.js'
 
 export interface SlidevImportIssue {
   readonly slideId: string
   readonly sourceIndex: number
-  readonly reason: 'unsupported-html-or-css' | 'placeholder' | 'invalid-image-reference'
+  readonly reason: 'unsupported-html-or-css' | 'placeholder' | 'invalid-image-reference' | 'missing-priority-evidence'
   readonly raw: string
 }
 
@@ -25,6 +25,8 @@ const imageTag = /<img\b[^>]*\bsrc=["']\.\/images\/([^"']+)["'][^>]*>/gi
 const altAttribute = /\balt=["']([^"']*)["']/i
 const notesComment = /<!--[\s\S]*?-->/g
 const safeImageName = /^[a-zA-Z0-9][a-zA-Z0-9._-]{0,180}$/
+const gripGunResultTitle = 'Hugh의 사격 결과가 두 화면에 일관되게 보임'
+const gripGunEvidenceImage = 'slide-15-enemy-hit.png'
 
 export function importSlidevMarkdown(source: string, deckId = 'pragmata-2p-final'): SlidevImportResult {
   const blocks = getSlideBlocks(source)
@@ -54,7 +56,13 @@ export function importSlidevMarkdown(source: string, deckId = 'pragmata-2p-final
     }
     if (/prag-placeholder|placeholder|실제 인게임 캡처/i.test(unsupported))
       issues.push({ slideId: id, sourceIndex: index + 1, reason: 'placeholder', raw: unsupported })
-    slides.push(createImportedSlide(id, title, notes, extractSummary(body), images.map(image => assetIdFor(image.fileName))))
+    const imageIds = images.map(image => assetIdFor(image.fileName))
+    const gripGunEvidence = images.find(image => image.fileName === gripGunEvidenceImage)
+    if (id === 'slide-15' && title === gripGunResultTitle && !gripGunEvidence)
+      issues.push({ slideId: id, sourceIndex: index + 1, reason: 'missing-priority-evidence', raw: `expected ./images/${gripGunEvidenceImage}` })
+    slides.push(id === 'slide-15' && title === gripGunResultTitle && gripGunEvidence
+      ? createGripGunResultSlide(id, title, notes, assetIdFor(gripGunEvidence.fileName))
+      : createImportedSlide(id, title, notes, extractSummary(body), imageIds))
   }
 
   const deck: DeckDocumentV2 = {
@@ -125,12 +133,69 @@ function createImportedSlide(id: string, title: string, notes: string, summary: 
   return { id, title, hidden: false, transition: 'fade', layoutId: 'slidev-import-review', presenterNotes: notes, posterCueId: 'poster', elements, timeline: { duration: 4, cues: [{ id: 'intro', at: 0, mode: 'auto', label: 'imported content' }, { id: 'poster', at: 4, mode: 'hold', label: 'review hold' }], tracks: [] } }
 }
 
-function transform(x: number, y: number, width: number, height: number, zIndex: number) {
-  return { x, y, width, height, rotation: 0, opacity: 1, zIndex }
+/** Final deck의 사격 결과는 generic import 대신 기존 GripGun 사실을 cue별로 분해한다. */
+function createGripGunResultSlide(id: string, title: string, notes: string, evidenceAssetId: string): DeckSlide {
+  const elements: SceneElement[] = [
+    textElement('eyebrow', '15 · GRIPGUN AUTHORITY', 110, 62, 1100, 22, '#2563eb'),
+    textElement('headline', title, 110, 120, 1220, 52, '#0f172a'),
+    textElement('subhead', '비행 projectile가 아닌 server-authoritative single Line Trace.', 110, 215, 1220, 25, '#475569'),
+    resultCard('client', 'CLIENT\nfire intent', 120, 470, 280, 160, '#2563eb', 1),
+    resultConnector('intent', 'client', 'right', 'server', 'left', '#2563eb'),
+    resultCard('server', 'SERVER\ncombat · weapon · ammo gate', 560, 415, 390, 250, '#2563eb'),
+    resultConnector('trace', 'server', 'right', 'hit', 'left', '#f59e0b'),
+    resultCard('hit', 'FIRST BLOCKING HIT\nActor + BoneName', 1170, 450, 360, 190, '#f59e0b'),
+    textElement('result', 'camera view point → first blocker\n서버가 hit 결과를 확정', 520, 780, 680, 32, '#2563eb', 0),
+  ]
+  elements.push({
+    id: 'evidence', type: 'image', assetId: evidenceAssetId, transform: transform(1330, 720, 420, 236, 3, 0),
+    style: { borderRadius: 28, boxShadow: '0 24px 55px rgba(15,23,42,.25)', scale: .96 }, accessibilityLabel: 'GripGun current build hit evidence',
+  })
+  return {
+    id, title, hidden: false, transition: 'fade', layoutId: 'gripgun-result-explainer',
+    presenterNotes: `${notes}\n\n[발표 진행]\n- Client fire intent: 자동 시작\n- proceed to next cue: 서버 validation 설명 후\n- proceed to next cue: camera single Line Trace 설명 후\n- proceed to next cue: 실제 build evidence 공개`,
+    posterCueId: 'evidence', elements,
+    timeline: {
+      duration: 8,
+      cues: [
+        { id: 'intro', at: 0, mode: 'auto', label: 'client fire intent' },
+        { id: 'server', at: 1.5, mode: 'click', label: 'proceed to next cue · server validation' },
+        { id: 'trace', at: 3.6, mode: 'click', label: 'proceed to next cue · single Line Trace' },
+        { id: 'evidence', at: 6.2, mode: 'hold', label: 'proceed to next cue · build evidence' },
+      ],
+      tracks: [
+        ...fadeTrack('intent', 'intent', 1.5, 2.05), ...fadeTrack('server', 'server', 2.05, 2.2), pulseTrack('server-pulse', 'server', 2.2),
+        ...fadeTrack('trace', 'trace', 3.6, 4.25), ...fadeTrack('hit', 'hit', 4.25, 4.45), pulseTrack('hit-pulse', 'hit', 4.45),
+        ...fadeTrack('result', 'result', 5.1, 5.45), ...fadeTrack('evidence', 'evidence', 6.2, 6.65), pulseTrack('evidence-pulse', 'evidence', 6.65),
+      ],
+    },
+  }
 }
 
-function textElement(id: string, content: string, x: number, y: number, width: number, fontSize: number, color: string): SceneElement {
-  return { id, type: 'text', content, transform: transform(x, y, width, 100, 10), style: { color, fontSize, fontWeight: 800, lineHeight: 1.15 }, accessibilityLabel: content }
+function resultCard(id: string, content: string, x: number, y: number, width: number, height: number, color: string, opacity = 0): SceneElement {
+  return { id, type: 'shape', content, transform: transform(x, y, width, height, 4, opacity), style: { background: '#ffffff', border: `3px solid ${color}`, borderRadius: 28, color, fontSize: 24, fontWeight: 800, boxShadow: `0 20px 50px ${color}22` }, accessibilityLabel: content }
+}
+
+function resultConnector(id: string, fromId: string, fromAnchor: 'left' | 'right' | 'top' | 'bottom' | 'center', toId: string, toAnchor: 'left' | 'right' | 'top' | 'bottom' | 'center', color: string): SceneElement {
+  return { id, type: 'connector', transform: transform(0, 0, 24, 32, 6, 0), connector: { from: { elementId: fromId, anchor: fromAnchor }, to: { elementId: toId, anchor: toAnchor } }, style: { background: color, pathProgress: 0, borderRadius: 99 }, accessibilityLabel: 'GripGun authority flow' }
+}
+
+function fadeTrack(id: string, elementId: string, start: number, end: number): readonly SceneTrack[] {
+  return [
+    { id, elementId, property: 'opacity', keyframes: [{ at: start, value: 0, easing: 'linear' }, { at: end, value: 1, easing: 'ease-out' }] },
+    { id: `${id}-path`, elementId, property: 'pathProgress', keyframes: [{ at: start, value: 0, easing: 'linear' }, { at: end, value: 1, easing: 'ease-out' }] },
+  ]
+}
+
+function pulseTrack(id: string, elementId: string, start: number): SceneTrack {
+  return { id, elementId, property: 'style.scale', keyframes: [{ at: start, value: .9, easing: 'ease-out' }, { at: start + .18, value: 1.1, easing: 'ease-out' }, { at: start + .42, value: 1, easing: 'ease-in' }] }
+}
+
+function transform(x: number, y: number, width: number, height: number, zIndex: number, opacity = 1) {
+  return { x, y, width, height, rotation: 0, opacity, zIndex }
+}
+
+function textElement(id: string, content: string, x: number, y: number, width: number, fontSize: number, color: string, opacity = 1): SceneElement {
+  return { id, type: 'text', content, transform: transform(x, y, width, 100, 10, opacity), style: { color, fontSize, fontWeight: 800, lineHeight: 1.15 }, accessibilityLabel: content }
 }
 
 function extractTitle(body: string): string | undefined {

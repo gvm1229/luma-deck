@@ -252,7 +252,7 @@ function assertRange(value: unknown, minimum: number, maximum: number, path: str
 }
 
 function isSafeAssetSource(source: string): boolean {
-  return /^assets\/[a-zA-Z0-9][a-zA-Z0-9._-]{0,180}$/.test(source) || betaAssetSource.test(source)
+  return /^(assets|images)\/[a-zA-Z0-9][a-zA-Z0-9._-]{0,180}$/.test(source) || betaAssetSource.test(source)
 }
 
 function isSafeStyleValue(value: string): boolean {

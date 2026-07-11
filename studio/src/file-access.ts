@@ -94,21 +94,18 @@ export async function loadDeckFromDirectory(directory: StudioDirectoryHandle): P
 
 export async function loadAssetUrlsFromDirectory(directory: StudioDirectoryHandle, scene: SceneDocument): Promise<Map<string, string>> {
   const urls = new Map<string, string>()
-  let assets: StudioDirectoryHandle
-  try {
-    assets = await directory.getDirectoryHandle('assets')
-  }
-  catch (error) {
-    if (error instanceof DOMException && error.name === 'NotFoundError')
-      return urls
-    throw error
-  }
+  const directories = new Map<string, StudioDirectoryHandle>()
   for (const asset of scene.assets) {
-    const name = assetFileName(asset.src)
-    if (!name)
+    const source = assetFileLocation(asset.src)
+    if (!source)
       continue
     try {
-      urls.set(asset.id, URL.createObjectURL(await (await assets.getFileHandle(name)).getFile()))
+      let assetDirectory = directories.get(source.directory)
+      if (!assetDirectory) {
+        assetDirectory = await directory.getDirectoryHandle(source.directory)
+        directories.set(source.directory, assetDirectory)
+      }
+      urls.set(asset.id, URL.createObjectURL(await (await assetDirectory.getFileHandle(source.name)).getFile()))
     }
     catch (error) {
       if (!(error instanceof DOMException) || error.name !== 'NotFoundError')
@@ -178,9 +175,9 @@ export function releaseAssetUrls(urls: ReadonlyMap<string, string>): void {
   }
 }
 
-function assetFileName(source: string): string | undefined {
-  const match = /^assets\/([a-zA-Z0-9][a-zA-Z0-9._-]{0,180})$/.exec(source)
-  return match?.[1]
+function assetFileLocation(source: string): { readonly directory: 'assets' | 'images', readonly name: string } | undefined {
+  const match = /^(assets|images)\/([a-zA-Z0-9][a-zA-Z0-9._-]{0,180})$/.exec(source)
+  return match ? { directory: match[1] as 'assets' | 'images', name: match[2]! } : undefined
 }
 
 function isAbortError(error: unknown): boolean {

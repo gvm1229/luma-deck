@@ -19,6 +19,7 @@
     "lumadeck": "tsx src/cli/index.ts",
     "studio:build": "tsc -p tsconfig.studio.json",
     "studio:dev": "pnpm studio:build && tsx studio/server.ts",
+    "studio:import:final": "tsx studio/import-final.ts",
     "studio:e2e": "pnpm studio:build && vitest run test/studio/editor.e2e.test.ts",
     "studio:seed": "tsx studio/seed.ts",
     "studio:test": "pnpm studio:build && vitest run test/studio",

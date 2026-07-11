@@ -63,6 +63,17 @@ describe('studio file access', () => {
     releaseAssetUrls(urls)
   })
 
+  it('loads imported legacy images from the project images directory', async () => {
+    const directory = new MemoryDirectory()
+    const scene = structuredClone(createTestScene())
+    scene.assets[0].src = 'images/evidence.png'
+    const images = await directory.getDirectoryHandle('images', { create: true }) as MemoryDirectory
+    images.files.set('evidence.png', new MemoryFileHandle('evidence.png', 'png-data'))
+    const urls = await loadAssetUrlsFromDirectory(directory, scene)
+    expect(urls.get('beta-enemy-hit')).toMatch(/^blob:/)
+    releaseAssetUrls(urls)
+  })
+
   it('creates a V2 deck without overwriting the V1 scene and recovers from backup', async () => {
     const directory = new MemoryDirectory()
     const scene = createTestScene()

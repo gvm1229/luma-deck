@@ -31,4 +31,21 @@ describe('studio scene schema', () => {
     scene.slides[0].elements[0].style = { background: 'url(https://example.com/asset.png)' }
     expect(() => validateSceneDocument(scene)).toThrow('unsafe style value')
   })
+
+  it('validates connector anchors and rejects invalid group ownership', () => {
+    const scene = structuredClone(createTestScene())
+    const slide = scene.slides[0]
+    slide.elements.push({
+      id: 'group', type: 'group', transform: { x: 0, y: 0, width: 1, height: 1, rotation: 0, opacity: 1, zIndex: 0 }, style: {}, accessibilityLabel: 'group',
+    })
+    slide.elements[0] = { ...slide.elements[0], parentId: 'group' }
+    slide.elements[1] = {
+      ...slide.elements[1], type: 'connector', connector: { from: { elementId: slide.elements[0].id, anchor: 'right' }, to: { elementId: 'group', anchor: 'left' } },
+    }
+    expect(validateSceneDocument(scene).slides[0].elements[1].connector?.from.anchor).toBe('right')
+
+    const invalid = structuredClone(scene)
+    invalid.slides[0].elements[0] = { ...invalid.slides[0].elements[0], parentId: invalid.slides[0].elements[0].id }
+    expect(() => validateSceneDocument(invalid)).toThrow('self reference')
+  })
 })

@@ -9,11 +9,14 @@ button.primary { color: #fff; background: #2563eb; border-color: #2563eb; }
 .studio-header h1 { margin: 2px 0 0; font-size: 24px; letter-spacing: -.04em; }
 .studio-kicker { margin: 0; color: #2563eb; font-size: 11px; font-weight: 850; letter-spacing: .12em; }
 .studio-actions { display: flex; gap: 8px; }
-.studio-shell { display: grid; grid-template-columns: 220px minmax(720px, 1fr) 280px; min-height: calc(100vh - 126px); }
+.studio-shell { display: grid; grid-template-columns: 190px 190px minmax(620px, 1fr) 280px; min-height: calc(100vh - 126px); }
 .studio-panel { padding: 18px; background: #fff; border-right: 1px solid #dbe1ea; }
 .inspector { border-right: 0; border-left: 1px solid #dbe1ea; }
 .studio-panel h2 { margin: 0 0 12px; font-size: 13px; color: #6b7280; letter-spacing: .08em; text-transform: uppercase; }
 .layer-item { display: block; width: 100%; margin: 0 0 6px; text-align: left; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.slide-actions { display: grid; grid-template-columns: 34px 1fr 1fr; gap: 5px; margin-bottom: 10px; }
+.slide-actions button { padding: 6px; font-size: 11px; }
+.slide-item { display: block; width: 100%; min-height: 48px; margin: 0 0 7px; padding: 8px; text-align: left; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .studio-workspace { padding: 22px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .scene-frame { width: 100%; aspect-ratio: 16 / 9; max-height: calc(100vh - 290px); margin: auto; overflow: hidden; background: #cbd5e1; border-radius: 14px; box-shadow: 0 16px 36px rgba(15, 23, 42, .16); }
 .scene-canvas { position: relative; width: 100%; height: 100%; overflow: hidden; background: #f8fafc; outline: none; }
@@ -22,7 +25,10 @@ button.primary { color: #fff; background: #2563eb; border-color: #2563eb; }
 .scene-element-image { overflow: hidden; }
 .scene-element-image img { width: 100%; height: 100%; display: block; }
 .scene-element-path { justify-content: flex-start; }
+.scene-element-connector { justify-content: flex-start; overflow: visible; }
+.scene-element-group { background: transparent !important; border: 0 !important; box-shadow: none !important; color: transparent !important; pointer-events: none; }
 .scene-path-line { height: 100%; min-width: 0; background: #2563eb; border-radius: 999px; box-shadow: 0 0 16px rgba(37, 99, 235, .55); }
+.scene-connector-arrow { position: absolute; right: -8px; top: 50%; color: #2563eb; font-size: 34px; font-weight: 850; line-height: 1; transform: translateY(-50%); }
 .scene-element.is-selected { outline: 3px solid #60a5fa; outline-offset: 4px; }
 .scene-resize-handle { position: absolute; width: 17px; height: 17px; right: -11px; bottom: -11px; padding: 0; border: 3px solid #fff; border-radius: 50%; background: #2563eb; cursor: nwse-resize; }
 .timeline { padding: 12px 14px; background: #fff; border: 1px solid #dbe1ea; border-radius: 12px; }
@@ -48,3 +54,8 @@ button.primary { color: #fff; background: #2563eb; border-color: #2563eb; }
 .reorder { display: flex; gap: 8px; }
 .reorder button { flex: 1; }
 .studio-status { min-height: 34px; padding: 8px 28px; color: #475569; background: #fff; border-top: 1px solid #dbe1ea; font-size: 12px; }
+@media (prefers-reduced-motion: reduce) { .scene-element { transition: none !important; } }
+.is-present .studio-header, .is-present .studio-panel, .is-present .timeline, .is-present .studio-status { display: none; }
+.is-present .studio-shell { display: block; min-height: 100vh; }
+.is-present .studio-workspace { min-height: 100vh; padding: 0; }
+.is-present .scene-frame { width: 100vw; max-width: none; max-height: none; height: 100vh; border-radius: 0; box-shadow: none; }

@@ -44,7 +44,7 @@ export function createGripGunPrototypeScene(): SceneDocument {
       card('client', 'HUGH\nlocal fire intent', 120, 350, 260, 150, { background: '#eff6ff' }),
       card('server', 'SERVER\ncombat · weapon · cooldown · ammo', 530, 300, 360, 220, { background: '#f8fafc', border: '3px solid #2563eb' }),
       card('hit', 'FIRST\nblocking hit\nActor + BoneName', 1120, 350, 270, 150, { background: '#fefce8', border: '3px solid #f59e0b', color: '#92400e' }, 0),
-      { id: 'intent', type: 'path', transform: { x: 380, y: 405, width: 150, height: 30, rotation: 0, opacity: 0, zIndex: 7 }, content: 'intent →', style: { color: '#2563eb', fontSize: 30, fontWeight: 800, pathProgress: 1 }, accessibilityLabel: 'client intent flows to server' },
+      { id: 'intent', type: 'connector', transform: { x: 380, y: 405, width: 150, height: 30, rotation: 0, opacity: 0, zIndex: 7 }, content: 'intent →', style: { color: '#2563eb', fontSize: 30, fontWeight: 800, pathProgress: 1 }, accessibilityLabel: 'client intent flows to server' },
       { id: 'ray', type: 'path', transform: { x: 885, y: 420, width: 235, height: 12, rotation: 0, opacity: 1, zIndex: 8 }, content: '', style: { borderRadius: 99, pathProgress: 0 }, accessibilityLabel: 'camera line trace' },
       { id: 'impact', type: 'shape', transform: { x: 1375, y: 386, width: 76, height: 76, rotation: 0, opacity: 0, zIndex: 9 }, content: '×', style: { background: '#f97316', color: '#ffffff', borderRadius: 999, fontSize: 54, fontWeight: 800, scale: 0.4 }, accessibilityLabel: 'impact location and normal' },
       card('damage', 'FPragmataDamageSpec\nreceiver health update', 1030, 610, 360, 130, { background: '#f0fdf4', border: '2px solid #22c55e', color: '#166534' }, 0),

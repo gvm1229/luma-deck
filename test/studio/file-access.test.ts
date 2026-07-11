@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { loadAssetUrlsFromDirectory, loadSceneFromDirectory, releaseAssetUrls, saveSceneToDirectory, type StudioDirectoryHandle, type StudioFileHandle } from '../../studio/src/file-access.js'
+import { loadAssetUrlsFromDirectory, loadDeckFromDirectory, loadSceneFromDirectory, releaseAssetUrls, saveDeckToDirectory, saveSceneToDirectory, type StudioDirectoryHandle, type StudioFileHandle } from '../../studio/src/file-access.js'
+import { migrateSceneDocument } from '../../src/studio/deck.js'
 import { createTestScene } from './scene.js'
 
 class MemoryFileHandle implements StudioFileHandle {
@@ -60,5 +61,26 @@ describe('studio file access', () => {
     expect(loaded).toEqual(scene)
     expect(urls.get('beta-enemy-hit')).toMatch(/^blob:/)
     releaseAssetUrls(urls)
+  })
+
+  it('creates a V2 deck without overwriting the V1 scene and recovers from backup', async () => {
+    const directory = new MemoryDirectory()
+    const scene = createTestScene()
+    await saveSceneToDirectory(directory, scene)
+    const deck = migrateSceneDocument(scene)
+    await saveDeckToDirectory(directory, deck)
+    await saveDeckToDirectory(directory, deck)
+    expect(await loadDeckFromDirectory(directory)).toEqual(deck)
+    expect(await loadSceneFromDirectory(directory)).toEqual(scene)
+    const files = directory.files
+    files.set('deck.luma.json', new MemoryFileHandle('deck.luma.json', '{broken'))
+    expect(await loadDeckFromDirectory(directory)).toEqual(deck)
+  })
+
+  it('recovers a valid temporary V2 document when initial commit is interrupted', async () => {
+    const directory = new MemoryDirectory()
+    const deck = migrateSceneDocument(createTestScene())
+    directory.files.set('deck.luma.json.tmp', new MemoryFileHandle('deck.luma.json.tmp', JSON.stringify(deck)))
+    expect(await loadDeckFromDirectory(directory)).toEqual(deck)
   })
 })

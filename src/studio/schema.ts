@@ -1,4 +1,4 @@
-export const sceneElementTypes = ['text', 'image', 'shape', 'path'] as const
+export const sceneElementTypes = ['text', 'image', 'shape', 'path', 'connector', 'group'] as const
 export const cueModes = ['auto', 'hold', 'click'] as const
 export const easingNames = ['linear', 'ease-in', 'ease-out', 'ease-in-out'] as const
 const allowedStyleKeys = new Set(['background', 'border', 'borderColor', 'borderRadius', 'boxShadow', 'color', 'fontSize', 'fontWeight', 'lineHeight', 'pathProgress', 'scale'])
@@ -8,6 +8,12 @@ const betaEvidenceSource = '/projects/pragmata-2p-beta/images/slide-15-enemy-hit
 export type SceneElementType = typeof sceneElementTypes[number]
 export type CueMode = typeof cueModes[number]
 export type EasingName = typeof easingNames[number]
+export type SceneAnchor = 'left' | 'right' | 'top' | 'bottom' | 'center'
+
+export interface SceneConnectorBinding {
+  readonly from: { readonly elementId: string, readonly anchor: SceneAnchor }
+  readonly to: { readonly elementId: string, readonly anchor: SceneAnchor }
+}
 
 export interface SceneTransform {
   readonly x: number
@@ -27,6 +33,10 @@ export interface SceneElement {
   readonly assetId?: string
   readonly style: Record<string, string | number>
   readonly accessibilityLabel: string
+  /** 부모 group의 로컬 좌표계에서 배치할 때만 사용 */
+  readonly parentId?: string
+  /** connector가 실제 대상 요소의 anchor를 따라가도록 하는 연결 정보 */
+  readonly connector?: SceneConnectorBinding
 }
 
 export interface SceneAsset {
@@ -151,6 +161,33 @@ export function validateSceneDocument(input: unknown): SceneDocument {
         throw new SceneValidationError(`slides.${slide.id}.elements.${element.id}.assetId: missing asset '${element.assetId}'`)
     }
 
+    const elementsById = new Map<string, SceneElement>(slide.elements.map((element: SceneElement): [string, SceneElement] => [element.id, element]))
+    for (const element of slide.elements) {
+      if (element.parentId) {
+        if (element.parentId === element.id)
+          throw new SceneValidationError(`slides.${slide.id}.elements.${element.id}.parentId: self reference is not allowed`)
+        const parent = elementsById.get(element.parentId)
+        if (!parent || parent.type !== 'group')
+          throw new SceneValidationError(`slides.${slide.id}.elements.${element.id}.parentId: group '${element.parentId}' required`)
+      }
+      if (element.connector) {
+        if (element.type !== 'connector')
+          throw new SceneValidationError(`slides.${slide.id}.elements.${element.id}.connector: connector type required`)
+        assertConnectorEndpoint(element.connector.from, `slides.${slide.id}.elements.${element.id}.connector.from`, elementIds)
+        assertConnectorEndpoint(element.connector.to, `slides.${slide.id}.elements.${element.id}.connector.to`, elementIds)
+      }
+    }
+    for (const element of slide.elements) {
+      const ancestors = new Set<string>([element.id])
+      let parentId = element.parentId
+      while (parentId) {
+        if (ancestors.has(parentId))
+          throw new SceneValidationError(`slides.${slide.id}.elements.${element.id}.parentId: circular group ownership`)
+        ancestors.add(parentId)
+        parentId = elementsById.get(parentId)?.parentId
+      }
+    }
+
     let previousCueAt = -1
     for (const cue of slide.timeline.cues) {
       assertId(cue.id, `slides.${slide.id}.timeline.cues.id`)
@@ -187,6 +224,11 @@ export function validateSceneDocument(input: unknown): SceneDocument {
   }
 
   return document
+}
+
+function assertConnectorEndpoint(endpoint: { readonly elementId: string, readonly anchor: SceneAnchor }, path: string, elementIds: ReadonlySet<string>): void {
+  if (!endpoint || typeof endpoint !== 'object' || !elementIds.has(endpoint.elementId) || !['left', 'right', 'top', 'bottom', 'center'].includes(endpoint.anchor))
+    throw new SceneValidationError(`${path}: existing element anchor required`)
 }
 
 function assertId(value: unknown, path: string): asserts value is string {

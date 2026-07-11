@@ -1,4 +1,5 @@
 import { parseSceneDocument, serializeSceneDocument } from '../../src/studio/serializer.js'
+import { migrateSceneDocument, parseDeckDocument, serializeDeckDocument, type DeckDocumentV2 } from '../../src/studio/deck.js'
 import type { SceneDocument } from '../../src/studio/schema.js'
 
 interface WritableFile {
@@ -53,6 +54,42 @@ export async function saveSceneToDirectory(directory: StudioDirectoryHandle, doc
 export async function loadSceneFromDirectory(directory: StudioDirectoryHandle): Promise<SceneDocument> {
   const file = await directory.getFileHandle('scene.luma.json')
   return parseSceneDocument(await (await file.getFile()).text())
+}
+
+/** V2 저장은 원본 V1 file을 덮지 않고 temp/backup을 남겨 recovery 가능하게 유지한다. */
+export async function saveDeckToDirectory(directory: StudioDirectoryHandle, deck: DeckDocumentV2): Promise<void> {
+  const source = serializeDeckDocument(deck)
+  await writeText(directory, 'deck.luma.json.tmp', source)
+  parseDeckDocument(await readText(directory, 'deck.luma.json.tmp'))
+  try {
+    await writeText(directory, 'deck.luma.json.bak', await readText(directory, 'deck.luma.json'))
+  }
+  catch (error) {
+    if (!isNotFoundError(error))
+      throw error
+  }
+  await writeText(directory, 'deck.luma.json', source)
+}
+
+export async function loadDeckFromDirectory(directory: StudioDirectoryHandle): Promise<DeckDocumentV2> {
+  try {
+    return parseDeckDocument(await readText(directory, 'deck.luma.json'))
+  }
+  catch (error) {
+    if (!isNotFoundError(error)) {
+      try {
+        return parseDeckDocument(await readText(directory, 'deck.luma.json.bak'))
+      }
+      catch (backupError) {
+        if (!isNotFoundError(backupError)) throw backupError
+        try { return parseDeckDocument(await readText(directory, 'deck.luma.json.tmp')) }
+        catch (temporaryError) { if (!isNotFoundError(temporaryError)) throw temporaryError; throw error }
+      }
+    }
+    try { return parseDeckDocument(await readText(directory, 'deck.luma.json.tmp')) }
+    catch (temporaryError) { if (!isNotFoundError(temporaryError)) throw temporaryError }
+  }
+  return migrateSceneDocument(await loadSceneFromDirectory(directory))
 }
 
 export async function loadAssetUrlsFromDirectory(directory: StudioDirectoryHandle, scene: SceneDocument): Promise<Map<string, string>> {
@@ -124,6 +161,16 @@ export function downloadScene(scene: SceneDocument): void {
   URL.revokeObjectURL(url)
 }
 
+export function downloadDeck(deck: DeckDocumentV2): void {
+  const blob = new Blob([serializeDeckDocument(deck)], { type: 'application/json' })
+  const url = URL.createObjectURL(blob)
+  const anchor = globalThis.document.createElement('a')
+  anchor.href = url
+  anchor.download = 'deck.luma.json'
+  anchor.click()
+  URL.revokeObjectURL(url)
+}
+
 export function releaseAssetUrls(urls: ReadonlyMap<string, string>): void {
   for (const url of urls.values()) {
     if (url.startsWith('blob:'))
@@ -138,4 +185,23 @@ function assetFileName(source: string): string | undefined {
 
 function isAbortError(error: unknown): boolean {
   return error instanceof DOMException && error.name === 'AbortError'
+}
+
+function isNotFoundError(error: unknown): boolean {
+  return error instanceof DOMException && error.name === 'NotFoundError'
+}
+
+async function writeText(directory: StudioDirectoryHandle, name: string, value: string): Promise<void> {
+  const file = await directory.getFileHandle(name, { create: true })
+  const writable = await file.createWritable({ keepExistingData: false })
+  try {
+    await writable.write(value)
+  }
+  finally {
+    await writable.close()
+  }
+}
+
+async function readText(directory: StudioDirectoryHandle, name: string): Promise<string> {
+  return (await (await directory.getFileHandle(name)).getFile()).text()
 }

@@ -1,10 +1,12 @@
-import { createGripGunPrototypeScene } from '../../src/studio/gripgun-scene.js'
-import { createSceneHistory, applyHistoryOperation, redoSceneHistory, undoSceneHistory, type SceneHistory } from '../../src/studio/history.js'
-import { applySceneOperation, type SceneOperation } from '../../src/studio/operations.js'
+import { createGripGunPresentationDeck } from '../../src/studio/gripgun-deck.js'
+import { type SceneOperation } from '../../src/studio/operations.js'
+import { migrateSceneDocument, type DeckDocumentV2 } from '../../src/studio/deck.js'
+import { applyDeckHistory, applyDeckOperation, createDeckHistory, redoDeckHistory, undoDeckHistory, type DeckHistory } from '../../src/studio/deck-operations.js'
+import { initialPresenterState, transitionPresenter, type PresenterState } from '../../src/studio/presenter-state.js'
 import { createMotionPresetTracks, motionPresetNames, type MotionPresetName } from '../../src/studio/motion-presets.js'
-import type { SceneAsset, SceneDocument, SceneElement } from '../../src/studio/schema.js'
+import type { SceneAsset, SceneElement } from '../../src/studio/schema.js'
 import { getNextCueTime, getPreviousCueTime } from '../../src/studio/timeline.js'
-import { canUseDirectoryPicker, chooseProjectDirectory, copyAssetToDirectory, downloadScene, loadAssetUrlsFromDirectory, loadSceneFromDirectory, releaseAssetUrls, saveSceneToDirectory, type StudioDirectoryHandle } from './file-access.js'
+import { canUseDirectoryPicker, chooseProjectDirectory, copyAssetToDirectory, downloadDeck, loadAssetUrlsFromDirectory, loadDeckFromDirectory, releaseAssetUrls, saveDeckToDirectory, type StudioDirectoryHandle } from './file-access.js'
 import { renderScene } from './scene-renderer.js'
 
 const appRoot = document.querySelector<HTMLElement>('#app')
@@ -12,7 +14,10 @@ if (!appRoot)
   throw new Error('#app 없음')
 const app = appRoot
 
-let history: SceneHistory = createSceneHistory(createGripGunPrototypeScene())
+let history: DeckHistory = createDeckHistory(createGripGunPresentationDeck())
+let activeSlideId = history.present.slides[0].id
+let presentMode = false
+let presenterState: PresenterState = initialPresenterState(history.present)
 let selectedId = 'headline'
 let time = 0
 let isPlaying = false
@@ -24,15 +29,17 @@ const assetUrls = new Map<string, string>()
 
 app.innerHTML = `
   <header class="studio-header">
-    <div><p class="studio-kicker">LUMADECK VISUAL STUDIO · V1</p><h1>GripGun Line Trace</h1></div>
+    <div><p class="studio-kicker">LUMADECK VISUAL STUDIO · V2</p><h1>GripGun Presentation</h1></div>
     <div class="studio-actions">
       <button data-action="open">폴더 열기</button>
       <button data-action="save" class="primary">저장</button>
+      <button data-action="present">발표 모드</button>
       <button data-action="undo">되돌리기</button>
       <button data-action="redo">다시 실행</button>
     </div>
   </header>
   <section class="studio-shell">
+    <aside class="studio-panel slides"><h2>Slides</h2><div class="slide-actions"><button data-action="add-slide">+</button><button data-action="duplicate-slide">복제</button><button data-action="delete-slide">삭제</button></div><div class="slide-actions"><button data-action="slide-up">↑</button><button data-action="slide-down">↓</button></div><div data-role="slides"></div></aside>
     <aside class="studio-panel layers"><h2>Layers</h2><div data-role="layers"></div></aside>
     <section class="studio-workspace">
       <div class="scene-frame"><div class="scene-canvas" data-role="canvas" tabindex="0"></div></div>
@@ -48,6 +55,7 @@ app.innerHTML = `
 `
 
 const canvas = required<HTMLElement>('[data-role="canvas"]')
+const slidesPanel = required<HTMLElement>('[data-role="slides"]')
 const layers = required<HTMLElement>('[data-role="layers"]')
 const inspector = required<HTMLElement>('[data-role="inspector"]')
 const cues = required<HTMLElement>('[data-role="cues"]')
@@ -56,7 +64,7 @@ const timeOutput = required<HTMLOutputElement>('[data-role="time"]')
 const status = required<HTMLElement>('[data-role="status"]')
 
 function currentSlide() {
-  return history.present.slides[0]
+  return history.present.slides.find(slide => slide.id === activeSlideId) ?? history.present.slides[0]
 }
 
 function selectedElement(): SceneElement | undefined {
@@ -65,19 +73,39 @@ function selectedElement(): SceneElement | undefined {
 
 function redraw(): void {
   const slide = currentSlide()
+  app.classList.toggle('is-present', presentMode)
   scrub.max = String(slide.timeline.duration)
   scrub.value = String(time)
   timeOutput.value = `${time.toFixed(1)}s / ${slide.timeline.duration}s`
-  renderScene(canvas, history.present, slide, time, {
-    selectedId,
+  renderScene(canvas, sceneRuntimeDocument(), slide, time, {
+    selectedId: presentMode ? undefined : selectedId,
     assetUrls,
     onSelect: onSelectElement,
     onTextCommit: (elementId, text) => commit({ type: 'SetText', slideId: slide.id, elementId, text }),
   })
   renderLayers()
+  renderSlides()
   renderInspector()
   renderCues()
-  status.textContent = `${canUseDirectoryPicker() ? 'Chromium local folder save ready' : '폴더 저장 미지원: JSON 다운로드 fallback'} · ${isPlaying ? 'cue 재생 중' : 'hold state'}`
+  status.textContent = `${presentMode ? 'PRESENT' : 'EDIT'} · ${canUseDirectoryPicker() ? 'Chromium local folder save ready' : '폴더 저장 미지원: JSON 다운로드 fallback'} · ${isPlaying ? 'cue 재생 중' : 'hold state'}`
+}
+
+function sceneRuntimeDocument() {
+  return { schemaVersion: 1 as const, viewport: history.present.viewport, assets: history.present.assets, slides: history.present.slides }
+}
+
+function renderSlides(): void {
+  slidesPanel.replaceChildren(...history.present.slides.map((slide, index) => {
+    const button = document.createElement('button')
+    button.className = `slide-item${slide.id === activeSlideId ? ' is-active' : ''}`
+    button.textContent = slide.title
+    button.onclick = () => { activeSlideId = slide.id; selectedId = slide.elements[0]?.id ?? ''; time = 0; redraw() }
+    button.draggable = true
+    button.ondragstart = event => event.dataTransfer?.setData('text/plain', slide.id)
+    button.ondragover = event => event.preventDefault()
+    button.ondrop = event => { event.preventDefault(); const source = event.dataTransfer?.getData('text/plain'); if (source && source !== slide.id) moveSlide(source, index) }
+    return button
+  }))
 }
 
 function renderLayers(): void {
@@ -196,7 +224,7 @@ function applyField(field: string, rawValue: string): void {
 function commit(operation: SceneOperation): void {
   stopPlayback()
   try {
-    history = applyHistoryOperation(history, operation)
+    history = applyDeckHistory(history, operation)
     redraw()
   }
   catch (error) {
@@ -208,6 +236,11 @@ function reorder(delta: number): void {
   const element = selectedElement()
   if (element)
     commit({ type: 'ReorderElement', slideId: currentSlide().id, elementId: element.id, zIndex: element.transform.zIndex + delta })
+}
+
+function moveSlide(slideId: string, toIndex: number): void {
+  history = applyDeckHistory(history, { type: 'MoveSlide', slideId, toIndex })
+  redraw()
 }
 
 function onSelectElement(elementId: string, event: PointerEvent): void {
@@ -259,8 +292,14 @@ function seek(nextTime: number): void {
   redraw()
 }
 
-function playTo(endTime: number): void {
+function playTo(endTime: number, onComplete?: () => void): void {
   stopPlayback()
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    time = endTime
+    redraw()
+    onComplete?.()
+    return
+  }
   segmentEnd = endTime
   isPlaying = true
   previousFrameAt = performance.now()
@@ -273,6 +312,7 @@ function playTo(endTime: number): void {
       isPlaying = false
       animationFrame = undefined
       redraw()
+      onComplete?.()
       return
     }
     animationFrame = requestAnimationFrame(tick)
@@ -290,6 +330,23 @@ function stopPlayback(): void {
 function nextCue(): void {
   if (isPlaying)
     return
+  if (presentMode) {
+    const output = transitionPresenter(history.present, presenterState, 'next')
+    presenterState = output.state
+    activeSlideId = output.renderSlideId
+    if (output.shouldPlayTo !== undefined) {
+      seek(output.renderTime)
+      playTo(output.shouldPlayTo, () => {
+        presenterState = transitionPresenter(history.present, presenterState, 'animationComplete').state
+        redraw()
+      })
+    }
+    else {
+      time = output.renderTime
+      redraw()
+    }
+    return
+  }
   const next = getNextCueTime(currentSlide(), time)
   if (next !== undefined)
     playTo(next)
@@ -302,10 +359,12 @@ async function openDirectory(): Promise<void> {
       return
     releaseAssetUrls(assetUrls)
     assetUrls.clear()
-    const loadedScene = await loadSceneFromDirectory(directory)
-    for (const [id, url] of await loadAssetUrlsFromDirectory(directory, loadedScene))
+    const loadedDeck = await loadDeckFromDirectory(directory)
+    for (const [id, url] of await loadAssetUrlsFromDirectory(directory, { schemaVersion: 1, viewport: loadedDeck.viewport, assets: loadedDeck.assets, slides: loadedDeck.slides }))
       assetUrls.set(id, url)
-    history = createSceneHistory(loadedScene)
+    history = createDeckHistory(loadedDeck)
+    activeSlideId = loadedDeck.slides.find(slide => !slide.hidden)?.id ?? loadedDeck.slides[0].id
+    presenterState = initialPresenterState(loadedDeck)
     selectedId = currentSlide().elements[0]?.id ?? ''
     time = 0
     redraw()
@@ -320,12 +379,12 @@ async function save(): Promise<void> {
     if (!directory)
       directory = await chooseProjectDirectory()
     if (directory) {
-      await saveSceneToDirectory(directory, history.present)
-      status.textContent = 'scene.luma.json 저장 완료'
+      await saveDeckToDirectory(directory, history.present)
+      status.textContent = 'deck.luma.json 저장 완료'
     }
     else {
-      downloadScene(history.present)
-      status.textContent = '폴더 저장 미지원: scene.luma.json 다운로드 완료'
+      downloadDeck(history.present)
+      status.textContent = '폴더 저장 미지원: deck.luma.json 다운로드 완료'
     }
   }
   catch (error) {
@@ -344,10 +403,10 @@ async function replaceAsset(file: File): Promise<void> {
       throw new Error('이미지 교체 전 project folder 선택 필요')
     const id = `asset-${crypto.randomUUID()}`
     const copied = await copyAssetToDirectory(directory, file)
-    const next = structuredClone(history.present) as SceneDocument
+    const next = structuredClone(history.present) as DeckDocumentV2
     const asset: SceneAsset = { id, src: copied.src, alt: file.name, fit: 'cover', focalPoint: { x: 0.5, y: 0.5 } }
-    ;(next.assets as SceneAsset[]).push(asset)
-    history = { past: [...history.past, history.present], present: applySceneOperation(next, { type: 'ReplaceAsset', slideId: currentSlide().id, elementId: element.id, assetId: id }), future: [] }
+    const nextWithAsset = { ...next, assets: [...next.assets, asset] }
+    history = { past: [...history.past, history.present], present: applyDeckOperation(nextWithAsset, { type: 'ReplaceAsset', slideId: currentSlide().id, elementId: element.id, assetId: id }), future: [] }
     assetUrls.set(id, copied.url)
     redraw()
   }
@@ -360,17 +419,56 @@ app.addEventListener('click', (event) => {
   const action = (event.target as HTMLElement).dataset.action
   if (action === 'open') void openDirectory()
   if (action === 'save') void save()
-  if (action === 'undo') { history = undoSceneHistory(history); redraw() }
-  if (action === 'redo') { history = redoSceneHistory(history); redraw() }
+  if (action === 'present') {
+    presentMode = !presentMode
+    if (!presentMode) { stopPlayback(); redraw(); return }
+    presenterState = initialPresenterState(history.present)
+    const entering = transitionPresenter(history.present, presenterState, 'enter')
+    presenterState = entering.state
+    activeSlideId = entering.renderSlideId
+    time = entering.renderTime
+    redraw()
+    if (presentMode && entering.shouldPlayTo !== undefined) playTo(entering.shouldPlayTo, () => {
+      presenterState = transitionPresenter(history.present, presenterState, 'animationComplete').state
+      redraw()
+    })
+  }
+  if (action === 'undo') { history = undoDeckHistory(history); activeSlideId = currentSlide().id; redraw() }
+  if (action === 'redo') { history = redoDeckHistory(history); activeSlideId = currentSlide().id; redraw() }
+  if (action === 'add-slide') {
+    const source = structuredClone(currentSlide())
+    const id = `slide-${crypto.randomUUID().slice(0, 8)}`
+    const copy = { ...source, id, title: '새 Slide', presenterNotes: '', timeline: { ...source.timeline, cues: source.timeline.cues.map(cue => ({ ...cue })) } }
+    history = applyDeckHistory(history, { type: 'AddSlide', slide: copy, index: history.present.slides.findIndex(slide => slide.id === activeSlideId) + 1 })
+    activeSlideId = id; selectedId = copy.elements[0]?.id ?? ''; time = 0; redraw()
+  }
+  if (action === 'duplicate-slide') {
+    const id = `slide-${crypto.randomUUID().slice(0, 8)}`
+    history = applyDeckHistory(history, { type: 'DuplicateSlide', slideId: activeSlideId, id, title: `${currentSlide().title} 복제` })
+    activeSlideId = id; time = 0; redraw()
+  }
+  if (action === 'delete-slide') {
+    const index = history.present.slides.findIndex(slide => slide.id === activeSlideId)
+    history = applyDeckHistory(history, { type: 'DeleteSlide', slideId: activeSlideId })
+    activeSlideId = history.present.slides[Math.max(0, index - 1)].id; selectedId = currentSlide().elements[0]?.id ?? ''; time = 0; redraw()
+  }
+  if (action === 'slide-up') moveSlide(activeSlideId, Math.max(0, history.present.slides.findIndex(slide => slide.id === activeSlideId) - 1))
+  if (action === 'slide-down') moveSlide(activeSlideId, Math.min(history.present.slides.length - 1, history.present.slides.findIndex(slide => slide.id === activeSlideId) + 1))
   if (action === 'reset') seek(0)
   if (action === 'play') playTo(currentSlide().timeline.duration)
   if (action === 'next') nextCue()
 })
 scrub.addEventListener('input', () => seek(Number(scrub.value)))
 window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && presentMode) {
+    stopPlayback()
+    presentMode = false
+    redraw()
+    return
+  }
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'z') {
     event.preventDefault()
-    history = event.shiftKey ? redoSceneHistory(history) : undoSceneHistory(history)
+    history = event.shiftKey ? redoDeckHistory(history) : undoDeckHistory(history)
     redraw()
     return
   }
@@ -384,6 +482,14 @@ window.addEventListener('keydown', (event) => {
   }
   if (event.key === 'ArrowLeft') {
     event.preventDefault()
+    if (presentMode) {
+      const previous = transitionPresenter(history.present, presenterState, 'previous')
+      presenterState = previous.state
+      activeSlideId = previous.renderSlideId
+      time = previous.renderTime
+      redraw()
+      return
+    }
     seek(getPreviousCueTime(currentSlide(), time))
   }
 })
@@ -400,5 +506,4 @@ function required<T extends Element>(selector: string): T {
 }
 
 redraw()
-requestAnimationFrame(() => playTo(3))
 window.addEventListener('beforeunload', () => releaseAssetUrls(assetUrls))

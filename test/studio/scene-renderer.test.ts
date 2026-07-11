@@ -1,0 +1,25 @@
+import { describe, expect, it } from 'vitest'
+import { resolveSlideElements } from '../../studio/src/scene-renderer.js'
+import type { SceneSlide } from '../../src/studio/schema.js'
+
+const transform = (x: number, y: number, width: number, height: number, zIndex = 1) => ({ x, y, width, height, rotation: 0, opacity: 1, zIndex })
+
+describe('scene renderer geometry', () => {
+  it('resolves nested group transforms and rotated connector anchors together', () => {
+    const slide: SceneSlide = {
+      id: 'slide', layoutId: 'test', presenterNotes: '', posterCueId: 'poster',
+      elements: [
+        { id: 'group', type: 'group', transform: { ...transform(100, 200, 1, 1), rotation: 90 }, style: { scale: 2 }, accessibilityLabel: 'group' },
+        { id: 'nested', parentId: 'group', type: 'group', transform: { ...transform(10, 0, 1, 1), rotation: 90 }, style: { scale: .5 }, accessibilityLabel: 'nested group' },
+        { id: 'source', parentId: 'nested', type: 'shape', transform: transform(10, 20, 50, 40), style: {}, accessibilityLabel: 'source' },
+        { id: 'target', type: 'shape', transform: transform(300, 260, 80, 50), style: {}, accessibilityLabel: 'target' },
+        { id: 'flow', type: 'connector', transform: transform(0, 0, 10, 10), connector: { from: { elementId: 'source', anchor: 'right' }, to: { elementId: 'target', anchor: 'left' } }, style: {}, accessibilityLabel: 'flow' },
+      ],
+      timeline: { duration: 1, cues: [{ id: 'poster', at: 0, mode: 'hold', label: 'poster' }], tracks: [] },
+    }
+    const elements = new Map(resolveSlideElements(slide).map(element => [element.id, element]))
+    expect(elements.get('source')?.renderMatrix).toMatchObject({ a: -1, d: -1, tx: 90, ty: 200 })
+    expect(elements.get('flow')?.renderMatrix).toMatchObject({ tx: 40, ty: 175 })
+    expect(elements.get('flow')?.transform.width).toBeGreaterThan(80)
+  })
+})

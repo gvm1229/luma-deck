@@ -34,6 +34,11 @@ describe('connector drawing', () => {
     expect(nearlyComplete.headVisible).toBe(false)
     expect(beforeComplete.headVisible).toBe(false)
     expect(complete.headVisible).toBe(true)
-    expect(complete.stickX2 + complete.strokeWidth / 2).toBe(complete.headBase)
+    expect(complete.strokeWidth).toBe(6)
+    expect(complete.headBase - (complete.stickX2 + complete.strokeWidth / 2)).toBe(complete.headGap)
+
+    const tooShort = getConnectorDrawing(36, 32, 1)
+    expect(tooShort.stickVisible).toBe(false)
+    expect(tooShort.stickX2).toBe(0)
   })
 })

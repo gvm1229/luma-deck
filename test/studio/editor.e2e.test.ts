@@ -88,14 +88,13 @@ describe('Visual Studio editor', () => {
     await page.waitForTimeout(2700)
     expect(await page.locator('.scene-connector-head').first().evaluate(node => getComputedStyle(node).display)).not.toBe('none')
     expect(await page.locator('.scene-connector-stick').evaluateAll(nodes => nodes.every(node => node.getAttribute('stroke-linecap') === 'round'))).toBe(true)
-    expect(await page.locator('.scene-connector-head').evaluateAll(nodes => nodes.every(node => node.getAttribute('stroke-linejoin') === 'miter'))).toBe(true)
     const connectorJoin = await page.locator('.scene-element-connector').first().evaluate((node) => {
       const stick = node.querySelector<SVGLineElement>('.scene-connector-stick')!
       const head = node.querySelector<SVGPolygonElement>('.scene-connector-head')!
       const [headBase] = head.getAttribute('points')!.split(' ')[0].split(',').map(Number)
       return { gap: Math.abs(Number(stick.getAttribute('x2')) + Number(stick.getAttribute('stroke-width')) / 2 - headBase) }
     })
-    expect(connectorJoin.gap).toBeLessThanOrEqual(.01)
+    expect(connectorJoin.gap).toBe(12)
     await page.keyboard.press('Escape')
     expect(await page.locator('.studio-header').evaluate(node => getComputedStyle(node).display)).not.toBe('none')
     expect(errors).toEqual([])

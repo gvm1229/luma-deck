@@ -3,6 +3,8 @@ import { readFile } from 'node:fs/promises'
 import { extname, resolve } from 'node:path'
 import { chromium } from 'playwright-chromium'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+import { serializeDeckDocument } from '../../src/studio/deck.js'
+import { createGripGunPresentationDeck } from '../../src/studio/gripgun-deck.js'
 
 const root = resolve(process.cwd())
 const types = new Map([
@@ -99,6 +101,37 @@ describe('Visual Studio editor', () => {
     await page.keyboard.press('Escape')
     expect(await page.locator('.studio-header').evaluate(node => getComputedStyle(node).display)).not.toBe('none')
     expect(errors).toEqual([])
+    await browser.close()
+  }, 12_000)
+
+  it('shows per-slide legacy import review after opening a project folder', async () => {
+    const deck = createGripGunPresentationDeck()
+    const report = JSON.stringify({ sourceSha256: 'fixture', totalSlides: deck.slides.length, importedSlideIds: deck.slides.map(slide => slide.id), issues: [{ slideId: deck.slides[0]!.id, sourceIndex: 1, reason: 'placeholder', raw: '실제 인게임 캡처 필요' }] })
+    const browser = await chromium.launch({ headless: true })
+    const page = await browser.newPage({ viewport: { width: 1600, height: 1000 } })
+    await page.goto(url, { waitUntil: 'load' })
+    await page.evaluate(async ({ deckSource, reportSource }) => {
+      const files: Record<string, string> = { 'deck.luma.json': deckSource }
+      const fileHandle = (name: string, source: string) => ({ name, getFile: async () => new File([source], name), createWritable: async () => ({ write: async () => {}, close: async () => {} }) })
+      const metadata = { getFileHandle: async (name: string) => {
+        if (name !== 'import-report.json') throw new DOMException('not found', 'NotFoundError')
+        return fileHandle(name, reportSource)
+      }, getDirectoryHandle: async () => { throw new DOMException('not found', 'NotFoundError') } }
+      ;(window as Window & { showDirectoryPicker?: () => Promise<unknown> }).showDirectoryPicker = async () => ({
+        getFileHandle: async (name: string) => {
+          if (!(name in files)) throw new DOMException('not found', 'NotFoundError')
+          return fileHandle(name, files[name]!)
+        },
+        getDirectoryHandle: async (name: string) => {
+          if (name === '.lumadeck') return metadata
+          throw new DOMException('not found', 'NotFoundError')
+        },
+      })
+    }, { deckSource: serializeDeckDocument(deck), reportSource: report })
+    await page.locator('[data-action="open"]').click()
+    await page.waitForFunction(() => document.querySelector('[data-role="import-review"]')?.textContent?.includes('placeholder'))
+    expect(await page.locator('[data-role="import-review"]').textContent()).toContain('실제 인게임 캡처 필요')
+    expect(await page.locator('[data-role="status"]').textContent()).toContain('import review 1건')
     await browser.close()
   }, 12_000)
 })

@@ -6,7 +6,8 @@ import { initialPresenterState, transitionPresenter, type PresenterState } from 
 import { createMotionPresetTracks, motionPresetNames, type MotionPresetName } from '../../src/studio/motion-presets.js'
 import type { SceneAsset, SceneElement } from '../../src/studio/schema.js'
 import { getNextCueTime, getPreviousCueTime } from '../../src/studio/timeline.js'
-import { canUseDirectoryPicker, chooseProjectDirectory, copyAssetToDirectory, downloadDeck, loadAssetUrlsFromDirectory, loadDeckFromDirectory, releaseAssetUrls, saveDeckToDirectory, type StudioDirectoryHandle } from './file-access.js'
+import type { SlidevImportReport } from '../../src/studio/slidev-importer.js'
+import { canUseDirectoryPicker, chooseProjectDirectory, copyAssetToDirectory, downloadDeck, loadAssetUrlsFromDirectory, loadDeckFromDirectory, loadImportReportFromDirectory, releaseAssetUrls, saveDeckToDirectory, type StudioDirectoryHandle } from './file-access.js'
 import { renderScene } from './scene-renderer.js'
 
 const appRoot = document.querySelector<HTMLElement>('#app')
@@ -22,6 +23,7 @@ let selectedId = 'headline'
 let time = 0
 let isPlaying = false
 let directory: StudioDirectoryHandle | undefined
+let importReport: SlidevImportReport | undefined
 let animationFrame: number | undefined
 let segmentEnd = 0
 let previousFrameAt = 0
@@ -39,7 +41,7 @@ app.innerHTML = `
     </div>
   </header>
   <section class="studio-shell">
-    <aside class="studio-panel slides"><h2>Slides</h2><div class="slide-actions"><button data-action="add-slide">+</button><button data-action="duplicate-slide">복제</button><button data-action="delete-slide">삭제</button></div><div class="slide-actions"><button data-action="slide-up">↑</button><button data-action="slide-down">↓</button></div><div data-role="slides"></div></aside>
+    <aside class="studio-panel slides"><h2>Slides</h2><div class="slide-actions"><button data-action="add-slide">+</button><button data-action="duplicate-slide">복제</button><button data-action="delete-slide">삭제</button></div><div class="slide-actions"><button data-action="slide-up">↑</button><button data-action="slide-down">↓</button></div><div data-role="slides"></div><section class="import-review"><h3>Import review</h3><div data-role="import-review"></div></section></aside>
     <aside class="studio-panel layers"><h2>Layers</h2><div data-role="layers"></div></aside>
     <section class="studio-workspace">
       <div class="scene-frame"><div class="scene-canvas" data-role="canvas" tabindex="0"></div></div>
@@ -62,6 +64,7 @@ const cues = required<HTMLElement>('[data-role="cues"]')
 const scrub = required<HTMLInputElement>('[data-role="scrub"]')
 const timeOutput = required<HTMLOutputElement>('[data-role="time"]')
 const status = required<HTMLElement>('[data-role="status"]')
+const importReview = required<HTMLElement>('[data-role="import-review"]')
 
 function currentSlide() {
   return history.present.slides.find(slide => slide.id === activeSlideId) ?? history.present.slides[0]
@@ -87,7 +90,31 @@ function redraw(): void {
   renderSlides()
   renderInspector()
   renderCues()
-  status.textContent = `${presentMode ? 'PRESENT' : 'EDIT'} · ${canUseDirectoryPicker() ? 'Chromium local folder save ready' : '폴더 저장 미지원: JSON 다운로드 fallback'} · ${isPlaying ? 'cue 재생 중' : 'hold state'}`
+  renderImportReview()
+  status.textContent = `${presentMode ? 'PRESENT' : 'EDIT'} · ${canUseDirectoryPicker() ? 'Chromium local folder save ready' : '폴더 저장 미지원: JSON 다운로드 fallback'} · ${importReport ? `import review ${importReport.issues.length}건` : 'native deck'} · ${isPlaying ? 'cue 재생 중' : 'hold state'}`
+}
+
+function renderImportReview(): void {
+  const issues = importReport?.issues.filter(issue => issue.slideId === activeSlideId) ?? []
+  importReview.replaceChildren()
+  if (!importReport) {
+    importReview.textContent = 'Import report 없음'
+    return
+  }
+  if (!issues.length) {
+    importReview.textContent = '이 slide 검토 항목 없음'
+    return
+  }
+  for (const issue of issues) {
+    const item = document.createElement('article')
+    item.className = 'import-review-item'
+    const title = document.createElement('strong')
+    title.textContent = issue.reason
+    const raw = document.createElement('p')
+    raw.textContent = issue.raw.slice(0, 180)
+    item.append(title, raw)
+    importReview.append(item)
+  }
 }
 
 function sceneRuntimeDocument() {
@@ -364,6 +391,7 @@ async function openDirectory(): Promise<void> {
     releaseAssetUrls(assetUrls)
     assetUrls.clear()
     const loadedDeck = await loadDeckFromDirectory(directory)
+    importReport = await loadImportReportFromDirectory(directory)
     for (const [id, url] of await loadAssetUrlsFromDirectory(directory, { schemaVersion: 1, viewport: loadedDeck.viewport, assets: loadedDeck.assets, slides: loadedDeck.slides }))
       assetUrls.set(id, url)
     history = createDeckHistory(loadedDeck)

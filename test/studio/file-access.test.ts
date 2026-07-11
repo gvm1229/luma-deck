@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { loadAssetUrlsFromDirectory, loadDeckFromDirectory, loadSceneFromDirectory, releaseAssetUrls, saveDeckToDirectory, saveSceneToDirectory, type StudioDirectoryHandle, type StudioFileHandle } from '../../studio/src/file-access.js'
+import { loadAssetUrlsFromDirectory, loadDeckFromDirectory, loadImportReportFromDirectory, loadSceneFromDirectory, releaseAssetUrls, saveDeckToDirectory, saveSceneToDirectory, type StudioDirectoryHandle, type StudioFileHandle } from '../../studio/src/file-access.js'
 import { migrateSceneDocument } from '../../src/studio/deck.js'
 import { createTestScene } from './scene.js'
 
@@ -72,6 +72,15 @@ describe('studio file access', () => {
     const urls = await loadAssetUrlsFromDirectory(directory, scene)
     expect(urls.get('beta-enemy-hit')).toMatch(/^blob:/)
     releaseAssetUrls(urls)
+  })
+
+  it('loads optional legacy import reports and ignores malformed metadata', async () => {
+    const directory = new MemoryDirectory()
+    const metadata = await directory.getDirectoryHandle('.lumadeck', { create: true }) as MemoryDirectory
+    metadata.files.set('import-report.json', new MemoryFileHandle('import-report.json', JSON.stringify({ sourceSha256: 'abc', totalSlides: 1, importedSlideIds: ['slide-01'], issues: [{ slideId: 'slide-01', sourceIndex: 1, reason: 'placeholder', raw: 'capture needed' }] })))
+    expect(await loadImportReportFromDirectory(directory)).toEqual(expect.objectContaining({ totalSlides: 1 }))
+    metadata.files.set('import-report.json', new MemoryFileHandle('import-report.json', '{invalid'))
+    expect(await loadImportReportFromDirectory(directory)).toBeUndefined()
   })
 
   it('creates a V2 deck without overwriting the V1 scene and recovers from backup', async () => {

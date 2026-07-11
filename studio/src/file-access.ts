@@ -1,5 +1,6 @@
 import { parseSceneDocument, serializeSceneDocument } from '../../src/studio/serializer.js'
 import { migrateSceneDocument, parseDeckDocument, serializeDeckDocument, type DeckDocumentV2 } from '../../src/studio/deck.js'
+import type { SlidevImportReport } from '../../src/studio/slidev-importer.js'
 import type { SceneDocument } from '../../src/studio/schema.js'
 
 interface WritableFile {
@@ -90,6 +91,20 @@ export async function loadDeckFromDirectory(directory: StudioDirectoryHandle): P
     catch (temporaryError) { if (!isNotFoundError(temporaryError)) throw temporaryError }
   }
   return migrateSceneDocument(await loadSceneFromDirectory(directory))
+}
+
+/** Legacy import report는 optional local metadata다. 없으면 일반 V2 deck으로 연다. */
+export async function loadImportReportFromDirectory(directory: StudioDirectoryHandle): Promise<SlidevImportReport | undefined> {
+  try {
+    const metadata = await directory.getDirectoryHandle('.lumadeck')
+    const parsed: unknown = JSON.parse(await readText(metadata, 'import-report.json'))
+    return isSlidevImportReport(parsed) ? parsed : undefined
+  }
+  catch (error) {
+    if (isNotFoundError(error) || error instanceof SyntaxError)
+      return undefined
+    throw error
+  }
 }
 
 export async function loadAssetUrlsFromDirectory(directory: StudioDirectoryHandle, scene: SceneDocument): Promise<Map<string, string>> {
@@ -186,6 +201,20 @@ function isAbortError(error: unknown): boolean {
 
 function isNotFoundError(error: unknown): boolean {
   return error instanceof DOMException && error.name === 'NotFoundError'
+}
+
+function isSlidevImportReport(value: unknown): value is SlidevImportReport {
+  if (!value || typeof value !== 'object')
+    return false
+  const report = value as Partial<SlidevImportReport>
+  return typeof report.sourceSha256 === 'string'
+    && typeof report.totalSlides === 'number'
+    && Array.isArray(report.importedSlideIds)
+    && Array.isArray(report.issues)
+    && report.issues.every(issue => issue && typeof issue === 'object'
+      && typeof (issue as { slideId?: unknown }).slideId === 'string'
+      && typeof (issue as { reason?: unknown }).reason === 'string'
+      && typeof (issue as { raw?: unknown }).raw === 'string')
 }
 
 async function writeText(directory: StudioDirectoryHandle, name: string, value: string): Promise<void> {

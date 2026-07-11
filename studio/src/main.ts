@@ -244,6 +244,10 @@ function moveSlide(slideId: string, toIndex: number): void {
 }
 
 function onSelectElement(elementId: string, event: PointerEvent): void {
+  if (presentMode) {
+    event.preventDefault()
+    return
+  }
   event.stopPropagation()
   selectedId = elementId
   const element = selectedElement()
@@ -459,6 +463,10 @@ app.addEventListener('click', (event) => {
   if (action === 'next') nextCue()
 })
 scrub.addEventListener('input', () => seek(Number(scrub.value)))
+canvas.addEventListener('click', () => {
+  if (presentMode)
+    nextCue()
+})
 window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && presentMode) {
     stopPlayback()

@@ -169,8 +169,10 @@ function updateElement(node: HTMLElement, element: SceneElement, assets: readonl
     let line = node.querySelector<HTMLElement>('.scene-path-line')
     if (!line) { line = document.createElement('div'); line.className = 'scene-path-line'; node.replaceChildren(line) }
     const progress = Math.min(Math.max(Number(element.style.pathProgress ?? 1), 0), 1)
-    line.style.width = `${progress * 100}%`
+    const arrowVisible = progress >= .99
+    line.style.width = arrowVisible ? 'calc(100% - 26px)' : `${progress * 100}%`
     line.style.background = String(element.style.background ?? '#2563eb')
+    line.style.borderRadius = '999px'
     if (element.type === 'connector' && !node.querySelector('.scene-connector-arrow')) {
       const arrow = document.createElement('span')
       arrow.className = 'scene-connector-arrow'
@@ -179,7 +181,7 @@ function updateElement(node: HTMLElement, element: SceneElement, assets: readonl
     }
     const arrow = node.querySelector<HTMLElement>('.scene-connector-arrow')
     if (arrow) {
-      arrow.style.display = progress >= .99 ? 'block' : 'none'
+      arrow.style.display = arrowVisible ? 'block' : 'none'
       arrow.style.color = String(element.style.background ?? '#2563eb')
     }
   }

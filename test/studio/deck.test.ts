@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { deckSemanticEqual, migrateSceneDocument, parseDeckDocument, serializeDeckDocument, validateDeckDocument } from '../../src/studio/deck.js'
 import { createGripGunPresentationDeck } from '../../src/studio/gripgun-deck.js'
 import { evaluateSlideAt } from '../../src/studio/timeline.js'
+import { resolveSlideElements } from '../../studio/src/scene-renderer.js'
 import { createTestScene } from './scene.js'
 
 describe('deck v2 migration', () => {
@@ -35,5 +36,18 @@ describe('deck v2 migration', () => {
     expect(at(3, 'server').transform.opacity).toBe(1)
     expect(at(3, 'hit').transform.opacity).toBe(0)
     expect(at(3, 'ray').style.pathProgress).toBe(0)
+  })
+
+  it('focuses the server-authority client before the server and shares the damage/VFX origin', () => {
+    const deck = createGripGunPresentationDeck()
+    const authority = deck.slides.find(slide => slide.id === 'gripgun-3')!
+    const authorityAt = (time: number, id: string) => evaluateSlideAt(authority, time).elements.find(element => element.id === id)!
+    expect(authorityAt(1, 'client').transform.opacity).toBe(1)
+    expect(authorityAt(1, 'server').transform.opacity).toBe(0)
+    expect(authority.presenterNotes).toContain('클릭하여 다음 cue 진행')
+
+    const damage = deck.slides.find(slide => slide.id === 'gripgun-5')!
+    const geometry = new Map(resolveSlideElements(evaluateSlideAt(damage, 5.5)).map(element => [element.id, element]))
+    expect(geometry.get('damage-route')?.renderMatrix).toMatchObject({ tx: geometry.get('vfx-route')?.renderMatrix.tx, ty: geometry.get('vfx-route')?.renderMatrix.ty })
   })
 })

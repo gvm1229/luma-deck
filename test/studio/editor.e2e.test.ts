@@ -84,9 +84,15 @@ describe('Visual Studio editor', () => {
     expect(await page.locator('[data-element-id="hit"]').evaluate(node => getComputedStyle(node).opacity)).toBe('0')
     expect(await page.locator('.scene-connector-arrow').evaluateAll(nodes => nodes.every(node => getComputedStyle(node).display === 'none'))).toBe(true)
     await page.waitForTimeout(1700)
-    await page.keyboard.press('ArrowRight')
+    await page.locator('[data-role="canvas"]').click()
     await page.waitForTimeout(2700)
     expect(await page.locator('.scene-connector-arrow').first().evaluate(node => getComputedStyle(node).display)).not.toBe('none')
+    const connectorJoin = await page.locator('.scene-element-connector').first().evaluate((node) => {
+      const line = node.querySelector<HTMLElement>('.scene-path-line')!
+      const arrow = node.querySelector<HTMLElement>('.scene-connector-arrow')!
+      return { gap: Math.abs(line.getBoundingClientRect().right - arrow.getBoundingClientRect().left) }
+    })
+    expect(connectorJoin.gap).toBeLessThanOrEqual(2)
     await page.keyboard.press('Escape')
     expect(await page.locator('.studio-header').evaluate(node => getComputedStyle(node).display)).not.toBe('none')
     expect(errors).toEqual([])

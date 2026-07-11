@@ -168,12 +168,19 @@ function updateElement(node: HTMLElement, element: SceneElement, assets: readonl
   else if (element.type === 'path' || element.type === 'connector') {
     let line = node.querySelector<HTMLElement>('.scene-path-line')
     if (!line) { line = document.createElement('div'); line.className = 'scene-path-line'; node.replaceChildren(line) }
-    line.style.width = `${Number(element.style.pathProgress ?? 1) * 100}%`
+    const progress = Math.min(Math.max(Number(element.style.pathProgress ?? 1), 0), 1)
+    line.style.width = `${progress * 100}%`
+    line.style.background = String(element.style.background ?? '#2563eb')
     if (element.type === 'connector' && !node.querySelector('.scene-connector-arrow')) {
       const arrow = document.createElement('span')
       arrow.className = 'scene-connector-arrow'
-      arrow.textContent = '›'
+      arrow.textContent = ''
       node.append(arrow)
+    }
+    const arrow = node.querySelector<HTMLElement>('.scene-connector-arrow')
+    if (arrow) {
+      arrow.style.display = progress >= .99 ? 'block' : 'none'
+      arrow.style.color = String(element.style.background ?? '#2563eb')
     }
   }
   else if (element.type === 'group') {

@@ -69,7 +69,12 @@ export function createGripGunPrototypeScene(): SceneDocument {
   return {
     schemaVersion: 1,
     viewport: { width: 1920, height: 1080 },
-    assets: [{ id: 'beta-enemy-hit', src: '/projects/pragmata-2p-beta/images/slide-15-enemy-hit.png', alt: '현재 beta 빌드의 적 타격 화면', fit: 'cover', focalPoint: { x: 0.5, y: 0.5 } }],
+    assets: [
+      { id: 'beta-enemy-hit', src: '/projects/pragmata-2p-beta/images/slide-15-enemy-hit.png', alt: '현재 beta 빌드의 적 타격 화면', fit: 'cover', focalPoint: { x: 0.5, y: 0.5 } },
+      { id: 'beta-hugh-hud', src: '/projects/pragmata-2p-beta/images/slide-14-hugh-hud-dark.png', alt: 'Hugh 조작 HUD 화면', fit: 'cover', focalPoint: { x: 0.5, y: 0.5 } },
+      { id: 'beta-combat', src: '/projects/pragmata-2p-beta/images/slide-03-combat-explosion.png', alt: 'GripGun 전투 장면', fit: 'cover', focalPoint: { x: 0.5, y: 0.5 } },
+      { id: 'beta-hugh', src: '/projects/pragmata-2p-beta/images/slide-12-hugh-player-character-front.png', alt: 'Hugh 플레이어 캐릭터', fit: 'contain', focalPoint: { x: 0.5, y: 0.5 } },
+    ],
     slides: [slide],
   }
 }

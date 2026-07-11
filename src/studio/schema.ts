@@ -3,7 +3,7 @@ export const cueModes = ['auto', 'hold', 'click'] as const
 export const easingNames = ['linear', 'ease-in', 'ease-out', 'ease-in-out'] as const
 const allowedStyleKeys = new Set(['background', 'border', 'borderColor', 'borderRadius', 'boxShadow', 'color', 'fontSize', 'fontWeight', 'lineHeight', 'pathProgress', 'scale'])
 const allowedTrackProperties = new Set(['x', 'y', 'width', 'height', 'rotation', 'opacity', 'pathProgress'])
-const betaEvidenceSource = '/projects/pragmata-2p-beta/images/slide-15-enemy-hit.png'
+const betaAssetSource = /^\/projects\/pragmata-2p-beta\/images\/[a-zA-Z0-9][a-zA-Z0-9._-]{0,180}$/
 
 export type SceneElementType = typeof sceneElementTypes[number]
 export type CueMode = typeof cueModes[number]
@@ -252,7 +252,7 @@ function assertRange(value: unknown, minimum: number, maximum: number, path: str
 }
 
 function isSafeAssetSource(source: string): boolean {
-  return /^assets\/[a-zA-Z0-9][a-zA-Z0-9._-]{0,180}$/.test(source) || source === betaEvidenceSource
+  return /^assets\/[a-zA-Z0-9][a-zA-Z0-9._-]{0,180}$/.test(source) || betaAssetSource.test(source)
 }
 
 function isSafeStyleValue(value: string): boolean {

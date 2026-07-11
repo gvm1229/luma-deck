@@ -33,7 +33,7 @@ const server = createServer((request, response) => {
   const allowed = fromRoot === 'studio/index.html'
     || fromRoot === 'studio/src/styles.css'
     || fromRoot.startsWith('studio/dist/')
-    || fromRoot === 'projects/pragmata-2p-beta/images/slide-15-enemy-hit.png'
+    || fromRoot.startsWith('projects/pragmata-2p-beta/images/')
   if (fromRoot.startsWith('..') || fromRoot === '' || !allowed) {
     response.writeHead(403)
     response.end('forbidden')

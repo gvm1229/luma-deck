@@ -1,0 +1,6 @@
+images/
+dist/
+node_modules/
+.vite/
+artifacts/
+*.log

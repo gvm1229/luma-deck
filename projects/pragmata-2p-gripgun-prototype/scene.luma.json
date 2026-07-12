@@ -1,0 +1,539 @@
+{
+  "assets": [
+    {
+      "alt": "현재 beta 빌드의 적 타격 화면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "beta-enemy-hit",
+      "src": "/projects/pragmata-2p-beta/images/slide-15-enemy-hit.png"
+    }
+  ],
+  "schemaVersion": 1,
+  "slides": [
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "GRIPGUN · SERVER-AUTHORITATIVE HITSCAN",
+          "content": "GRIPGUN · SERVER-AUTHORITATIVE HITSCAN",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 20,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 72,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1320,
+            "x": 96,
+            "y": 42,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "총알이 날아가지 않는다. 서버가 한 번 판정한다.",
+          "content": "총알이 날아가지 않는다. 서버가 한 번 판정한다.",
+          "id": "headline",
+          "style": {
+            "color": "#111827",
+            "fontSize": 42,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 72,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1500,
+            "x": 96,
+            "y": 108,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Client intent → server validation → camera Line Trace → hit/damage → impact cue",
+          "content": "Client intent → server validation → camera Line Trace → hit/damage → impact cue",
+          "id": "subhead",
+          "style": {
+            "color": "#4b5563",
+            "fontSize": 24,
+            "fontWeight": 600,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 72,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1400,
+            "x": 96,
+            "y": 192,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "HUGH\nlocal fire intent",
+          "content": "HUGH\nlocal fire intent",
+          "id": "client",
+          "style": {
+            "background": "#eff6ff",
+            "border": "2px solid #dbeafe",
+            "borderRadius": 24,
+            "color": "#1d4ed8",
+            "fontSize": 22,
+            "fontWeight": 750
+          },
+          "transform": {
+            "height": 150,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 260,
+            "x": 120,
+            "y": 350,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "SERVER\ncombat · weapon · cooldown · ammo",
+          "content": "SERVER\ncombat · weapon · cooldown · ammo",
+          "id": "server",
+          "style": {
+            "background": "#f8fafc",
+            "border": "3px solid #2563eb",
+            "borderRadius": 24,
+            "color": "#1d4ed8",
+            "fontSize": 22,
+            "fontWeight": 750
+          },
+          "transform": {
+            "height": 220,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 360,
+            "x": 530,
+            "y": 300,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "FIRST\nblocking hit\nActor + BoneName",
+          "content": "FIRST\nblocking hit\nActor + BoneName",
+          "id": "hit",
+          "style": {
+            "background": "#fefce8",
+            "border": "3px solid #f59e0b",
+            "borderRadius": 24,
+            "color": "#92400e",
+            "fontSize": 22,
+            "fontWeight": 750
+          },
+          "transform": {
+            "height": 150,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 270,
+            "x": 1120,
+            "y": 350,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "client intent flows to server",
+          "content": "intent →",
+          "id": "intent",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 30,
+            "fontWeight": 800,
+            "pathProgress": 1
+          },
+          "transform": {
+            "height": 30,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 150,
+            "x": 380,
+            "y": 405,
+            "zIndex": 7
+          },
+          "type": "path"
+        },
+        {
+          "accessibilityLabel": "camera line trace",
+          "content": "",
+          "id": "ray",
+          "style": {
+            "borderRadius": 99,
+            "pathProgress": 0
+          },
+          "transform": {
+            "height": 12,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 235,
+            "x": 885,
+            "y": 420,
+            "zIndex": 8
+          },
+          "type": "path"
+        },
+        {
+          "accessibilityLabel": "impact location and normal",
+          "content": "×",
+          "id": "impact",
+          "style": {
+            "background": "#f97316",
+            "borderRadius": 999,
+            "color": "#ffffff",
+            "fontSize": 54,
+            "fontWeight": 800,
+            "scale": 0.4
+          },
+          "transform": {
+            "height": 76,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 76,
+            "x": 1375,
+            "y": 386,
+            "zIndex": 9
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "FPragmataDamageSpec\nreceiver health update",
+          "content": "FPragmataDamageSpec\nreceiver health update",
+          "id": "damage",
+          "style": {
+            "background": "#f0fdf4",
+            "border": "2px solid #22c55e",
+            "borderRadius": 24,
+            "color": "#166534",
+            "fontSize": 22,
+            "fontWeight": 750
+          },
+          "transform": {
+            "height": 130,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 360,
+            "x": 1030,
+            "y": 610,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "impact location + normal\nunreliable VFX multicast",
+          "content": "impact location + normal\nunreliable VFX multicast",
+          "id": "broadcast",
+          "style": {
+            "background": "#f5f3ff",
+            "border": "2px solid #8b5cf6",
+            "borderRadius": 24,
+            "color": "#6d28d9",
+            "fontSize": 22,
+            "fontWeight": 750
+          },
+          "transform": {
+            "height": 130,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 380,
+            "x": 520,
+            "y": 610,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "Pragmata beta enemy hit evidence",
+          "assetId": "beta-enemy-hit",
+          "id": "evidence",
+          "style": {
+            "borderRadius": 20,
+            "boxShadow": "0 18px 42px rgba(15, 23, 42, .2)"
+          },
+          "transform": {
+            "height": 202,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 360,
+            "x": 1450,
+            "y": 280,
+            "zIndex": 20
+          },
+          "type": "image"
+        },
+        {
+          "accessibilityLabel": "표현 금지: physical projectile · muzzle trace · delivery guarantee",
+          "content": "표현 금지: physical projectile · muzzle trace · delivery guarantee",
+          "id": "fact-note",
+          "style": {
+            "color": "#6b7280",
+            "fontSize": 20,
+            "fontWeight": 650,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 72,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1600,
+            "x": 96,
+            "y": 970,
+            "zIndex": 10
+          },
+          "type": "text"
+        }
+      ],
+      "id": "gripgun-flow",
+      "layoutId": "visual-flow",
+      "posterCueId": "evidence",
+      "presenterNotes": "GripGun은 발사체를 생성하지 않는다. Hugh의 입력은 서버로 전달되고, 서버가 camera Player View Point 기준 단일 Line Trace로 첫 blocking hit를 확정한다. impact location/normal VFX multicast는 unreliable이므로 전달 보장으로 설명하지 않는다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "hitscan",
+            "mode": "auto"
+          },
+          {
+            "at": 3,
+            "id": "intent",
+            "label": "client intent",
+            "mode": "click"
+          },
+          {
+            "at": 7,
+            "id": "trace",
+            "label": "single trace",
+            "mode": "click"
+          },
+          {
+            "at": 11,
+            "id": "impact",
+            "label": "hit result",
+            "mode": "click"
+          },
+          {
+            "at": 16,
+            "id": "damage",
+            "label": "damage",
+            "mode": "click"
+          },
+          {
+            "at": 21,
+            "id": "broadcast",
+            "label": "impact cue",
+            "mode": "click"
+          },
+          {
+            "at": 25,
+            "id": "evidence",
+            "label": "build evidence",
+            "mode": "hold"
+          }
+        ],
+        "duration": 28,
+        "tracks": [
+          {
+            "elementId": "intent",
+            "id": "preset-intent-intenttoserver",
+            "keyframes": [
+              {
+                "at": 3,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 7,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "server",
+            "id": "preset-server-statehighlight",
+            "keyframes": [
+              {
+                "at": 3.8,
+                "easing": "linear",
+                "value": "#93c5fd"
+              },
+              {
+                "at": 6,
+                "easing": "linear",
+                "value": "#2563eb"
+              }
+            ],
+            "property": "style.borderColor"
+          },
+          {
+            "elementId": "ray",
+            "id": "preset-ray-drawray",
+            "keyframes": [
+              {
+                "at": 7,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 11,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "impact",
+            "id": "preset-impact-impactpulse",
+            "keyframes": [
+              {
+                "at": 10.2,
+                "easing": "ease-out",
+                "value": 0.4
+              },
+              {
+                "at": 10.559999999999999,
+                "easing": "ease-out",
+                "value": 1.25
+              },
+              {
+                "at": 11,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          },
+          {
+            "elementId": "hit",
+            "id": "preset-hit-focusring",
+            "keyframes": [
+              {
+                "at": 10.2,
+                "easing": "ease-out",
+                "value": 0.4
+              },
+              {
+                "at": 10.559999999999999,
+                "easing": "ease-out",
+                "value": 1.25
+              },
+              {
+                "at": 11,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          },
+          {
+            "elementId": "broadcast",
+            "id": "preset-broadcast-resultbroadcast",
+            "keyframes": [
+              {
+                "at": 21,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 25,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "evidence",
+            "id": "preset-evidence-crossfadeevidence",
+            "keyframes": [
+              {
+                "at": 24.2,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 25,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "hit",
+            "id": "reveal-hit",
+            "keyframes": [
+              {
+                "at": 7,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 11,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "impact",
+            "id": "reveal-impact",
+            "keyframes": [
+              {
+                "at": 7,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 11,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "damage",
+            "id": "reveal-damage",
+            "keyframes": [
+              {
+                "at": 11,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 16,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          }
+        ]
+      }
+    }
+  ],
+  "viewport": {
+    "height": 1080,
+    "width": 1920
+  }
+}

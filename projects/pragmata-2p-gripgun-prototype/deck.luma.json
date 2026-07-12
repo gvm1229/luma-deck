@@ -1,0 +1,2348 @@
+{
+  "assets": [
+    {
+      "alt": "현재 beta 빌드의 적 타격 화면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "beta-enemy-hit",
+      "src": "/projects/pragmata-2p-beta/images/slide-15-enemy-hit.png"
+    },
+    {
+      "alt": "Hugh 조작 HUD 화면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "beta-hugh-hud",
+      "src": "/projects/pragmata-2p-beta/images/slide-14-hugh-hud-dark.png"
+    },
+    {
+      "alt": "GripGun 전투 장면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "beta-combat",
+      "src": "/projects/pragmata-2p-beta/images/slide-03-combat-explosion.png"
+    },
+    {
+      "alt": "Hugh 플레이어 캐릭터",
+      "fit": "contain",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "beta-hugh",
+      "src": "/projects/pragmata-2p-beta/images/slide-12-hugh-player-character-front.png"
+    }
+  ],
+  "id": "gripgun-presentation-v2",
+  "metadata": {
+    "title": "GripGun — Server-authoritative Line Trace"
+  },
+  "schemaVersion": 2,
+  "slides": [
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "01 · HITSCAN",
+          "content": "01 · HITSCAN",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 20,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 900,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "GripGun은 총알을 날리지 않는다.",
+          "content": "GripGun은 총알을 날리지 않는다.",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 48,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1260,
+            "x": 110,
+            "y": 118,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "입력 뒤 서버가 즉시 hit를 판정한다.",
+          "content": "입력 뒤 서버가 즉시 hit를 판정한다.",
+          "id": "subhead",
+          "style": {
+            "color": "#475569",
+            "fontSize": 24,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1120,
+            "x": 110,
+            "y": 220,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "beta-combat",
+          "assetId": "beta-combat",
+          "id": "hero",
+          "style": {
+            "border": "3px solid rgba(255,255,255,.88)",
+            "borderRadius": 34,
+            "boxShadow": "0 28px 70px rgba(15,23,42,.28)"
+          },
+          "transform": {
+            "height": 430,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 670,
+            "x": 1040,
+            "y": 330,
+            "zIndex": 2
+          },
+          "type": "image"
+        },
+        {
+          "accessibilityLabel": "HUGH\nfire intent",
+          "content": "HUGH\nfire intent",
+          "id": "client",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #2563eb",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #2563eb22",
+            "color": "#2563eb",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 150,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 260,
+            "x": 150,
+            "y": 500,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "flow connector",
+          "connector": {
+            "from": {
+              "anchor": "right",
+              "elementId": "client"
+            },
+            "to": {
+              "anchor": "left",
+              "elementId": "server"
+            }
+          },
+          "id": "intent",
+          "style": {
+            "background": "#2563eb",
+            "borderRadius": 99,
+            "pathProgress": 0
+          },
+          "transform": {
+            "height": 32,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 24,
+            "x": 0,
+            "y": 0,
+            "zIndex": 6
+          },
+          "type": "connector"
+        },
+        {
+          "accessibilityLabel": "SERVER\nvalidation",
+          "content": "SERVER\nvalidation",
+          "id": "server",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #2563eb",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #2563eb22",
+            "color": "#2563eb",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 240,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 350,
+            "x": 610,
+            "y": 455,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "flow connector",
+          "connector": {
+            "from": {
+              "anchor": "right",
+              "elementId": "server"
+            },
+            "to": {
+              "anchor": "left",
+              "elementId": "hit"
+            }
+          },
+          "id": "ray",
+          "style": {
+            "background": "#f59e0b",
+            "borderRadius": 99,
+            "pathProgress": 0
+          },
+          "transform": {
+            "height": 32,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 24,
+            "x": 0,
+            "y": 0,
+            "zIndex": 6
+          },
+          "type": "connector"
+        },
+        {
+          "accessibilityLabel": "FIRST\nblocking hit",
+          "content": "FIRST\nblocking hit",
+          "id": "hit",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #f59e0b",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #f59e0b22",
+            "color": "#f59e0b",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 150,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 300,
+            "x": 1310,
+            "y": 515,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "한 번의 판정 → 결과 cue",
+          "content": "한 번의 판정 → 결과 cue",
+          "id": "result",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 32,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 760,
+            "x": 585,
+            "y": 820,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "LIVE COMBAT INPUT",
+          "content": "LIVE COMBAT INPUT",
+          "id": "hud",
+          "style": {
+            "color": "#ffffff",
+            "fontSize": 18,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 490,
+            "x": 1100,
+            "y": 700,
+            "zIndex": 10
+          },
+          "type": "text"
+        }
+      ],
+      "hidden": false,
+      "id": "gripgun-1",
+      "layoutId": "visual-explainer",
+      "posterCueId": "result",
+      "presenterNotes": "한 장면의 전체 경로를 먼저 보여준다.\n\n[발표 진행]\n- 개요: 자동 시작\n- 1. 입력: 설명 후 클릭하여 다음 cue 진행\n- 2. 서버 trace: 설명 후 클릭하여 다음 cue 진행\n- 3. hit 결과: 설명 후 클릭하여 다음 cue 진행",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "개요",
+            "mode": "auto"
+          },
+          {
+            "at": 2,
+            "id": "intent",
+            "label": "1. 입력",
+            "mode": "click"
+          },
+          {
+            "at": 4.5,
+            "id": "trace",
+            "label": "2. 서버 trace",
+            "mode": "click"
+          },
+          {
+            "at": 7.4,
+            "id": "result",
+            "label": "3. hit 결과",
+            "mode": "hold"
+          }
+        ],
+        "duration": 10,
+        "tracks": [
+          {
+            "elementId": "hero",
+            "id": "hero-in",
+            "keyframes": [
+              {
+                "at": 0,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 0.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "client",
+            "id": "client-in",
+            "keyframes": [
+              {
+                "at": 0,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 0.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "intent",
+            "id": "intent-draw",
+            "keyframes": [
+              {
+                "at": 2,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.55,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "intent",
+            "id": "intent-draw-visible",
+            "keyframes": [
+              {
+                "at": 2,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.55,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "server",
+            "id": "server-in",
+            "keyframes": [
+              {
+                "at": 2.549,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.55,
+                "easing": "linear",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "ray",
+            "id": "ray-draw",
+            "keyframes": [
+              {
+                "at": 4.5,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 5.15,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "ray",
+            "id": "ray-draw-visible",
+            "keyframes": [
+              {
+                "at": 4.5,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 5.15,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "hit",
+            "id": "hit-in",
+            "keyframes": [
+              {
+                "at": 5.149,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 5.15,
+                "easing": "linear",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "result",
+            "id": "result-in",
+            "keyframes": [
+              {
+                "at": 7,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 7.4,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "hud",
+            "id": "hud-in",
+            "keyframes": [
+              {
+                "at": 7,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 7.4,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "server",
+            "id": "server-pulse",
+            "keyframes": [
+              {
+                "at": 2.55,
+                "easing": "ease-out",
+                "value": 0.86
+              },
+              {
+                "at": 2.73,
+                "easing": "ease-out",
+                "value": 1.12
+              },
+              {
+                "at": 2.9699999999999998,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          },
+          {
+            "elementId": "hit",
+            "id": "hit-pulse",
+            "keyframes": [
+              {
+                "at": 5.15,
+                "easing": "ease-out",
+                "value": 0.86
+              },
+              {
+                "at": 5.33,
+                "easing": "ease-out",
+                "value": 1.12
+              },
+              {
+                "at": 5.57,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          }
+        ]
+      },
+      "title": "01 · Hitscan",
+      "transition": "none"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "02 · NOT A PROJECTILE",
+          "content": "02 · NOT A PROJECTILE",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 20,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 900,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "비행 projectile가 아니라 즉시 ray.",
+          "content": "비행 projectile가 아니라 즉시 ray.",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 48,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1260,
+            "x": 110,
+            "y": 118,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "가상의 탄환은 지우고 camera trace만 남긴다.",
+          "content": "가상의 탄환은 지우고 camera trace만 남긴다.",
+          "id": "subhead",
+          "style": {
+            "color": "#475569",
+            "fontSize": 24,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1120,
+            "x": 110,
+            "y": 220,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "beta-hugh-hud",
+          "assetId": "beta-hugh-hud",
+          "id": "hero",
+          "style": {
+            "border": "3px solid rgba(255,255,255,.88)",
+            "borderRadius": 34,
+            "boxShadow": "0 28px 70px rgba(15,23,42,.28)"
+          },
+          "transform": {
+            "height": 480,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 850,
+            "x": 850,
+            "y": 350,
+            "zIndex": 2
+          },
+          "type": "image"
+        },
+        {
+          "accessibilityLabel": "×\nphysical projectile",
+          "content": "×\nphysical projectile",
+          "id": "ghost",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #ef4444",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #ef444422",
+            "color": "#ef4444",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 180,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 360,
+            "x": 170,
+            "y": 470,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "NOT THE IMPLEMENTATION",
+          "content": "NOT THE IMPLEMENTATION",
+          "id": "cancel",
+          "style": {
+            "color": "#ef4444",
+            "fontSize": 24,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 460,
+            "x": 170,
+            "y": 700,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "CAMERA\nPlayer View Point",
+          "content": "CAMERA\nPlayer View Point",
+          "id": "camera",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #2563eb",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #2563eb22",
+            "color": "#2563eb",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 180,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 320,
+            "x": 920,
+            "y": 455,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "flow connector",
+          "connector": {
+            "from": {
+              "anchor": "right",
+              "elementId": "camera"
+            },
+            "to": {
+              "anchor": "left",
+              "elementId": "blocker"
+            }
+          },
+          "id": "ray",
+          "style": {
+            "background": "#f59e0b",
+            "borderRadius": 99,
+            "pathProgress": 0
+          },
+          "transform": {
+            "height": 32,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 24,
+            "x": 0,
+            "y": 0,
+            "zIndex": 6
+          },
+          "type": "connector"
+        },
+        {
+          "accessibilityLabel": "FIRST\nblocking hit",
+          "content": "FIRST\nblocking hit",
+          "id": "blocker",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #f59e0b",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #f59e0b22",
+            "color": "#f59e0b",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 160,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 270,
+            "x": 1430,
+            "y": 480,
+            "zIndex": 4
+          },
+          "type": "shape"
+        }
+      ],
+      "hidden": false,
+      "id": "gripgun-2",
+      "layoutId": "visual-explainer",
+      "posterCueId": "ray",
+      "presenterNotes": "projectile, muzzle trace, corrective trace를 실제 동작처럼 말하지 않는다.\n\n[발표 진행]\n- false mental model: 자동 시작\n- 1. cancel projectile: 설명 후 클릭하여 다음 cue 진행\n- 2. draw ray: 설명 후 클릭하여 다음 cue 진행\n- 3. first blocker: 설명 후 클릭하여 다음 cue 진행",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "false mental model",
+            "mode": "auto"
+          },
+          {
+            "at": 1.5,
+            "id": "cancel",
+            "label": "1. cancel projectile",
+            "mode": "click"
+          },
+          {
+            "at": 3.3,
+            "id": "ray",
+            "label": "2. draw ray",
+            "mode": "click"
+          },
+          {
+            "at": 5.2,
+            "id": "hold",
+            "label": "3. first blocker",
+            "mode": "hold"
+          }
+        ],
+        "duration": 7,
+        "tracks": [
+          {
+            "elementId": "hero",
+            "id": "hero-in",
+            "keyframes": [
+              {
+                "at": 0,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 0.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "ghost",
+            "id": "ghost-in",
+            "keyframes": [
+              {
+                "at": 0,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 0.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "cancel",
+            "id": "cancel-in",
+            "keyframes": [
+              {
+                "at": 1.5,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 1.8,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "camera",
+            "id": "camera-in",
+            "keyframes": [
+              {
+                "at": 3.3,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 3.65,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "ray",
+            "id": "ray-draw",
+            "keyframes": [
+              {
+                "at": 3.3,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 4,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "ray",
+            "id": "ray-draw-visible",
+            "keyframes": [
+              {
+                "at": 3.3,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 4,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "blocker",
+            "id": "blocker-in",
+            "keyframes": [
+              {
+                "at": 3.999,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 4,
+                "easing": "linear",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "blocker",
+            "id": "blocker-pulse",
+            "keyframes": [
+              {
+                "at": 4,
+                "easing": "ease-out",
+                "value": 0.86
+              },
+              {
+                "at": 4.18,
+                "easing": "ease-out",
+                "value": 1.12
+              },
+              {
+                "at": 4.42,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          }
+        ]
+      },
+      "title": "02 · Not a projectile",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "03 · SERVER AUTHORITY",
+          "content": "03 · SERVER AUTHORITY",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 20,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 900,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Client는 intent만 보낸다.",
+          "content": "Client는 intent만 보낸다.",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 48,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1260,
+            "x": 110,
+            "y": 118,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "combat · weapon · cooldown · ammo gate는 server가 확정한다.",
+          "content": "combat · weapon · cooldown · ammo gate는 server가 확정한다.",
+          "id": "subhead",
+          "style": {
+            "color": "#475569",
+            "fontSize": 24,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1120,
+            "x": 110,
+            "y": 220,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "beta-hugh",
+          "assetId": "beta-hugh",
+          "id": "hero",
+          "style": {
+            "border": "3px solid rgba(255,255,255,.88)",
+            "borderRadius": 34,
+            "boxShadow": "0 28px 70px rgba(15,23,42,.28)"
+          },
+          "transform": {
+            "height": 560,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 380,
+            "x": 1240,
+            "y": 300,
+            "zIndex": 2
+          },
+          "type": "image"
+        },
+        {
+          "accessibilityLabel": "CLIENT\nrequest fire",
+          "content": "CLIENT\nrequest fire",
+          "id": "client",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #2563eb",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #2563eb22",
+            "color": "#2563eb",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 160,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 300,
+            "x": 160,
+            "y": 480,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "flow connector",
+          "connector": {
+            "from": {
+              "anchor": "right",
+              "elementId": "client"
+            },
+            "to": {
+              "anchor": "left",
+              "elementId": "server"
+            }
+          },
+          "id": "intent",
+          "style": {
+            "background": "#2563eb",
+            "borderRadius": 99,
+            "pathProgress": 0
+          },
+          "transform": {
+            "height": 32,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 24,
+            "x": 0,
+            "y": 0,
+            "zIndex": 6
+          },
+          "type": "connector"
+        },
+        {
+          "accessibilityLabel": "SERVER\ncombat gate",
+          "content": "SERVER\ncombat gate",
+          "id": "server",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #2563eb",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #2563eb22",
+            "color": "#2563eb",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 300,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 460,
+            "x": 680,
+            "y": 405,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "weapon  ·  cooldown  ·  ammo",
+          "content": "weapon  ·  cooldown  ·  ammo",
+          "id": "gate",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 360,
+            "x": 750,
+            "y": 570,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "server confirms mutation",
+          "content": "server confirms mutation",
+          "id": "commit",
+          "style": {
+            "color": "#16a34a",
+            "fontSize": 32,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 560,
+            "x": 660,
+            "y": 800,
+            "zIndex": 10
+          },
+          "type": "text"
+        }
+      ],
+      "hidden": false,
+      "id": "gripgun-3",
+      "layoutId": "visual-explainer",
+      "posterCueId": "gate",
+      "presenterNotes": "client mutation을 server authority와 혼동하지 않는다.\n\n[발표 진행]\n- request: 자동 시작\n- 1. send intent: 설명 후 클릭하여 다음 cue 진행\n- 2. validate: 설명 후 클릭하여 다음 cue 진행\n- 3. confirm: 설명 후 클릭하여 다음 cue 진행",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "request",
+            "mode": "auto"
+          },
+          {
+            "at": 1.8,
+            "id": "intent",
+            "label": "1. send intent",
+            "mode": "click"
+          },
+          {
+            "at": 3.5,
+            "id": "gate",
+            "label": "2. validate",
+            "mode": "click"
+          },
+          {
+            "at": 5.8,
+            "id": "commit",
+            "label": "3. confirm",
+            "mode": "hold"
+          }
+        ],
+        "duration": 9,
+        "tracks": [
+          {
+            "elementId": "hero",
+            "id": "hero-in",
+            "keyframes": [
+              {
+                "at": 0,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 0.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "client",
+            "id": "client-in",
+            "keyframes": [
+              {
+                "at": 0,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 0.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "client",
+            "id": "client-pulse",
+            "keyframes": [
+              {
+                "at": 0.45,
+                "easing": "ease-out",
+                "value": 0.86
+              },
+              {
+                "at": 0.63,
+                "easing": "ease-out",
+                "value": 1.12
+              },
+              {
+                "at": 0.87,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          },
+          {
+            "elementId": "intent",
+            "id": "intent-draw",
+            "keyframes": [
+              {
+                "at": 1.8,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.35,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "intent",
+            "id": "intent-draw-visible",
+            "keyframes": [
+              {
+                "at": 1.8,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.35,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "server",
+            "id": "server-in",
+            "keyframes": [
+              {
+                "at": 2.349,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.35,
+                "easing": "linear",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "gate",
+            "id": "gate-in",
+            "keyframes": [
+              {
+                "at": 3.5,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 4,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "server",
+            "id": "server-pulse",
+            "keyframes": [
+              {
+                "at": 2.35,
+                "easing": "ease-out",
+                "value": 0.86
+              },
+              {
+                "at": 2.5300000000000002,
+                "easing": "ease-out",
+                "value": 1.12
+              },
+              {
+                "at": 2.77,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          },
+          {
+            "elementId": "commit",
+            "id": "commit-in",
+            "keyframes": [
+              {
+                "at": 5.8,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 6.2,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          }
+        ]
+      },
+      "title": "03 · Server authority",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "04 · SINGLE LINE TRACE",
+          "content": "04 · SINGLE LINE TRACE",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 20,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 900,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Camera에서 첫 blocker까지 한 번.",
+          "content": "Camera에서 첫 blocker까지 한 번.",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 48,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1260,
+            "x": 110,
+            "y": 118,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "trace는 첫 blocking hit에서 멈춘다.",
+          "content": "trace는 첫 blocking hit에서 멈춘다.",
+          "id": "subhead",
+          "style": {
+            "color": "#475569",
+            "fontSize": 24,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1120,
+            "x": 110,
+            "y": 220,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "beta-hugh-hud",
+          "assetId": "beta-hugh-hud",
+          "id": "hero",
+          "style": {
+            "border": "3px solid rgba(255,255,255,.88)",
+            "borderRadius": 34,
+            "boxShadow": "0 28px 70px rgba(15,23,42,.28)"
+          },
+          "transform": {
+            "height": 470,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 800,
+            "x": 610,
+            "y": 330,
+            "zIndex": 2
+          },
+          "type": "image"
+        },
+        {
+          "accessibilityLabel": "CAMERA\norigin",
+          "content": "CAMERA\norigin",
+          "id": "camera",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #2563eb",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #2563eb22",
+            "color": "#2563eb",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 170,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 300,
+            "x": 160,
+            "y": 475,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "flow connector",
+          "connector": {
+            "from": {
+              "anchor": "right",
+              "elementId": "camera"
+            },
+            "to": {
+              "anchor": "left",
+              "elementId": "hit"
+            }
+          },
+          "id": "ray",
+          "style": {
+            "background": "#f59e0b",
+            "borderRadius": 99,
+            "pathProgress": 0
+          },
+          "transform": {
+            "height": 32,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 24,
+            "x": 0,
+            "y": 0,
+            "zIndex": 6
+          },
+          "type": "connector"
+        },
+        {
+          "accessibilityLabel": "FIRST BLOCKER\nActor + BoneName",
+          "content": "FIRST BLOCKER\nActor + BoneName",
+          "id": "hit",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #f59e0b",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #f59e0b22",
+            "color": "#f59e0b",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 220,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 390,
+            "x": 1280,
+            "y": 430,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "IMPACT\nlocation + normal",
+          "content": "IMPACT\nlocation + normal",
+          "id": "impact",
+          "style": {
+            "color": "#f97316",
+            "fontSize": 38,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 330,
+            "x": 1330,
+            "y": 750,
+            "zIndex": 10
+          },
+          "type": "text"
+        }
+      ],
+      "hidden": false,
+      "id": "gripgun-4",
+      "layoutId": "visual-explainer",
+      "posterCueId": "impact",
+      "presenterNotes": "Actor와 BoneName은 hit result에서 얻는다.\n\n[발표 진행]\n- camera origin: 자동 시작\n- 1. line trace: 설명 후 클릭하여 다음 cue 진행\n- 2. first blocker: 설명 후 클릭하여 다음 cue 진행\n- 3. impact input: 설명 후 클릭하여 다음 cue 진행",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "camera origin",
+            "mode": "auto"
+          },
+          {
+            "at": 2,
+            "id": "ray",
+            "label": "1. line trace",
+            "mode": "click"
+          },
+          {
+            "at": 2.7,
+            "id": "hit",
+            "label": "2. first blocker",
+            "mode": "click"
+          },
+          {
+            "at": 5.5,
+            "id": "impact",
+            "label": "3. impact input",
+            "mode": "hold"
+          }
+        ],
+        "duration": 9,
+        "tracks": [
+          {
+            "elementId": "hero",
+            "id": "hero-in",
+            "keyframes": [
+              {
+                "at": 0,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 0.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "camera",
+            "id": "camera-in",
+            "keyframes": [
+              {
+                "at": 0,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 0.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "ray",
+            "id": "ray-draw",
+            "keyframes": [
+              {
+                "at": 2,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.7,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "ray",
+            "id": "ray-draw-visible",
+            "keyframes": [
+              {
+                "at": 2,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.7,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "hit",
+            "id": "hit-in",
+            "keyframes": [
+              {
+                "at": 2.6990000000000003,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.7,
+                "easing": "linear",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "hit",
+            "id": "hit-pulse",
+            "keyframes": [
+              {
+                "at": 2.7,
+                "easing": "ease-out",
+                "value": 0.86
+              },
+              {
+                "at": 2.8800000000000003,
+                "easing": "ease-out",
+                "value": 1.12
+              },
+              {
+                "at": 3.12,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          },
+          {
+            "elementId": "impact",
+            "id": "impact-in",
+            "keyframes": [
+              {
+                "at": 5.5,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 5.8,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          }
+        ]
+      },
+      "title": "04 · Single Line Trace",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "05 · DAMAGE / VFX",
+          "content": "05 · DAMAGE / VFX",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 20,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 900,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Damage와 presentation은 갈라진다.",
+          "content": "Damage와 presentation은 갈라진다.",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 48,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1260,
+            "x": 110,
+            "y": 118,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "DamageSpec은 health로, impact cue는 unreliable multicast로 이어진다.",
+          "content": "DamageSpec은 health로, impact cue는 unreliable multicast로 이어진다.",
+          "id": "subhead",
+          "style": {
+            "color": "#475569",
+            "fontSize": 24,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1120,
+            "x": 110,
+            "y": 220,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "HIT RESULT",
+          "content": "HIT RESULT",
+          "id": "hit",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #f59e0b",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #f59e0b22",
+            "color": "#f59e0b",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 150,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 400,
+            "x": 760,
+            "y": 380,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "flow connector",
+          "connector": {
+            "from": {
+              "anchor": "bottom",
+              "elementId": "hit"
+            },
+            "to": {
+              "anchor": "top",
+              "elementId": "damage"
+            }
+          },
+          "id": "damage-route",
+          "style": {
+            "background": "#16a34a",
+            "borderRadius": 99,
+            "pathProgress": 0
+          },
+          "transform": {
+            "height": 32,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 24,
+            "x": 0,
+            "y": 0,
+            "zIndex": 6
+          },
+          "type": "connector"
+        },
+        {
+          "accessibilityLabel": "DamageSpec\nreceiver health",
+          "content": "DamageSpec\nreceiver health",
+          "id": "damage",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #16a34a",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #16a34a22",
+            "color": "#16a34a",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 170,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 380,
+            "x": 490,
+            "y": 690,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "flow connector",
+          "connector": {
+            "from": {
+              "anchor": "bottom",
+              "elementId": "hit"
+            },
+            "to": {
+              "anchor": "top",
+              "elementId": "vfx"
+            }
+          },
+          "id": "vfx-route",
+          "style": {
+            "background": "#8b5cf6",
+            "borderRadius": 99,
+            "pathProgress": 0
+          },
+          "transform": {
+            "height": 32,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 24,
+            "x": 0,
+            "y": 0,
+            "zIndex": 6
+          },
+          "type": "connector"
+        },
+        {
+          "accessibilityLabel": "impact location + normal\nVFX multicast",
+          "content": "impact location + normal\nVFX multicast",
+          "id": "vfx",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #8b5cf6",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #8b5cf622",
+            "color": "#8b5cf6",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 170,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 600,
+            "x": 970,
+            "y": 690,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "UNRELIABLE ≠ delivery guarantee",
+          "content": "UNRELIABLE ≠ delivery guarantee",
+          "id": "badge",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #8b5cf6",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #8b5cf622",
+            "color": "#8b5cf6",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 70,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 600,
+            "x": 970,
+            "y": 900,
+            "zIndex": 4
+          },
+          "type": "shape"
+        }
+      ],
+      "hidden": false,
+      "id": "gripgun-5",
+      "layoutId": "visual-explainer",
+      "posterCueId": "badge",
+      "presenterNotes": "VFX는 전달 보장이 아니다.\n\n[발표 진행]\n- hit result: 자동 시작\n- 1. apply damage: 설명 후 클릭하여 다음 cue 진행\n- 2. broadcast cue: 설명 후 클릭하여 다음 cue 진행\n- 3. uncertainty: 설명 후 클릭하여 다음 cue 진행",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "hit result",
+            "mode": "auto"
+          },
+          {
+            "at": 2,
+            "id": "damage",
+            "label": "1. apply damage",
+            "mode": "click"
+          },
+          {
+            "at": 4.5,
+            "id": "vfx",
+            "label": "2. broadcast cue",
+            "mode": "click"
+          },
+          {
+            "at": 6.8,
+            "id": "badge",
+            "label": "3. uncertainty",
+            "mode": "hold"
+          }
+        ],
+        "duration": 10,
+        "tracks": [
+          {
+            "elementId": "hit",
+            "id": "hit-in",
+            "keyframes": [
+              {
+                "at": 0,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 0.4,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "damage-route",
+            "id": "damage-draw",
+            "keyframes": [
+              {
+                "at": 2,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "damage-route",
+            "id": "damage-draw-visible",
+            "keyframes": [
+              {
+                "at": 2,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "damage",
+            "id": "damage-in",
+            "keyframes": [
+              {
+                "at": 2.4490000000000003,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.45,
+                "easing": "linear",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "vfx-route",
+            "id": "vfx-draw",
+            "keyframes": [
+              {
+                "at": 4.5,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 4.95,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "vfx-route",
+            "id": "vfx-draw-visible",
+            "keyframes": [
+              {
+                "at": 4.5,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 4.95,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "vfx",
+            "id": "vfx-in",
+            "keyframes": [
+              {
+                "at": 4.949,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 4.95,
+                "easing": "linear",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "badge",
+            "id": "badge-in",
+            "keyframes": [
+              {
+                "at": 6.7989999999999995,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 6.8,
+                "easing": "linear",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "damage",
+            "id": "damage-pulse",
+            "keyframes": [
+              {
+                "at": 2.45,
+                "easing": "ease-out",
+                "value": 0.86
+              },
+              {
+                "at": 2.6300000000000003,
+                "easing": "ease-out",
+                "value": 1.12
+              },
+              {
+                "at": 2.87,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          },
+          {
+            "elementId": "vfx",
+            "id": "vfx-pulse",
+            "keyframes": [
+              {
+                "at": 4.95,
+                "easing": "ease-out",
+                "value": 0.86
+              },
+              {
+                "at": 5.13,
+                "easing": "ease-out",
+                "value": 1.12
+              },
+              {
+                "at": 5.37,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          }
+        ]
+      },
+      "title": "05 · Damage / VFX",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "06 · BUILD EVIDENCE",
+          "content": "06 · BUILD EVIDENCE",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 20,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 900,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "실제 build에서 관찰한 hit 결과.",
+          "content": "실제 build에서 관찰한 hit 결과.",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 48,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1260,
+            "x": 110,
+            "y": 118,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "diagram의 결론을 current beta capture로 연결한다.",
+          "content": "diagram의 결론을 current beta capture로 연결한다.",
+          "id": "subhead",
+          "style": {
+            "color": "#475569",
+            "fontSize": 24,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1120,
+            "x": 110,
+            "y": 220,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Pragmata beta enemy hit evidence",
+          "assetId": "beta-enemy-hit",
+          "id": "evidence",
+          "style": {
+            "borderRadius": 32,
+            "boxShadow": "0 30px 70px rgba(15,23,42,.28)",
+            "scale": 0.96
+          },
+          "transform": {
+            "height": 518,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 920,
+            "x": 500,
+            "y": 350,
+            "zIndex": 5
+          },
+          "type": "image"
+        },
+        {
+          "accessibilityLabel": "server hit 판정에서 파생된 impact presentation cue",
+          "content": "server hit 판정에서 파생된 impact presentation cue",
+          "id": "caption",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 28,
+            "fontWeight": 800,
+            "lineHeight": 1.12
+          },
+          "transform": {
+            "height": 80,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 880,
+            "x": 525,
+            "y": 900,
+            "zIndex": 10
+          },
+          "type": "text"
+        }
+      ],
+      "hidden": false,
+      "id": "gripgun-6",
+      "layoutId": "visual-explainer",
+      "posterCueId": "caption",
+      "presenterNotes": "정확한 사실과 실제 화면을 함께 제시한다.\n\n[발표 진행]\n- diagram 결론: 자동 시작\n- 1. 빌드 근거: 설명 후 클릭하여 다음 cue 진행\n- 2. 결론: 설명 후 클릭하여 다음 cue 진행",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "diagram 결론",
+            "mode": "auto"
+          },
+          {
+            "at": 1.5,
+            "id": "evidence",
+            "label": "1. 빌드 근거",
+            "mode": "click"
+          },
+          {
+            "at": 3.65,
+            "id": "caption",
+            "label": "2. 결론",
+            "mode": "hold"
+          }
+        ],
+        "duration": 7,
+        "tracks": [
+          {
+            "elementId": "evidence",
+            "id": "evidence-in",
+            "keyframes": [
+              {
+                "at": 1.5,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.25,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "evidence",
+            "id": "evidence-pulse",
+            "keyframes": [
+              {
+                "at": 2.25,
+                "easing": "ease-out",
+                "value": 0.86
+              },
+              {
+                "at": 2.43,
+                "easing": "ease-out",
+                "value": 1.12
+              },
+              {
+                "at": 2.67,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          },
+          {
+            "elementId": "caption",
+            "id": "caption-in",
+            "keyframes": [
+              {
+                "at": 3.3,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 3.65,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          }
+        ]
+      },
+      "title": "06 · Build evidence",
+      "transition": "fade"
+    }
+  ],
+  "themeTokens": {
+    "accent": "#2563eb",
+    "canvas": "#f8fafc",
+    "ink": "#111827"
+  },
+  "viewport": {
+    "height": 1080,
+    "width": 1920
+  }
+}

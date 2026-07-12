@@ -34,6 +34,8 @@ const server = createServer((request, response) => {
     || fromRoot === 'studio/src/styles.css'
     || fromRoot.startsWith('studio/dist/')
     || fromRoot.startsWith('projects/pragmata-2p-beta/images/')
+    || fromRoot === 'projects/pragmata-2p-final/deck.luma.json'
+    || fromRoot.startsWith('projects/pragmata-2p-final/images/')
   if (fromRoot.startsWith('..') || fromRoot === '' || !allowed) {
     response.writeHead(403)
     response.end('forbidden')

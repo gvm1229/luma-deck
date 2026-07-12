@@ -1,6 +1,6 @@
 import { createGripGunPresentationDeck } from '../../src/studio/gripgun-deck.js'
 import { type SceneOperation } from '../../src/studio/operations.js'
-import { migrateSceneDocument, type DeckDocumentV2 } from '../../src/studio/deck.js'
+import { migrateSceneDocument, parseDeckDocument, type DeckDocumentV2 } from '../../src/studio/deck.js'
 import { applyDeckHistory, applyDeckOperation, createDeckHistory, redoDeckHistory, undoDeckHistory, type DeckHistory } from '../../src/studio/deck-operations.js'
 import { initialPresenterState, transitionPresenter, type PresenterState } from '../../src/studio/presenter-state.js'
 import { createMotionPresetTracks, motionPresetNames, type MotionPresetName } from '../../src/studio/motion-presets.js'
@@ -542,4 +542,29 @@ function required<T extends Element>(selector: string): T {
 }
 
 redraw()
+void loadPreviewProject()
 window.addEventListener('beforeunload', () => releaseAssetUrls(assetUrls))
+
+/** Preview URL은 final local deck만 명시적으로 허용한다. 일반 editing은 폴더 picker를 사용한다. */
+async function loadPreviewProject(): Promise<void> {
+  if (new URLSearchParams(location.search).get('project') !== 'pragmata-2p-final')
+    return
+  try {
+    const loadedDeck = parseDeckDocument(await (await fetch('/projects/pragmata-2p-final/deck.luma.json')).text())
+    releaseAssetUrls(assetUrls)
+    assetUrls.clear()
+    for (const asset of loadedDeck.assets) {
+      if (asset.src.startsWith('images/'))
+        assetUrls.set(asset.id, `/projects/pragmata-2p-final/${asset.src}`)
+    }
+    history = createDeckHistory(loadedDeck)
+    activeSlideId = loadedDeck.slides.find(slide => !slide.hidden)?.id ?? loadedDeck.slides[0].id
+    presenterState = initialPresenterState(loadedDeck)
+    selectedId = currentSlide().elements[0]?.id ?? ''
+    time = 0
+    redraw()
+  }
+  catch (error) {
+    status.textContent = `final preview load 실패: ${error instanceof Error ? error.message : String(error)}`
+  }
+}

@@ -58,3 +58,33 @@ This deck inherits the `prag-init-presentation` visual language for the POTENUP 
 - Use `images/slide-18-ingame-01.png` for the `인게임 01` evidence slot on the map-interaction slide. Keep the second `인게임 02` slot available for a later gameplay capture.
 - The final deck is synchronized from the latest beta deck for shared gameplay, technical, image, and timing content. Preserve the five attribution slides and their source images near the end; they are final-only content and must not be removed during future beta synchronization.
 - Final presentation target remains 18:00. The live demo is shortened to `[10:50-15:20]` so five attribution sections and Q&A fit after the beta content.
+
+## Final Presentation Evaluation Contract
+
+- 최종 덱은 진행 보고가 아니라 100% 완성된 프로젝트의 기술 쇼케이스로 구성한다.
+- 최종 평가 배점은 기술 완성도 30, 문제 해결 30, 협업 25, 문서·발표 10, 서비스 가능성 5를 기준으로 삼는다.
+- 평가용 시연 영상은 5분 이내로 유지한다. 10분 전체 영상은 발표자 노트의 선택 자료로만 둔다.
+- 원작을 모르는 관객을 위해 WHY와 두 역할을 먼저 설명한 뒤 시연으로 진입한다.
+- 관객에게 `실제 캡처 필요`, `초안`, `미완성`, 향후 보강 같은 제작 메모를 노출하지 않는다. 실제 화면이 없으면 사실 기반의 일반 기술 다이어그램을 사용하되 실행 증거인 것처럼 꾸미지 않는다.
+- Listen Server, Line Trace, Host/Remote, replication, null 같은 용어는 쉬운 한국어를 먼저 쓰고 필요한 경우 원어를 보충한다.
+- 협업·일정·검증 주장은 실제 Git 기록과 `Docs`의 verification gate를 기준으로 작성한다. 최신 확인 기준은 2026-06-04 시작, 2026-07-12 최종 통합이다.
+- 완료 검증은 Hugh/Diana의 서버 역할을 서로 바꾼 조합, 접속·맵 이동·역할 유지, 정화·후반 보스전 완주를 포함한다.
+- 팀 기여 슬라이드는 T-pose나 임포트 화면보다 완성 플레이·기능 결과 이미지를 우선한다.
+- 회고는 미완성 로드맵 대신 완성 과정에서 확보한 재사용 기반과 적용 가치를 설명한다.
+- 모든 슬라이드는 1280×720에서 click 최종 상태까지 스크롤 오버플로 0건이어야 한다.
+- 카드 깊이는 그림자가 아니라 테두리·색·여백으로 표현한다.
+- 이미지 중심 슬라이드의 증거 영역은 제목 아래 가용 세로 공간을 적극 사용한다. `prag-focus-hero`, 트러블슈팅, 기여, 최종 검증 계열을 얕은 상단 띠로 축소해 하단 절반을 비우지 않는다.
+- 이미지 면적을 키울 때는 기존 click 요소와 reveal 순서를 유지하고, 초기 cue에서 미래 요소가 `opacity: 0`과 `visibility: hidden`인지 다시 확인한다.
+- 슬라이드 8과 9의 설명 박스는 이미지 위 별도 행에 둔다. 이미지와 박스를 겹치지 않으며, 슬라이드 8은 `images/slide-08-camera-trace-illustration-v2.png`를 사용한다.
+- 슬라이드 8 일러스트는 카메라 중앙 조준점에서 첫 충돌 대상까지 이어지는 단일 시선 판정을 설명한다. muzzle-origin ray나 두 번째 보정 ray를 추가하지 않는다.
+- 슬라이드 8 일러스트의 Line Trace는 플레이어 뒤 카메라 렌즈 중심에서 시작해 중앙 조준점을 정확히 통과해야 한다. 총구나 빈 공간에서 시작하는 것처럼 보이는 이미지는 사용하지 않는다.
+- `POTENUP 최종 프로젝트`는 교육 과정 소속을 나타내는 표지로 첫 장과 마지막 장에만 노출한다. 평가·채점 언어로 확장하지 않는다.
+- 텍스트·도식 중심 슬라이드도 상단에 작은 카드만 두고 하단을 비우지 않는다. 3단 흐름은 핵심 노드를 충분히 크게 만들고 중앙 판정 단계를 강조하며, 3열 정보 카드는 제목 아래 가용 높이를 채운다.
+- 시각 밀도를 높일 때 새 설명을 억지로 추가하지 않는다. 기존 핵심 문장을 단계·위계·크기로 재구성하고, 평가에 필요하지 않은 장식은 추가하지 않는다.
+- 평가 배점과 검증 게이트 명칭은 내부 점검에만 사용한다. 관객 화면에는 `평가용`, `채점`, `Verification Gate`, `Final Clean Gate` 같은 표현을 노출하지 않고 작품·시연·최종 빌드의 언어로 표현한다.
+- 슬라이드 4의 `시연 영상`은 전체 화면 레이어나 오버레이가 아니다. 네 관전 포인트 아래에 나타나는 일반 텍스트 cue로 유지한다.
+- 제목을 제외한 본문이 짧은 도식·카드 묶음이면 제목 바로 아래에 붙이지 않고 남은 16:9 영역의 가로·세로 중앙에 배치한다. 슬라이드 4·6·11은 `prag-centered-body` 기준을 유지한다.
+- 트러블슈팅 사례는 초보적인 null check나 단순 복제 누락보다 패키징 참조 그래프, 비동기 stale callback, 대규모 Git history 정화처럼 판단·검증 과정이 드러나는 사례를 우선한다.
+- Git 이력 정화 사례의 운영 수치는 사용자 제공 기록인 저장소 5GB 제한, 17,000여 대형 에셋, hojin 브랜치 76단계 rebase를 사용한다. 최종 통합일은 26.07.13이며 PR 번호는 관객 화면에 노출하지 않는다.
+- 팀 기여는 `누가 무엇을 완성했는가` 한 장에서 5명의 시스템 소유권을 동일 비중으로 보여 준다. 같은 책임을 뒤 슬라이드에서 반복하지 않는다.
+- 최종 빌드 표기는 07.13으로 통일한다. 프로젝트 경계는 비상업적 학습 목적의 팬 프로젝트이며 원작 IP·추출 에셋의 권리를 주장하지 않는다.

@@ -2953,8 +2953,22 @@
 
 /* Final showcase narrative */
 .prag-showcase-overview { position:relative; overflow:hidden; }
-.prag-showcase-video-cue { position:absolute; inset:0; z-index:20; display:grid; place-items:center; background:rgba(248,250,252,.84); backdrop-filter:blur(2px); }
-.prag-showcase-video-cue strong { color:#0f172a; font-size:2.2rem; font-weight:900; letter-spacing:-.04em; }
+.prag-showcase-video-text {
+  margin: 1.35rem 0 0;
+  color: #0f172a;
+  font-size: 1.65rem;
+  font-weight: 900;
+  letter-spacing: -.03em;
+  text-align: center;
+}
+
+.prag-closing-eyebrow {
+  margin: 0 0 0.7rem;
+  color: var(--prag-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
 .prag-showcase-path { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .8rem; margin-top: 1.4rem; }
 .prag-showcase-path > div { display:flex; min-height: 7.2rem; flex-direction:column; align-items:center; justify-content:center; padding:1rem; border:2px solid #cbd5e1; border-radius:1rem; background:rgba(255,255,255,.9); text-align:center; }
 .prag-showcase-path span { display:grid; width:2.2rem; height:2.2rem; place-items:center; margin-bottom:.7rem; border-radius:50%; background:#2563eb; color:#fff; font-weight:900; }
@@ -2987,12 +3001,13 @@
 .prag-team-hero { height:6.7rem; margin:0; overflow:hidden; border:2px solid #0f172a; border-radius:1rem; }
 .prag-team-hero img { width:100%; height:5.75rem; object-fit:cover; }
 .prag-team-hero figcaption { padding:.35rem; color:#475569; font-size:.6rem; text-align:center; }
-.prag-final-proof { display:grid; grid-template-columns:1.45fr 1fr; gap:1rem; height:9rem; }
+.prag-final-proof { display:grid; grid-template-columns:1.45fr 1fr; gap:1rem; height:17rem; margin-top:.8rem; }
 .prag-final-proof figure { min-height:0; }
 .prag-final-message { display:flex; flex-direction:column; justify-content:center; padding:1.2rem; border:2px solid #2563eb; border-radius:1rem; background:#eff6ff; }
 .prag-final-message strong { color:#2563eb; font-size:.72rem; letter-spacing:.15em; }
 .prag-final-message p { margin-top:.7rem; color:#172554; font-size:.9rem; font-weight:750; line-height:1.7; }
-.prag-trouble-hero { display:grid; grid-template-columns:1.45fr 1fr; gap:1rem; height:8.8rem; margin-top:1rem; }
+.prag-final-message small { margin-top: .55rem; color: #475569; font-size: .52rem; font-weight: 750; }
+.prag-trouble-hero { display:grid; grid-template-columns:1.45fr 1fr; gap:1rem; height:21rem; margin-top:1rem; }
 .prag-trouble-hero figure { min-height:0; }
 .prag-trouble-answer { display:flex; flex-direction:column; justify-content:center; padding:1rem; border:2px solid #2563eb; border-radius:1rem; background:#eff6ff; }
 .prag-trouble-answer span { margin-top:.35rem; color:#2563eb; font-size:.58rem; font-weight:900; }
@@ -3003,16 +3018,411 @@
 .prag-lesson-pair strong { color:#1d4ed8; font-size:1rem; }
 .prag-lesson-pair p { margin-top:.5rem; color:#334155; font-size:.72rem; line-height:1.45; }
 .prag-trouble-thesis { margin-top:1rem; color:#172554; font-size:.88rem; text-align:center; }
-.prag-contribution-solo { display:grid; grid-template-columns:1.55fr 1fr; gap:1rem; height:9rem; }
+.prag-contribution-solo { display:grid; grid-template-columns:1.55fr 1fr; gap:1rem; height:17rem; margin-top:.8rem; }
 .prag-contribution-solo figure { min-height:0; }
 .prag-contribution-solo > div { display:flex; flex-direction:column; justify-content:center; padding:1.2rem; border:2px solid #cbd5e1; border-radius:1rem; background:rgba(255,255,255,.94); }
 .prag-contribution-solo strong { color:#2563eb; font-size:.66rem; letter-spacing:.1em; }
 .prag-contribution-solo p { margin-top:.65rem; color:#172554; font-size:.88rem; font-weight:750; line-height:1.55; }
 .prag-comic-grid.prag-comic-two { grid-template-columns:repeat(2,minmax(0,1fr)); max-width:42rem; margin-right:auto; margin-left:auto; }
 .prag-comic-two .prag-comic-panel { min-height:14.2rem; }
-.prag-focus-hero { position:relative; height:9rem; }
+.prag-focus-hero { position:relative; height:18rem; margin-top:.8rem; }
 .prag-focus-hero > .prag-image-frame { height:100%; min-height:0; }
 .prag-focus-caption { position:absolute; right:.7rem; bottom:.7rem; z-index:6; display:flex; min-width:13rem; flex-direction:column; padding:.65rem .8rem; border:2px solid #2563eb; border-radius:.8rem; background:rgba(255,255,255,.95); }
 .prag-focus-caption strong { color:#1d4ed8; font-size:.78rem; }
 .prag-focus-caption span { margin-top:.2rem; color:#475569; font-size:.58rem; }
 .prag-focus-hero .prag-gripgun-flow { grid-template-columns:minmax(0,1fr) 2.8rem minmax(0,1.2fr); }
+.prag-stacked-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 14rem;
+  grid-template-rows: 4.1rem minmax(0, 1fr);
+  gap: .7rem .8rem;
+  height: 24rem;
+}
+.prag-stacked-visual > .prag-gripgun-flow,
+.prag-stacked-visual > .prag-technical-strip {
+  position: relative;
+  inset: auto;
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  align-self: stretch;
+}
+.prag-stacked-visual > .prag-focus-caption {
+  position: relative;
+  inset: auto;
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  justify-content: center;
+}
+.prag-stacked-visual > .prag-focus-caption.slidev-vclick-hidden {
+  opacity: 0 !important;
+  visibility: hidden;
+}
+.prag-stacked-visual > .prag-image-frame {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  min-height: 0;
+  overflow: hidden;
+}
+.prag-stacked-visual > .prag-image-frame .prag-img {
+  object-fit: cover;
+  object-position: center 68%;
+}
+.prag-stacked-three { grid-template-columns: 1fr; }
+.prag-stacked-three > .prag-technical-strip { grid-column: 1; }
+.prag-stacked-three > .prag-image-frame { grid-column: 1; }
+
+/* 최종 기술·협업 증거: 절대 배치 없이 슬라이드 흐름 안에서 읽히게 함. */
+.prag-flow-slide .prag-technical-strip {
+  position: relative;
+  inset: auto;
+  margin: 2rem 0 0 !important;
+}
+.prag-flow-slide .prag-tech-node {
+  min-height: 9.5rem;
+  padding: 1.2rem 1rem;
+  border-width: 2px;
+}
+.prag-flow-slide .prag-tech-node:nth-of-type(2) {
+  border-color: #2563eb;
+  background: #172554;
+  color: white;
+}
+.prag-flow-slide .prag-tech-node:nth-of-type(2) span { color: #93c5fd; }
+.prag-flow-slide .prag-tech-node strong { font-size: .86rem; }
+.prag-flow-slide .prag-tech-node small {
+  margin-top: .55rem;
+  color: #64748b;
+  font-size: .58rem;
+  text-align: center;
+}
+.prag-flow-slide .prag-tech-node:nth-of-type(2) small { color: #cbd5e1; }
+.prag-flow-slide .prag-tech-arrow { height: .36rem; }
+.prag-flow-slide .prag-dependency-result {
+  min-height: 5rem;
+  margin-top: 1.2rem;
+  padding: 1.2rem 1.4rem;
+}
+.prag-stack-grid,
+.prag-rule-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.7rem;
+}
+.prag-stack-grid > div,
+.prag-rule-grid > div {
+  display: flex;
+  min-height: 19rem;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.7rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, .92);
+}
+.prag-stack-grid > div:last-child,
+.prag-rule-grid > div:last-child { border-color: #2563eb; }
+.prag-stack-grid span,
+.prag-rule-grid span {
+  color: #2563eb;
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+.prag-stack-grid strong,
+.prag-rule-grid strong {
+  display: block;
+  margin-top: 1rem;
+  color: #0f172a;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+.prag-stack-grid p,
+.prag-rule-grid p {
+  margin-top: .75rem;
+  color: #475569;
+  font-size: .72rem;
+  line-height: 1.55;
+}
+.prag-git-proof {
+  display: grid;
+  grid-template-columns: .8fr 1fr 1.2fr;
+  gap: .8rem;
+  margin-top: 1rem;
+}
+.prag-git-proof > div {
+  padding: .8rem 1rem;
+  border: 2px solid #cbd5e1;
+  border-radius: .8rem;
+  background: rgba(255, 255, 255, .92);
+}
+.prag-git-proof > div:last-child { border-color: #2563eb; }
+.prag-git-proof span,
+.prag-git-proof strong { display: block; }
+.prag-git-proof span {
+  color: #2563eb;
+  font-size: .55rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+.prag-git-proof strong {
+  margin-top: .25rem;
+  color: #172554;
+  font-size: .7rem;
+}
+.prag-feedback-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1rem;
+  height: 17rem;
+  margin-top: 1.25rem;
+}
+.prag-feedback-grid > figure { min-height: 0; }
+.prag-feedback-copy {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: .8rem;
+}
+.prag-feedback-copy > div {
+  padding: .85rem 1rem;
+  border: 2px solid #cbd5e1;
+  border-radius: .9rem;
+  background: rgba(255,255,255,.93);
+}
+.prag-feedback-copy > div:last-child { border-color: #2563eb; }
+.prag-feedback-copy span,
+.prag-feedback-copy strong { display: block; }
+.prag-feedback-copy span {
+  color: #2563eb;
+  font-size: .52rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+.prag-feedback-copy strong { margin-top: .2rem; font-size: .82rem; }
+.prag-feedback-copy p { margin-top: .25rem; color: #475569; font-size: .62rem; line-height: 1.35; }
+.prag-team-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.prag-team-pair > div {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: .85rem;
+  padding: .7rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 1rem;
+  background: rgba(255,255,255,.92);
+}
+.prag-team-pair > div:last-child { border-color: #2563eb; }
+.prag-team-pair figure { grid-row: 1 / 3; height: 15rem; min-height: 0; }
+.prag-team-pair h3 { align-self: end; margin: 0; color: #1d4ed8; font-size: .82rem; line-height: 1.25; }
+.prag-team-pair p { margin: .45rem 0 0; color: #334155; font-size: .64rem; line-height: 1.45; }
+.prag-network-compare {
+  display: grid;
+  grid-template-columns: 1fr 2rem 1fr;
+  align-items: center;
+  gap: .45rem;
+}
+.prag-network-compare > div {
+  min-height: 10rem;
+  padding: 1rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 1rem;
+  background: rgba(255,255,255,.94);
+}
+.prag-network-compare > div:last-child { border-color: #2563eb; }
+.prag-network-compare span,
+.prag-network-compare strong { display: block; }
+.prag-network-compare span { color: #2563eb; font-size: .55rem; font-weight: 900; letter-spacing: .1em; }
+.prag-network-compare strong { margin-top: .5rem; font-size: .8rem; }
+.prag-network-compare p { margin-top: .7rem; color: #475569; font-size: .62rem; line-height: 1.4; }
+.prag-network-compare > i { color: #2563eb; font-size: 1.3rem; font-style: normal; font-weight: 900; text-align: center; }
+.prag-debug-pipeline {
+  display: grid;
+  grid-template-columns: 1fr 2rem 1fr 2rem 1fr;
+  align-items: center;
+  gap: .4rem;
+  margin-top: 1rem;
+}
+.prag-debug-pipeline > div {
+  padding: .75rem;
+  border: 2px solid #cbd5e1;
+  border-radius: .8rem;
+  background: rgba(255,255,255,.94);
+  text-align: center;
+}
+.prag-debug-pipeline > div:last-of-type { border-color: #2563eb; }
+.prag-debug-pipeline span,
+.prag-debug-pipeline strong { display: block; }
+.prag-debug-pipeline span { color: #2563eb; font-size: .52rem; font-weight: 900; }
+.prag-debug-pipeline strong { margin-top: .25rem; font-size: .66rem; }
+.prag-debug-pipeline > i { color: #2563eb; font-style: normal; font-weight: 900; text-align: center; }
+.slidev-layout.prag-troubleshoot h1 { font-size: 1.72rem; line-height: 1.15; }
+.slidev-layout.prag-trouble-race h1 { font-size: 1.46rem; }
+
+/* 제목을 제외한 짧은 본문은 남은 무대의 정중앙을 사용한다. */
+.prag-centered-body {
+  position: absolute;
+  top: 6.8rem;
+  right: 3.25rem;
+  bottom: 1.7rem;
+  left: 3.25rem;
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.prag-showcase-body .prag-showcase-path,
+.prag-server-body .prag-technical-strip,
+.prag-server-body .prag-dependency-result {
+  margin-top: 0 !important;
+}
+
+.prag-server-body .prag-technical-strip {
+  position: relative;
+  inset: auto;
+  width: 100%;
+}
+
+.prag-server-body .prag-dependency-result { margin-top: 1.2rem !important; }
+
+/* 이미지 2장 + 결론 1개는 비어 있는 셀 없이 전체 너비를 채운다. */
+.prag-evidence-body .prag-player-layout {
+  position: relative;
+  inset: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: .85rem;
+  width: 100%;
+  height: 19rem;
+  margin: 0;
+}
+
+.prag-evidence-body .prag-player-layout > figure {
+  grid-row: 1;
+  min-height: 0;
+}
+
+.prag-evidence-body .prag-player-layout > .prag-card {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  min-height: 4.3rem;
+  padding: .8rem 1rem;
+  text-align: center;
+}
+
+.prag-evidence-body .prag-player-layout > .prag-card p { margin-top: .25rem; }
+
+.prag-level-body .prag-focus-hero {
+  width: 100%;
+  height: 23rem;
+  margin: 0;
+}
+
+/* 패키징 실패는 Editor 밖의 실제 실행 빌드까지 이어지는 흐름으로 표현한다. */
+.prag-package-pipeline {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.4rem minmax(0, 1fr) 1.4rem minmax(0, 1fr) 1.4rem minmax(0, 1fr);
+  align-items: stretch;
+  gap: .45rem;
+}
+
+.prag-package-pipeline > div,
+.prag-race-timeline > div,
+.prag-history-cleanse > div,
+.prag-ownership-grid > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid #cbd5e1;
+  border-radius: 1rem;
+  background: rgba(255,255,255,.94);
+}
+
+.prag-package-pipeline > div { min-height: 11rem; padding: 1rem; }
+.prag-package-pipeline > div.lesson { border-color: #2563eb; background: #dbeafe; }
+.prag-package-pipeline > i,
+.prag-race-timeline > i,
+.prag-history-cleanse > i { align-self: center; color: #2563eb; font-size: 1.2rem; font-style: normal; font-weight: 900; text-align: center; }
+.prag-package-pipeline span,
+.prag-race-timeline span,
+.prag-history-cleanse span,
+.prag-ownership-grid span { color: #2563eb; font-size: .56rem; font-weight: 900; letter-spacing: .1em; }
+.prag-package-pipeline strong,
+.prag-race-timeline strong,
+.prag-history-cleanse strong { margin-top: .6rem; font-size: .8rem; line-height: 1.4; }
+.prag-package-pipeline small,
+.prag-race-timeline small,
+.prag-history-cleanse small { margin-top: .55rem; color: #475569; font-size: .56rem; line-height: 1.45; }
+
+/* 오래된 callback과 새 세션의 충돌을 시간축으로 보여 준다. */
+.prag-race-timeline {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.6rem minmax(0, 1fr) 1.6rem minmax(0, 1.15fr);
+  align-items: stretch;
+  gap: .55rem;
+}
+
+.prag-race-timeline > div { min-height: 10rem; padding: 1.2rem; }
+.prag-race-timeline > i.danger { color: #dc2626; font-size: 1.6rem; }
+.prag-race-timeline > .danger-card { border-color: #dc2626; background: #fef2f2; }
+.prag-race-timeline > .danger-card span { color: #dc2626; }
+.prag-race-solution {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border: 2px solid #2563eb;
+  border-radius: 1rem;
+  background: #eff6ff;
+}
+.prag-race-solution strong { color: #172554; font-size: .88rem; }
+.prag-race-solution span { color: #475569; font-size: .64rem; }
+
+/* 대형 에셋 Git history 정화는 위험 통제와 검증 결과를 함께 보여 준다. */
+.prag-history-cleanse {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.7rem minmax(0, 1fr) 1.7rem minmax(0, 1fr);
+  align-items: stretch;
+  gap: .55rem;
+  margin-top: 1.25rem;
+}
+.prag-history-cleanse > div { min-height: 11.5rem; padding: 1.15rem; }
+.prag-history-cleanse > div:last-of-type { border-color: #2563eb; background: #eff6ff; }
+.prag-flow-slide .prag-history-cleanse + .prag-git-proof { grid-template-columns: repeat(3, minmax(0,1fr)); }
+
+/* 팀 역할 지도는 이름보다 시스템 소유권이 먼저 읽히게 한다. */
+.prag-ownership-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .7rem;
+  width: 100%;
+}
+.prag-ownership-grid > div { min-height: 18rem; padding: 1.15rem .9rem; }
+.prag-ownership-grid > div:first-child { border-color: #2563eb; background: #eff6ff; }
+.prag-ownership-grid strong { color: #0f172a; font-size: 1.02rem; }
+.prag-ownership-grid span { margin-top: .45rem; }
+.prag-ownership-grid p { margin-top: 1rem; color: #334155; font-size: .6rem; line-height: 1.65; word-break: keep-all; }
+.prag-ownership-thesis,
+.prag-rule-loop,
+.prag-project-boundary {
+  margin: 1rem 0 0;
+  color: #1d4ed8;
+  font-size: .7rem;
+  font-weight: 800;
+  text-align: center;
+}
+.prag-rule-loop { margin-top: .8rem; }
+.prag-project-boundary { color: #475569; font-size: .55rem; }
+
+/* 덱 전체의 깊이는 그림자가 아니라 선·색·여백으로 표현한다. */
+.slidev-layout * { box-shadow: none !important; }

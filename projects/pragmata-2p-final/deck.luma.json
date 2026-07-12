@@ -1,0 +1,3694 @@
+{
+  "assets": [
+    {
+      "alt": "Hugh와 Diana가 함께 앉아 있는 실제 타이틀 맵 렌더",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-30def5f27d2215a4",
+      "src": "images/unreal-capture-title-background-16x9.png"
+    },
+    {
+      "alt": "Hugh와 Diana가 장치를 함께 바라보는 실제 게임 장면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-8aa8c27695e312d9",
+      "src": "images/slide-02-coop-device.png"
+    },
+    {
+      "alt": "두 플레이어가 전투를 수행하는 실제 게임 장면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-3984403a13b148fb",
+      "src": "images/slide-03-combat-explosion.png"
+    },
+    {
+      "alt": "다수의 적 사이에서 전투와 해킹을 동시에 처리하는 난전",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-b34b8b8d5c2ec658",
+      "src": "images/slide-04-chaos-combat-hacking.png"
+    },
+    {
+      "alt": "Walker를 상대로 공격 패턴과 전투를 확인하는 실제 장면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-a46bd3e13f1563c1",
+      "src": "images/slide-05-walker-attack.png"
+    },
+    {
+      "alt": "Hugh HUD가 표시된 실제 게임 장면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-7229c6e298580f80",
+      "src": "images/slide-06-hugh-hud-dark.png"
+    },
+    {
+      "alt": "PRAGMATA-2P Notion 일정 보드",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-bb6e01170e3a1348",
+      "src": "images/slide-07-notion-schedule.png"
+    },
+    {
+      "alt": "Unreal Editor에서 Diana 타이틀 애니메이션 그래프를 확인하는 화면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-6386ebe12fbb7ec0",
+      "src": "images/slide-08-diana-title-animgraph.png"
+    },
+    {
+      "alt": "ReceiveDamage Code Intent 문서 화면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-75d4fa37228e3e29",
+      "src": "images/slide-ai-code-intent.png"
+    },
+    {
+      "alt": "Hugh와 Diana 역할을 선택하는 실제 게임 화면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-d2379957f3870095",
+      "src": "images/slide-10-role-selection.png"
+    },
+    {
+      "alt": "6자리 방 코드를 입력하거나 세션을 생성하는 로비 화면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-9798f92e00ee9508",
+      "src": "images/unreal-capture-lobby-session-entry-16x9.png"
+    },
+    {
+      "alt": "Host가 생성한 6자리 RoomCode 화면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-45f87666a155448b",
+      "src": "images/unreal-capture-room-code-host-16x9.png"
+    },
+    {
+      "alt": "Diana 역할 선택 화면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-1af7ec4bc5c6daa1",
+      "src": "images/unreal-capture-character-select-diana-16x9.png"
+    },
+    {
+      "alt": "Hugh 역할 선택 화면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-11ac095b1c689a56",
+      "src": "images/unreal-capture-character-select-hugh-16x9.png"
+    },
+    {
+      "alt": "전투 중 해킹 UI가 열린 실제 게임 장면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-54870761536eb4c0",
+      "src": "images/slide-13-hacking-ui.png"
+    },
+    {
+      "alt": "Hugh HUD가 표시된 어두운 탐사 구간의 실제 게임 장면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-2eb0cbebbd7bc5d0",
+      "src": "images/slide-14-hugh-hud-dark.png"
+    },
+    {
+      "alt": "적에게 피격 피해가 표시되는 실제 게임 장면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-b65a88d828322e73",
+      "src": "images/slide-15-enemy-hit.png"
+    },
+    {
+      "alt": "Diana의 해킹 퍼즐 UI가 표시된 실제 게임 장면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-d9fda8583186fb6d",
+      "src": "images/slide-16-hacking-puzzle.png"
+    },
+    {
+      "alt": "맵 장치와 이동 경로를 확인하는 Unreal Editor 장면",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-beaf303243514bdb",
+      "src": "images/slide-18-ingame-01.png"
+    },
+    {
+      "alt": "slide-28-asset-extractor-tool-screenshot.png",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-a7f0fc6412a35fdc",
+      "src": "images/slide-28-asset-extractor-tool-screenshot.png"
+    },
+    {
+      "alt": "slide-29-unreal-import-diana-result-pdf-safe.jpg",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-b0d572567e4b1f29",
+      "src": "images/slide-29-unreal-import-diana-result-pdf-safe.jpg"
+    },
+    {
+      "alt": "slide-29-unreal-import-hugh-result.png",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-7d57a0b15ef41a19",
+      "src": "images/slide-29-unreal-import-hugh-result.png"
+    },
+    {
+      "alt": "Unreal Engine에 임포트된 Executor",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-8c1e03331f57f906",
+      "src": "images/slide-35-unreal-import-executor-result.png"
+    },
+    {
+      "alt": "slide-37-map-asset-import-01.png",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-29694b7083dd1e6b",
+      "src": "images/slide-37-map-asset-import-01.png"
+    },
+    {
+      "alt": "slide-41-map-asset-import-05.png",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-468b05e50b78fadc",
+      "src": "images/slide-41-map-asset-import-05.png"
+    },
+    {
+      "alt": "slide-14-core-experience-combat-hacking-ui.jpg",
+      "fit": "cover",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "id": "asset-2656e238adbb6515",
+      "src": "images/slide-14-core-experience-combat-hacking-ui.jpg"
+    }
+  ],
+  "id": "pragmata-2p-final",
+  "metadata": {
+    "author": "팀 다이애나",
+    "title": "Pragmata 2P 최종 발표"
+  },
+  "schemaVersion": 2,
+  "slides": [
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "01 · FINAL DECK",
+          "content": "01 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Slide 1",
+          "content": "Slide 1",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "POTENUP 최종 프로젝트 베타 발표 Pragmata 2P Hugh의 전투와 Diana의 해킹을 두 플레이어에게 분리한 2인 협동 액션 퍼즐 데모 팀 다이애나 : 정호진, 박준현, 안지성, 안민원, 윤제영 베타 발표: 2026.07.10 프로젝트 기간: 2026.06.17-07.14",
+          "content": "POTENUP 최종 프로젝트 베타 발표 Pragmata 2P Hugh의 전투와 Diana의 해킹을 두 플레이어에게 분리한 2인 협동 액션 퍼즐 데모 팀 다이애나 : 정호진, 박준현, 안지성, 안민원, 윤제영 베타 발표: 2026.07.10 프로젝트 기간: 2026.06.17-07.14",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-30def5f27d2215a4",
+          "assetId": "asset-30def5f27d2215a4",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-01",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[00:00-00:25]\n오늘은 기획 설명을 길게 반복하기보다, 현재 빌드에서 실제로 확인할 수 있는 진행 상황과 시연 흐름을 중심으로 말씀드리겠습니다.\nPragmata 2P는 Hugh의 전투와 Diana의 해킹을 두 플레이어에게 분리한 협동 액션 퍼즐 데모입니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "Slide 1",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "02 · FINAL DECK",
+          "content": "02 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "실제 게임과 적용 기술 시연을 중심으로 진행함",
+          "content": "실제 게임과 적용 기술 시연을 중심으로 진행함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "01 협동 목표 솔로 부담을 역할로 분리 02 접속과 역할 방 코드부터 Pawn까지 03 권한과 UI 서버 상태와 MVVM 04 핵심 구현 사격·해킹·정화 05 시연 범위 베타 완료 구간 확인 플레이 장면을 먼저 제시하고, 그 장면을 만든 기술을 이어서 확인. 발표 방식 기능 목록보다 게임 루프 순서로 진행함. 판단 기준 두 화면에서 재현되는 결과만 베타 성과로 제시함.",
+          "content": "01 협동 목표 솔로 부담을 역할로 분리 02 접속과 역할 방 코드부터 Pawn까지 03 권한과 UI 서버 상태와 MVVM 04 핵심 구현 사격·해킹·정화 05 시연 범위 베타 완료 구간 확인 플레이 장면을 먼저 제시하고, 그 장면을 만든 기술을 이어서 확인. 발표 방식 기능 목록보다 게임 루프 순서로 진행함. 판단 기준 두 화면에서 재현되는 결과만 베타 성과로 제시함.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-8aa8c27695e312d9",
+          "assetId": "asset-8aa8c27695e312d9",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-02",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[00:25-00:55]\n발표는 기능 목록을 나열하지 않고, 실제 플레이 장면과 그 장면을 가능하게 한 기술 구조를 함께 설명하는 순서로 진행하겠습니다.\n협동 목표와 접속, 서버 권한과 UI, 핵심 gameplay 구현, 마지막 시연과 현재 상태 순서입니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "실제 게임과 적용 기술 시연을 중심으로 진행함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "03 · FINAL DECK",
+          "content": "03 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "베타 빌드는 접속부터 정화 획득까지 이어짐",
+          "content": "베타 빌드는 접속부터 정화 획득까지 이어짐",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "01 세션 접속 방 코드로 참가 02 역할 확정 Hugh / Diana 선택 03 협력 탐사 이동 + 장치 해킹 04 협동 전투 해킹 + 약점 사격 05 분위기 전환 오염 기계 등장 06 정화 획득 대응 수단 확보 접속부터 이 장면까지 중단 없이 이어지는 것이 현재 베타 범위. 검증됨 서버 권한, 상태 동기화, 역할별 UI가 하나의 루프로 연결됨. 베타 경계 정화 획득까지를 실제 빌드의 완료 범위로 제시함.",
+          "content": "01 세션 접속 방 코드로 참가 02 역할 확정 Hugh / Diana 선택 03 협력 탐사 이동 + 장치 해킹 04 협동 전투 해킹 + 약점 사격 05 분위기 전환 오염 기계 등장 06 정화 획득 대응 수단 확보 접속부터 이 장면까지 중단 없이 이어지는 것이 현재 베타 범위. 검증됨 서버 권한, 상태 동기화, 역할별 UI가 하나의 루프로 연결됨. 베타 경계 정화 획득까지를 실제 빌드의 완료 범위로 제시함.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-3984403a13b148fb",
+          "assetId": "asset-3984403a13b148fb",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-03",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[00:55-01:25]\n현재 빌드에서는 방 코드 접속과 역할 확정부터 협력 탐사, 협동 전투, 오염된 기계의 등장, 정화 스킬 획득까지 하나의 흐름으로 확인할 수 있습니다.\n베타의 핵심은 이 기능들이 개별 테스트에 머무르지 않고 두 플레이어의 연속된 플레이 경험으로 연결되었다는 점입니다.\n오늘은 정화 획득까지 실제 빌드에서 연속 재현되는 베타 범위만 설명드리겠습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "베타 빌드는 접속부터 정화 획득까지 이어짐",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "04 · FINAL DECK",
+          "content": "04 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "솔로 플레이의 부담을 2인 협동으로 재해석함",
+          "content": "솔로 플레이의 부담을 2인 협동으로 재해석함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "적의 수가 늘어날수록 사격·회피·해킹을 혼자 병행해야 하는 부담이 커짐. 싱글 플레이 부담 전투 판단과 퍼즐 입력을 한 플레이어가 동시에 처리. 역할 분리 Hugh는 이동·사격·생존, Diana는 시야·해킹·정화 담당. 협동 목표 두 플레이어가 서로 다른 정보와 조작으로 같은 전투를 해결.",
+          "content": "적의 수가 늘어날수록 사격·회피·해킹을 혼자 병행해야 하는 부담이 커짐. 싱글 플레이 부담 전투 판단과 퍼즐 입력을 한 플레이어가 동시에 처리. 역할 분리 Hugh는 이동·사격·생존, Diana는 시야·해킹·정화 담당. 협동 목표 두 플레이어가 서로 다른 정보와 조작으로 같은 전투를 해결.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-b34b8b8d5c2ec658",
+          "assetId": "asset-b34b8b8d5c2ec658",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-04",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[01:25-02:00]\n기획 의도는 원작을 그대로 따라가는 것이 아니라, Hugh와 Diana의 관계를 실제 2인 협동 구조로 바꾸는 것이었습니다.\n원작은 한 플레이어가 사격과 회피, Diana의 해킹 퍼즐까지 함께 처리하는 독특한 구조입니다.\n적의 수가 늘어나는 난전에서는 이 동시 처리 부담이 커지므로, Hugh는 이동과 사격과 생존을 담당하고 Diana는 시야와 해킹과 정화를 담당하도록 분리했습니다.\n이 프로젝트의 차별점은 원작의 기능을 단순히 복제하는 데 그치지 않고, 해당 부담을 두 플레이어가 협력하는 재미로 전환한 점입니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "솔로 플레이의 부담을 2인 협동으로 재해석함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "05 · FINAL DECK",
+          "content": "05 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "해킹으로 약점을 만들고 사격으로 공략함",
+          "content": "해킹으로 약점을 만들고 사격으로 공략함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Hugh의 조준, Diana의 해킹 퍼즐, 적 약점 노출이 같은 전투 상황 안에서 연결. Hugh의 역할 전장을 버티며 해킹으로 노출된 약점을 정확히 조준. Diana의 역할 적을 해킹해 방어를 낮추고 추가 배율이 적용될 약점 노출. 협동 판정 Walker·Watcher는 해킹 전 약 0.1배 피해. 해킹 후 약점 명중 시 추가 배율 적용.",
+          "content": "Hugh의 조준, Diana의 해킹 퍼즐, 적 약점 노출이 같은 전투 상황 안에서 연결. Hugh의 역할 전장을 버티며 해킹으로 노출된 약점을 정확히 조준. Diana의 역할 적을 해킹해 방어를 낮추고 추가 배율이 적용될 약점 노출. 협동 판정 Walker·Watcher는 해킹 전 약 0.1배 피해. 해킹 후 약점 명중 시 추가 배율 적용.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-a46bd3e13f1563c1",
+          "assetId": "asset-a46bd3e13f1563c1",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-05",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[02:00-02:35]\n저희가 가장 중요하게 본 장면은 해킹 이후의 약점 사격입니다.\nDiana가 퍼즐을 풀면 적의 방어 상태가 바뀌고 약점이 노출되며, Hugh는 Line Trace의 BoneName 판정으로 그 약점을 정확히 맞혀야 합니다.\n현재 베타의 Walker는 해킹 전 배율 0.14와 총기 배율 0.76이 함께 적용되어 약 0.106배, Watcher는 0.168과 0.648이 적용되어 약 0.109배 피해를 받습니다.\n반면 Executor는 공통 fallback을 사용해 0.2배이므로, 모든 적이 동일한 0.1배라고 설명하지는 않겠습니다.\n해킹 상태에서는 이 방어 배율이 해제되고, 등록된 약점 Bone을 맞히면 적별 추가 배율까지 적용됩니다. 현재 설정을 기준으로 Walker 약점은 약 0.98배, Watcher 약점은 약 0.87배, Executor 약점은 1.75배의 최종 총기 배율이 됩니다.\n관객이 시연에서 봐야 할 포인트도 바로 이 역할 분리입니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "해킹으로 약점을 만들고 사격으로 공략함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "06 · FINAL DECK",
+          "content": "06 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "UE 5.8 기반에서 Listen Server와 MVVM을 결합함",
+          "content": "UE 5.8 기반에서 Listen Server와 MVVM을 결합함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Listen Server가 확정한 상태를 역할별 ViewModel이 서로 다른 HUD 표현으로 전달. Unreal Engine 5.8 C++ gameplay와 Editor API 확장을 함께 운용. Listen Server RoomCode, role handoff, shared state를 서버 권위로 확정. UE MVVM HP, 회복, OverDrive, 정화 cooldown을 역할별 HUD 값으로 전달.",
+          "content": "Listen Server가 확정한 상태를 역할별 ViewModel이 서로 다른 HUD 표현으로 전달. Unreal Engine 5.8 C++ gameplay와 Editor API 확장을 함께 운용. Listen Server RoomCode, role handoff, shared state를 서버 권위로 확정. UE MVVM HP, 회복, OverDrive, 정화 cooldown을 역할별 HUD 값으로 전달.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-7229c6e298580f80",
+          "assetId": "asset-7229c6e298580f80",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-06",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[02:35-03:15]\n기술 스택은 거창한 온라인 서비스보다, 두 사람이 같은 빌드에서 서로 다른 역할로 접속하고 플레이하는 데 맞췄습니다.\nListen Server를 선택한 이유도 이 범위에서는 방 코드와 역할 검증을 빠르게 보여주는 것이 더 중요했기 때문입니다.\nUnreal Engine 5.8 업그레이드는 게임 기능뿐 아니라 Editor API를 활용하는 자체 MCP 서버의 기능 범위를 넓히기 위한 선택이기도 했습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "UE 5.8 기반에서 Listen Server와 MVVM을 결합함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "07 · FINAL DECK",
+          "content": "07 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "기획부터 베타 검증과 발표 준비까지 4단계로 진행함",
+          "content": "기획부터 베타 검증과 발표 준비까지 4단계로 진행함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "06.19 기획 발표 협동 재해석 범위 확정 7월 초 기능 통합 세션·HUD·전투 연결 07.10 베타 검증 정화까지 연속 플레이 07.14 발표 준비 반복 검증·화면 가독성 Notion 보드에서 시작, 진행 중, 완료 작업의 실제 상태를 확인.",
+          "content": "06.19 기획 발표 협동 재해석 범위 확정 7월 초 기능 통합 세션·HUD·전투 연결 07.10 베타 검증 정화까지 연속 플레이 07.14 발표 준비 반복 검증·화면 가독성 Notion 보드에서 시작, 진행 중, 완료 작업의 실제 상태를 확인.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-bb6e01170e3a1348",
+          "assetId": "asset-bb6e01170e3a1348",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-07",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[03:15-03:45]\n개발 과정은 기획 발표, 기능 통합, 베타 검증, 발표 준비의 네 단계로 진행했습니다.\n기획 단계에서 2인 협동 재해석 범위를 확정했고, 7월 초에는 세션과 역할, HUD와 전투 기능을 하나의 플레이 흐름으로 연결했습니다.\n베타에서는 접속부터 정화 획득까지 연속 플레이를 확보했으며, 현재는 같은 시연 경로의 반복 재현성과 화면 가독성을 보강하고 있습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "기획부터 베타 검증과 발표 준비까지 4단계로 진행함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "08 · FINAL DECK",
+          "content": "08 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "자체 MCP 서버로 AI와 Unreal Editor를 연결함",
+          "content": "자체 MCP 서버로 AI와 Unreal Editor를 연결함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Unreal Editor 작업 화면을 기반으로 반복적인 애니메이션·Blueprint 작업을 AI 보조 흐름에 연결. Git 자동화 변경 분석, 검증 결과, commit 작성까지 반복 절차 자동화. 문서 자동화 Docs 분류·갱신과 Code Intent 정적 사이트 생성 자동화. Blueprint 반자동화 생성, 변수 추가, compile, Widget·MVVM 편집을 검토 가능한 operation으로 실행.",
+          "content": "Unreal Editor 작업 화면을 기반으로 반복적인 애니메이션·Blueprint 작업을 AI 보조 흐름에 연결. Git 자동화 변경 분석, 검증 결과, commit 작성까지 반복 절차 자동화. 문서 자동화 Docs 분류·갱신과 Code Intent 정적 사이트 생성 자동화. Blueprint 반자동화 생성, 변수 추가, compile, Widget·MVVM 편집을 검토 가능한 operation으로 실행.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-6386ebe12fbb7ec0",
+          "assetId": "asset-6386ebe12fbb7ec0",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-08",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[03:45-04:30]\n저희는 AI를 코드 작성 보조에만 사용하지 않고 Git, 문서, Unreal Editor 작업까지 연결했습니다.\n제가 직접 제작하고 프로젝트에 통합한 UnreelMCP는 Unreal Engine 5.8 Editor 안에서 asset과 Blueprint, Widget, MVVM 상태를 조회하거나 제한적으로 수정할 수 있는 MCP 서버입니다.\n이를 통해 변경 분석과 commit 작성, 문서 분류와 사이트 생성, Blueprint 생성과 변수 추가, compile, Widget과 MVVM 편집 같은 반복 작업을 자동화하거나 반자동화했습니다.\n다만 AI가 최종 결정을 대신하는 구조가 아니라, operation 실행 결과와 변경 asset을 사람이 검토하는 구조로 사용했습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "자체 MCP 서버로 AI와 Unreal Editor를 연결함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "09 · FINAL DECK",
+          "content": "09 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "AI 자동화의 기술 부채는 Code Intent 문서로 통제함",
+          "content": "AI 자동화의 기술 부채는 Code Intent 문서로 통제함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "함수의 존재 이유부터 호출 관계, 서버 조건, Blueprint 연결, 검증 방법까지 한 장에 보존. 01 개발자 의도 보존 사용해야 하는 상황과 사용하면 안 되는 상황을 함께 기록. 02 근거와 추정 분리 확실한 근거, 추정한 의도, 확신도, 아직 모르는 점을 구분. 03 변경 영향 추적 호출 관계, 서버·클라이언트 조건, Blueprint 연결과 관련 commit을 연결. AI가 구현 속도를 높이는 만큼, 다음 개발자가 “",
+          "content": "함수의 존재 이유부터 호출 관계, 서버 조건, Blueprint 연결, 검증 방법까지 한 장에 보존. 01 개발자 의도 보존 사용해야 하는 상황과 사용하면 안 되는 상황을 함께 기록. 02 근거와 추정 분리 확실한 근거, 추정한 의도, 확신도, 아직 모르는 점을 구분. 03 변경 영향 추적 호출 관계, 서버·클라이언트 조건, Blueprint 연결과 관련 commit을 연결. AI가 구현 속도를 높이는 만큼, 다음 개발자가 “",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-75d4fa37228e3e29",
+          "assetId": "asset-75d4fa37228e3e29",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-09",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[04:30-05:15]\nAI 활용으로 구현 속도는 높아졌지만, 생성된 코드가 많아질수록 원래 개발자의 의도가 사라지고 비슷한 기능이 중복될 위험도 커졌습니다.\n이 기술 부채를 줄이기 위해 Code Intent 문서화 도구를 만들었습니다.\n각 의도 카드는 코드의 존재 이유, 사용해야 하는 상황과 사용하면 안 되는 상황, 호출 관계, 서버와 클라이언트 조건, Blueprint 연결 여부를 함께 기록합니다.\n또한 사실과 추정을 섞지 않도록 확실한 근거, 추정한 의도, 확신도, 아직 모르는 점과 검증 방법을 분리했습니다.\n따라서 AI는 개발자의 의도를 대체하는 도구가 아니라, 의도를 보존한 상태에서 반복 작업을 줄이는 도구로 사용했습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "AI 자동화의 기술 부채는 Code Intent 문서로 통제함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "10 · FINAL DECK",
+          "content": "10 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "서버 상태 계약으로 기능을 하나의 플레이 루프로 통합함",
+          "content": "서버 상태 계약으로 기능을 하나의 플레이 루프로 통합함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "01 기능 분리 세션·역할·캐릭터·UI 02 상태 계약 RPC·GameState·OnRep 03 문서화 권한·소유·Binding 기록 04 통합 검증 양방향 Host 역할 조합 역할 선택과 Ready 상태가 통합 시연의 시작점이 됨. 통합 단위 사람별 작업물이 아니라 하나의 플레이 루프로 결합함. 검증 조합 Host 역할을 고정하지 않고 Hugh / Diana 양방향을 확인함.",
+          "content": "01 기능 분리 세션·역할·캐릭터·UI 02 상태 계약 RPC·GameState·OnRep 03 문서화 권한·소유·Binding 기록 04 통합 검증 양방향 Host 역할 조합 역할 선택과 Ready 상태가 통합 시연의 시작점이 됨. 통합 단위 사람별 작업물이 아니라 하나의 플레이 루프로 결합함. 검증 조합 Host 역할을 고정하지 않고 Hugh / Diana 양방향을 확인함.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-d2379957f3870095",
+          "assetId": "asset-d2379957f3870095",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-10",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[05:15-05:45]\n협업은 사람별 소개보다 기능 스트림과 그 사이의 계약을 중심으로 설명하겠습니다.\n세션, 역할, 캐릭터, 해킹, 적, UI를 나눠 개발했지만 Server RPC와 GameState, replicated Component, delegate가 각각 어디까지 책임지는지 문서로 맞췄습니다.\n개별 기능 완료보다 두 플레이어 화면에서 같은 결과가 보이는지를 통합 기준으로 사용했습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "서버 상태 계약으로 기능을 하나의 플레이 루프로 통합함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "11 · FINAL DECK",
+          "content": "11 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "6자리 방 코드로 접속하고 역할을 확정함",
+          "content": "6자리 방 코드로 접속하고 역할을 확정함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "01 시작 타이틀 → 로비 02 방 생성 LAN Session + RoomCode 03 방 참가 Code로 동일 Session 검색 04 역할 확정 Hugh / Diana 중복 방지 05 데모 진입 역할별 Pawn 적용 실제 빌드의 Join 입력 화면과 Host RoomCode 생성 결과. 세션 탐색 RoomCode를 LAN Session 검색 키로 사용함. 역할 확정 Host / Join과 Hugh / Diana를 분리해 양",
+          "content": "01 시작 타이틀 → 로비 02 방 생성 LAN Session + RoomCode 03 방 참가 Code로 동일 Session 검색 04 역할 확정 Hugh / Diana 중복 방지 05 데모 진입 역할별 Pawn 적용 실제 빌드의 Join 입력 화면과 Host RoomCode 생성 결과. 세션 탐색 RoomCode를 LAN Session 검색 키로 사용함. 역할 확정 Host / Join과 Hugh / Diana를 분리해 양",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-9798f92e00ee9508",
+          "assetId": "asset-9798f92e00ee9508",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 390,
+            "x": 930,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        },
+        {
+          "accessibilityLabel": "asset-45f87666a155448b",
+          "assetId": "asset-45f87666a155448b",
+          "id": "image-2",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 390,
+            "x": 1370,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-11",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[05:45-06:35]\n먼저 세션 흐름입니다.\n기획 발표 때보다 가장 크게 정리된 부분은 Host/Join과 Hugh/Diana를 분리한 점입니다.\n호스트냐 참가자냐는 네트워크 행동이고, Hugh냐 Diana냐는 게임플레이 역할입니다.\n이 둘을 분리해야 Host Diana, Client Hugh 같은 조합도 정상적으로 동작합니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "6자리 방 코드로 접속하고 역할을 확정함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "12 · FINAL DECK",
+          "content": "12 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "선택한 역할은 맵 이동 후에도 그대로 유지됨",
+          "content": "선택한 역할은 맵 이동 후에도 그대로 유지됨",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "같은 RoomCode에서 Diana와 Hugh를 각각 선택한 실제 로비 화면. 02 · 실제 인게임 캡처 Diana HUD / Hugh HUD로 데모 맵 진입 로비에서 선택한 역할과 각 Pawn, HUD, 입력 방식이 일치하는 두 화면 Travel 이후 역할별 Pawn possess, HUD, Input Mapping 적용. 1 PreferredRole 로비 선택을 PlayerState에 저장. 2 Seamless Travel",
+          "content": "같은 RoomCode에서 Diana와 Hugh를 각각 선택한 실제 로비 화면. 02 · 실제 인게임 캡처 Diana HUD / Hugh HUD로 데모 맵 진입 로비에서 선택한 역할과 각 Pawn, HUD, 입력 방식이 일치하는 두 화면 Travel 이후 역할별 Pawn possess, HUD, Input Mapping 적용. 1 PreferredRole 로비 선택을 PlayerState에 저장. 2 Seamless Travel",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-1af7ec4bc5c6daa1",
+          "assetId": "asset-1af7ec4bc5c6daa1",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 390,
+            "x": 930,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        },
+        {
+          "accessibilityLabel": "asset-11ac095b1c689a56",
+          "assetId": "asset-11ac095b1c689a56",
+          "id": "image-2",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 390,
+            "x": 1370,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-12",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[06:35-07:15]\n앞 장에서 방 코드 접속과 역할 선택 과정을 설명했으므로, 여기서는 선택 결과가 실제 게임까지 유지되는 경로만 보겠습니다.\nHost Diana와 Client Hugh를 선택하면 PreferredRole이 PlayerState에 저장되고, Seamless Travel 과정에서 새 PlayerState로 복사됩니다.\n데모 맵에서는 서버가 AssignedRole을 확정한 뒤 역할에 맞는 Pawn을 생성하고, PlayerController가 해당 HUD와 Input Mapping을 구성합니다.\n따라서 Host는 Hugh라는 고정 가정 없이 Host Diana와 Client Hugh 조합도 동일하게 동작합니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "선택한 역할은 맵 이동 후에도 그대로 유지됨",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "13 · FINAL DECK",
+          "content": "13 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "두 플레이어가 같은 협동 상황을 함께 봄",
+          "content": "두 플레이어가 같은 협동 상황을 함께 봄",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "한 플레이어의 행동 결과를 서버가 확인한 뒤 두 화면에 같은 상태로 전달. 행동은 함께 확인 해킹과 상호작용의 결과를 두 플레이어가 같은 순간에 확인함. 화면은 같은 결과를 표시 대상, 전투 상태, 퍼즐 진행도가 역할별 화면에 일관되게 반영됨.",
+          "content": "한 플레이어의 행동 결과를 서버가 확인한 뒤 두 화면에 같은 상태로 전달. 행동은 함께 확인 해킹과 상호작용의 결과를 두 플레이어가 같은 순간에 확인함. 화면은 같은 결과를 표시 대상, 전투 상태, 퍼즐 진행도가 역할별 화면에 일관되게 반영됨.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-54870761536eb4c0",
+          "assetId": "asset-54870761536eb4c0",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-13",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[07:15-07:55]\n이 장에서는 두 플레이어가 같은 협동 상황을 본다는 결과를 먼저 말씀드리겠습니다.\n한 사람이 해킹이나 상호작용을 시작하면, 대상과 전투 상태, 퍼즐 진행도가 두 화면에서 어긋나지 않아야 합니다.\n이를 위해 입력 요청은 서버가 확인하고, 확정된 상태만 양쪽 HUD로 전달했습니다.\nListen Server에서는 호스트 화면과 참가자 화면의 갱신 경로가 다를 수 있어, 최종적으로 같은 HUD 갱신 지점으로 모이도록 구성했습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "두 플레이어가 같은 협동 상황을 함께 봄",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "14 · FINAL DECK",
+          "content": "14 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "역할별 HUD가 현재 상황을 쉽게 보여줌",
+          "content": "역할별 HUD가 현재 상황을 쉽게 보여줌",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "두 역할은 다른 화면을 쓰지만, 현재 상황에 필요한 정보는 각 HUD에 즉시 반영. Hugh 화면 체력과 전투 준비 상태를 보며 이동과 사격에 집중함. Diana 화면 해킹, 정화, OverDrive처럼 협동 판단에 필요한 정보를 제공함.",
+          "content": "두 역할은 다른 화면을 쓰지만, 현재 상황에 필요한 정보는 각 HUD에 즉시 반영. Hugh 화면 체력과 전투 준비 상태를 보며 이동과 사격에 집중함. Diana 화면 해킹, 정화, OverDrive처럼 협동 판단에 필요한 정보를 제공함.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-2eb0cbebbd7bc5d0",
+          "assetId": "asset-2eb0cbebbd7bc5d0",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-14",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[07:55-08:35]\n협동 게임에서는 같은 정보를 모두 보여주는 것보다, 각 역할이 지금 판단해야 할 정보를 빠르게 보여주는 편이 중요합니다.\nHugh 화면은 이동과 전투 준비에, Diana 화면은 해킹과 정화 판단에 맞춰 구성했습니다.\n화면에 보이는 체력, cooldown, 퍼즐 상태는 gameplay 상태가 바뀌면 바로 갱신됩니다.\n구현에서는 핵심 HUD에 MVVM을 사용했지만, 오늘은 구조 자체보다 화면이 역할의 차이를 어떻게 전달하는지에 집중하겠습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "역할별 HUD가 현재 상황을 쉽게 보여줌",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "15 · GRIPGUN AUTHORITY",
+          "content": "15 · GRIPGUN AUTHORITY",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Hugh의 사격 결과가 두 화면에 일관되게 보임",
+          "content": "Hugh의 사격 결과가 두 화면에 일관되게 보임",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1220,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "비행 projectile가 아닌 server-authoritative single Line Trace.",
+          "content": "비행 projectile가 아닌 server-authoritative single Line Trace.",
+          "id": "subhead",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1220,
+            "x": 110,
+            "y": 215,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "CLIENT\nfire intent",
+          "content": "CLIENT\nfire intent",
+          "id": "client",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #2563eb",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #2563eb22",
+            "color": "#2563eb",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 160,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 280,
+            "x": 120,
+            "y": 470,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "GripGun authority flow",
+          "connector": {
+            "from": {
+              "anchor": "right",
+              "elementId": "client"
+            },
+            "to": {
+              "anchor": "left",
+              "elementId": "server"
+            }
+          },
+          "id": "intent",
+          "style": {
+            "background": "#2563eb",
+            "borderRadius": 99,
+            "pathProgress": 0
+          },
+          "transform": {
+            "height": 32,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 24,
+            "x": 0,
+            "y": 0,
+            "zIndex": 6
+          },
+          "type": "connector"
+        },
+        {
+          "accessibilityLabel": "SERVER\ncombat · weapon · ammo gate",
+          "content": "SERVER\ncombat · weapon · ammo gate",
+          "id": "server",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #2563eb",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #2563eb22",
+            "color": "#2563eb",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 250,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 390,
+            "x": 560,
+            "y": 415,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "GripGun authority flow",
+          "connector": {
+            "from": {
+              "anchor": "right",
+              "elementId": "server"
+            },
+            "to": {
+              "anchor": "left",
+              "elementId": "hit"
+            }
+          },
+          "id": "trace",
+          "style": {
+            "background": "#f59e0b",
+            "borderRadius": 99,
+            "pathProgress": 0
+          },
+          "transform": {
+            "height": 32,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 24,
+            "x": 0,
+            "y": 0,
+            "zIndex": 6
+          },
+          "type": "connector"
+        },
+        {
+          "accessibilityLabel": "FIRST BLOCKING HIT\nActor + BoneName",
+          "content": "FIRST BLOCKING HIT\nActor + BoneName",
+          "id": "hit",
+          "style": {
+            "background": "#ffffff",
+            "border": "3px solid #f59e0b",
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px #f59e0b22",
+            "color": "#f59e0b",
+            "fontSize": 24,
+            "fontWeight": 800
+          },
+          "transform": {
+            "height": 190,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 360,
+            "x": 1170,
+            "y": 450,
+            "zIndex": 4
+          },
+          "type": "shape"
+        },
+        {
+          "accessibilityLabel": "camera view point → first blocker\n서버가 hit 결과를 확정",
+          "content": "camera view point → first blocker\n서버가 hit 결과를 확정",
+          "id": "result",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 32,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 680,
+            "x": 520,
+            "y": 780,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "GripGun current build hit evidence",
+          "assetId": "asset-b65a88d828322e73",
+          "id": "evidence",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 24px 55px rgba(15,23,42,.25)",
+            "scale": 0.96
+          },
+          "transform": {
+            "height": 236,
+            "opacity": 0,
+            "rotation": 0,
+            "width": 420,
+            "x": 1330,
+            "y": 720,
+            "zIndex": 3
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-15",
+      "layoutId": "gripgun-result-explainer",
+      "posterCueId": "evidence",
+      "presenterNotes": "[08:35-09:20]\nHugh의 사격은 적을 맞히는 것만이 아니라, Diana가 만든 약점을 실제 전투 결과로 바꾸는 행동입니다.\n따라서 발사와 피격 결과는 한쪽 화면에서만 보이면 안 되고 두 플레이어에게 같은 흐름으로 전달되어야 합니다.\n클라이언트는 발사 의도만 전달하고, 서버가 조준 결과와 발사 조건을 확인한 뒤 피해와 충격 효과를 확정합니다.\n구현 근거로는 서버가 카메라 시점에서 단일 Line Trace를 수행해 피격 지점을 결정합니다.\n\n[발표 진행]\n- Client fire intent: 자동 시작\n- proceed to next cue: 서버 validation 설명 후\n- proceed to next cue: camera single Line Trace 설명 후\n- proceed to next cue: 실제 build evidence 공개",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "client fire intent",
+            "mode": "auto"
+          },
+          {
+            "at": 1.5,
+            "id": "server",
+            "label": "proceed to next cue · server validation",
+            "mode": "click"
+          },
+          {
+            "at": 3.6,
+            "id": "trace",
+            "label": "proceed to next cue · single Line Trace",
+            "mode": "click"
+          },
+          {
+            "at": 6.2,
+            "id": "evidence",
+            "label": "proceed to next cue · build evidence",
+            "mode": "hold"
+          }
+        ],
+        "duration": 8,
+        "tracks": [
+          {
+            "elementId": "intent",
+            "id": "intent",
+            "keyframes": [
+              {
+                "at": 1.5,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.05,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "intent",
+            "id": "intent-path",
+            "keyframes": [
+              {
+                "at": 1.5,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.05,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "server",
+            "id": "server",
+            "keyframes": [
+              {
+                "at": 2.05,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.2,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "server",
+            "id": "server-path",
+            "keyframes": [
+              {
+                "at": 2.05,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 2.2,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "server",
+            "id": "server-pulse",
+            "keyframes": [
+              {
+                "at": 2.2,
+                "easing": "ease-out",
+                "value": 0.9
+              },
+              {
+                "at": 2.3800000000000003,
+                "easing": "ease-out",
+                "value": 1.1
+              },
+              {
+                "at": 2.62,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          },
+          {
+            "elementId": "trace",
+            "id": "trace",
+            "keyframes": [
+              {
+                "at": 3.6,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 4.25,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "trace",
+            "id": "trace-path",
+            "keyframes": [
+              {
+                "at": 3.6,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 4.25,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "hit",
+            "id": "hit",
+            "keyframes": [
+              {
+                "at": 4.25,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 4.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "hit",
+            "id": "hit-path",
+            "keyframes": [
+              {
+                "at": 4.25,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 4.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "hit",
+            "id": "hit-pulse",
+            "keyframes": [
+              {
+                "at": 4.45,
+                "easing": "ease-out",
+                "value": 0.9
+              },
+              {
+                "at": 4.63,
+                "easing": "ease-out",
+                "value": 1.1
+              },
+              {
+                "at": 4.87,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          },
+          {
+            "elementId": "result",
+            "id": "result",
+            "keyframes": [
+              {
+                "at": 5.1,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 5.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "result",
+            "id": "result-path",
+            "keyframes": [
+              {
+                "at": 5.1,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 5.45,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "evidence",
+            "id": "evidence",
+            "keyframes": [
+              {
+                "at": 6.2,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 6.65,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "opacity"
+          },
+          {
+            "elementId": "evidence",
+            "id": "evidence-path",
+            "keyframes": [
+              {
+                "at": 6.2,
+                "easing": "linear",
+                "value": 0
+              },
+              {
+                "at": 6.65,
+                "easing": "ease-out",
+                "value": 1
+              }
+            ],
+            "property": "pathProgress"
+          },
+          {
+            "elementId": "evidence",
+            "id": "evidence-pulse",
+            "keyframes": [
+              {
+                "at": 6.65,
+                "easing": "ease-out",
+                "value": 0.9
+              },
+              {
+                "at": 6.83,
+                "easing": "ease-out",
+                "value": 1.1
+              },
+              {
+                "at": 7.07,
+                "easing": "ease-in",
+                "value": 1
+              }
+            ],
+            "property": "style.scale"
+          }
+        ]
+      },
+      "title": "Hugh의 사격 결과가 두 화면에 일관되게 보임",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "16 · FINAL DECK",
+          "content": "16 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Diana가 눈앞의 장치를 골라 협동 탐사를 이끎",
+          "content": "Diana가 눈앞의 장치를 골라 협동 탐사를 이끎",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "화면 앞의 후보 중 실제로 상호작용할 수 있는 장치만 선택해 보여줌. 탐색 주변 장치와 보상을 확인해 두 플레이어가 다음 목표를 찾음. 상호작용 장치를 해킹하면 문, 전원, 이동 경로가 바뀌어 탐사를 이어갈 수 있음.",
+          "content": "화면 앞의 후보 중 실제로 상호작용할 수 있는 장치만 선택해 보여줌. 탐색 주변 장치와 보상을 확인해 두 플레이어가 다음 목표를 찾음. 상호작용 장치를 해킹하면 문, 전원, 이동 경로가 바뀌어 탐사를 이어갈 수 있음.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-d9fda8583186fb6d",
+          "assetId": "asset-d9fda8583186fb6d",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-16",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[09:20-10:10]\nDiana는 주변 장치와 보상을 찾아 다음 탐사 목표를 정하는 역할입니다.\n플레이어가 화면 앞의 장치를 조준하면, 실제로 상호작용 가능한 대상만 선택되어 혼란을 줄입니다.\n해킹이 성공하면 문, 전원, 이동 장치가 바뀌고 Hugh와 Diana가 함께 다음 구간으로 넘어갑니다.\n구현에서는 거리와 시야가 맞는 후보만 서버가 다시 확인하지만, 시연에서는 장치 선택과 월드 변화의 인과만 보여드리겠습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "Diana가 눈앞의 장치를 골라 협동 탐사를 이끎",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "17 · FINAL DECK",
+          "content": "17 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "정화로 오염된 기계와 장애물에 대응함",
+          "content": "정화로 오염된 기계와 장애물에 대응함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "실제 베타 빌드 캡처 정화 범위 안의 오염 적이 회복되는 장면 정화 직전, 성공 순간, 다음 사용 가능 상태를 연속된 화면으로 촬영 정화 범위 안의 오염 대상을 서버가 확인하고, 결과와 다음 사용 시점을 양쪽 HUD에 반영. 정화 순간 오염된 적과 장애물이 등장한 뒤 플레이어에게 새로운 대응 수단을 제공함. 공유되는 결과 정화 성공과 다음 사용 가능 시점이 두 플레이어 화면에 함께 표시됨.",
+          "content": "실제 베타 빌드 캡처 정화 범위 안의 오염 적이 회복되는 장면 정화 직전, 성공 순간, 다음 사용 가능 상태를 연속된 화면으로 촬영 정화 범위 안의 오염 대상을 서버가 확인하고, 결과와 다음 사용 시점을 양쪽 HUD에 반영. 정화 순간 오염된 적과 장애물이 등장한 뒤 플레이어에게 새로운 대응 수단을 제공함. 공유되는 결과 정화 성공과 다음 사용 가능 시점이 두 플레이어 화면에 함께 표시됨.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1500,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-17",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[10:10-10:50]\n정화는 분위기가 바뀐 뒤 플레이어가 새로운 위험에 대응하는 방법을 얻는 장면입니다.\n오염된 적과 장애물이 등장하면 Diana가 정화를 사용하고, 두 플레이어는 성공 결과와 다음 사용 가능 시점을 함께 확인합니다.\n이 기능은 범위 안에 있고 가려지지 않은 대상만 적용되도록 서버가 확인합니다.\n시연에서는 복잡한 조건보다 오염 등장, 정화 사용, 경로 회복이라는 플레이 흐름을 중심으로 보여드리겠습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "정화로 오염된 기계와 장애물에 대응함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "18 · FINAL DECK",
+          "content": "18 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "맵 상호작용이 전투와 탐사 흐름을 연결함",
+          "content": "맵 상호작용이 전투와 탐사 흐름을 연결함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "진행 경로 선형 스테이지 안에 장치, 전투, 휴식, 보상 구간 배치. Diana POI focus → MapHack → 연결 장치 trigger 전투 압박 구간과 재정비 구간 후반 전투까지 이어지는 명확한 목표 협동 동선 완성된 협동 기능이 한 번에 이어지도록 전투와 해킹 장치를 순서대로 배치. 인게임 01 휴식·보상 구간 전투 후 재정비 장면 인게임 02 메인 진행 경로 다음 장치와 목표가 보이는 구도",
+          "content": "진행 경로 선형 스테이지 안에 장치, 전투, 휴식, 보상 구간 배치. Diana POI focus → MapHack → 연결 장치 trigger 전투 압박 구간과 재정비 구간 후반 전투까지 이어지는 명확한 목표 협동 동선 완성된 협동 기능이 한 번에 이어지도록 전투와 해킹 장치를 순서대로 배치. 인게임 01 휴식·보상 구간 전투 후 재정비 장면 인게임 02 메인 진행 경로 다음 장치와 목표가 보이는 구도",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-beaf303243514bdb",
+          "assetId": "asset-beaf303243514bdb",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-18",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[10:50-11:25]\n맵 설명은 모든 공간을 나열하기보다 협동 기능이 어떤 순서로 등장하는지에 초점을 둡니다.\n맵 장치는 Scannable POI로 GameState registry에 등록되고, Diana가 유효한 거리와 시야에서 조준하거나 상호작용 입력을 보내면 서버가 최종 대상을 다시 확정합니다.\nMapHackingPuzzleComponent가 있는 장치는 방향 입력과 성공 상태를 서버가 소유하고, 완료 시 PuzzleInteractable의 TargetActors 또는 OnInteractionActivated를 통해 문, 전원, 이동 장치를 작동시킵니다.\n전투 뒤에는 휴식과 보상 구간을 두고, 다음 해킹 장치와 목표가 자연스럽게 보이도록 시연 동선을 구성했습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "맵 상호작용이 전투와 탐사 흐름을 연결함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "19 · FINAL DECK",
+          "content": "19 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "베타 협동 플레이 루프는 6단계로 구성됨",
+          "content": "베타 협동 플레이 루프는 6단계로 구성됨",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "01 접속·역할 방 코드와 역할 확정 02 협력 탐사 이동 + 장치 해킹 03 협동 전투 해킹 + 약점 사격 04 탐사 확장 문·전원·이동 장치 05 분위기 전환 오염 기계 등장 06 정화 획득 오염 대응 수단 확보 실제 베타 대표 장면 해킹된 적의 약점을 Hugh가 조준하는 순간 Diana 해킹 UI, 노출된 약점, Hugh의 조준이 동시에 읽히는 화면 Diana가 조건을 만들고 Hugh가 해결하는 장면이 시연의 중심. 오늘",
+          "content": "01 접속·역할 방 코드와 역할 확정 02 협력 탐사 이동 + 장치 해킹 03 협동 전투 해킹 + 약점 사격 04 탐사 확장 문·전원·이동 장치 05 분위기 전환 오염 기계 등장 06 정화 획득 오염 대응 수단 확보 실제 베타 대표 장면 해킹된 적의 약점을 Hugh가 조준하는 순간 Diana 해킹 UI, 노출된 약점, Hugh의 조준이 동시에 읽히는 화면 Diana가 조건을 만들고 Hugh가 해결하는 장면이 시연의 중심. 오늘",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1500,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-19",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[10:50-15:20]\n이제 시연으로 넘어가겠습니다.\n시연은 접속과 역할 선택, 협력 탐사, 협동 전투, 장치 탐사 확장, 오염된 기계 등장, 정화 스킬 획득 순서로 진행됩니다.\n약 4분 동안 01부터 06까지 실제 빌드를 플레이하고, 각 구간에서는 조작 설명보다 두 역할의 협력 결과만 짧게 짚겠습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "베타 협동 플레이 루프는 6단계로 구성됨",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "20 · FINAL DECK",
+          "content": "20 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "핵심 협동 루프 구현, 베타 시연 범위 검증됨",
+          "content": "핵심 협동 루프 구현, 베타 시연 범위 검증됨",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "실제 베타 빌드 캡처 현재 시연 가능한 마지막 안정 구간 정화 획득 이후 탐사 또는 협동 전투 종료 장면 문서상 기능 수가 아니라 실제로 연속 재현되는 범위로 완성도를 판단. 시연 가능 접속, 역할, HUD, 해킹과 사격까지 핵심 협동 루프가 연결됨. 완료 범위 정화 획득까지 동일한 경로로 반복 재현 가능.",
+          "content": "실제 베타 빌드 캡처 현재 시연 가능한 마지막 안정 구간 정화 획득 이후 탐사 또는 협동 전투 종료 장면 문서상 기능 수가 아니라 실제로 연속 재현되는 범위로 완성도를 판단. 시연 가능 접속, 역할, HUD, 해킹과 사격까지 핵심 협동 루프가 연결됨. 완료 범위 정화 획득까지 동일한 경로로 반복 재현 가능.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1500,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-20",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[15:20-15:45]\n베타 완성도는 문서상 기능 개수보다 실제 플레이 루프 기준으로 보겠습니다.\n현재 핵심 루프는 연결되어 있으며, 베타 평가는 정화 획득까지 반복 재현되는 결과를 기준으로 보겠습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "핵심 협동 루프 구현, 베타 시연 범위 검증됨",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "21 · FINAL DECK",
+          "content": "21 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "최종 릴리스 단계에서는 시연 안정성과 가독성을 보강함",
+          "content": "최종 릴리스 단계에서는 시연 안정성과 가독성을 보강함",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "01 빌드 고정 동일 순서 반복 검증 02 UI 보강 해킹·약점·상태 가독성 03 영상 백업 5분 이내 동일 흐름 04 최종 정리 완성도·기여·회고 발표 빌드 검증 기록 동일 시연 루트 반복 실행 결과 체크리스트, 패키징 결과, 백업 영상 썸네일이 함께 보이는 화면 새 기능 추가보다 발표 당일 같은 결과를 재현하는 데 집중. 우선순위 시연 안정성과 화면 가독성을 먼저 보강함. 후반 계획 대규모 전투와 보스전은 최종 릴리스 단계",
+          "content": "01 빌드 고정 동일 순서 반복 검증 02 UI 보강 해킹·약점·상태 가독성 03 영상 백업 5분 이내 동일 흐름 04 최종 정리 완성도·기여·회고 발표 빌드 검증 기록 동일 시연 루트 반복 실행 결과 체크리스트, 패키징 결과, 백업 영상 썸네일이 함께 보이는 화면 새 기능 추가보다 발표 당일 같은 결과를 재현하는 데 집중. 우선순위 시연 안정성과 화면 가독성을 먼저 보강함. 후반 계획 대규모 전투와 보스전은 최종 릴리스 단계",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1500,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-21",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[15:45-16:05]\n마지막으로 베타 이후의 최종 릴리스 단계를 짧게 말씀드리겠습니다. 대규모 전투와 보스전은 베타 성과가 아니라 이후의 미래 계획이며, 우선순위는 현재 시연 경로의 안정성과 화면 가독성입니다.\n이 프로젝트는 상업적 확장 가능성을 말하는 프로젝트가 아니라, 원작을 좋아한 팀이 솔로 플레이의 부담을 2인 협동의 재미로 바꿔 본 모작 프로젝트입니다.\n따라서 최종 발표에서는 발표 빌드, UI 가독성, 영상 백업, 그리고 attribution과 완성도 평가를 정리하겠습니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "최종 릴리스 단계에서는 시연 안정성과 가독성을 보강함",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "22 · FINAL DECK",
+          "content": "22 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "정호진 주요 기여: 서버 흐름과 Diana 기반",
+          "content": "정호진 주요 기여: 서버 흐름과 Diana 기반",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "핵심 기여 RoomCode session, lobby handoff, role spawn 흐름 정리 Diana operator, scan, hack, cleanse, node interaction 기반 캐릭터 에셋과 애니메이션 파이프라인 정리 발표 구조와 팀 결과물 통합 반복 추출 작업을 줄이기 위한 도구 화면 Diana 임포트 결과",
+          "content": "핵심 기여 RoomCode session, lobby handoff, role spawn 흐름 정리 Diana operator, scan, hack, cleanse, node interaction 기반 캐릭터 에셋과 애니메이션 파이프라인 정리 발표 구조와 팀 결과물 통합 반복 추출 작업을 줄이기 위한 도구 화면 Diana 임포트 결과",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-a7f0fc6412a35fdc",
+          "assetId": "asset-a7f0fc6412a35fdc",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 390,
+            "x": 930,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        },
+        {
+          "accessibilityLabel": "asset-b0d572567e4b1f29",
+          "assetId": "asset-b0d572567e4b1f29",
+          "id": "image-2",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 390,
+            "x": 1370,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-22",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[16:05-16:30]\n정호진 주요 기여입니다.\n서버 흐름, Diana 기반 기능, 에셋 파이프라인, 발표 통합을 중심으로 정리하면 됩니다.\n길게 회고하지 말고, 전체 기능 흐름에 어떻게 연결됐는지만 말합니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "정호진 주요 기여: 서버 흐름과 Diana 기반",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "23 · FINAL DECK",
+          "content": "23 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "박준현 주요 기여: Hugh 조작과 전투 기반",
+          "content": "박준현 주요 기여: Hugh 조작과 전투 기반",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Hugh 캐릭터를 이동, 조준, 전투 입력의 기준 플레이어로 구성. 핵심 기여 Hugh 이동, 조준, 전투 입력 구현 무기, HP, 회복, 전투 반응 흐름 구성 Walker / Watcher 전투 흐름과 스탯 관리 Diana 해킹 결과가 Hugh 공격 타이밍으로 이어지는 구조 연결",
+          "content": "Hugh 캐릭터를 이동, 조준, 전투 입력의 기준 플레이어로 구성. 핵심 기여 Hugh 이동, 조준, 전투 입력 구현 무기, HP, 회복, 전투 반응 흐름 구성 Walker / Watcher 전투 흐름과 스탯 관리 Diana 해킹 결과가 Hugh 공격 타이밍으로 이어지는 구조 연결",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-7d57a0b15ef41a19",
+          "assetId": "asset-7d57a0b15ef41a19",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-23",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[16:30-16:45]\n박준현 주요 기여입니다.\n관객이 가장 직접적으로 조작감을 느끼는 Hugh 이동과 전투 기반을 담당한 점을 중심으로 말합니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "박준현 주요 기여: Hugh 조작과 전투 기반",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "24 · FINAL DECK",
+          "content": "24 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "안지성 주요 기여: 레벨 리듬과 Executor",
+          "content": "안지성 주요 기여: 레벨 리듬과 Executor",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Executor 임포트와 레벨 전투 리듬 설계는 중반 전투 압박을 만드는 핵심 축.",
+          "content": "Executor 임포트와 레벨 전투 리듬 설계는 중반 전투 압박을 만드는 핵심 축.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-8c1e03331f57f906",
+          "assetId": "asset-8c1e03331f57f906",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-24",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[16:45-17:00]\n안지성 주요 기여입니다.\n레벨 리듬, Executor 적 구성, 추가 무기와 전투 압박을 중심으로 설명합니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "안지성 주요 기여: 레벨 리듬과 Executor",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "25 · FINAL DECK",
+          "content": "25 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "안민원 주요 기여: 맵 구성과 보스전 공간",
+          "content": "안민원 주요 기여: 맵 구성과 보스전 공간",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "핵심 기여 맵 에셋 임포트, 맵 빌딩, Sentinel 보스전 공간 구성을 담당. 선형 진행 경로와 체크포인트 배치 전투, 휴식, 보상 구간의 간격 조정 보스전까지 이어지는 클리어 경험 구성 구현 결과 개별 에셋을 플레이 가능한 스테이지 구조로 연결.",
+          "content": "핵심 기여 맵 에셋 임포트, 맵 빌딩, Sentinel 보스전 공간 구성을 담당. 선형 진행 경로와 체크포인트 배치 전투, 휴식, 보상 구간의 간격 조정 보스전까지 이어지는 클리어 경험 구성 구현 결과 개별 에셋을 플레이 가능한 스테이지 구조로 연결.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-29694b7083dd1e6b",
+          "assetId": "asset-29694b7083dd1e6b",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 390,
+            "x": 930,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        },
+        {
+          "accessibilityLabel": "asset-468b05e50b78fadc",
+          "assetId": "asset-468b05e50b78fadc",
+          "id": "image-2",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 390,
+            "x": 1370,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-25",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[17:00-17:15]\n안민원 주요 기여입니다.\n맵 에셋을 단순 배치가 아니라 시연 가능한 진행 경로와 보스전 공간으로 연결한 점을 말합니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "안민원 주요 기여: 맵 구성과 보스전 공간",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "26 · FINAL DECK",
+          "content": "26 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "윤제영 주요 기여: 해킹 UI와 전투 피드백",
+          "content": "윤제영 주요 기여: 해킹 UI와 전투 피드백",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "전투 화면 안에서 Diana 해킹과 Hugh 공격 기회를 함께 이해하도록 UI 피드백을 설계. 핵심 기여 Diana 해킹 UI, 오버드라이브 게이지, 전투 / 해킹 상태 전달. 구현 의미 해킹 성공, 약점 노출, 지원 가능 상태가 플레이어에게 즉시 전달되도록 구성. 최종 연결 두 플레이어의 판단이 같은 전투 상황 안에서 맞물리도록 시각적 기준을 제공.",
+          "content": "전투 화면 안에서 Diana 해킹과 Hugh 공격 기회를 함께 이해하도록 UI 피드백을 설계. 핵심 기여 Diana 해킹 UI, 오버드라이브 게이지, 전투 / 해킹 상태 전달. 구현 의미 해킹 성공, 약점 노출, 지원 가능 상태가 플레이어에게 즉시 전달되도록 구성. 최종 연결 두 플레이어의 판단이 같은 전투 상황 안에서 맞물리도록 시각적 기준을 제공.",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 700,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "asset-2656e238adbb6515",
+          "assetId": "asset-2656e238adbb6515",
+          "id": "image-1",
+          "style": {
+            "borderRadius": 28,
+            "boxShadow": "0 20px 50px rgba(15,23,42,.18)"
+          },
+          "transform": {
+            "height": 460,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 680,
+            "x": 1080,
+            "y": 370,
+            "zIndex": 4
+          },
+          "type": "image"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-26",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[17:15-17:30]\n윤제영 주요 기여입니다.\n해킹 UI와 전투 피드백은 두 플레이어가 같은 상황을 이해하게 만드는 장치입니다.\n화면에서 정보를 어떻게 읽게 했는지를 중심으로 말합니다.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "윤제영 주요 기여: 해킹 UI와 전투 피드백",
+      "transition": "fade"
+    },
+    {
+      "elements": [
+        {
+          "accessibilityLabel": "27 · FINAL DECK",
+          "content": "27 · FINAL DECK",
+          "id": "eyebrow",
+          "style": {
+            "color": "#2563eb",
+            "fontSize": 22,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 62,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "Q&A",
+          "content": "Q&A",
+          "id": "headline",
+          "style": {
+            "color": "#0f172a",
+            "fontSize": 52,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1100,
+            "x": 110,
+            "y": 120,
+            "zIndex": 10
+          },
+          "type": "text"
+        },
+        {
+          "accessibilityLabel": "팀 다이애나 Pragmata 2P 베타 발표",
+          "content": "팀 다이애나 Pragmata 2P 베타 발표",
+          "id": "summary",
+          "style": {
+            "color": "#475569",
+            "fontSize": 25,
+            "fontWeight": 800,
+            "lineHeight": 1.15
+          },
+          "transform": {
+            "height": 100,
+            "opacity": 1,
+            "rotation": 0,
+            "width": 1500,
+            "x": 110,
+            "y": 240,
+            "zIndex": 10
+          },
+          "type": "text"
+        }
+      ],
+      "hidden": false,
+      "id": "slide-27",
+      "layoutId": "slidev-import-review",
+      "posterCueId": "poster",
+      "presenterNotes": "[17:30-18:00]\n질문 예상 축: Listen Server 선택 이유, 방 코드 방식, Hugh/Diana 역할 분리, enemy hack과 map hack의 차이, 최종 릴리스 단계 범위.",
+      "timeline": {
+        "cues": [
+          {
+            "at": 0,
+            "id": "intro",
+            "label": "imported content",
+            "mode": "auto"
+          },
+          {
+            "at": 4,
+            "id": "poster",
+            "label": "review hold",
+            "mode": "hold"
+          }
+        ],
+        "duration": 4,
+        "tracks": []
+      },
+      "title": "Q&A",
+      "transition": "fade"
+    }
+  ],
+  "themeTokens": {
+    "accent": "#2563eb",
+    "canvas": "#f8fafc",
+    "ink": "#111827"
+  },
+  "viewport": {
+    "height": 1080,
+    "width": 1920
+  }
+}

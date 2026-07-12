@@ -1,0 +1,23 @@
+{
+  "title": "Pragmata 2P 최종 발표",
+  "subtitle": "POTENUP 최종 프로젝트 최종 발표",
+  "author": "팀 다이애나",
+  "theme": "apple-basic",
+  "slides": [
+    {
+      "layout": "intro",
+      "title": "Pragmata 2P",
+      "subtitle": "Hugh와 Diana의 역할을 분리한 2인 협동 액션 퍼즐 데모"
+    },
+    {
+      "layout": "bullets",
+      "title": "최종 발표 핵심",
+      "body": [
+        "플레이 루프 완료 범위",
+        "Hugh/Diana 협동 전투",
+        "최종 시연과 완성도 평가",
+        "팀원별 주요 기여"
+      ]
+    }
+  ]
+}

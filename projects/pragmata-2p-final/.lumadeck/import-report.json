@@ -1,0 +1,233 @@
+{
+  "sourceSha256": "46b6311ba55ab3f5dd1f3b0c422de1f157606f9144a056f88754456eb9ddabad",
+  "totalSlides": 27,
+  "importedSlideIds": [
+    "slide-01",
+    "slide-02",
+    "slide-03",
+    "slide-04",
+    "slide-05",
+    "slide-06",
+    "slide-07",
+    "slide-08",
+    "slide-09",
+    "slide-10",
+    "slide-11",
+    "slide-12",
+    "slide-13",
+    "slide-14",
+    "slide-15",
+    "slide-16",
+    "slide-17",
+    "slide-18",
+    "slide-19",
+    "slide-20",
+    "slide-21",
+    "slide-22",
+    "slide-23",
+    "slide-24",
+    "slide-25",
+    "slide-26",
+    "slide-27"
+  ],
+  "issues": [
+    {
+      "slideId": "slide-01",
+      "sourceIndex": 1,
+      "reason": "unsupported-html-or-css",
+      "raw": "<img\n  src=\"./images/unreal-capture-title-background-16x9.png\"\n  alt=\"Hugh와 Diana가 함께 앉아 있는 실제 타이틀 맵 렌더\"\n  style=\"position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;\"\n/>\n<div style=\"position: absolute; inset: 0; background: linear-gradient(90deg, rgb(243 244 246 / 0.94) 0%, rgb(243 244 246 / 0.72) 46%, rgb(243 244 246 / 0.08) 100%);\"></div>\n\n<div class=\"prag-cover-copy\">\n  <p class=\"prag-eyebrow\">POTENUP 최종 프로젝트 베타 발표</p>\n  <h1><span class=\"prag-title\">Pragmata 2P</span></h1>\n  <p class=\"prag-subtitle\">\n    Hugh의 전투와 Diana의 해킹을 두 플레이어에게 분리한 2인 협동 액션 퍼즐 데모\n  </p>\n  <div class=\"prag-tags\">\n    <span class=\"prag-tag\"><b>팀 다이애나</b>: 정호진, 박준현, 안지성, 안민원, 윤제영</span>\n    <span class=\"prag-tag\">베타 발표: 2026.07.10</span>\n    <span class=\"prag-tag\">프로젝트 기간: 2026.06.17-07.14</span>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-02",
+      "sourceIndex": 2,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-session-flow\">\n  <div class=\"prag-session-step\"><span>01</span><strong>협동 목표</strong><small>솔로 부담을 역할로 분리</small></div>\n  <div class=\"prag-session-step\"><span>02</span><strong>접속과 역할</strong><small>방 코드부터 Pawn까지</small></div>\n  <div class=\"prag-session-step\"><span>03</span><strong>권한과 UI</strong><small>서버 상태와 MVVM</small></div>\n  <div class=\"prag-session-step\"><span>04</span><strong>핵심 구현</strong><small>사격·해킹·정화</small></div>\n  <div class=\"prag-session-step\"><span>05</span><strong>시연 범위</strong><small>베타 완료 구간 확인</small></div>\n</div>\n\n<div class=\"prag-session-evidence\">\n  <figure class=\"prag-image-frame prag-session-capture\">\n    <img class=\"prag-img\" src=\"./images/slide-02-coop-device.png\" alt=\"Hugh와 Diana가 장치를 함께 바라보는 실제 게임 장면\" />\n    <figcaption>플레이 장면을 먼저 제시하고, 그 장면을 만든 기술을 이어서 확인.</figcaption>\n  </figure>\n  <div class=\"prag-session-facts\">\n    <div class=\"prag-card\"><h3>발표 방식</h3><p>기능 목록보다 게임 루프 순서로 진행함.</p></div>\n    <div class=\"prag-card\"><h3>판단 기준</h3><p>두 화면에서 재현되는 결과만 베타 성과로 제시함.</p></div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-03",
+      "sourceIndex": 3,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-session-flow six\">\n  <div class=\"prag-session-step\"><span>01</span><strong>세션 접속</strong><small>방 코드로 참가</small></div>\n  <div class=\"prag-session-step\"><span>02</span><strong>역할 확정</strong><small>Hugh / Diana 선택</small></div>\n  <div class=\"prag-session-step\"><span>03</span><strong>협력 탐사</strong><small>이동 + 장치 해킹</small></div>\n  <div class=\"prag-session-step\"><span>04</span><strong>협동 전투</strong><small>해킹 + 약점 사격</small></div>\n  <div class=\"prag-session-step\"><span>05</span><strong>분위기 전환</strong><small>오염 기계 등장</small></div>\n  <div class=\"prag-session-step\"><span>06</span><strong>정화 획득</strong><small>대응 수단 확보</small></div>\n</div>\n\n<div class=\"prag-session-evidence\">\n  <figure class=\"prag-image-frame prag-session-capture\">\n    <img class=\"prag-img\" src=\"./images/slide-03-combat-explosion.png\" alt=\"두 플레이어가 전투를 수행하는 실제 게임 장면\" />\n    <figcaption>접속부터 이 장면까지 중단 없이 이어지는 것이 현재 베타 범위.</figcaption>\n  </figure>\n  <div class=\"prag-session-facts\">\n    <div class=\"prag-card\"><h3>검증됨</h3><p>서버 권한, 상태 동기화, 역할별 UI가 하나의 루프로 연결됨.</p></div>\n    <div class=\"prag-card\"><h3>베타 경계</h3><p>정화 획득까지를 실제 빌드의 완료 범위로 제시함.</p></div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-04",
+      "sourceIndex": 4,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-core-image-layout\">\n  <figure class=\"prag-image-frame\">\n    <img class=\"prag-img\" src=\"./images/slide-04-chaos-combat-hacking.png\" alt=\"다수의 적 사이에서 전투와 해킹을 동시에 처리하는 난전\" />\n    <figcaption>적의 수가 늘어날수록 사격·회피·해킹을 혼자 병행해야 하는 부담이 커짐.</figcaption>\n  </figure>\n  <div class=\"prag-core-notes\">\n    <div class=\"prag-card\">\n      <h3>싱글 플레이 부담</h3>\n      <p>전투 판단과 퍼즐 입력을 한 플레이어가 동시에 처리.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>역할 분리</h3>\n      <p>Hugh는 이동·사격·생존, Diana는 시야·해킹·정화 담당.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>협동 목표</h3>\n      <p>두 플레이어가 서로 다른 정보와 조작으로 같은 전투를 해결.</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-05",
+      "sourceIndex": 5,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-core-image-layout\">\n  <figure class=\"prag-image-frame\">\n    <img class=\"prag-img\" src=\"./images/slide-05-walker-attack.png\" alt=\"Walker를 상대로 공격 패턴과 전투를 확인하는 실제 장면\" />\n    <figcaption>Hugh의 조준, Diana의 해킹 퍼즐, 적 약점 노출이 같은 전투 상황 안에서 연결.</figcaption>\n  </figure>\n  <div class=\"prag-core-notes\">\n    <div class=\"prag-card\">\n      <h3>Hugh의 역할</h3>\n      <p>전장을 버티며 해킹으로 노출된 약점을 정확히 조준.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>Diana의 역할</h3>\n      <p>적을 해킹해 방어를 낮추고 추가 배율이 적용될 약점 노출.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>협동 판정</h3>\n      <p>Walker·Watcher는 해킹 전 약 0.1배 피해. 해킹 후 약점 명중 시 추가 배율 적용.</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-06",
+      "sourceIndex": 6,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-core-image-layout\">\n  <figure class=\"prag-image-frame\">\n    <img class=\"prag-img\" src=\"./images/slide-06-hugh-hud-dark.png\" alt=\"Hugh HUD가 표시된 실제 게임 장면\" />\n    <figcaption>Listen Server가 확정한 상태를 역할별 ViewModel이 서로 다른 HUD 표현으로 전달.</figcaption>\n  </figure>\n  <div class=\"prag-core-notes\">\n    <div class=\"prag-card\">\n      <h3>Unreal Engine 5.8</h3>\n      <p>C++ gameplay와 Editor API 확장을 함께 운용.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>Listen Server</h3>\n      <p>RoomCode, role handoff, shared state를 서버 권위로 확정.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>UE MVVM</h3>\n      <p>HP, 회복, OverDrive, 정화 cooldown을 역할별 HUD 값으로 전달.</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-07",
+      "sourceIndex": 7,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-session-flow four\">\n  <div class=\"prag-session-step\"><span>06.19</span><strong>기획 발표</strong><small>협동 재해석 범위 확정</small></div>\n  <div class=\"prag-session-step\"><span>7월 초</span><strong>기능 통합</strong><small>세션·HUD·전투 연결</small></div>\n  <div class=\"prag-session-step\"><span>07.10</span><strong>베타 검증</strong><small>정화까지 연속 플레이</small></div>\n  <div class=\"prag-session-step\"><span>07.14</span><strong>발표 준비</strong><small>반복 검증·화면 가독성</small></div>\n</div>\n\n<div class=\"prag-session-evidence prag-roadmap-evidence\">\n  <figure class=\"prag-image-frame prag-session-capture\">\n    <img class=\"prag-img\" src=\"./images/slide-07-notion-schedule.png\" alt=\"PRAGMATA-2P Notion 일정 보드\" />\n    <figcaption>Notion 보드에서 시작, 진행 중, 완료 작업의 실제 상태를 확인.</figcaption>\n  </figure>\n</div>"
+    },
+    {
+      "slideId": "slide-08",
+      "sourceIndex": 8,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-core-image-layout\">\n  <figure class=\"prag-image-frame\">\n    <img class=\"prag-img\" src=\"./images/slide-08-diana-title-animgraph.png\" alt=\"Unreal Editor에서 Diana 타이틀 애니메이션 그래프를 확인하는 화면\" />\n    <figcaption>Unreal Editor 작업 화면을 기반으로 반복적인 애니메이션·Blueprint 작업을 AI 보조 흐름에 연결.</figcaption>\n  </figure>\n  <div class=\"prag-core-notes\">\n    <div class=\"prag-card\">\n      <h3>Git 자동화</h3>\n      <p>변경 분석, 검증 결과, commit 작성까지 반복 절차 자동화.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>문서 자동화</h3>\n      <p>Docs 분류·갱신과 Code Intent 정적 사이트 생성 자동화.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>Blueprint 반자동화</h3>\n      <p>생성, 변수 추가, compile, Widget·MVVM 편집을 검토 가능한 operation으로 실행.</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-09",
+      "sourceIndex": 9,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-ai-debt-layout\">\n  <figure class=\"prag-image-frame prag-ai-intent-shot\">\n    <img src=\"./images/slide-ai-code-intent.png\" alt=\"ReceiveDamage Code Intent 문서 화면\" />\n    <figcaption>함수의 존재 이유부터 호출 관계, 서버 조건, Blueprint 연결, 검증 방법까지 한 장에 보존.</figcaption>\n  </figure>\n  <div class=\"prag-ai-debt-points\">\n    <div class=\"prag-card\">\n      <span>01</span>\n      <h3>개발자 의도 보존</h3>\n      <p>사용해야 하는 상황과 사용하면 안 되는 상황을 함께 기록.</p>\n    </div>\n    <div class=\"prag-card\">\n      <span>02</span>\n      <h3>근거와 추정 분리</h3>\n      <p>확실한 근거, 추정한 의도, 확신도, 아직 모르는 점을 구분.</p>\n    </div>\n    <div class=\"prag-card\">\n      <span>03</span>\n      <h3>변경 영향 추적</h3>\n      <p>호출 관계, 서버·클라이언트 조건, Blueprint 연결과 관련 commit을 연결.</p>\n    </div>\n  </div>\n</div>\n\n<p class=\"prag-mini mt-3\">AI가 구현 속도를 높이는 만큼, 다음 개발자가 “왜 존재하는 코드인지” 복원할 수 있는 기록을 함께 생성함.</p>"
+    },
+    {
+      "slideId": "slide-10",
+      "sourceIndex": 10,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-session-flow four\">\n  <div class=\"prag-session-step\"><span>01</span><strong>기능 분리</strong><small>세션·역할·캐릭터·UI</small></div>\n  <div class=\"prag-session-step\"><span>02</span><strong>상태 계약</strong><small>RPC·GameState·OnRep</small></div>\n  <div class=\"prag-session-step\"><span>03</span><strong>문서화</strong><small>권한·소유·Binding 기록</small></div>\n  <div class=\"prag-session-step\"><span>04</span><strong>통합 검증</strong><small>양방향 Host 역할 조합</small></div>\n</div>\n\n<div class=\"prag-session-evidence\">\n  <figure class=\"prag-image-frame prag-session-capture\">\n    <img class=\"prag-img\" src=\"./images/slide-10-role-selection.png\" alt=\"Hugh와 Diana 역할을 선택하는 실제 게임 화면\" />\n    <figcaption>역할 선택과 Ready 상태가 통합 시연의 시작점이 됨.</figcaption>\n  </figure>\n  <div class=\"prag-session-facts\">\n    <div class=\"prag-card\"><h3>통합 단위</h3><p>사람별 작업물이 아니라 하나의 플레이 루프로 결합함.</p></div>\n    <div class=\"prag-card\"><h3>검증 조합</h3><p>Host 역할을 고정하지 않고 Hugh / Diana 양방향을 확인함.</p></div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-11",
+      "sourceIndex": 11,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-session-flow\">\n  <div class=\"prag-session-step\"><span>01</span><strong>시작</strong><small>타이틀 → 로비</small></div>\n  <div class=\"prag-session-step\"><span>02</span><strong>방 생성</strong><small>LAN Session + RoomCode</small></div>\n  <div class=\"prag-session-step\"><span>03</span><strong>방 참가</strong><small>Code로 동일 Session 검색</small></div>\n  <div class=\"prag-session-step\"><span>04</span><strong>역할 확정</strong><small>Hugh / Diana 중복 방지</small></div>\n  <div class=\"prag-session-step\"><span>05</span><strong>데모 진입</strong><small>역할별 Pawn 적용</small></div>\n</div>\n\n<div class=\"prag-session-evidence\">\n  <figure class=\"prag-image-frame prag-session-capture\">\n    <div class=\"grid grid-cols-2 gap-2 min-h-0 h-full\">\n      <img\n        class=\"prag-img prag-img-contain h-full min-h-0\"\n        src=\"./images/unreal-capture-lobby-session-entry-16x9.png\"\n        alt=\"6자리 방 코드를 입력하거나 세션을 생성하는 로비 화면\"\n      />\n      <img\n        class=\"prag-img prag-img-contain h-full min-h-0\"\n        src=\"./images/unreal-capture-room-code-host-16x9.png\"\n        alt=\"Host가 생성한 6자리 RoomCode 화면\"\n      />\n    </div>\n    <figcaption>실제 빌드의 Join 입력 화면과 Host RoomCode 생성 결과.</figcaption>\n  </figure>\n  <div class=\"prag-session-facts\">\n    <div class=\"prag-card\">\n      <h3>세션 탐색</h3>\n      <p>RoomCode를 LAN Session 검색 키로 사용함.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>역할 확정</h3>\n      <p>Host / Join과 Hugh / Diana를 분리해 양방향 조합을 지원함.</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-12",
+      "sourceIndex": 12,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-handoff-visuals\">\n  <figure class=\"prag-image-frame\">\n    <div class=\"grid grid-cols-2 gap-2 min-h-0 h-full\">\n      <img\n        class=\"prag-img prag-img-contain h-full min-h-0\"\n        src=\"./images/unreal-capture-character-select-diana-16x9.png\"\n        alt=\"Diana 역할 선택 화면\"\n      />\n      <img\n        class=\"prag-img prag-img-contain h-full min-h-0\"\n        src=\"./images/unreal-capture-character-select-hugh-16x9.png\"\n        alt=\"Hugh 역할 선택 화면\"\n      />\n    </div>\n    <figcaption>같은 RoomCode에서 Diana와 Hugh를 각각 선택한 실제 로비 화면.</figcaption>\n  </figure>\n  <figure class=\"prag-image-frame\">\n    <div class=\"prag-placeholder prag-shot-placeholder\">\n      <span>02 · 실제 인게임 캡처</span>\n      <strong>Diana HUD / Hugh HUD로 데모 맵 진입</strong>\n      <p>로비에서 선택한 역할과 각 Pawn, HUD, 입력 방식이 일치하는 두 화면</p>\n    </div>\n    <figcaption>Travel 이후 역할별 Pawn possess, HUD, Input Mapping 적용.</figcaption>\n  </figure>\n</div>\n\n<div class=\"prag-handoff-chain\">\n  <div class=\"prag-card\"><span>1</span><h3>PreferredRole</h3><p>로비 선택을 PlayerState에 저장.</p></div>\n  <div class=\"prag-card\"><span>2</span><h3>Seamless Travel</h3><p>맵 이동 중 선택 정보를 새 PlayerState로 전달.</p></div>\n  <div class=\"prag-card\"><span>3</span><h3>AssignedRole</h3><p>서버가 역할별 Pawn, HUD, 입력 구성을 최종 확정.</p></div>\n</div>"
+    },
+    {
+      "slideId": "slide-12",
+      "sourceIndex": 12,
+      "reason": "placeholder",
+      "raw": "<div class=\"prag-handoff-visuals\">\n  <figure class=\"prag-image-frame\">\n    <div class=\"grid grid-cols-2 gap-2 min-h-0 h-full\">\n      <img\n        class=\"prag-img prag-img-contain h-full min-h-0\"\n        src=\"./images/unreal-capture-character-select-diana-16x9.png\"\n        alt=\"Diana 역할 선택 화면\"\n      />\n      <img\n        class=\"prag-img prag-img-contain h-full min-h-0\"\n        src=\"./images/unreal-capture-character-select-hugh-16x9.png\"\n        alt=\"Hugh 역할 선택 화면\"\n      />\n    </div>\n    <figcaption>같은 RoomCode에서 Diana와 Hugh를 각각 선택한 실제 로비 화면.</figcaption>\n  </figure>\n  <figure class=\"prag-image-frame\">\n    <div class=\"prag-placeholder prag-shot-placeholder\">\n      <span>02 · 실제 인게임 캡처</span>\n      <strong>Diana HUD / Hugh HUD로 데모 맵 진입</strong>\n      <p>로비에서 선택한 역할과 각 Pawn, HUD, 입력 방식이 일치하는 두 화면</p>\n    </div>\n    <figcaption>Travel 이후 역할별 Pawn possess, HUD, Input Mapping 적용.</figcaption>\n  </figure>\n</div>\n\n<div class=\"prag-handoff-chain\">\n  <div class=\"prag-card\"><span>1</span><h3>PreferredRole</h3><p>로비 선택을 PlayerState에 저장.</p></div>\n  <div class=\"prag-card\"><span>2</span><h3>Seamless Travel</h3><p>맵 이동 중 선택 정보를 새 PlayerState로 전달.</p></div>\n  <div class=\"prag-card\"><span>3</span><h3>AssignedRole</h3><p>서버가 역할별 Pawn, HUD, 입력 구성을 최종 확정.</p></div>\n</div>"
+    },
+    {
+      "slideId": "slide-13",
+      "sourceIndex": 13,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-core-image-layout\">\n  <figure class=\"prag-image-frame\">\n    <img class=\"prag-img\" src=\"./images/slide-13-hacking-ui.png\" alt=\"전투 중 해킹 UI가 열린 실제 게임 장면\" />\n    <figcaption>한 플레이어의 행동 결과를 서버가 확인한 뒤 두 화면에 같은 상태로 전달.</figcaption>\n  </figure>\n  <div class=\"prag-core-notes prag-core-notes-general\">\n    <div class=\"prag-card\">\n      <h3>행동은 함께 확인</h3>\n      <p>해킹과 상호작용의 결과를 두 플레이어가 같은 순간에 확인함.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>화면은 같은 결과를 표시</h3>\n      <p>대상, 전투 상태, 퍼즐 진행도가 역할별 화면에 일관되게 반영됨.</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-14",
+      "sourceIndex": 14,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-core-image-layout\">\n  <figure class=\"prag-image-frame\">\n    <img class=\"prag-img\" src=\"./images/slide-14-hugh-hud-dark.png\" alt=\"Hugh HUD가 표시된 어두운 탐사 구간의 실제 게임 장면\" />\n    <figcaption>두 역할은 다른 화면을 쓰지만, 현재 상황에 필요한 정보는 각 HUD에 즉시 반영.</figcaption>\n  </figure>\n  <div class=\"prag-core-notes prag-core-notes-general\">\n    <div class=\"prag-card\">\n      <h3>Hugh 화면</h3>\n      <p>체력과 전투 준비 상태를 보며 이동과 사격에 집중함.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>Diana 화면</h3>\n      <p>해킹, 정화, OverDrive처럼 협동 판단에 필요한 정보를 제공함.</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-15",
+      "sourceIndex": 15,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-core-image-layout\">\n  <figure class=\"prag-image-frame\">\n    <img class=\"prag-img\" src=\"./images/slide-15-enemy-hit.png\" alt=\"적에게 피격 피해가 표시되는 실제 게임 장면\" />\n    <figcaption>서버가 조준 결과를 확인해 피격 위치와 반응을 두 플레이어에게 같은 결과로 전달.</figcaption>\n  </figure>\n  <div class=\"prag-core-notes prag-core-notes-general\">\n    <div class=\"prag-card\">\n      <h3>조준과 발사</h3>\n      <p>Hugh가 약점을 노릴 때 사격 판단이 한 번의 결과로 확정됨.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>피격과 반응</h3>\n      <p>피해와 충격 효과가 두 화면에 함께 보여 협동 전투의 타이밍을 맞춤.</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-16",
+      "sourceIndex": 16,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-core-image-layout\">\n  <figure class=\"prag-image-frame\">\n    <img class=\"prag-img\" src=\"./images/slide-16-hacking-puzzle.png\" alt=\"Diana의 해킹 퍼즐 UI가 표시된 실제 게임 장면\" />\n    <figcaption>화면 앞의 후보 중 실제로 상호작용할 수 있는 장치만 선택해 보여줌.</figcaption>\n  </figure>\n  <div class=\"prag-core-notes prag-core-notes-general\">\n    <div class=\"prag-card\">\n      <h3>탐색</h3>\n      <p>주변 장치와 보상을 확인해 두 플레이어가 다음 목표를 찾음.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>상호작용</h3>\n      <p>장치를 해킹하면 문, 전원, 이동 경로가 바뀌어 탐사를 이어갈 수 있음.</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-17",
+      "sourceIndex": 17,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-core-image-layout\">\n  <figure class=\"prag-image-frame\">\n    <div class=\"prag-placeholder prag-shot-placeholder\">\n      <span>실제 베타 빌드 캡처</span>\n      <strong>정화 범위 안의 오염 적이 회복되는 장면</strong>\n      <p>정화 직전, 성공 순간, 다음 사용 가능 상태를 연속된 화면으로 촬영</p>\n    </div>\n    <figcaption>정화 범위 안의 오염 대상을 서버가 확인하고, 결과와 다음 사용 시점을 양쪽 HUD에 반영.</figcaption>\n  </figure>\n  <div class=\"prag-core-notes prag-core-notes-general\">\n    <div class=\"prag-card\">\n      <h3>정화 순간</h3>\n      <p>오염된 적과 장애물이 등장한 뒤 플레이어에게 새로운 대응 수단을 제공함.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>공유되는 결과</h3>\n      <p>정화 성공과 다음 사용 가능 시점이 두 플레이어 화면에 함께 표시됨.</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-17",
+      "sourceIndex": 17,
+      "reason": "placeholder",
+      "raw": "<div class=\"prag-core-image-layout\">\n  <figure class=\"prag-image-frame\">\n    <div class=\"prag-placeholder prag-shot-placeholder\">\n      <span>실제 베타 빌드 캡처</span>\n      <strong>정화 범위 안의 오염 적이 회복되는 장면</strong>\n      <p>정화 직전, 성공 순간, 다음 사용 가능 상태를 연속된 화면으로 촬영</p>\n    </div>\n    <figcaption>정화 범위 안의 오염 대상을 서버가 확인하고, 결과와 다음 사용 시점을 양쪽 HUD에 반영.</figcaption>\n  </figure>\n  <div class=\"prag-core-notes prag-core-notes-general\">\n    <div class=\"prag-card\">\n      <h3>정화 순간</h3>\n      <p>오염된 적과 장애물이 등장한 뒤 플레이어에게 새로운 대응 수단을 제공함.</p>\n    </div>\n    <div class=\"prag-card\">\n      <h3>공유되는 결과</h3>\n      <p>정화 성공과 다음 사용 가능 시점이 두 플레이어 화면에 함께 표시됨.</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-18",
+      "sourceIndex": 18,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-map-columns\">\n  <div class=\"prag-card\">\n    <h3>진행 경로</h3>\n    <p>선형 스테이지 안에 장치, 전투, 휴식, 보상 구간 배치.</p>\n    <ul class=\"prag-compact-list\">\n      <li>Diana POI focus → MapHack → 연결 장치 trigger</li>\n      <li>전투 압박 구간과 재정비 구간</li>\n      <li>후반 전투까지 이어지는 명확한 목표</li>\n    </ul>\n  </div>\n  <div class=\"prag-card\">\n    <h3>협동 동선</h3>\n    <p>완성된 협동 기능이 한 번에 이어지도록 전투와 해킹 장치를 순서대로 배치.</p>\n    <div class=\"prag-map-image-row\">\n      <div class=\"prag-placeholder\"><img class=\"prag-img\" src=\"./images/slide-18-ingame-01.png\" alt=\"맵 장치와 이동 경로를 확인하는 Unreal Editor 장면\" /><span>인게임 01</span><strong>휴식·보상 구간</strong><p>전투 후 재정비 장면</p></div>\n      <div class=\"prag-placeholder\"><span>인게임 02</span><strong>메인 진행 경로</strong><p>다음 장치와 목표가 보이는 구도</p></div>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-18",
+      "sourceIndex": 18,
+      "reason": "placeholder",
+      "raw": "<div class=\"prag-map-columns\">\n  <div class=\"prag-card\">\n    <h3>진행 경로</h3>\n    <p>선형 스테이지 안에 장치, 전투, 휴식, 보상 구간 배치.</p>\n    <ul class=\"prag-compact-list\">\n      <li>Diana POI focus → MapHack → 연결 장치 trigger</li>\n      <li>전투 압박 구간과 재정비 구간</li>\n      <li>후반 전투까지 이어지는 명확한 목표</li>\n    </ul>\n  </div>\n  <div class=\"prag-card\">\n    <h3>협동 동선</h3>\n    <p>완성된 협동 기능이 한 번에 이어지도록 전투와 해킹 장치를 순서대로 배치.</p>\n    <div class=\"prag-map-image-row\">\n      <div class=\"prag-placeholder\"><img class=\"prag-img\" src=\"./images/slide-18-ingame-01.png\" alt=\"맵 장치와 이동 경로를 확인하는 Unreal Editor 장면\" /><span>인게임 01</span><strong>휴식·보상 구간</strong><p>전투 후 재정비 장면</p></div>\n      <div class=\"prag-placeholder\"><span>인게임 02</span><strong>메인 진행 경로</strong><p>다음 장치와 목표가 보이는 구도</p></div>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "slideId": "slide-19",
+      "sourceIndex": 19,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-demo-routes\">\n  <div class=\"prag-session-flow four compact\">\n    <div class=\"prag-session-step\"><span>01</span><strong>접속·역할</strong><small>방 코드와 역할 확정</small></div>\n    <div class=\"prag-session-step\"><span>02</span><strong>협력 탐사</strong><small>이동 + 장치 해킹</small></div>\n    <div class=\"prag-session-step\"><span>03</span><strong>협동 전투</strong><small>해킹 + 약점 사격</small></div>\n    <div class=\"prag-session-step\"><span>04</span><strong>탐사 확장</strong><small>문·전원·이동 장치</small></div>\n  </div>\n  <div class=\"prag-session-flow compact\" style=\"grid-template-columns: repeat(2, minmax(0, 1fr));\">\n    <div class=\"prag-session-step\"><span>05</span><strong>분위기 전환</strong><small>오염 기계 등장</small></div>\n    <div class=\"prag-session-step\"><span>06</span><strong>정화 획득</strong><small>오염 대응 수단 확보</small></div>\n  </div>\n</div>\n\n<div class=\"prag-session-evidence prag-demo-evidence\">\n  <figure class=\"prag-image-frame prag-session-capture\"><div class=\"prag-placeholder\"><span>실제 베타 대표 장면</span><strong>해킹된 적의 약점을 Hugh가 조준하는 순간</strong><p>Diana 해킹 UI, 노출된 약점, Hugh의 조준이 동시에 읽히는 화면</p></div><figcaption>Diana가 조건을 만들고 Hugh가 해결하는 장면이 시연의 중심.</figcaption></figure>\n  <div class=\"prag-session-facts\"><div class=\"prag-card\"><h3>오늘 시연</h3><p>01부터 06까지 연속 플레이로 진행함.</p></div><div class=\"prag-card\"><h3>베타 완료</h3><p>정화 획득까지 실제 빌드에서 반복 검증함.</p></div></div>\n</div>"
+    },
+    {
+      "slideId": "slide-19",
+      "sourceIndex": 19,
+      "reason": "placeholder",
+      "raw": "<div class=\"prag-demo-routes\">\n  <div class=\"prag-session-flow four compact\">\n    <div class=\"prag-session-step\"><span>01</span><strong>접속·역할</strong><small>방 코드와 역할 확정</small></div>\n    <div class=\"prag-session-step\"><span>02</span><strong>협력 탐사</strong><small>이동 + 장치 해킹</small></div>\n    <div class=\"prag-session-step\"><span>03</span><strong>협동 전투</strong><small>해킹 + 약점 사격</small></div>\n    <div class=\"prag-session-step\"><span>04</span><strong>탐사 확장</strong><small>문·전원·이동 장치</small></div>\n  </div>\n  <div class=\"prag-session-flow compact\" style=\"grid-template-columns: repeat(2, minmax(0, 1fr));\">\n    <div class=\"prag-session-step\"><span>05</span><strong>분위기 전환</strong><small>오염 기계 등장</small></div>\n    <div class=\"prag-session-step\"><span>06</span><strong>정화 획득</strong><small>오염 대응 수단 확보</small></div>\n  </div>\n</div>\n\n<div class=\"prag-session-evidence prag-demo-evidence\">\n  <figure class=\"prag-image-frame prag-session-capture\"><div class=\"prag-placeholder\"><span>실제 베타 대표 장면</span><strong>해킹된 적의 약점을 Hugh가 조준하는 순간</strong><p>Diana 해킹 UI, 노출된 약점, Hugh의 조준이 동시에 읽히는 화면</p></div><figcaption>Diana가 조건을 만들고 Hugh가 해결하는 장면이 시연의 중심.</figcaption></figure>\n  <div class=\"prag-session-facts\"><div class=\"prag-card\"><h3>오늘 시연</h3><p>01부터 06까지 연속 플레이로 진행함.</p></div><div class=\"prag-card\"><h3>베타 완료</h3><p>정화 획득까지 실제 빌드에서 반복 검증함.</p></div></div>\n</div>"
+    },
+    {
+      "slideId": "slide-20",
+      "sourceIndex": 20,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-session-evidence prag-status-evidence\">\n  <figure class=\"prag-image-frame prag-session-capture\"><div class=\"prag-placeholder\"><span>실제 베타 빌드 캡처</span><strong>현재 시연 가능한 마지막 안정 구간</strong><p>정화 획득 이후 탐사 또는 협동 전투 종료 장면</p></div><figcaption>문서상 기능 수가 아니라 실제로 연속 재현되는 범위로 완성도를 판단.</figcaption></figure>\n  <div class=\"prag-session-facts\"><div class=\"prag-card\"><h3>시연 가능</h3><p>접속, 역할, HUD, 해킹과 사격까지 핵심 협동 루프가 연결됨.</p></div><div class=\"prag-card\"><h3>완료 범위</h3><p>정화 획득까지 동일한 경로로 반복 재현 가능.</p></div></div>\n</div>"
+    },
+    {
+      "slideId": "slide-20",
+      "sourceIndex": 20,
+      "reason": "placeholder",
+      "raw": "<div class=\"prag-session-evidence prag-status-evidence\">\n  <figure class=\"prag-image-frame prag-session-capture\"><div class=\"prag-placeholder\"><span>실제 베타 빌드 캡처</span><strong>현재 시연 가능한 마지막 안정 구간</strong><p>정화 획득 이후 탐사 또는 협동 전투 종료 장면</p></div><figcaption>문서상 기능 수가 아니라 실제로 연속 재현되는 범위로 완성도를 판단.</figcaption></figure>\n  <div class=\"prag-session-facts\"><div class=\"prag-card\"><h3>시연 가능</h3><p>접속, 역할, HUD, 해킹과 사격까지 핵심 협동 루프가 연결됨.</p></div><div class=\"prag-card\"><h3>완료 범위</h3><p>정화 획득까지 동일한 경로로 반복 재현 가능.</p></div></div>\n</div>"
+    },
+    {
+      "slideId": "slide-21",
+      "sourceIndex": 21,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-session-flow four\">\n  <div class=\"prag-session-step\"><span>01</span><strong>빌드 고정</strong><small>동일 순서 반복 검증</small></div>\n  <div class=\"prag-session-step\"><span>02</span><strong>UI 보강</strong><small>해킹·약점·상태 가독성</small></div>\n  <div class=\"prag-session-step\"><span>03</span><strong>영상 백업</strong><small>5분 이내 동일 흐름</small></div>\n  <div class=\"prag-session-step\"><span>04</span><strong>최종 정리</strong><small>완성도·기여·회고</small></div>\n</div>\n\n<div class=\"prag-session-evidence\">\n  <figure class=\"prag-image-frame prag-session-capture\"><div class=\"prag-placeholder\"><span>발표 빌드 검증 기록</span><strong>동일 시연 루트 반복 실행 결과</strong><p>체크리스트, 패키징 결과, 백업 영상 썸네일이 함께 보이는 화면</p></div><figcaption>새 기능 추가보다 발표 당일 같은 결과를 재현하는 데 집중.</figcaption></figure>\n  <div class=\"prag-session-facts\"><div class=\"prag-card\"><h3>우선순위</h3><p>시연 안정성과 화면 가독성을 먼저 보강함.</p></div><div class=\"prag-card\"><h3>후반 계획</h3><p>대규모 전투와 보스전은 최종 릴리스 단계의 미래 계획으로 분리함.</p></div></div>\n</div>"
+    },
+    {
+      "slideId": "slide-21",
+      "sourceIndex": 21,
+      "reason": "placeholder",
+      "raw": "<div class=\"prag-session-flow four\">\n  <div class=\"prag-session-step\"><span>01</span><strong>빌드 고정</strong><small>동일 순서 반복 검증</small></div>\n  <div class=\"prag-session-step\"><span>02</span><strong>UI 보강</strong><small>해킹·약점·상태 가독성</small></div>\n  <div class=\"prag-session-step\"><span>03</span><strong>영상 백업</strong><small>5분 이내 동일 흐름</small></div>\n  <div class=\"prag-session-step\"><span>04</span><strong>최종 정리</strong><small>완성도·기여·회고</small></div>\n</div>\n\n<div class=\"prag-session-evidence\">\n  <figure class=\"prag-image-frame prag-session-capture\"><div class=\"prag-placeholder\"><span>발표 빌드 검증 기록</span><strong>동일 시연 루트 반복 실행 결과</strong><p>체크리스트, 패키징 결과, 백업 영상 썸네일이 함께 보이는 화면</p></div><figcaption>새 기능 추가보다 발표 당일 같은 결과를 재현하는 데 집중.</figcaption></figure>\n  <div class=\"prag-session-facts\"><div class=\"prag-card\"><h3>우선순위</h3><p>시연 안정성과 화면 가독성을 먼저 보강함.</p></div><div class=\"prag-card\"><h3>후반 계획</h3><p>대규모 전투와 보스전은 최종 릴리스 단계의 미래 계획으로 분리함.</p></div></div>\n</div>"
+    },
+    {
+      "slideId": "slide-22",
+      "sourceIndex": 22,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-extractor-result\">\n  <div class=\"prag-card\">\n    <h3>핵심 기여</h3>\n    <ul class=\"prag-compact-list\">\n      <li>RoomCode session, lobby handoff, role spawn 흐름 정리</li>\n      <li>Diana operator, scan, hack, cleanse, node interaction 기반</li>\n      <li>캐릭터 에셋과 애니메이션 파이프라인 정리</li>\n      <li>발표 구조와 팀 결과물 통합</li>\n    </ul>\n  </div>\n  <figure class=\"prag-media-figure\"><img class=\"prag-img prag-img-contain\" src=\"./images/slide-28-asset-extractor-tool-screenshot.png\" /><figcaption>반복 추출 작업을 줄이기 위한 도구 화면</figcaption></figure>\n  <figure class=\"prag-media-figure\"><img class=\"prag-img prag-img-contain\" src=\"./images/slide-29-unreal-import-diana-result-pdf-safe.jpg\" /><figcaption>Diana 임포트 결과</figcaption></figure>\n</div>"
+    },
+    {
+      "slideId": "slide-23",
+      "sourceIndex": 23,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-detail-layout reverse\">\n  <figure class=\"prag-image-frame\"><img class=\"prag-img prag-img-contain\" src=\"./images/slide-29-unreal-import-hugh-result.png\" /><figcaption>Hugh 캐릭터를 이동, 조준, 전투 입력의 기준 플레이어로 구성.</figcaption></figure>\n  <div class=\"prag-card\"><h3>핵심 기여</h3><ul class=\"prag-list\"><li>Hugh 이동, 조준, 전투 입력 구현</li><li>무기, HP, 회복, 전투 반응 흐름 구성</li><li>Walker / Watcher 전투 흐름과 스탯 관리</li><li>Diana 해킹 결과가 Hugh 공격 타이밍으로 이어지는 구조 연결</li></ul></div>\n</div>"
+    },
+    {
+      "slideId": "slide-24",
+      "sourceIndex": 24,
+      "reason": "unsupported-html-or-css",
+      "raw": "<figure class=\"prag-executor-showcase\"><img src=\"./images/slide-35-unreal-import-executor-result.png\" alt=\"Unreal Engine에 임포트된 Executor\" /><figcaption>Executor 임포트와 레벨 전투 리듬 설계는 중반 전투 압박을 만드는 핵심 축.</figcaption></figure>"
+    },
+    {
+      "slideId": "slide-25",
+      "sourceIndex": 25,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-map-columns\"><div class=\"prag-card\"><h3>핵심 기여</h3><p>맵 에셋 임포트, 맵 빌딩, Sentinel 보스전 공간 구성을 담당.</p><ul class=\"prag-compact-list\"><li>선형 진행 경로와 체크포인트 배치</li><li>전투, 휴식, 보상 구간의 간격 조정</li><li>보스전까지 이어지는 클리어 경험 구성</li></ul></div><div class=\"prag-card\"><h3>구현 결과</h3><p>개별 에셋을 플레이 가능한 스테이지 구조로 연결.</p><div class=\"prag-map-image-row\"><img class=\"prag-img prag-img-contain\" src=\"./images/slide-37-map-asset-import-01.png\" /><img class=\"prag-img prag-img-contain\" src=\"./images/slide-41-map-asset-import-05.png\" /></div></div></div>"
+    },
+    {
+      "slideId": "slide-26",
+      "sourceIndex": 26,
+      "reason": "unsupported-html-or-css",
+      "raw": "<div class=\"prag-core-image-layout\"><figure class=\"prag-image-frame\"><img class=\"prag-img\" src=\"./images/slide-14-core-experience-combat-hacking-ui.jpg\" /><figcaption>전투 화면 안에서 Diana 해킹과 Hugh 공격 기회를 함께 이해하도록 UI 피드백을 설계.</figcaption></figure><div class=\"prag-core-notes\"><div class=\"prag-card\"><h3>핵심 기여</h3><p>Diana 해킹 UI, 오버드라이브 게이지, 전투 / 해킹 상태 전달.</p></div><div class=\"prag-card\"><h3>구현 의미</h3><p>해킹 성공, 약점 노출, 지원 가능 상태가 플레이어에게 즉시 전달되도록 구성.</p></div><div class=\"prag-card\"><h3>최종 연결</h3><p>두 플레이어의 판단이 같은 전투 상황 안에서 맞물리도록 시각적 기준을 제공.</p></div></div></div>"
+    },
+    {
+      "slideId": "slide-27",
+      "sourceIndex": 27,
+      "reason": "unsupported-html-or-css",
+      "raw": "<p class=\"prag-eyebrow\">팀 다이애나</p>\n\n\n\n<p class=\"prag-subtitle\">\nPragmata 2P 베타 발표\n</p>"
+    }
+  ]
+}

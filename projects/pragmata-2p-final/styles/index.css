@@ -1,0 +1,27 @@
+@import 'pretendard/dist/web/variable/pretendardvariable.css';
+
+:root {
+  --lumadeck-font-sans: "Pretendard Variable", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.slidev-layout,
+.slidev-page {
+  font-family: var(--lumadeck-font-sans);
+}
+
+.slide-title {
+  letter-spacing: 0;
+}
+
+.motion-card {
+  border: 1px solid rgb(37 99 235 / 0.4);
+  border-radius: 8px;
+  padding: 1.25rem;
+  background: rgb(255 255 255 / 0.78);
+  backdrop-filter: blur(8px);
+  transition: transform 240ms ease, opacity 240ms ease;
+}
+
+.motion-card:hover {
+  transform: translateY(-4px);
+}

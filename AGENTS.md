@@ -48,6 +48,31 @@ Key remembered decision:
 - For deck work, edit `projects/<name>/slides.md`, `projects/<name>/components/`, and `projects/<name>/styles/` first. Do not edit generated/source repo examples unless the user asks.
 - Before deck work, read `Docs/slidev-context.md` and run a Slidev capability pass: map the request to built-in Slidev syntax, layouts, components, click/animation tools, UnoCSS config, diagrams, code features, or export tools before adding custom Vue/CSS.
 
+## Deck Branch and Worktree Model
+
+완성 덱은 `main`에 병합하지 않고 프로젝트별 `deck/<project-name>` 브랜치와 별도 worktree에서 보존한다.
+
+현재 구조:
+
+| Deck project | Branch | Worktree |
+| --- | --- | --- |
+| `prag-init-presentation` | `deck/prag-init-presentation` | `C:/Workspace/WebProjects/luma-deck-worktrees/prag-init-presentation` |
+| `pragmata-2p-beta` | `deck/pragmata-2p-beta` | `C:/Workspace/WebProjects/luma-deck-worktrees/pragmata-2p-beta` |
+| `pragmata-2p-final` | `deck/pragmata-2p-final` | `C:/Workspace/WebProjects/luma-deck-worktrees/pragmata-2p-final` |
+| `pragmata-2p-gripgun-prototype` | `deck/pragmata-2p-gripgun-prototype` | `C:/Workspace/WebProjects/luma-deck-worktrees/pragmata-2p-gripgun-prototype` |
+
+운영 규칙:
+
+- 코어 개발과 공통 문서 변경은 `main` worktree에서 수행한다.
+- 덱 편집은 대응하는 deck worktree에서 수행하고 해당 `deck/*` 브랜치에만 커밋한다.
+- worktree 전환은 `git switch`가 아니라 작업 디렉터리 이동으로 처리한다.
+- 각 deck 브랜치는 `main` 코어를 포함한다. 최신 코어가 필요하면 해당 worktree에서 `git merge main` 또는 승인된 선형화 작업을 수행한다.
+- deck 브랜치를 `main`으로 병합하지 않는다.
+- 각 worktree의 `projects/<name>/images/`는 실제 로컬 파일로 유지하지만 Git에는 추적하지 않는다.
+- `images/`, `dist/`, `node_modules/`, `.vite/`, `artifacts/`, `coverage/`와 기타 생성 산출물은 deck 브랜치에서도 제외한다.
+- 이미지 복원 규칙은 각 프로젝트의 `ASSETS.md`를 따른다. 덱 소스의 상대 이미지 경로를 유지한다.
+- 새로운 덱을 보존할 때는 `main`에서 `deck/<project-name>` 브랜치와 별도 worktree를 만들고, 해당 프로젝트의 소형 편집 소스만 최초 `git add -f`로 등록한다.
+
 ## User Directives
 
 AI agents must read and follow the relevant directive documents before acting:

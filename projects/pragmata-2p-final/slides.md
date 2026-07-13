@@ -396,8 +396,8 @@ class: prag-member-summary-slide
 </div>
 
 <!--
-[13:35-13:50]
-정호진은 Diana의 조작과 스킬, 캐릭터 표현, 서버 구조와 전체 통합을 담당했습니다. 최근에는 Diana 상호작용을 위치·각도 중심 판정에서 카메라 Line Trace로 전환하고, 클라이언트가 본 대상도 서버가 다시 같은 기준으로 검증하도록 정리했습니다. 기술 기능뿐 아니라 전체 기획과 팀 의사결정, 애셋 추출과 재질 편집까지 프로젝트가 하나의 빌드로 합쳐지는 경계를 책임졌습니다.
+[13:35-13:43]
+정호진은 Diana와 서버, 전체 통합을 맡아 시선 기반 상호작용과 협동 상태를 하나의 플레이 흐름으로 연결했습니다.
 -->
 
 ---
@@ -417,8 +417,8 @@ class: prag-member-focus-slide
 </div>
 
 <!--
-[13:50-13:58]
-기존에는 대상의 루트 위치가 화면 중앙과 가까운지를 비교했기 때문에, 큰 오브젝트의 엉뚱한 면을 보거나 가림막 너머를 조준해도 후보가 될 수 있었습니다. 이를 Diana 카메라에서 최대 50미터 범위의 Visibility Line Trace를 수행하는 방식으로 바꿨고, 실제 상호작용 거리는 POI별 metadata로 다시 제한했습니다. 첫 충돌이 실제 후보 또는 그 하위 표면인지 확인하고, 엘리베이터처럼 바닥과 퍼즐 노드가 겹친 예외는 바닥만 제외한 뒤 노드 표면을 다시 검사했습니다. 클라이언트가 표시한 포커스를 그대로 신뢰하지 않고 서버도 저장된 카메라 시선으로 같은 판정을 다시 수행합니다. 맵 해킹 노드는 조준으로 시작하지만 아이템 박스는 상호작용 입력을 유지해 의도하지 않은 자동 실행도 막았습니다.
+[13:43-13:53]
+대상 중심 각도 판정을 카메라 Line Trace로 바꿔 실제 표면만 선택했습니다. 클라이언트가 포커스를 잡은 뒤 서버가 거리와 대상을 같은 기준으로 다시 검증합니다.
 -->
 
 ---
@@ -438,8 +438,8 @@ class: prag-member-focus-slide
 </div>
 
 <!--
-[13:58-14:06]
-최근 구현에서는 OverDrive의 범위 해킹과 연출, Cleanse 획득 잠금, 체크포인트의 팀 리스폰과 자원 복구를 각각 로컬 이벤트로 끝내지 않고 서버가 확정하는 공통 게임 상태로 연결했습니다. 체크포인트는 Hugh와 Diana의 위치·사망 상태·자원·업그레이드 세션까지 함께 복구하고, 진행 프롬프트와 HUD 결과를 두 화면에 맞춰 전달합니다. 이 구조 덕분에 Diana의 입력이 개인 화면의 효과가 아니라 실제 협동 루프의 상태 변화로 이어집니다.
+[13:53-14:03]
+OverDrive와 체크포인트 복구를 서버 상태로 통합했습니다. Diana의 입력이 팀 리스폰과 자원, 양쪽 HUD에 같은 결과로 반영됩니다.
 -->
 
 ---
@@ -460,8 +460,8 @@ class: prag-member-focus-slide prag-member-troubleshooting-slide
 </div>
 
 <!--
-[14:06-14:18]
-Diana는 Hugh에 붙어 보이는 캐릭터이면서 별도의 플레이어가 조작하는 역할입니다. 역할 선택 순서에 따라 캐릭터 배정과 원격 애니메이션 결과가 달라지는 문제를 역할 전달과 원격 표시 상태로 분리했습니다. 이후 Hugh와 Diana가 각각 방장인 두 조합을 반복 확인해 어느 쪽이 방장이든 같은 플레이가 보이도록 만들었습니다.
+[14:03-14:17]
+방장 역할에 따라 배정과 원격 애니메이션이 달라졌습니다. 역할 전달과 화면 표현 상태를 분리하고 Hugh·Diana 양쪽 방장 조합을 반복 검증해 같은 결과로 맞췄습니다.
 -->
 
 ---
@@ -480,8 +480,8 @@ class: prag-member-summary-slide
 </div>
 
 <!--
-[14:18-14:26]
-박준현은 Hugh의 이동과 행동, 세 종류의 무기, Walker와 Watcher를 담당했습니다. 플레이어 조작에서 발사와 적 반응까지 이어지는 전투의 중심 축을 완성했습니다.
+[14:17-14:25]
+박준현은 Hugh의 이동과 세 무기, Walker와 Watcher를 맡아 조작부터 적 반응까지 전투의 중심 축을 완성했습니다.
 -->
 
 ---
@@ -491,18 +491,18 @@ class: prag-member-focus-slide
 
 <p class="prag-slide-category">MEMBER ACHIEVEMENT · 박준현</p>
 
-# 박준현 · Hugh의 이동과 무기 행동을 연결
+# 박준현 · 자연스러운 이동과 전투 반응을 연결
 
 <div class="prag-member-focus-card">
   <span>성과 01 · HUGH PLAYER</span>
-  <strong>이동·점프·호버 중에도 전투 행동이 자연스럽게 이어짐</strong>
-  <p>공격과 재장전이 이동 상태를 끊지 않도록 Hugh의 조작, 애니메이션 이벤트와 무기 상태를 연결함.</p>
-  <div class="prag-member-focus-proof"><b>PLAYER FLOW</b><em>이동·점프·호버 → 공격·재장전 → 즉시 조작 복귀</em></div>
+  <strong>이동·점프·호버가 끊기지 않고 입력에 즉시 반응</strong>
+  <p>반복 동작은 Animation Blueprint, 단발 행동은 코드 이벤트로 나눠 움직임과 공격이 자연스럽게 이어지도록 구성함.</p>
+  <div class="prag-member-focus-proof"><b>PLAYER FLOW</b><em>연속 이동은 ABP → 단발 행동은 코드 → 즉시 조작 복귀</em></div>
 </div>
 
 <!--
-[14:26-14:34]
-첫 번째 성과는 Hugh의 이동과 무기 행동을 연결한 것입니다. 이동, 점프와 호버 중에도 공격과 재장전이 자연스럽게 이어지고, 동작이 끝난 뒤 즉시 조작으로 돌아오도록 상태와 애니메이션 이벤트를 구성했습니다.
+[14:25-14:35]
+이동과 호버 같은 반복 동작은 Animation Blueprint로, 공격 같은 단발 행동은 코드 이벤트로 나눠 입력과 화면 반응이 끊기지 않게 했습니다.
 -->
 
 ---
@@ -512,18 +512,18 @@ class: prag-member-focus-slide
 
 <p class="prag-slide-category">MEMBER ACHIEVEMENT · 박준현</p>
 
-# 박준현 · 세 무기와 적의 반응을 연결
+# 박준현 · 무기별 발사 방식을 공통 기반에서 확장
 
 <div class="prag-member-focus-card">
-  <span>성과 02 · COMBAT LOOP</span>
-  <strong>무기의 차이가 Walker·Watcher의 피격과 행동 변화로 이어짐</strong>
-  <p>GripGun·Shockwave Gun·Decoy Generator의 서로 다른 결과를 적의 반응과 연결해 전투 선택의 의미를 만듦.</p>
-  <div class="prag-member-focus-proof"><b>COMBAT FLOW</b><em>무기 선택 → 발사 결과 → Walker·Watcher 반응</em></div>
+  <span>성과 02 · WEAPON ARCHITECTURE</span>
+  <strong>공통 WeaponBase 위에서 즉발 판정과 투사체 무기를 구분</strong>
+  <p>GripGun·Shockwave는 Line Trace로 즉시 판정하고, 실제 비행이 필요한 Decoy는 Projectile로 구현해 무기별 요구를 분리함.</p>
+  <div class="prag-member-focus-proof"><b>WEAPON FLOW</b><em>WeaponBase → Line Trace 또는 Projectile → 무기별 결과</em></div>
 </div>
 
 <!--
-[14:34-14:42]
-두 번째 성과는 세 무기의 차이를 적의 반응으로 이어지게 만든 것입니다. GripGun, Shockwave Gun과 Decoy Generator가 서로 다른 방식으로 Walker와 Watcher의 피격과 행동을 바꾸도록 연결했습니다.
+[14:35-14:45]
+공통 WeaponBase 위에서 GripGun과 Shockwave는 즉발 Line Trace, 비행 자체가 중요한 Decoy는 Projectile로 나눠 무기별 요구를 살렸습니다.
 -->
 
 ---
@@ -533,19 +533,19 @@ class: prag-member-focus-slide prag-member-troubleshooting-slide
 
 <p class="prag-slide-category">TROUBLESHOOTING · 박준현</p>
 
-# 박준현 트러블슈팅 · 무기 동작이 하체 움직임을 끊음
+# 박준현 트러블슈팅 · 무기가 특정 적 클래스에 묶임
 
 <div class="prag-member-troubleshooting-route">
-  <div><span>문제</span><strong>이동·호버 중 무기 동작이 하체 애니메이션을 덮어씀</strong><p>공격이나 재장전 때 이동감이 끊겨 조작과 화면이 따로 보임.</p></div>
+  <div><span>문제</span><strong>무기가 적 클래스의 피격 함수와 효과를 직접 호출</strong><p>새로운 적이나 파괴 가능 오브젝트가 추가될 때마다 무기 코드를 수정해야 했음.</p></div>
   <i>→</i>
-  <div><span>판단</span><strong>상체 무기 동작과 하체 이동의 책임을 분리</strong><p>전신 애니메이션 교체 대신 두 영역을 동시에 재생하는 구조가 필요함.</p></div>
+  <div><span>판단</span><strong>무기는 충돌 정보만 전달하고 반응은 대상이 소유</strong><p>대미지를 주는 쪽이 맞은 대상의 내부 표현까지 알 필요가 없었음.</p></div>
   <i>→</i>
-  <div><span>해결</span><strong>Layered Blend와 이벤트로 타이밍을 연결</strong><p>AnimNotify·Delegate로 재장전과 획득 적용 시점까지 화면 동작과 맞춤.</p></div>
+  <div><span>해결</span><strong>대미지 인터페이스로 의존성을 분리</strong><p>무기는 Damage와 HitResult만 전달하고, HitReact·Niagara는 대상이 직접 처리함.</p></div>
 </div>
 
 <!--
-[14:42-14:54]
-이동과 호버 중 무기 동작이 하체 움직임을 덮어써 조작감이 끊겨 보였습니다. 상체 무기 동작과 하체 이동을 Layered Blend로 분리하고, 재장전과 무기 획득의 실제 적용 시점은 AnimNotify와 Delegate로 연결해 조작과 화면 피드백의 타이밍을 맞췄습니다.
+[14:45-14:59]
+무기가 특정 적의 피격 함수까지 직접 호출해 적이 늘 때마다 무기 코드도 바뀌었습니다. 인터페이스로 분리해 무기는 피해 정보만 보내고, 반응과 효과는 맞은 대상이 처리하게 했습니다.
 -->
 
 ---
@@ -564,8 +564,8 @@ class: prag-member-summary-slide
 </div>
 
 <!--
-[14:54-15:02]
-안지성은 Executor와 오염 적, 여러 적이 공유하는 Enemy 로직, Sentinel 행동 고도화, Stasis Net과 레벨 디자인을 담당했습니다. 적마다 표현은 달라도 피해와 약점, 영역 행동은 같은 규칙을 재사용하도록 구성했습니다.
+[14:59-15:07]
+안지성은 Executor와 오염 적, 공통 Enemy 로직, Stasis Net과 레벨 디자인을 맡아 적과 공간의 전투 규칙을 설계했습니다.
 -->
 
 ---
@@ -585,8 +585,8 @@ class: prag-member-focus-slide
 </div>
 
 <!--
-[15:02-15:10]
-첫 번째 성과는 적 종류가 늘어나도 공통 전투 규칙을 유지한 것입니다. Executor와 오염 적, Sentinel의 표현과 행동은 달라도 피해, 약점과 상태 흐름은 같은 기반을 재사용하도록 설계했습니다.
+[15:07-15:17]
+Executor와 오염 적, Sentinel은 표현이 달라도 피해·약점·상태 흐름은 같은 기반을 재사용하도록 설계했습니다.
 -->
 
 ---
@@ -606,8 +606,8 @@ class: prag-member-focus-slide
 </div>
 
 <!--
-[15:10-15:18]
-두 번째 성과는 Stasis Net과 레벨의 압박을 연결한 것입니다. 적을 잠시 멈추는 기능만 만드는 데서 끝내지 않고, 적 배치와 이동 공간을 함께 조정해 두 플레이어가 역할을 나눠 돌파할 선택지로 만들었습니다.
+[15:17-15:27]
+Stasis Net의 행동 제어와 적 배치·이동 공간을 함께 조정해, 두 플레이어가 역할을 나눠 안전 구간을 만드는 전략으로 확장했습니다.
 -->
 
 ---
@@ -628,8 +628,8 @@ class: prag-member-focus-slide prag-member-troubleshooting-slide
 </div>
 
 <!--
-[15:18-15:30]
-적이 Territory 경계에서 귀환과 대기 상태를 반복하던 원인은 같은 경계값으로 이탈과 복귀를 모두 판단했기 때문입니다. 경계 안쪽의 여유 거리까지 귀환 상태를 유지한 뒤에만 추적을 재개하도록 바꿔 상태 전환 진동을 제거했습니다.
+[15:27-15:41]
+같은 경계값으로 이탈과 복귀를 판단해 적 상태가 반복 전환됐습니다. 경계 안쪽 여유 거리까지 귀환을 유지한 뒤 추적을 재개해 진동을 제거했습니다.
 -->
 
 ---
@@ -648,8 +648,8 @@ class: prag-member-summary-slide
 </div>
 
 <!--
-[15:30-15:38]
-안민원은 맵 에셋 추출과 맵 제작, Item Box와 Hack Node 같은 프롭, Sentinel 보스의 기초 제작을 담당했습니다. 대형 에셋을 단순히 배치하지 않고 목표 지점과 이동 경로가 읽히는 레벨로 재구성했습니다.
+[15:41-15:49]
+안민원은 맵 에셋과 레벨, 상호작용 프롭과 Sentinel 기초를 맡아 대형 공간을 길이 읽히는 플레이 공간으로 만들었습니다.
 -->
 
 ---
@@ -669,8 +669,8 @@ class: prag-member-focus-slide
 </div>
 
 <!--
-[15:38-15:46]
-첫 번째 성과는 반복되는 모듈형 에셋을 읽히는 진행 동선으로 만든 것입니다. 통로, 배관과 문을 조합하고 색상 랜드마크를 배치해 대형 연구 시설 안에서도 다음 목표와 이동 방향을 읽을 수 있게 구성했습니다.
+[15:49-15:59]
+통로·배관·문을 조합하고 색상 랜드마크를 배치해 반복되는 연구 시설에서도 다음 목표와 이동 방향이 읽히게 했습니다.
 -->
 
 ---
@@ -680,18 +680,18 @@ class: prag-member-focus-slide
 
 <p class="prag-slide-category">MEMBER ACHIEVEMENT · 안민원</p>
 
-# 안민원 · 프롭과 Sentinel 기초를 플레이 공간에 연결
+# 안민원 · 서로 다른 맵 프롭을 하나의 상호작용 규칙으로 연결
 
 <div class="prag-member-focus-card">
-  <span>성과 02 · WORLD BUILDING</span>
-  <strong>탐사·상호작용·보스 전투가 한 공간 흐름으로 이어짐</strong>
-  <p>Item Box·Hack Node와 Sentinel 기초를 레벨에 배치해 공간이 장식이 아니라 실제 플레이 규칙을 전달하도록 구성함.</p>
-  <div class="prag-member-focus-proof"><b>WORLD FLOW</b><em>탐사 → 프롭 상호작용 → Sentinel 보스 전투 공간</em></div>
+  <span>성과 02 · INTERACTION INTERFACE</span>
+  <strong>퍼즐 노드·엘리베이터·조명을 같은 호출 방식으로 확장</strong>
+  <p>공통 Interaction Interface를 적용하고, 각 프롭은 같은 Interact 요청에 서로 다른 동작을 구현하도록 구성함.</p>
+  <div class="prag-member-focus-proof"><b>PROP FLOW</b><em>Diana 상호작용 → 공통 Interface → 프롭별 동작 실행</em></div>
 </div>
 
 <!--
-[15:46-15:54]
-두 번째 성과는 맵 프롭과 Sentinel 기초를 플레이 공간에 연결한 것입니다. Item Box와 Hack Node, Sentinel 기초를 실제 진행 경로에 배치해 탐사와 상호작용, 보스 전투가 하나의 공간 흐름으로 이어지게 만들었습니다.
+[15:59-16:09]
+퍼즐 노드·엘리베이터·조명에 공통 Interaction Interface를 적용했습니다. Diana는 Interact만 호출하고 각 프롭이 자기 동작을 처리합니다.
 -->
 
 ---
@@ -712,8 +712,8 @@ class: prag-member-focus-slide prag-member-troubleshooting-slide
 </div>
 
 <!--
-[15:54-16:06]
-에디터에서 정상적으로 보이던 맵과 에셋도 패키징 목록에 없으면 최종 빌드에서 누락될 수 있었습니다. 실제 플레이 경로의 맵은 MapsToCook에 명시하고, 런타임에서 불러오는 에셋은 필요한 항목만 cook label로 관리해 패키지에서도 맵과 상호작용 에셋이 그대로 열리는지 검증했습니다.
+[16:09-16:23]
+에디터에서는 보이던 맵과 에셋이 패키지에서 누락됐습니다. 필수 맵은 MapsToCook에, 런타임 에셋은 cook label에 명시하고 실제 빌드에서 진입과 로드를 검증했습니다.
 -->
 
 ---
@@ -732,8 +732,8 @@ class: prag-member-summary-slide
 </div>
 
 <!--
-[16:06-16:14]
-윤제영은 모든 Widget Blueprint와 UI 디자인·애니메이션, 적 해킹과 맵 해킹 퍼즐 로직을 담당했습니다. UI가 게임 로직 완성을 기다리지 않도록 MVVM 경계를 도입한 것이 기술적 핵심입니다.
+[16:23-16:31]
+윤제영은 전체 Widget Blueprint와 퍼즐 UI를 맡아 정보를 다음 행동으로 연결하고, MVVM으로 UI를 독립 테스트할 수 있게 했습니다.
 -->
 
 ---
@@ -761,69 +761,29 @@ class: prag-ui-overview
 </div>
 
 <!--
-[16:14-16:29]
-MVVM을 선택한 첫 번째 이유는 게임 로직이 준비되지 않아 UI 작업까지 지연됐던 경험을 반복하지 않기 위해서였습니다. HUD가 캐릭터나 퍼즐 컴포넌트를 매 프레임 직접 조회하는 결합 대신, UMVVMViewModelBase 기반 ViewModel이 HP, Boost, OverDrive, 재화와 해킹 상태를 FieldNotify 값으로 바꾸고 Widget Blueprint가 해당 값에 바인딩되도록 구현했습니다. FieldNotify는 broadcast와 비슷하게 보이지만 ViewModel 속성 갱신에 초점을 둡니다. 독립 테스트를 얻은 대신 ViewModel 코드와 수동 바인딩 생명주기 관리가 늘어나는 비용을 감수했습니다.
+[16:31-16:41]
+게임 로직 없이 UI를 테스트하기 위해 MVVM을 도입했습니다. ViewModel의 FieldNotify로 화면을 갱신했고, 결합도를 낮추는 대신 코드량 증가를 감수했습니다.
 [발표 진행] 문제 → ViewModel 선택 → FieldNotify 결과 → 선택 이유·구현·비용 순서로 cue 진행.
 -->
 
 ---
 layout: default
-class: prag-member-feature
+class: prag-member-feature prag-ui-results-slide
 ---
 
 <p class="prag-slide-category">MEMBER ACHIEVEMENT · 윤제영</p>
 
-# 윤제영 · 적 해킹 퍼즐을 플레이 가능한 UI로 완성
+# 윤제영 · 세 UI를 플레이의 다음 행동으로 연결
 
-<div class="prag-ui-showcase portrait">
-  <figure class="prag-image-frame prag-ui-gif-frame"><LoopingMediaCanvas class="prag-ui-gif" kind="hacking" aria-label="적 해킹 퍼즐 UI 플레이 화면" /><figcaption>적의 방어를 해제하는 해킹 퍼즐 · 실제 게임 동작</figcaption></figure>
-  <aside class="prag-ui-showcase-copy"><span>01 · ENEMY HACKING</span><strong>퍼즐 입력을 전투의 다음 행동으로 연결</strong><p>Diana가 퍼즐을 해결하면 Hugh가 공격할 기회를 얻음.</p></aside>
+<div class="prag-ui-results-grid">
+  <figure class="prag-ui-result-card"><LoopingMediaCanvas class="prag-ui-gif" kind="hacking" aria-label="적 해킹 퍼즐 UI 플레이 화면" /><figcaption><span>01 · 적 해킹</span><strong>Hugh의 공격 기회 생성</strong></figcaption></figure>
+  <figure class="prag-ui-result-card"><LoopingMediaCanvas class="prag-ui-gif" kind="map-puzzle" aria-label="맵 해킹 퍼즐 UI 플레이 화면" /><figcaption><span>02 · 맵 퍼즐</span><strong>다음 이동 경로 개방</strong></figcaption></figure>
+  <figure class="prag-ui-result-card"><LoopingMediaCanvas class="prag-ui-gif" kind="weapon" aria-label="Hugh 무기 선택 UI 플레이 화면" /><figcaption><span>03 · 무기 UI</span><strong>전투 중 선택 상태 전달</strong></figcaption></figure>
 </div>
 
 <!--
-[16:29-16:37]
-첫 번째 성과는 적 해킹 퍼즐 UI입니다. Diana가 적의 방어 구조를 읽고 퍼즐을 해결하면 Hugh가 공격할 기회를 얻습니다. UI를 장식이 아니라 두 역할을 연결하는 실제 플레이 규칙으로 만들었습니다.
-[발표 진행] GIF가 보여 주는 입력과 완료 결과를 짧게 설명합니다.
--->
-
----
-layout: default
-class: prag-member-feature
----
-
-<p class="prag-slide-category">MEMBER ACHIEVEMENT · 윤제영</p>
-
-# 윤제영 · 맵 해킹 퍼즐로 탐색 경로를 직접 바꿈
-
-<div class="prag-ui-showcase portrait">
-  <figure class="prag-image-frame prag-ui-gif-frame"><LoopingMediaCanvas class="prag-ui-gif" kind="map-puzzle" aria-label="맵 해킹 퍼즐 UI 플레이 화면" /><figcaption>잠긴 경로와 장치를 여는 맵 해킹 퍼즐 · 실제 게임 동작</figcaption></figure>
-  <aside class="prag-ui-showcase-copy"><span>02 · MAP HACKING</span><strong>화면 안의 선택이 레벨의 변화로 이어짐</strong><p>Diana의 해킹이 두 플레이어가 이동할 다음 길을 만듦.</p></aside>
-</div>
-
-<!--
-[16:37-16:45]
-두 번째는 맵 해킹 퍼즐 UI입니다. 퍼즐을 풀었다는 화면 안의 결과가 끝이 아니라, 잠긴 문과 장치 그리고 두 플레이어의 다음 이동 경로를 실제로 바꿉니다. 따라서 관객도 UI와 레벨 변화의 관계를 바로 이해할 수 있습니다.
-[발표 진행] 퍼즐 완료와 레벨 상태 변화의 관계를 설명합니다.
--->
-
----
-layout: default
-class: prag-member-feature
----
-
-<p class="prag-slide-category">MEMBER ACHIEVEMENT · 윤제영</p>
-
-# 윤제영 · 무기 UI로 전투 선택을 즉시 읽게 만듦
-
-<div class="prag-ui-showcase landscape">
-  <figure class="prag-image-frame prag-ui-gif-frame"><LoopingMediaCanvas class="prag-ui-gif" kind="weapon" aria-label="Hugh 무기 선택 UI 플레이 화면" /><figcaption>무기 선택·교체·현재 상태를 한 화면에 전달 · 실제 게임 동작</figcaption></figure>
-  <aside class="prag-ui-showcase-copy"><span>03 · WEAPON UI</span><strong>전투를 멈추지 않고 다음 무기를 선택</strong><p>상황에 맞는 무기를 고르는 시간을 줄여 전투 흐름을 유지함.</p></aside>
-</div>
-
-<!--
-[16:45-16:53]
-세 번째는 무기 UI입니다. 전투 중에도 보유 무기와 현재 선택 상태를 빠르게 비교하고 교체 결과를 바로 확인할 수 있습니다. 플레이어가 메뉴를 해석하는 데 시간을 쓰지 않고 다음 행동을 선택하도록 만드는 것이 목표였습니다.
-[발표 진행] 무기 선택과 교체 결과가 즉시 읽히는 지점을 설명합니다.
+[16:41-16:51]
+적 해킹은 공격 기회, 맵 퍼즐은 다음 경로, 무기 UI는 전투 선택을 전달합니다. 세 UI 모두 플레이어의 다음 행동을 결정하게 설계했습니다.
 -->
 
 ---
@@ -833,7 +793,7 @@ class: prag-core prag-currency-troubleshoot
 
 <p class="prag-slide-category">TROUBLESHOOTING · 윤제영</p>
 
-# 윤제영 트러블슈팅 1 · 연속 재화 획득을 읽기 쉬운 피드백으로 묶음
+# 윤제영 트러블슈팅 · 연속 재화 획득을 읽기 쉬운 피드백으로 묶음
 
 <div class="prag-currency-flow">
   <div v-click="1" class="prag-currency-stage problem prag-cue-rise">
@@ -863,52 +823,9 @@ class: prag-core prag-currency-troubleshoot
 </div>
 
 <!--
-[16:53-17:05]
-짧은 시간에 Luna Filament를 여러 번 얻으면 팝업과 총액이 계속 바뀌어 실제 증가량을 읽기 어려웠습니다. 첫 획득부터 1초 동안 증가량을 모아 UI 이벤트를 한 번만 전달하고, 연출이 끝난 뒤 최종 총액을 반영했습니다. 정보는 그대로 유지하면서 사용자가 읽어야 하는 순서를 명확하게 만들었습니다.
+[16:51-17:05]
+연속 획득 팝업은 1초 동안 합산해 한 번만 보여주고, 종료 뒤 최종 총액을 반영했습니다. 게이지도 실제 트랙 너비를 기준으로 계산해 해상도별 왜곡을 줄였습니다.
 [발표 진행] 중첩 문제 → 1초 합산 → 한 번의 팝업 → 최종 총액 순서로 cue 진행.
--->
-
----
-layout: default
-class: prag-core prag-gauge-troubleshoot
----
-
-<p class="prag-slide-category">TROUBLESHOOTING · 윤제영</p>
-
-# 윤제영 트러블슈팅 2 · 화면이 달라도 게이지는 같은 상태를 가리킴
-
-<div class="prag-gauge-flow">
-  <div v-click="1" class="prag-gauge-stage problem prag-cue-rise">
-    <span>BEFORE · FIXED PIXEL</span>
-    <div class="prag-gauge-viewport wide"><i></i><b></b><em>16:9</em></div>
-    <div class="prag-gauge-viewport narrow"><i></i><b></b><em>STRETCH</em></div>
-    <strong>채움과 잔상 위치가 서로 어긋남</strong>
-    <small>해상도와 Anchor가 달라지면 같은 수치도 다르게 보임</small>
-  </div>
-  <i v-click="2" class="prag-gauge-arrow prag-cue-rise">→</i>
-  <div v-click="2" class="prag-gauge-stage measure prag-cue-rise">
-    <span>MEASURE · RUNTIME</span>
-    <div class="prag-gauge-formula"><b>CachedGeometry</b><i>×</i><b>실제 트랙 너비</b></div>
-    <strong>현재 화면의 실제 크기를 기준으로 계산</strong>
-    <small>고정 좌표가 아니라 Widget이 차지한 공간을 사용</small>
-  </div>
-  <i v-click="3" class="prag-gauge-arrow prag-cue-rise">→</i>
-  <div v-click="3" class="prag-gauge-stage result prag-cue-rise">
-    <span>AFTER · SAME VALUE</span>
-    <div class="prag-gauge-track"><i></i><b></b><em></em></div>
-    <strong>채움·잔상·현재선이 같은 기준에 정렬</strong>
-    <small>화면 비율이 달라도 동일한 게임 상태를 전달</small>
-  </div>
-</div>
-
-<div v-click="4" class="prag-gauge-trail prag-cue-evidence">
-  <span>BOOST 감소</span><div class="prag-gauge-trail-bar"><i></i><b></b></div><strong>잔상을 잠시 유지</strong><i>→</i><strong>현재 값까지 보간</strong><p>얼마나 감소했는지 즉시 읽을 수 있음</p>
-</div>
-
-<!--
-[17:05-17:17]
-HP와 Boost 게이지에 고정 픽셀 좌표를 쓰면 해상도나 Stretch Anchor가 달라질 때 채움 영역과 잔상 위치가 어긋났습니다. Widget의 CachedGeometry와 실제 트랙 너비를 기준으로 채움, 잔상, 현재 위치선을 다시 계산했습니다. Boost가 감소하면 잔상을 잠시 남긴 뒤 현재 값까지 보간해 감소량도 바로 읽을 수 있게 했습니다.
-[발표 진행] 고정 픽셀 문제 → 실제 크기 측정 → 정렬된 결과 → Boost 잔상 보간 순서로 cue 진행.
 -->
 
 ---
@@ -923,6 +840,6 @@ class: prag-cover prag-close
 <p class="prag-qa-subtitle">함께 해내는 순간을 위해, 기술과 레벨을 하나로 설계했습니다.</p>
 
 <!--
-[17:17 이후 · Q&A]
-감사합니다. 질문 받겠습니다. 5분 시연 영상 포함 본문 약 17분, 약 8분의 운영 여유를 확보합니다.
+[17:05 이후 · Q&A]
+감사합니다. 질문 받겠습니다. 시연 영상을 포함한 본문은 약 17분 5초이며, 18분 제한 안에 약 55초의 운영 여유를 확보합니다.
 -->

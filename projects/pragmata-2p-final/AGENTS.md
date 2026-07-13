@@ -18,6 +18,7 @@ This deck inherits the `prag-init-presentation` visual language for the POTENUP 
 - Describe the current UI architecture as mixed MVVM, not full-project MVVM. The Hugh and Diana root HUDs create separate local ViewModel instances over shared replicated gameplay sources; some POI, crosshair, enemy HP, and upgrade paths still use direct widget or delegate updates.
 - Do not describe the root HUD ViewModel as converting server results into animation triggers. Present its verified FieldNotify outputs as HP, recovery, OverDrive, cleanse cooldown, player stats, and related display values. Hacking-puzzle trigger fields belong to separate puzzle ViewModels and should not be generalized to the role HUD.
 - Describe GripGun as one server-side camera-viewpoint Line Trace. Do not claim a muzzle-origin trace or a second corrective trace unless the implementation changes.
+- Describe Diana prop/node interaction as a camera-origin Visibility Line Trace-based surface test with a current C++ maximum trace default of `5000cm`; actual candidate distance is further limited by per-POI metadata. Local focus is advisory; the server re-runs the target search from its stored Diana camera origin/direction, checks the first blocking surface and POI metadata/distance, and only then executes the interaction. The boss-elevator floor is a narrow exception that ignores only the floor and re-traces for the actual PuzzleMesh. Map-hack nodes may auto-request while aimed, whereas ItemBox-style props still require the interaction input.
 - Describe RoomCode as a LAN session search key, not authentication, security, or internet matchmaking.
 - Explain that the Unreal Engine 5.8 upgrade also expanded the Editor API surface used by the project-owned `UnreelMCP` server; do not frame the upgrade as gameplay-only.
 - Include the team's active AI usage as a technical workflow: Git change/commit automation, documentation organization and site generation, and human-reviewed Blueprint/Widget/MVVM semi-automation through UnreelMCP.
@@ -40,7 +41,12 @@ This deck inherits the `prag-init-presentation` visual language for the POTENUP 
 - In this workspace, `pnpm lumadeck init` may try to run a pnpm install and abort in non-TTY mode. For this deck, copying an existing local authoring project and editing source files was the working path.
 - This beta deck is a rehearsal base for the final presentation, but audience-facing copy must focus only on completed beta-build work and the beta demo.
 - Keep member-specific honorable mentions in the final deck only; never copy these attribution slides back into the beta deck.
-- Do not reference GIF media in the beta/final decks for this presentation pass. Use static images from `prag-init-presentation` instead.
+- 일반적인 증거 이미지는 정적 캡처를 우선한다. 윤제영 UI 시연 GIF 3개는 원본으로 보존하되 브라우저 합성 결함을 피하기 위해 H.264 MP4 재생본을 `LoopingMediaCanvas`로 그린다. 원작의 이동·사격·해킹 동시 수행을 보여 주는 `solo_do_all.gif`는 시간 흐름 자체가 설명 근거이므로 최종 덱에서 사용한다.
+- 각 멤버 섹션은 `MEMBER SUMMARY · 이름` 슬라이드로 시작하고, 담당 범위·대표 성과·기술적 선택 또는 핵심 난제를 먼저 요약한다.
+- 멤버의 성과와 트러블슈팅을 한 장에 합치지 않는다. 성과 하나와 트러블슈팅 하나는 각각 독립 슬라이드로 구성하고, 한 장에서는 하나의 주장만 설명한다.
+- 협업 방식·회고·검증 문서는 `TEAM OWNERSHIP`과 멤버별 성과보다 앞에 배치한다. 마지막 멤버 트러블슈팅 뒤에는 중복 결론 슬라이드를 덧붙이지 않고 Q&A로 바로 전환한다.
+- 슬라이드 10 이후의 게임·레벨·HUD·문서 증거 이미지는 최종 빌드 기준 새 캡처가 제공될 때까지 구체적인 촬영 지시가 적힌 placeholder로 유지한다. 윤제영의 해킹 UI·맵 퍼즐 UI·무기 UI 영상은 이 규칙에서 제외하며 그대로 사용한다. 공통 장식 배경과 Q&A 배경도 교체 대상이 아니다.
+- 멤버별 상세 성과에 들어가기 직전에는 다섯 명의 역할을 한 화면에서 비교하는 `TEAM OWNERSHIP` 슬라이드를 둔다. 각 `MEMBER SUMMARY · 이름` 슬라이드는 이미지 없이 동일한 3개 박스 구조로 역할·대표 결과·기술/협업 범위를 보여 주고, 바로 다음 슬라이드부터 해당 멤버의 성과와 트러블슈팅을 이어서 배치한다.
 - Visible beta slide copy should use a professional Korean sentence-fragment / 음슴체 style such as `적용함`, `검증됨`, `진행 중`, and `가능`. Do not convert speaker notes to 음슴체.
 - Audience-facing slide titles and labels must read as finalized presentation copy, not planning notes or instructions to the presenter. State the demonstrated game behavior, applied technology, achieved result, or explicit current boundary directly.
 - Avoid meta-draft phrasing such as `설명함`, `보여줄 내용`, `명확히 밝힐 상태`, `판단함`, `정리 예정`, or `집중할 예정` in visible slide copy. Presentation framing such as `실제 게임과 적용 기술 시연을 중심으로 진행함` is acceptable when it describes the finalized agenda.
@@ -68,6 +74,7 @@ This deck inherits the `prag-init-presentation` visual language for the POTENUP 
 - 관객에게 `실제 캡처 필요`, `초안`, `미완성`, 향후 보강 같은 제작 메모를 노출하지 않는다. 실제 화면이 없으면 사실 기반의 일반 기술 다이어그램을 사용하되 실행 증거인 것처럼 꾸미지 않는다.
 - Listen Server, Line Trace, Host/Remote, replication, null 같은 용어는 쉬운 한국어를 먼저 쓰고 필요한 경우 원어를 보충한다.
 - 협업·일정·검증 주장은 실제 Git 기록과 `Docs`의 verification gate를 기준으로 작성한다. 최신 확인 기준은 2026-06-04 시작, 2026-07-12 최종 통합이다.
+- 협업 도구는 Figma(화면 설계·상태 정렬), Notion(기획 의도·역할 분담·결정 맥락 공유), Code Intent/KNOW_HOW(구현 판단·권한 경계·검증 기록)로 구분해 설명한다. 도구 이름만 나열하지 않고 각 도구가 협업 흐름에서 맡은 역할을 함께 제시한다.
 - 완료 검증은 Hugh/Diana의 서버 역할을 서로 바꾼 조합, 접속·맵 이동·역할 유지, 정화·후반 보스전 완주를 포함한다.
 - 팀 기여 슬라이드는 T-pose나 임포트 화면보다 완성 플레이·기능 결과 이미지를 우선한다.
 - 회고는 미완성 로드맵 대신 완성 과정에서 확보한 재사용 기반과 적용 가치를 설명한다.
@@ -75,16 +82,18 @@ This deck inherits the `prag-init-presentation` visual language for the POTENUP 
 - 카드 깊이는 그림자가 아니라 테두리·색·여백으로 표현한다.
 - 이미지 중심 슬라이드의 증거 영역은 제목 아래 가용 세로 공간을 적극 사용한다. `prag-focus-hero`, 트러블슈팅, 기여, 최종 검증 계열을 얕은 상단 띠로 축소해 하단 절반을 비우지 않는다.
 - 이미지 면적을 키울 때는 기존 click 요소와 reveal 순서를 유지하고, 초기 cue에서 미래 요소가 `opacity: 0`과 `visibility: hidden`인지 다시 확인한다.
-- 슬라이드 8과 9의 설명 박스는 이미지 위 별도 행에 둔다. 이미지와 박스를 겹치지 않으며, 슬라이드 8은 `images/slide-08-camera-trace-illustration-v2.png`를 사용한다.
+- 슬라이드 8과 9의 설명 박스는 이미지 위 별도 행에 둔다. 이미지와 박스를 겹치지 않으며, 슬라이드 8은 `images/slide-08-camera-aim-reference.png`를 사용한다.
 - 슬라이드 8 일러스트는 카메라 중앙 조준점에서 첫 충돌 대상까지 이어지는 단일 시선 판정을 설명한다. muzzle-origin ray나 두 번째 보정 ray를 추가하지 않는다.
-- 슬라이드 8 일러스트의 Line Trace는 플레이어 뒤 카메라 렌즈 중심에서 시작해 중앙 조준점을 정확히 통과해야 한다. 총구나 빈 공간에서 시작하는 것처럼 보이는 이미지는 사용하지 않는다.
+- 슬라이드 8 비교 이미지는 카메라 시선과 총구 방향의 시작점 차이를 설명하는 외부 참고 이미지다. 캡션에는 영상 제목 `눈에서 총알이 튀어나오는 FPS 게임의 사격 판정`을 하이퍼링크로 표시하고 실제 URL 문자열은 노출하지 않는다.
 - `POTENUP 최종 프로젝트`는 교육 과정 소속을 나타내는 표지로 첫 장과 마지막 장에만 노출한다. 평가·채점 언어로 확장하지 않는다.
 - 텍스트·도식 중심 슬라이드도 상단에 작은 카드만 두고 하단을 비우지 않는다. 3단 흐름은 핵심 노드를 충분히 크게 만들고 중앙 판정 단계를 강조하며, 3열 정보 카드는 제목 아래 가용 높이를 채운다.
 - 시각 밀도를 높일 때 새 설명을 억지로 추가하지 않는다. 기존 핵심 문장을 단계·위계·크기로 재구성하고, 평가에 필요하지 않은 장식은 추가하지 않는다.
 - 평가 배점과 검증 게이트 명칭은 내부 점검에만 사용한다. 관객 화면에는 `평가용`, `채점`, `Verification Gate`, `Final Clean Gate` 같은 표현을 노출하지 않고 작품·시연·최종 빌드의 언어로 표현한다.
 - 슬라이드 4의 `시연 영상`은 전체 화면 레이어나 오버레이가 아니다. 네 관전 포인트 아래에 나타나는 일반 텍스트 cue로 유지한다.
 - 제목을 제외한 본문이 짧은 도식·카드 묶음이면 제목 바로 아래에 붙이지 않고 남은 16:9 영역의 가로·세로 중앙에 배치한다. 슬라이드 4·6·11은 `prag-centered-body` 기준을 유지한다.
-- 트러블슈팅 사례는 초보적인 null check나 단순 복제 누락보다 패키징 참조 그래프, 비동기 stale callback, 대규모 Git history 정화처럼 판단·검증 과정이 드러나는 사례를 우선한다.
+- 트러블슈팅 사례는 초보적인 null check보다 원격 애니메이션 시점, 조준 판정, AI Territory 경계, 비동기 stale callback, 대규모 Git history 정화처럼 담당 시스템의 판단·검증 과정이 드러나는 사례를 우선한다.
 - Git 이력 정화 사례의 운영 수치는 사용자 제공 기록인 저장소 5GB 제한, 17,000여 대형 에셋, hojin 브랜치 76단계 rebase를 사용한다. 최종 통합일은 26.07.13이며 PR 번호는 관객 화면에 노출하지 않는다.
-- 팀 기여는 `누가 무엇을 완성했는가` 한 장에서 5명의 시스템 소유권을 동일 비중으로 보여 준다. 같은 책임을 뒤 슬라이드에서 반복하지 않는다.
+- 팀 기여와 트러블슈팅은 팀원별 담당 섹션에서 함께 설명한다. 독립된 트러블슈팅 묶음을 두지 않으며, 담당하지 않은 문제를 억지로 개인에게 귀속하지 않는다.
+- 기술 스택·Git 이력 정화·팀원 카드에서 특정 박스만 정답처럼 파란 배경이나 강조 테두리로 표시하지 않는다.
+- 마지막 Q&A 슬라이드는 init·beta와 동일하게 `layout: cover`, `class: prag-cover prag-close`를 사용해 `slide-48-qa-closing-background.jpg`를 유지한다.
 - 최종 빌드 표기는 07.13으로 통일한다. 프로젝트 경계는 비상업적 학습 목적의 팬 프로젝트이며 원작 IP·추출 에셋의 권리를 주장하지 않는다.

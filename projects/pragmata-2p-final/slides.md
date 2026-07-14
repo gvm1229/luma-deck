@@ -96,7 +96,7 @@ class: prag-core prag-dependency
 <div v-click="4" class="prag-dependency-result prag-cue-evidence"><strong>“재미를 추구하는 게임이어야 한다”</strong><span>이득우 교수 멘토링 피드백을 예상 플레이 시나리오와 상호의존 루프로 구체화</span></div>
 
 <!--
-[06:30-07:05]
+[06:30-07:10]
 이득우 교수 멘토링에서 가장 크게 받은 피드백은 기술보다 재미가 먼저 보여야 한다는 말이었습니다. 그래서 두 사람이 같은 일을 나누는 대신, 한 사람의 행동이 상대의 다음 행동을 만드는 상호의존 루프와 실제로 다투고 성공하는 예상 시나리오부터 설계했습니다.
 [발표 진행] Hugh 역할 → Diana 역할 → 공동 목표 → 멘토 피드백과 설계 반영 순서로 cue 진행.
 -->
@@ -116,7 +116,7 @@ class: prag-core prag-coop-comic
 </div>
 
 <!--
-[07:05-07:25]
+[07:10-07:35]
 협동에서는 서로의 실수가 바로 보이기 때문에 자연스럽게 다투기도 합니다. 전투와 해킹의 타이밍이 어긋나면 누구의 행동이 늦었는지도 선명하게 드러납니다.
 [발표 진행] 첫 번째 갈등 장면과 두 번째 갈등 장면을 차례로 cue 진행.
 -->
@@ -137,7 +137,7 @@ class: prag-core prag-coop-comic
 <div v-click="3" class="prag-comic-thesis prag-cue-evidence"><strong>우정 파괴에서 공동 성취로</strong><span>함께 해내는 순간을 주요 재미로 설계</span></div>
 
 <!--
-[07:25-07:45]
+[07:35-08:00]
 하지만 역할과 타이밍을 다시 맞추고 함께 성공하면 그 성취감은 혼자 해냈을 때보다 커집니다. 갈등 자체가 목적이 아니라, 실패를 대화와 협력으로 뒤집는 순간을 핵심 재미로 설계했습니다.
 [발표 진행] 역할 조율 → 공동 성공 → 핵심 재미 순서로 cue 진행.
 -->
@@ -163,7 +163,7 @@ class: prag-core prag-sleek-technical prag-flow-slide
 </div>
 
 <!--
-[07:45-08:20]
+[08:00-08:40]
 입력과 UI는 각 플레이어에게 있지만, 역할·전투·상호작용의 결과는 서버가 확정합니다. 적, 맵 오브젝트와 진행 상태를 양쪽에 공유하고, 확정된 결과를 역할별 UI가 필요한 방식으로 보여 줍니다.
 [Q&A 대응] 서버는 역할, 전투, 해킹과 월드 진행의 최종 상태를 소유합니다. 입력한 플레이어는 반응성을 위해 일부 표현을 먼저 보여 줄 수 있지만, 다른 플레이어와 공유되는 결과는 서버 확인 뒤에만 확정합니다.
 [발표 진행] Client Layer → Authority Layer → Replicated World → 표시 계층.
@@ -186,7 +186,7 @@ class: prag-core prag-stack-slide prag-no-card-emphasis
 <p class="prag-choice-thesis">Editor 작업 · 런타임 규칙 · 네트워크 권한을 서로 다른 경계로 분리</p>
 
 <!--
-[08:20-08:40]
+[08:40-09:05]
 UE 5.8 기준의 Editor API는 UnreelMCP 자동화에 활용했습니다. 게임 규칙은 C++, 화면 표현은 Blueprint, 공유 결과는 서버가 맡도록 나눴습니다.
 [Q&A 대응] UnreelMCP는 Editor 전용 도구이며 게임 실행 의존성에는 포함하지 않았습니다. Listen Server는 두 명이 빠르게 방을 만들고 역할을 나누는 목표에 맞췄고, 외부 게임 API 없이 LAN 세션 검색과 RoomCode 필터를 사용합니다.
 -->
@@ -213,7 +213,7 @@ class: prag-core prag-core-image prag-diana-lock-slide
 </div>
 
 <!--
-[08:40-09:23]
+[09:05-10:00]
 총구 방향만 따르면 자세나 가까운 벽 때문에 화면 중앙과 결과가 어긋날 수 있습니다. 서버가 카메라 방향으로 한 번의 선 판정, 즉 Line Trace를 수행해 처음 맞은 지점을 확정했습니다. 핵심은 보고 조준한 곳이 맞는다는 감각입니다.
 [Q&A 대응] 실제 판정은 물리 투사체가 아니라 서버 카메라 위치와 시선 방향을 기준으로 한 단일 Line Trace입니다. 총구 섬광과 궤적은 시각 피드백이고, 첫 번째 blocking hit만 피해 판정에 사용해 화면 중앙과 결과가 어긋나는 보정용 이중 판정을 만들지 않았습니다.
 [발표 진행] 화면 중앙 → 시선 판정 → 결론.
@@ -237,7 +237,7 @@ class: prag-core prag-core-image
 </div>
 
 <!--
-[09:23-10:03]
+[10:00-10:40]
 Diana의 스캔과 해킹은 화면 안에서 끝나지 않습니다. 성공 결과가 문, 전원, 이동 경로를 바꾸고 Hugh의 다음 행동을 가능하게 합니다.
 [Q&A 대응] 클라이언트의 포커스 표시는 안내 역할만 합니다. 실제 상호작용 요청이 오면 서버가 Diana의 카메라 시선으로 첫 표면을 다시 찾고, 대상 정보와 허용 거리를 확인한 뒤에만 상호작용을 실행합니다.
 [발표 진행] 찾기 → 해결 → 변화.
@@ -259,7 +259,7 @@ class: prag-map-elements prag-enemy-showcase
 </div></div>
 
 <!--
-[10:03-10:23]
+[10:40-11:05]
 적은 수만 늘리지 않았습니다. 공통 Enemy 로직을 기반으로 Walker, Watcher, Executor와 오염 변형을 구성하고, 뒤로 갈수록 앞에서 배운 협동을 함께 사용하게 했습니다.
 [Q&A 대응] 피해, 약점과 상태 변화처럼 공통인 규칙은 공유하고, 탐지 범위·공격 패턴·정화 요구처럼 적의 역할을 만드는 행동만 개별화했습니다. 그래서 새 적을 추가해도 전투의 기본 규칙은 다시 만들지 않습니다.
 -->
@@ -279,7 +279,7 @@ class: prag-map-elements prag-level-analysis-slide
 </div>
 
 <!--
-[10:23-10:31]
+[11:05-11:20]
 전투만 감으로 배치하지 않고, 적 구성과 해킹·휴식 구간을 같은 난이도 점수로 환산해 서로 비교했습니다.
 -->
 
@@ -298,7 +298,7 @@ class: prag-map-elements prag-level-analysis-slide
 </div>
 
 <!--
-[10:31-10:38]
+[11:20-11:35]
 점수를 진행 순서에 놓고 보니 초반은 단조로웠습니다. 전투의 최고점은 높이되 사이에 휴식과 재정비를 배치해 후반까지 리듬을 유지했습니다.
 -->
 
@@ -326,7 +326,7 @@ class: prag-core prag-upgrade-flow-slide
 </div>
 
 <!--
-[10:38-10:53]
+[11:35-11:55]
 체크포인트는 저장 지점으로만 두지 않았습니다. 탐색에서 얻은 재화를 업그레이드에 사용하고, 무엇을 먼저 강화할지 직접 선택하게 해 탐색 보상과 다음 전투 준비를 연결했습니다.
 [Q&A 대응] 체크포인트에 상호작용하면 Suit 업그레이드 UI가 열리고, 보유 재화와 현재 레벨을 확인한 뒤 강화 또는 취소를 선택합니다. 이 구조의 목적은 플레이어가 탐색의 결과를 즉시 성장 선택으로 돌려받게 하는 것입니다.
 -->
@@ -343,7 +343,7 @@ class: prag-player-slide prag-ui-showcase
 <div class="prag-centered-body prag-evidence-body"><div class="prag-player-layout"><figure class="prag-image-frame"><img class="prag-img" src="./images/slide-14-hugh-hud.png" alt="체력과 무기, 탄약과 전투 상태를 배치한 Hugh HUD 전체 화면" /><figcaption>Hugh · 체력, 탄약, 무기와 전투 상태</figcaption></figure><figure class="prag-image-frame"><img class="prag-img" src="./images/slide-14-diana-hud.png" alt="해킹 진행과 대상 상태를 크게 보여 주는 Diana HUD 전체 화면" /><figcaption>Diana · 해킹 대상, 진행도와 능력 상태</figcaption></figure><div class="prag-card"><h3>정보도 역할의 일부</h3><p>같은 화면을 복사하지 않고 각자의 판단에 필요한 정보에 집중.</p></div></div></div>
 
 <!--
-[10:53-11:08]
+[11:55-12:15]
 Hugh는 전투 판단, Diana는 대상과 능력 판단에 필요한 정보를 봅니다. UI도 역할 분담을 강화하는 게임 설계의 일부입니다.
 [Q&A 대응] 모든 UI를 한 방식으로 강제하지는 않았습니다. 체력·자원처럼 공유 상태를 지속적으로 보여 주는 HUD는 ViewModel의 변경 알림을 사용하고, 조준점·적 체력처럼 즉시 반응해야 하는 일부 UI는 직접 이벤트로 갱신하는 혼합 구조입니다.
 -->
@@ -365,7 +365,7 @@ class: prag-core prag-rules-slide
 <p class="prag-rule-loop">형식 자동화 → 작업별 지침 → 실행 검증</p>
 
 <!--
-[11:08-11:33]
+[12:15-12:45]
 프로젝트 시작부터 편집기 규칙과 AI 작업 지침을 함께 두었습니다. 예를 들어 Actor는 A, UObject는 U, bool은 b로 시작하게 하고, C++ 작업과 Editor 작업은 서로 다른 지침을 먼저 읽게 했습니다. 마지막에는 저장과 컴파일, 실제 실행 확인을 나눠 자동화가 끝났다는 이유만으로 성공이라 판단하지 않았습니다.
 [Q&A 대응] `.editorconfig`에는 AActor·UObject·Struct·Enum·Template·bool 접두 규칙과 탭·줄바꿈 기준이 있습니다. 작업 지침은 C++ 런타임 경계, UnreelMCP의 Editor 전용 사용, 대형 에셋 안전과 검증 절차를 구분합니다.
 -->
@@ -393,7 +393,7 @@ class: prag-core prag-sleek-technical prag-flow-slide prag-history-slide
 </div>
 
 <!--
-[11:33-11:53]
+[12:45-13:10]
 각자 개인 브랜치에서 기능을 완성하고 develop에서 통합한 뒤, 검증된 상태만 main에 유지했습니다. 커밋은 한 가지 관심사만 담고 `feat`, `fix` 같은 유형과 짧은 한국어 설명으로 남겨 변경 목적을 바로 읽을 수 있게 했습니다.
 [Q&A 대응] 개인 브랜치는 develop 기준으로 동기화하고 통합은 검토 경로를 거쳤습니다. 생성 파일과 캐시는 기록에서 제외했으며, 대규모 이력 정화처럼 일반 병합으로 해결할 수 없는 사례는 협업 규칙이 아니라 별도 트러블슈팅으로 다뤘습니다.
 [발표 진행] 개인 작업 → develop 통합 → main 안정본 → 커밋 예시.
@@ -416,7 +416,7 @@ class: prag-core prag-core-image prag-collaboration-tool-slide prag-figma-slide
 </div>
 
 <!--
-[11:53-12:03]
+[13:10-13:25]
 Figma에서 역할별 정보 우선순위와 퍼즐 상태를 구현 전에 합의해, UI와 게임 로직이 엇갈리는 일을 줄였습니다.
 -->
 
@@ -437,7 +437,7 @@ class: prag-core prag-core-image prag-collaboration-tool-slide prag-notion-slide
 </div>
 
 <!--
-[12:03-12:13]
+[13:25-13:40]
 Notion에는 할 일뿐 아니라 기능의 이유, 담당자와 다음 확인 사항을 남겨 작업이 이어져도 판단의 맥락을 유지했습니다.
 -->
 
@@ -462,7 +462,7 @@ class: prag-core prag-mcp-result-slide
 </div>
 
 <!--
-[12:13-12:28]
+[13:40-14:05]
 UnreelMCP는 팀 전체가 반복적인 Editor 작업을 줄이는 데 사용한 제작 도구입니다. 이 화면은 자동화로 만든 Diana 타이틀 AnimGraph 결과이며, 노드 생성·연결을 빠르게 처리하되 저장·컴파일·Preview는 사람이 확인했습니다.
 [Q&A 대응] UnreelMCP는 정호진이 개발한 Editor 전용 팀 도구이며 게임 실행 의존성에는 포함하지 않았습니다. Editor 자동화 결과는 그대로 신뢰하지 않고 Asset 저장, Blueprint 컴파일과 Preview Pose를 각각 확인했습니다.
 -->
@@ -484,7 +484,7 @@ class: prag-core prag-core-image prag-collaboration-tool-slide prag-code-intent-
 </div>
 
 <!--
-[12:28-12:44]
+[14:05-14:30]
 하지만 방금 같은 자동화는 결과만 남으면 왜 그렇게 만들었는지가 사라집니다. 그래서 Code Intent에 책임, 금지 조건과 검증 근거를 남겨 다음 변경이 기존 의도를 지우지 않게 했습니다.
 [Q&A 대응] UnreelMCP는 Blueprint·Widget·Map의 반복 편집을 돕되 저장·컴파일·PIE 검증은 별도로 확인합니다. Code Intent는 기능의 책임, 호출 관계, 서버와 클라이언트의 권한, Blueprint 연결, 근거와 불확실성을 함께 기록합니다.
 -->
@@ -512,7 +512,7 @@ class: prag-member-focus-slide prag-history-slide prag-no-card-emphasis
 </div>
 
 <!--
-[12:44-12:59]
+[14:30-14:55]
 이 문제는 개인 성과가 아니라 팀 전체의 협업 트러블슈팅입니다. 5GB 제한을 넘긴 17,000여 에셋을 모든 이력에서 지우되, 각자의 작업을 보존하기 위해 브랜치별로 검증하며 순차 적용했습니다.
 [Q&A 대응] develop에서 삭제 결과를 먼저 확인하고 hojin 브랜치에 76단계 rebase를 적용해 용량 감소와 작업 보존을 검증했습니다. 그 결과를 기준으로 나머지 브랜치도 같은 정화 절차를 적용할 수 있었습니다.
 -->
@@ -535,7 +535,7 @@ class: prag-core prag-team-ownership
 </div>
 
 <!--
-[12:59-13:19]
+[14:55-15:20]
 저는 Diana와 서버 통합을 맡았습니다. 준현님은 Hugh와 무기, 지성님은 적 공통 로직과 레벨, 민원님은 맵과 프롭, 제영님은 UI와 퍼즐을 책임졌습니다.
 -->
 
@@ -555,7 +555,7 @@ class: prag-member-summary-slide
 </div>
 
 <!--
-[13:19-13:28]
+[15:20-15:35]
 저는 Diana·서버·전체 통합을 맡아 시선 기반 상호작용과 협동 상태를 연결했습니다. UnreelMCP는 제 개인 기능이 아니라, 팀의 반복 Editor 작업을 돕기 위해 만든 공용 도구입니다.
 -->
 
@@ -579,7 +579,7 @@ class: prag-member-focus-slide prag-paired-animation-slide
 </div>
 
 <!--
-[13:28-13:38]
+[15:35-15:55]
 협동 게임에서는 두 캐릭터가 각자 움직이기만 하면 함께 행동한다는 감각이 약해집니다. Hugh의 점프와 호버 같은 이동 상태에 Diana의 추종 위치와 공중 동작을 연결해, 두 플레이어가 하나의 협동 행동 안에 있는 것처럼 보이도록 만들었습니다.
 [Q&A 대응] 왼쪽은 Hugh의 도약에 맞춰 Diana가 함께 공중 상태를 유지하는 실제 최종 빌드 장면입니다. 핵심은 단순 위치 부착이 아니라 이동 상태 변화에 맞춰 추종 위치·공중 여부·애니메이션 표현을 함께 맞추는 것입니다.
 -->
@@ -603,7 +603,7 @@ class: prag-member-focus-slide prag-member-troubleshooting-slide
 <div class="prag-troubleshooting-context"><span>TECHNICAL CONTEXT</span><strong>SavedMove로 입력 전달 · 서버 AnimState는 원격에만 복제 · AnimBP는 실제 Velocity/Acceleration 사용</strong></div>
 
 <!--
-[13:38-13:51]
+[15:55-16:20]
 두 명이 같은 Hugh를 보더라도 네트워크 역할에 따라 읽는 데이터의 시점이 달랐습니다. 그래서 소유 플레이어의 입력 예측은 유지하되, 원격 화면은 서버가 확정한 상태와 실제 이동 속도로 애니메이션을 재생하도록 분리했습니다. 이로써 Host 역할을 바꿔도 달리기·조준·호버가 같은 방식으로 보이게 했습니다.
 [Q&A 대응] aim·run·hover 입력은 UPragmataHughMovementComponent의 SavedMove custom flag로 서버 이동 갱신에 전달합니다. 서버는 FHughReplicatedAnimState를 COND_SkipOwner로 원격 simulated proxy에만 복제해 소유자 예측을 덮지 않습니다. AnimBP locomotion은 intent 기반 속도가 아니라 CharacterMovement의 실제 velocity와 acceleration을 읽어 braking과 network smoothing 중에도 자연스럽게 감속합니다. Host Hugh/Client Diana와 Host Diana/Client Hugh 양방향 역할 조합을 별도로 검증해야 합니다.
 -->
@@ -624,7 +624,7 @@ class: prag-member-summary-slide
 </div>
 
 <!--
-[13:51-14:00]
+[16:20-16:35]
 준현님은 Hugh 이동·무기와 두 적을 맡아 전투 중심을 완성했습니다.
 -->
 
@@ -647,7 +647,7 @@ class: prag-member-focus-slide prag-member-text-slide
 <div class="prag-member-explanation-context"><span>HUGH PLAYER FLOW</span><strong>연속 상태는 Animation Blueprint · 즉시 행동은 코드 이벤트 · 종료 뒤 이동 상태로 복귀</strong></div>
 
 <!--
-[14:00-14:10]
+[16:35-16:55]
 준현님은 계속 변하는 이동 상태와 한 번에 실행되는 행동을 같은 방식으로 처리하지 않았습니다. 이동·점프·호버는 Animation Blueprint가 이어서 표현하고, 공격과 무기 교체는 코드 이벤트로 즉시 실행한 뒤 다시 이동 상태로 돌아오게 했습니다. 그래서 전투 중에도 조작이 끊기는 느낌을 줄였습니다.
 -->
 
@@ -670,7 +670,7 @@ class: prag-member-focus-slide prag-member-troubleshooting-slide
 <div class="prag-troubleshooting-context"><span>TECHNICAL CONTEXT</span><strong>Damage Interface · FHitResult · 대상이 소유하는 HitReact · 대상이 소유하는 Niagara Impact</strong></div>
 
 <!--
-[14:10-14:23]
+[16:55-17:20]
 무기가 특정 적의 피격 함수와 이펙트를 직접 호출하면 새 적이 늘 때마다 무기 코드도 바뀝니다. 무기는 피해와 충돌 정보만 인터페이스로 전달하고, 피격 반응과 이펙트는 맞은 적이 스스로 처리하게 분리했습니다.
 [Q&A 대응] 공격자는 Damage Interface를 통해 피해량과 FHitResult만 전달합니다. 대상은 자신의 HitReact와 Niagara 피격 이펙트를 선택해 재생하므로 새로운 Enemy나 피격 가능한 오브젝트를 추가해도 무기 구현을 수정하지 않습니다.
 -->
@@ -691,7 +691,7 @@ class: prag-member-summary-slide
 </div>
 
 <!--
-[14:23-14:32]
+[17:20-17:35]
 지성님은 적 AI만 따로 두지 않고, 플레이어 진입부터 전투 시작·추적·맵 봉쇄·처치 후 해제까지 이어지는 Territory 전투 흐름을 맡았습니다. 이 흐름 위에 여러 적의 공통 전투 규칙과 Stasis Net, 레벨 설계를 연결했습니다.
 -->
 
@@ -715,7 +715,7 @@ class: prag-member-focus-slide
 </div>
 
 <!--
-[14:32-14:42]
+[17:35-17:55]
 지성님은 영역 진입을 단순 Trigger가 아니라 전투 상태 전환의 시작점으로 설계했습니다. Territory가 진입과 기믹·연출 뒤 적을 활성화하고 타깃을 지정합니다. 전투가 끝나면 같은 Territory가 문과 엘리베이터를 다시 열어 탐험으로 연결합니다.
 [Q&A 대응] 일반 타깃 획득은 AI Perception이 맡습니다. 다만 등장 직후에는 Perception 기록이 없어도 Territory가 영역 안 플레이어를 서버에서 검증해 즉시 타깃으로 지정합니다. 공통 Tree의 `NoTarget`, `OnTarget`, `Chase`, `Attack`, `ReturnHome`, `Patrol` 분기에 적별 공격 Task와 패턴 선택만 연결해 Executor·오염 적·Sentinel이 같은 판단 흐름을 재사용합니다.
 -->
@@ -742,7 +742,7 @@ class: prag-member-focus-slide prag-member-troubleshooting-slide
 </div>
 
 <!--
-[14:42-14:55]
+[17:55-18:20]
 Territory 경계에서는 적이 복귀와 추적을 반복하며 행동 트리가 계속 처음으로 돌아갔습니다. 원인은 트리 구조가 아니라, 보조 충돌까지 포함한 영역 판정이 경계에서 흔들린 것이었습니다. Root Capsule만 판정하고 재진입에는 여유 거리를 두어 상태 입력을 안정화했습니다.
 [Q&A 대응] `bInsideTerritory`는 밖으로 나가면 즉시 false가 되지만, ReturnHome 중 재진입은 `ReentryMargin`을 통과해야 true가 됩니다. Blackboard의 Observer Abort = Both는 유지해 안정적으로 재진입한 경우에는 Chase로 즉시 전환합니다. StateTree 성능 비교를 수행한 것은 아니며, 기존 Blackboard·Decorator·Task를 살리는 쪽이 이 사례의 변경 비용에 적절했습니다.
 -->
@@ -763,7 +763,7 @@ class: prag-member-summary-slide
 </div>
 
 <!--
-[14:55-15:04]
+[18:20-18:35]
 민원님은 맵 에셋과 프롭, Sentinel 보스 기초를 맡아 시작부터 보스전까지 공간 흐름을 연결했습니다.
 -->
 
@@ -785,7 +785,7 @@ class: prag-member-focus-slide
 <p class="prag-minwon-thesis">추출한 에셋을 재구성해 시작 구역 · 함정 · 플랫폼 · 보스전을 하나의 흐름으로 완성</p>
 
 <!--
-[15:04-15:16]
+[18:35-18:55]
 민원님은 추출한 맵 에셋을 재구성해 시작 구역에서 함정과 플랫폼을 거쳐 보스전까지 흐름이 끊기지 않도록 공간을 완성했습니다.
 [Q&A 대응] 플레이 순서가 시작부터 끝까지 이어지도록 맵 구역과 프롭, 전투 공간을 연결한 성과입니다. 보스전 공간에서는 NavMesh까지 구성해 전투 이동 범위를 확보했습니다.
 -->
@@ -809,7 +809,7 @@ class: prag-member-focus-slide prag-member-troubleshooting-slide
 <div class="prag-troubleshooting-context"><span>TECHNICAL CONTEXT</span><strong>WaitingForPuzzle → Moving → WaitingForCombat → Completed · Puzzle Delegate · Territory Combat Lock · Puzzle Reset</strong></div>
 
 <!--
-[15:16-15:29]
+[18:55-19:20]
 퍼즐·이동·전투의 완료 시점이 달라 순서가 꼬였습니다. 하나의 진행 상태가 세 신호를 순서대로 받아 전투 뒤에만 다음 퍼즐을 열었습니다.
 [Q&A 대응] ABossRouteElevator는 WaitingForPuzzle, Moving, WaitingForCombat, Completed 상태를 가집니다. 연결된 퍼즐의 완료 delegate로 이동을 시작하고, 전투 Stage에서는 MonsterTerritoryActor가 마지막 적을 판정합니다. Territory가 SetTerritoryCombatLocked(false)로 잠금을 해제하면 NotifyCombatCleared가 엘리베이터에 완료를 전달하고, ResetPuzzleForNextAttempt가 퍼즐 상태와 연출을 되돌려 다음 Stage를 엽니다. Stage State와 Index, 퍼즐 가능 여부도 복제해 양쪽 화면의 진행을 맞춥니다.
 -->
@@ -830,7 +830,7 @@ class: prag-member-summary-slide
 </div>
 
 <!--
-[15:29-15:38]
+[19:20-19:35]
 제영님은 전체 UI와 퍼즐을 맡아 정보를 다음 행동으로 연결하고 독립 테스트 기반을 만들었습니다.
 -->
 
@@ -850,7 +850,7 @@ class: prag-member-feature prag-ui-results-slide
 </div>
 
 <!--
-[15:38-15:50]
+[19:35-19:55]
 적 해킹은 공격 기회, 맵 퍼즐은 경로, 무기 UI는 전투 선택을 알려 줍니다.
 [Q&A 대응] HUD는 UMVVMViewModelBase 기반 ViewModel이 HP, Boost, OverDrive, 재화와 해킹 상태를 FieldNotify 값으로 제공해 게임 로직 없이도 독립 테스트할 수 있게 했습니다. 대신 ViewModel 보일러플레이트와 바인딩 수명주기 관리 비용이 늘어, 일부 즉시 반응 UI에는 직접 이벤트를 함께 사용했습니다.
 -->
@@ -894,7 +894,7 @@ class: prag-core prag-currency-troubleshoot
 <div v-click="4" class="prag-troubleshooting-context prag-cue-evidence"><span>TECHNICAL CONTEXT</span><strong>1.0s Merge Window · Pending Delta · UI Event Once · Final Total Commit</strong></div>
 
 <!--
-[15:50-16:03]
+[19:55-20:20]
 재화를 연속 획득하면 팝업과 총액이 너무 빠르게 겹쳤습니다. 첫 획득부터 1초 동안 증가량을 모아 한 번만 보여 주고, 팝업이 끝날 때 최종 총액을 반영했습니다.
 [Q&A 대응] 게임의 재화 총액은 서버에서 즉시 확정·복제하고, UI 표현만 1초 merge window에서 delta를 합산합니다. ULunaFilamentWidget은 Pending Total을 보관해 팝업 종료 뒤 표시 총액을 반영합니다.
 [발표 진행] 중첩 문제 → 1초 합산 → 한 번의 팝업 → 최종 총액 순서로 cue 진행.
@@ -916,7 +916,7 @@ class: prag-core prag-team-review-slide
 </div>
 
 <!--
-[16:03-16:15]
+[20:20-20:40]
 이 프로젝트를 시작한 이유는 원작의 두 주인공이 혼자 감당하던 전투와 해킹을, 서로 의지해야 해낼 수 있는 2인 협동 경험으로 확장할 수 있다고 봤기 때문입니다. Hugh가 기회를 열고 Diana가 그 기회를 이어 주도록 설계했고, 한 명의 실수는 둘이 조율해 넘기며 성공은 함께 가져가게 했습니다. 우리가 목표로 한 “함께 해냈다”는 재미를 실제 플레이 루프에 담아낸 점이 가장 잘한 부분입니다.
 -->
 
@@ -936,7 +936,7 @@ class: prag-core prag-team-review-slide
 </div>
 
 <!--
-[16:15-16:27]
+[20:40-21:00]
 아쉬운 점은 첫 플레이 정보량, 제한된 네트워크 검증과 늦게 정한 대형 에셋 정책입니다.
 -->
 
@@ -956,7 +956,7 @@ class: prag-core prag-team-review-slide
 </div>
 
 <!--
-[16:27-16:39]
+[21:00-21:20]
 다음 프로젝트에서는 Listen Server를 LAN 안에서만 확인하는 데 그치지 않고, 원격 접속과 이탈·재접속까지 검증하겠습니다. UI는 ViewModel과 FieldNotify를 이미 사용했지만, 일부 화면에 남은 직접 연결을 줄여 MVVM의 경계를 일관되게 가져가겠습니다. 마지막으로 대형 에셋은 코드 이력과 처음부터 분리하겠습니다.
 -->
 
@@ -978,7 +978,7 @@ class: prag-core prag-applicability-slide
 <div class="prag-applicability-foundation"><strong>재사용 가능한 기반</strong><span>Territory 기반 전투 흐름 · 보스 HUD · 맵 기믹 연동 구조</span></div>
 
 <!--
-[16:39-16:59]
+[21:20-21:40]
 원작 에셋을 활용한 학습용 클론이라 외부 배포와 수익화에는 한계가 있습니다. 모든 추출 리소스를 적법한 에셋으로 교체하면 검증한 전투·HUD·맵 기믹 구조를 재사용할 수 있습니다.
 -->
 
@@ -995,6 +995,6 @@ class: prag-cover prag-close
 <p class="prag-copyright-mark">PRAGMATA ©CAPCOM</p>
 
 <!--
-[16:59 이후 · Q&A]
-감사합니다. 질문 받겠습니다. 시연 영상을 포함한 본문은 약 16분 59초이며, 18분 제한 안에 약 1분의 운영 여유를 확보합니다.
+[21:40 이후 · Q&A]
+감사합니다. 질문 받겠습니다. 5분 시연 영상을 포함한 본문은 약 21분 40초이며, 23분 제한 안에 약 1분 20초의 운영 여유를 확보합니다.
 -->

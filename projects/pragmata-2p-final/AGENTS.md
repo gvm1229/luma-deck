@@ -123,7 +123,7 @@ This deck inherits the `prag-init-presentation` visual language for the POTENUP 
 - 마지막 Q&A 슬라이드는 init·beta와 동일하게 `layout: cover`, `class: prag-cover prag-close`를 사용해 `slide-48-qa-closing-background.jpg`를 유지한다.
 - 최종 빌드 표기는 07.13으로 통일한다. 프로젝트 경계는 비상업적 학습 목적의 팬 프로젝트이며 원작 IP·추출 에셋의 권리를 주장하지 않는다.
 - 체크포인트 업그레이드는 레벨 압박 흐름 뒤, 역할별 HUD 앞에서 `탐색 보상 → 체크포인트 선택 → 다음 전투 준비`를 설명한다. 실제 UI 이미지는 처음부터 크게 노출하고, 사용자가 확인하지 않은 강화 종류나 수치는 추가로 단정하지 않는다.
-- 안지성의 대표 성과는 감지·추적·공격·순찰·Territory 복귀를 여러 적이 재사용하는 공통 Behavior Tree다. Territory 전투 흐름은 이 공통 규칙이 쓰이는 맥락으로 설명한다. 대표 트러블슈팅은 경계에서 BT가 반복 복귀하던 현상이며, Root Capsule 판정과 재진입 여유 거리로 상태 입력을 안정화한 사례로 설명한다.
+- 안지성의 대표 성과는 Territory를 플레이어 진입·기믹 승인·등장 연출·적 활성화·타깃 추적·처치 후 봉쇄 해제까지 잇는 전투 상태 전환의 시작점으로 설계한 일이다. 공통 Behavior Tree는 이 흐름 위에서 여러 적이 재사용하는 기반으로 설명한다. 대표 트러블슈팅은 보조 충돌까지 영역 판정에 섞여 경계에서 BT가 반복 복귀하던 현상이며, Root Capsule 단일 판정과 Re-entry Margin으로 상태 입력을 안정화한 사례로 설명한다. 최종 근거는 사용자 제공 Notion `성과 정리 - PPT정리본`이며, `slide-jiseong-territory-flow.png`, `slide-jiseong-territory-boundary-troubleshooting.png`를 사용한다.
 - UnreelMCP는 정호진이 개발했지만 팀 전체의 Editor 자동화 도구로 설명한다. 정호진 개인 대표 성과는 Hugh의 점프·호버·이동 상태와 Diana의 추종·공중 애니메이션을 연결한 페어드 애니메이션이며, `slide-hojin-paired-animation-airborne.png`를 실제 증거 이미지로 사용한다.
 - 박준현 섹션은 성과·트러블슈팅 모두 이미지 없이 텍스트 흐름으로 설명한다. 성과는 연속 이동 상태와 단발 행동을 분리해 조작 복귀까지 연결한 Hugh Player 설계, 트러블슈팅은 Damage Interface로 무기와 적의 직접 의존성을 끊은 구조다.
 - 안민원 섹션은 성과 슬라이드의 실제 4개 맵 이미지로 충분하므로, 보스 엘리베이터 트러블슈팅에는 placeholder를 두지 않는다. 퍼즐 완료·이동 종료·전투 해제를 순서대로 수렴한 Stage 상태 흐름을 텍스트로 설명한다.

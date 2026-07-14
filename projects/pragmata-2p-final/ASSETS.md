@@ -85,6 +85,13 @@
 - 사용자가 2026-07-14 제공한 실제 Unreal Editor 캡처이며 Git에는 포함하지 않고 수동 이미지 백업에 포함
 - SHA-256: `EDE572DD6F5888C7F60BB72D4F63DB992A2BBC1FA4AB0509CD93C0CB5030B837`
 
+## 안지성 Territory 전투 흐름
+
+- `images/slide-jiseong-territory-flow.png`: Territory 진입 감지부터 적 활성화·타깃 설정·추적·처치 뒤 전투 봉쇄 해제까지의 흐름도
+- `images/slide-jiseong-territory-boundary-troubleshooting.png`: Territory 경계에서 상태 입력이 흔들려 AI가 복귀·추적을 반복하던 실제 상황 캡처
+- 사용자 제공 Notion `성과 정리 - PPT정리본` (`https://app.notion.com/p/PPT-39d43b7906dd80af8544d7bcd8f21f60?source=copy_link`)의 첨부 자료를 2026-07-14 내려받았으며 Git에는 포함하지 않고 수동 이미지 백업에 포함
+- SHA-256: `slide-jiseong-territory-flow.png` `81C37F468AD37548CD68CC7B3B621C44AB43F97E7DD11AA2785C9EB1E6010788`; `slide-jiseong-territory-boundary-troubleshooting.png` `C2C370E0A93F2EB9F6F0752C7C4F8AC9E5A554EB79F601C391629925650B4DD9`
+
 ## 정호진 페어드 애니메이션
 
 - `images/slide-hojin-paired-animation-airborne.png`: Hugh의 도약 상태에 맞춰 Diana가 함께 공중 상태를 유지하는 최종 빌드 장면

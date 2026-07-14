@@ -681,17 +681,17 @@ class: prag-member-summary-slide
 
 <p class="prag-slide-category">MEMBER SUMMARY · 안지성</p>
 
-# 안지성 · 여러 적이 공유하는 전투 규칙을 설계
+# 안지성 · 전투가 자연스럽게 시작하고 끝나는 Territory 흐름을 설계
 
 <div class="prag-member-summary-grid">
-  <div><span>책임 영역</span><strong>여러 적이 공유하는 전투 기반</strong><ul><li>여러 적이 함께 쓰는 피해·약점·상태 규칙 설계</li><li>AI Territory와 공통 Enemy 로직 구현</li><li>적마다 다른 행동을 추가할 수 있는 확장 경계 구성</li></ul></div>
-  <div><span>대표 결과</span><strong>오염 적과 Sentinel 행동 고도화</strong><ul><li>Executor와 Tainted Walker의 메시·행동 구현</li><li>Tainted Executor의 오염 전투 규칙 구현</li><li>Sentinel 보스 패턴을 고도화</li></ul></div>
-  <div><span>확장 영역</span><strong>Stasis Net · 기획 · 레벨</strong><ul><li>적의 행동을 제어하는 Stasis Net 구현</li><li>전투 난이도와 적 배치 조정</li><li>전체 게임 기획과 레벨 설계 참여</li></ul></div>
+  <div><span>책임 영역</span><strong>Territory 기반 전투 흐름</strong><ul><li>플레이어 진입을 전투 상태 전환의 시작점으로 설계</li><li>AI 감지·등장 연출·추적·전투 종료의 책임 분리</li><li>문·엘리베이터 등 맵 기믹의 봉쇄와 해제 연결</li></ul></div>
+  <div><span>대표 결과</span><strong>적·연출·맵을 하나의 전투 경험으로 연결</strong><ul><li>Executor·오염 적·Sentinel이 공통 전투 규칙을 재사용</li><li>적 활성화 뒤 AI 타깃 설정과 추적을 일관되게 시작</li><li>모든 적 처치 뒤 탐험으로 돌아가는 종료 흐름 구현</li></ul></div>
+  <div><span>확장 영역</span><strong>Stasis Net · 기획 · 레벨</strong><ul><li>적의 행동을 제어하는 Stasis Net 구현</li><li>전투 난이도와 적 배치·구역 흐름 조정</li><li>전체 게임 기획과 레벨 설계 참여</li></ul></div>
 </div>
 
 <!--
 [14:23-14:32]
-지성님은 여러 적의 공통 전투 규칙, Stasis Net과 레벨 설계를 맡았습니다.
+지성님은 적 AI만 따로 두지 않고, 플레이어 진입부터 전투 시작·추적·맵 봉쇄·처치 후 해제까지 이어지는 Territory 전투 흐름을 맡았습니다. 이 흐름 위에 여러 적의 공통 전투 규칙과 Stasis Net, 레벨 설계를 연결했습니다.
 -->
 
 ---
@@ -701,22 +701,22 @@ class: prag-member-focus-slide
 
 <p class="prag-slide-category">MEMBER ACHIEVEMENT · 안지성</p>
 
-# 안지성 · 여러 적이 함께 쓰는 공통 전투 규칙을 설계
+# 안지성 · Territory를 전투 상태 전환의 시작점으로 설계
 
 <div class="prag-member-evidence-layout">
-  <figure class="prag-image-frame prag-jiseong-bt-frame"><img class="prag-img" src="./images/slide-jiseong-shared-behavior-tree.png" alt="여러 적이 함께 쓰는 공통 Behavior Tree" /><figcaption>공통 Behavior Tree · 감지, 추적, 공격, 순찰, Territory 복귀를 하나의 흐름으로 재사용</figcaption></figure>
+  <figure class="prag-image-frame prag-jiseong-territory-frame"><img class="prag-img" src="./images/slide-jiseong-territory-flow.png" alt="Territory 진입부터 전투 종료까지 이어지는 전투 흐름" /><figcaption>Territory 전투 흐름 · 진입 감지 → 적 활성화 → 타깃 설정·추적 → 처치 후 봉쇄 해제</figcaption></figure>
   <div class="prag-member-focus-card">
-    <span>성과 01 · SHARED COMBAT RULES</span>
-    <strong>새 적을 추가해도 같은 전투 판단 흐름을 재사용</strong>
-    <p>감지·추적·공격·순찰·Territory 복귀를 공통 Behavior Tree로 구성하고, 적마다 공격 패턴과 메시만 확장하도록 설계함.</p>
-    <div class="prag-member-focus-proof"><b>REUSABLE LOGIC</b><em>공통 판단은 한 번 구현하고, Executor·오염 적·Sentinel에 각자 다른 행동만 연결</em></div>
+    <span>성과 01 · TERRITORY COMBAT FLOW</span>
+    <strong>전투가 갑자기 시작되거나 끝나지 않도록 전 과정을 연결</strong>
+    <p>Territory가 플레이어 진입, 선택 기믹 승인과 등장 연출 뒤 적 활성화·타깃 설정을 맡고, 마지막 적 처치 뒤에는 문·엘리베이터 봉쇄를 해제함.</p>
+    <div class="prag-member-focus-proof"><b>RESPONSIBILITY</b><em>AI Perception은 감지, Territory는 전투 개시·종료를 맡아 공통 Behavior Tree가 여러 적에 재사용되도록 구성</em></div>
   </div>
 </div>
 
 <!--
 [14:32-14:42]
-지성님은 적마다 AI를 새로 만드는 대신, 감지·추적·공격·순찰·Territory 복귀라는 공통 전투 판단을 하나의 Behavior Tree로 만들었습니다. 그래서 Executor, 오염 적, Sentinel은 공통 흐름을 재사용하고 각자의 공격 패턴과 표현만 확장할 수 있었습니다.
-[Q&A 대응] 일반 타깃 획득은 AI Perception이 맡고, 전투 구역 안에서는 Territory가 전투 시작 조건과 복귀 상태를 함께 관리합니다. 공통 Tree의 `NoTarget`, `OnTarget`, `Chase`, `Attack`, `ReturnHome`, `Patrol` 분기에 적별 공격 Task와 패턴 선택만 연결하는 구조입니다.
+지성님은 영역 진입을 단순 Trigger가 아니라 전투 상태 전환의 시작점으로 설계했습니다. Territory가 진입과 기믹·연출 뒤 적을 활성화하고 타깃을 지정합니다. 전투가 끝나면 같은 Territory가 문과 엘리베이터를 다시 열어 탐험으로 연결합니다.
+[Q&A 대응] 일반 타깃 획득은 AI Perception이 맡습니다. 다만 등장 직후에는 Perception 기록이 없어도 Territory가 영역 안 플레이어를 서버에서 검증해 즉시 타깃으로 지정합니다. 공통 Tree의 `NoTarget`, `OnTarget`, `Chase`, `Attack`, `ReturnHome`, `Patrol` 분기에 적별 공격 Task와 패턴 선택만 연결해 Executor·오염 적·Sentinel이 같은 판단 흐름을 재사용합니다.
 -->
 
 ---
@@ -728,19 +728,22 @@ class: prag-member-focus-slide prag-member-troubleshooting-slide
 
 # 안지성 트러블슈팅 · 경계에서 반복되던 AI 상태 전환을 안정화
 
-<div class="prag-member-troubleshooting-route">
-  <div><span>문제</span><strong>경계에 닿을 때마다 적이 복귀와 추적을 반복</strong><p>ReturnHome과 NoAttack이 빠르게 바뀌며 Behavior Tree가 Root로 계속 돌아가고, 적의 반응이 끊겨 보였음.</p></div>
-  <i>→</i>
-  <div><span>원인</span><strong>경계선에서 “영역 안” 값이 너무 쉽게 뒤집힘</strong><p>경계에 걸친 Root Capsule이 미세하게 움직일 때마다 bInsideTerritory가 true와 false를 오가며 BT에 불안정한 입력을 전달.</p></div>
-  <i>→</i>
-  <div><span>해결</span><strong>나갈 때와 돌아올 때의 조건을 다르게 설정</strong><p>영역을 벗어나면 바로 복귀하지만, 추적을 재개하려면 경계보다 충분히 안쪽까지 들어오게 해 상태 전환을 안정화.</p></div>
+<div class="prag-member-troubleshooting-evidence-layout">
+  <figure class="prag-image-frame prag-jiseong-boundary-frame"><img class="prag-img" src="./images/slide-jiseong-territory-boundary-troubleshooting.png" alt="Territory 경계에서 적의 상태가 반복 전환되는 현상" /><figcaption>경계 부근에서 상태 입력이 흔들리며 AI가 복귀·추적을 반복하던 실제 상황</figcaption></figure>
+  <div class="prag-member-troubleshooting-copy">
+    <div class="prag-member-troubleshooting-route">
+      <div><span>문제</span><strong>경계에서 적이 복귀와 추적을 반복</strong><p>ReturnHome과 NoAttack이 빠르게 바뀌며 Behavior Tree가 Root로 계속 돌아가고, 적의 반응이 끊겨 보였음.</p></div>
+      <div><span>원인</span><strong>“영역 안” 입력이 경계에서 흔들림</strong><p>보조 충돌까지 Overlap을 만들면서, Root Capsule이 미세하게 움직일 때마다 bInsideTerritory가 true와 false를 오갔음.</p></div>
+      <div><span>해결</span><strong>판정 대상을 줄이고 재진입에 여유 거리 적용</strong><p>Root Capsule만 판정하고, 나가면 즉시 복귀하되 추적 재개는 일정 거리 안쪽까지 들어온 뒤에만 허용.</p></div>
+    </div>
+    <div class="prag-troubleshooting-context"><span>TECHNICAL CONTEXT</span><strong>Root Capsule 판정 · Re-entry Margin · Blackboard Observer Abort 유지</strong></div>
+  </div>
 </div>
-<div class="prag-troubleshooting-context"><span>TECHNICAL CONTEXT</span><strong>Root Capsule 판정 · bInsideTerritory · Re-entry Margin · Blackboard Observer Abort 유지</strong></div>
 
 <!--
 [14:42-14:55]
-Territory 경계에서는 적이 복귀와 추적을 반복하며 행동 트리가 계속 처음으로 돌아갔습니다. 원인은 Behavior Tree가 아니라 경계에서 너무 쉽게 바뀌는 영역 상태였습니다. 그래서 밖으로 나가면 바로 복귀하되, 다시 추적을 시작하려면 일정 거리 안쪽까지 돌아와야 하게 했습니다. 이 작은 여유 구간으로 경계에서의 상태 흔들림을 없앴습니다.
-[Q&A 대응] Territory 판정은 Root Capsule만 사용합니다. `bInsideTerritory`는 밖으로 나가면 즉시 false가 되지만, ReturnHome 중 재진입은 `ReentryMargin`을 통과해야 true가 됩니다. Blackboard의 Observer Abort = Both는 유지해 안정적으로 재진입한 경우에는 Chase로 즉시 전환합니다. StateTree 성능 비교를 수행한 것은 아니며, 기존 Blackboard·Decorator·Task를 살리는 쪽이 이 사례의 변경 비용에 적절했습니다.
+Territory 경계에서는 적이 복귀와 추적을 반복하며 행동 트리가 계속 처음으로 돌아갔습니다. 원인은 트리 구조가 아니라, 보조 충돌까지 포함한 영역 판정이 경계에서 흔들린 것이었습니다. Root Capsule만 판정하고 재진입에는 여유 거리를 두어 상태 입력을 안정화했습니다.
+[Q&A 대응] `bInsideTerritory`는 밖으로 나가면 즉시 false가 되지만, ReturnHome 중 재진입은 `ReentryMargin`을 통과해야 true가 됩니다. Blackboard의 Observer Abort = Both는 유지해 안정적으로 재진입한 경우에는 Chase로 즉시 전환합니다. StateTree 성능 비교를 수행한 것은 아니며, 기존 Blackboard·Decorator·Task를 살리는 쪽이 이 사례의 변경 비용에 적절했습니다.
 -->
 
 ---
